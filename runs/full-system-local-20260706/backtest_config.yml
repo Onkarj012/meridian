@@ -1,0 +1,5 @@
+top_k: 1
+min_confidence: 0.52
+notional: 100000
+product: delivery
+liquidity_bucket: liquid

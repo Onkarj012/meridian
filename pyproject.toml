@@ -1,0 +1,21 @@
+[project]
+name = "meridian"
+version = "0.1.0"
+description = "MERIDIAN promotion-gated Indian market recommendation system"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb",
+  "pyarrow",
+  "pandas",
+  "numpy",
+  "lightgbm",
+  "scikit-learn",
+  "fastapi",
+  "pydantic",
+  "pytest",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+

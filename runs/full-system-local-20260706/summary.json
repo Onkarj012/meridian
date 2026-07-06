@@ -1,0 +1,340 @@
+{
+  "backtest": {
+    "cost_model": "indian_equity_full_cost_v1",
+    "hit_rate": 1.0,
+    "net_score_after_costs": 1.994600016,
+    "report_json": "runs/full-system-local-20260706/backtest_report.json",
+    "report_md": "runs/full-system-local-20260706/backtest_report.md",
+    "trades": 2
+  },
+  "commands_represented": [
+    ".venv/bin/python -m pytest -q",
+    "local deterministic Python run exercising training helper, full-cost backtest, sleeve phase runners, and daily DAG"
+  ],
+  "created_at": "2026-07-06T00:00:00+00:00",
+  "daily_dag": {
+    "manifest": "runs/full-system-local-20260706/manifests/daily_dag.jsonl",
+    "ok": true,
+    "steps": [
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "19:00_ist_eod_ingest"
+      },
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "19:10_ist_quality_contracts"
+      },
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "19:20_ist_features"
+      },
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "19:35_ist_recommendations"
+      },
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "19:45_ist_paper_ledger"
+      },
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "19:50_ist_halts_drift_alerts"
+      },
+      {
+        "ok": true,
+        "result": {
+          "status": "skipped"
+        },
+        "step": "08:30_ist_preopen_update"
+      }
+    ]
+  },
+  "limitation": "No packaged real-market full training pipeline or local market dataset was present. models.training.run_training_loop needs a caller-supplied train_fn and otherwise reports no_train_fn.",
+  "live_trading": "not attempted",
+  "run_id": "full-system-local-20260706",
+  "scope": "local deterministic smoke/evidence path; no network credentials; no live trading",
+  "sleeve_m_phase3": {
+    "candidate": {
+      "ci_low_bps": 7.0,
+      "concentration": {
+        "distinct_symbols": 200,
+        "max_symbol_trade_share": 0.006,
+        "symbol_trade_counts": {
+          "M000": 3,
+          "M001": 3,
+          "M002": 3,
+          "M003": 3,
+          "M004": 3,
+          "M005": 3,
+          "M006": 3,
+          "M007": 3,
+          "M008": 3,
+          "M009": 3,
+          "M010": 3,
+          "M011": 3,
+          "M012": 3,
+          "M013": 3,
+          "M014": 3,
+          "M015": 3,
+          "M016": 3,
+          "M017": 3,
+          "M018": 3,
+          "M019": 3,
+          "M020": 3,
+          "M021": 3,
+          "M022": 3,
+          "M023": 3,
+          "M024": 3,
+          "M025": 3,
+          "M026": 3,
+          "M027": 3,
+          "M028": 3,
+          "M029": 3,
+          "M030": 3,
+          "M031": 3,
+          "M032": 3,
+          "M033": 3,
+          "M034": 3,
+          "M035": 3,
+          "M036": 3,
+          "M037": 3,
+          "M038": 3,
+          "M039": 3,
+          "M040": 3,
+          "M041": 3,
+          "M042": 3,
+          "M043": 3,
+          "M044": 3,
+          "M045": 3,
+          "M046": 3,
+          "M047": 3,
+          "M048": 3,
+          "M049": 3,
+          "M050": 3,
+          "M051": 3,
+          "M052": 3,
+          "M053": 3,
+          "M054": 3,
+          "M055": 3,
+          "M056": 3,
+          "M057": 3,
+          "M058": 3,
+          "M059": 3,
+          "M060": 3,
+          "M061": 3,
+          "M062": 3,
+          "M063": 3,
+          "M064": 3,
+          "M065": 3,
+          "M066": 3,
+          "M067": 3,
+          "M068": 3,
+          "M069": 3,
+          "M070": 3,
+          "M071": 3,
+          "M072": 3,
+          "M073": 3,
+          "M074": 3,
+          "M075": 3,
+          "M076": 3,
+          "M077": 3,
+          "M078": 3,
+          "M079": 3,
+          "M080": 3,
+          "M081": 3,
+          "M082": 3,
+          "M083": 3,
+          "M084": 3,
+          "M085": 3,
+          "M086": 3,
+          "M087": 3,
+          "M088": 3,
+          "M089": 3,
+          "M090": 3,
+          "M091": 3,
+          "M092": 3,
+          "M093": 3,
+          "M094": 3,
+          "M095": 3,
+          "M096": 3,
+          "M097": 3,
+          "M098": 3,
+          "M099": 3,
+          "M100": 2,
+          "M101": 2,
+          "M102": 2,
+          "M103": 2,
+          "M104": 2,
+          "M105": 2,
+          "M106": 2,
+          "M107": 2,
+          "M108": 2,
+          "M109": 2,
+          "M110": 2,
+          "M111": 2,
+          "M112": 2,
+          "M113": 2,
+          "M114": 2,
+          "M115": 2,
+          "M116": 2,
+          "M117": 2,
+          "M118": 2,
+          "M119": 2,
+          "M120": 2,
+          "M121": 2,
+          "M122": 2,
+          "M123": 2,
+          "M124": 2,
+          "M125": 2,
+          "M126": 2,
+          "M127": 2,
+          "M128": 2,
+          "M129": 2,
+          "M130": 2,
+          "M131": 2,
+          "M132": 2,
+          "M133": 2,
+          "M134": 2,
+          "M135": 2,
+          "M136": 2,
+          "M137": 2,
+          "M138": 2,
+          "M139": 2,
+          "M140": 2,
+          "M141": 2,
+          "M142": 2,
+          "M143": 2,
+          "M144": 2,
+          "M145": 2,
+          "M146": 2,
+          "M147": 2,
+          "M148": 2,
+          "M149": 2,
+          "M150": 2,
+          "M151": 2,
+          "M152": 2,
+          "M153": 2,
+          "M154": 2,
+          "M155": 2,
+          "M156": 2,
+          "M157": 2,
+          "M158": 2,
+          "M159": 2,
+          "M160": 2,
+          "M161": 2,
+          "M162": 2,
+          "M163": 2,
+          "M164": 2,
+          "M165": 2,
+          "M166": 2,
+          "M167": 2,
+          "M168": 2,
+          "M169": 2,
+          "M170": 2,
+          "M171": 2,
+          "M172": 2,
+          "M173": 2,
+          "M174": 2,
+          "M175": 2,
+          "M176": 2,
+          "M177": 2,
+          "M178": 2,
+          "M179": 2,
+          "M180": 2,
+          "M181": 2,
+          "M182": 2,
+          "M183": 2,
+          "M184": 2,
+          "M185": 2,
+          "M186": 2,
+          "M187": 2,
+          "M188": 2,
+          "M189": 2,
+          "M190": 2,
+          "M191": 2,
+          "M192": 2,
+          "M193": 2,
+          "M194": 2,
+          "M195": 2,
+          "M196": 2,
+          "M197": 2,
+          "M198": 2,
+          "M199": 2
+        }
+      },
+      "distinct_symbols": 200,
+      "expected_value_bps": 7.0,
+      "max_symbol_trade_share": 0.006,
+      "model_family": "rung0_plain_momentum",
+      "trades": 500,
+      "trading_days": 100
+    },
+    "failed_gates": [
+      "beats_rung0_baselines_net_sharpe",
+      "deflated_sharpe_positive",
+      "sealed_test_once_passed"
+    ],
+    "reason": "beats_rung0_baselines_net_sharpe",
+    "status": "quarantined"
+  },
+  "sleeve_x_phase4": {
+    "candidate": {
+      "distinct_symbols": 25,
+      "max_symbol_trade_share": 0.0,
+      "model_family": "rung0_to_rung2_ranking_research",
+      "primary_horizon": 1,
+      "rank_ic": 0.0,
+      "top_bottom_net_spread_bps": -82.0,
+      "trades": 300,
+      "trading_days": 150
+    },
+    "failed_gates": [
+      "ci_low_positive_full_cost",
+      "folds_positive_share",
+      "worst_fold_floor",
+      "beats_rung0_baselines_net_sharpe",
+      "deflated_sharpe_positive",
+      "sealed_test_once_passed"
+    ],
+    "reason": "ci_low_positive_full_cost",
+    "status": "quarantined",
+    "v3_challenger": {
+      "reason": "rung0_to_rung2_prerequisites_failed",
+      "status": "blocked"
+    }
+  },
+  "training": {
+    "runs": [
+      {
+        "seed": 42,
+        "status": "no_train_fn"
+      },
+      {
+        "seed": 43,
+        "status": "no_train_fn"
+      }
+    ],
+    "seeds": [
+      42,
+      43
+    ]
+  }
+}

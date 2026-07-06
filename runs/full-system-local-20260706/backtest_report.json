@@ -1,0 +1,91 @@
+{
+  "cost_model": "indian_equity_full_cost_v1",
+  "hit_rate": 1.0,
+  "losses": 0,
+  "net_score_after_costs": 1.994600016,
+  "precision_at_k": 1.0,
+  "recommendations": [
+    {
+      "confidence": 0.91,
+      "cost_bps": 26.999919999999996,
+      "cost_breakdown": {
+        "buy": {
+          "brokerage": 20.0,
+          "exchange_txn": 3.2199999999999998,
+          "gst": 4.1796,
+          "notional": 100000.0,
+          "sebi": 0.09999999999999999,
+          "slippage": 50.0,
+          "stamp": 14.999999999999998,
+          "stt": 0.0,
+          "total": 92.4996,
+          "total_bps": 9.24996
+        },
+        "entry_notional": 100000.0,
+        "exit_notional": 100000.0,
+        "liquidity_bucket": "liquid",
+        "product": "delivery",
+        "sell": {
+          "brokerage": 20.0,
+          "exchange_txn": 3.2199999999999998,
+          "gst": 4.1796,
+          "notional": 100000.0,
+          "sebi": 0.09999999999999999,
+          "slippage": 50.0,
+          "stamp": 0.0,
+          "stt": 100.0,
+          "total": 177.4996,
+          "total_bps": 17.749959999999998
+        },
+        "total": 269.9992,
+        "total_bps": 26.999919999999996
+      },
+      "net_score": 0.997300008,
+      "outcome": 1.0,
+      "symbol": "AAA",
+      "timestamp": "2026-01-02T09:15:00+05:30"
+    },
+    {
+      "confidence": 0.86,
+      "cost_bps": 26.999919999999996,
+      "cost_breakdown": {
+        "buy": {
+          "brokerage": 20.0,
+          "exchange_txn": 3.2199999999999998,
+          "gst": 4.1796,
+          "notional": 100000.0,
+          "sebi": 0.09999999999999999,
+          "slippage": 50.0,
+          "stamp": 14.999999999999998,
+          "stt": 0.0,
+          "total": 92.4996,
+          "total_bps": 9.24996
+        },
+        "entry_notional": 100000.0,
+        "exit_notional": 100000.0,
+        "liquidity_bucket": "liquid",
+        "product": "delivery",
+        "sell": {
+          "brokerage": 20.0,
+          "exchange_txn": 3.2199999999999998,
+          "gst": 4.1796,
+          "notional": 100000.0,
+          "sebi": 0.09999999999999999,
+          "slippage": 50.0,
+          "stamp": 0.0,
+          "stt": 100.0,
+          "total": 177.4996,
+          "total_bps": 17.749959999999998
+        },
+        "total": 269.9992,
+        "total_bps": 26.999919999999996
+      },
+      "net_score": 0.997300008,
+      "outcome": 1.0,
+      "symbol": "CCC",
+      "timestamp": "2026-01-05T09:15:00+05:30"
+    }
+  ],
+  "trades": 2,
+  "wins": 2
+}

@@ -1,0 +1,5 @@
+timestamp,symbol,probability,long_label,label_excluded,notional,product,liquidity_bucket
+2026-01-02T09:15:00+05:30,AAA,0.91,LONG_SUCCESS,false,100000,delivery,liquid
+2026-01-02T09:15:00+05:30,BBB,0.88,LONG_FAIL,false,100000,delivery,liquid
+2026-01-05T09:15:00+05:30,CCC,0.86,LONG_SUCCESS,false,100000,delivery,liquid
+2026-01-05T09:15:00+05:30,DDD,0.6,LONG_FAIL,false,100000,delivery,liquid
