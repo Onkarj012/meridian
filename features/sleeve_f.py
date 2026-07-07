@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 import importlib.util
+import re
 from collections import defaultdict, deque
 from datetime import datetime
 from pathlib import Path
@@ -25,51 +26,82 @@ def build_sleeve_f_features(rows=None, *args, **kwargs):
 
 
 INDEX_PROXY_SYMBOLS = {"NIFTY", "NIFTY 50", "NSE:NIFTY 50", "NIFTY50", "BANKNIFTY INDEX"}
+_INDEX_PROXY_COMPACT_SYMBOLS = {
+    "NIFTY",
+    "NIFTY50",
+    "NIFTY50INDEX",
+    "NSE:NIFTY",
+    "NSE:NIFTY50",
+    "NSE:NIFTY50INDEX",
+    "BANKNIFTY",
+    "BANKNIFTYINDEX",
+    "NSE:BANKNIFTY",
+    "NSE:BANKNIFTYINDEX",
+}
+_FUTURES_INSTRUMENT_TYPES = {"FUT", "FUTIDX", "FUTSTK", "FUTURE", "NFO-FUT", "NFO:FUT", "NFO_FUT"}
+_CONTINUOUS_FUTURES_RE = re.compile(r"^[A-Z0-9]+-(I|II|III)$")
 
 
-def validate_real_futures_feed(rows: Iterable[Mapping[str, Any]], *, require_volume: bool = True, max_oi_staleness_rows: int = 5) -> dict[str, Any]:
+def validate_real_futures_feed(
+    rows: Iterable[Mapping[str, Any]],
+    *,
+    require_volume: bool = True,
+    max_oi_staleness_rows: int = 5,
+    hard_fail_stale_oi: bool = False,
+) -> dict[str, Any]:
     """Validate that Sleeve F rows are actual futures bars, not index proxies."""
     row_list = [dict(row) for row in rows]
     failures: list[dict[str, Any]] = []
-    last_oi: float | None = None
-    stale_oi_count = 0
+    warnings: list[dict[str, Any]] = []
+    last_oi_by_symbol: dict[str, float] = {}
+    stale_oi_count_by_symbol: dict[str, int] = defaultdict(int)
     for index, row in enumerate(row_list):
-        symbol = str(row.get("tradingsymbol", row.get("symbol", "")) or "").upper()
-        instrument_type = str(row.get("instrument_type", row.get("segment", "")) or "").upper()
+        symbol = _primary_symbol(row)
+        instrument_type = _instrument_type(row)
+        continuous_futures = _has_continuous_futures_alias(row)
         expiry = row.get("expiry")
         token = row.get("instrument_token")
         volume = _number(row.get("volume"))
         oi = _number(row.get("oi", row.get("open_interest")))
 
         reasons = []
-        if symbol in INDEX_PROXY_SYMBOLS or "FUT" not in symbol and instrument_type not in {"FUT", "FUTIDX", "NFO-FUT"}:
+        row_warnings = []
+        if _is_index_proxy_symbol(symbol) or not _is_futures_like(row):
             reasons.append("index_proxy_or_missing_futures_symbol")
-        if not expiry:
+        if not _has_bar_timestamp(row):
+            reasons.append("missing_timestamp")
+        if not continuous_futures and not expiry:
             reasons.append("missing_expiry")
-        if not row.get("tradingsymbol"):
+        if not continuous_futures and not row.get("tradingsymbol"):
             reasons.append("missing_tradingsymbol")
-        if token in (None, ""):
+        if not continuous_futures and token in (None, ""):
             reasons.append("missing_instrument_token")
         if oi is None or oi <= 0:
             reasons.append("missing_or_zero_oi")
-        elif last_oi is not None and oi == last_oi:
-            stale_oi_count += 1
-            if stale_oi_count >= max_oi_staleness_rows:
-                reasons.append("stale_oi")
+        elif symbol in last_oi_by_symbol and oi == last_oi_by_symbol[symbol]:
+            stale_oi_count_by_symbol[symbol] += 1
+            if max_oi_staleness_rows > 0 and stale_oi_count_by_symbol[symbol] >= max_oi_staleness_rows:
+                if hard_fail_stale_oi:
+                    reasons.append("stale_oi")
+                else:
+                    row_warnings.append("stale_oi")
         else:
-            stale_oi_count = 0
+            stale_oi_count_by_symbol[symbol] = 0
         if oi is not None and oi > 0:
-            last_oi = oi
+            last_oi_by_symbol[symbol] = oi
         if require_volume and (volume is None or volume <= 0):
             reasons.append("missing_or_zero_volume")
         if reasons:
-            failures.append({"row_index": index, "tradingsymbol": row.get("tradingsymbol"), "reasons": reasons})
+            failures.append({"row_index": index, "tradingsymbol": row.get("tradingsymbol"), "symbol": row.get("symbol"), "reasons": reasons})
+        if row_warnings:
+            warnings.append({"row_index": index, "tradingsymbol": row.get("tradingsymbol"), "symbol": row.get("symbol"), "reasons": row_warnings})
 
     return {
         "validated": not failures and bool(row_list),
         "rows": len(row_list),
         "require_volume": bool(require_volume),
         "failures": failures,
+        "warnings": warnings,
     }
 
 
@@ -80,7 +112,7 @@ def build_sleeve_f_router_features(rows: Iterable[Mapping[str, Any]], *, vol_win
     last_volume: dict[str, float] = {}
     last_oi: dict[str, float] = {}
     output: list[dict[str, Any]] = []
-    for row in sorted((dict(item) for item in rows), key=lambda item: (str(item.get("tradingsymbol", item.get("symbol", ""))), str(item.get("timestamp", item.get("date", ""))))):
+    for row in sorted((dict(item) for item in rows), key=lambda item: (str(item.get("tradingsymbol", item.get("symbol", ""))), _timestamp_value(item))):
         symbol = str(row.get("tradingsymbol", row.get("symbol", "")))
         close = _number(row.get("close", row.get("price")))
         volume = _number(row.get("volume")) or 0.0
@@ -94,7 +126,7 @@ def build_sleeve_f_router_features(rows: Iterable[Mapping[str, Any]], *, vol_win
         previous_oi = last_oi.get(symbol, oi)
         enriched = {
             **row,
-            "minute_of_day": _minute_of_day(row.get("timestamp", row.get("date"))),
+            "minute_of_day": _minute_of_day(_timestamp_value(row)),
             f"realized_vol_{vol_window}m": realized_vol,
             "realized_vol": realized_vol,
             "return_1m_bps": return_bps,
@@ -190,6 +222,78 @@ def _summarize_f_config(config: Mapping[str, Any], folds: list[Mapping[str, Any]
 
 def _has_model_style(grid: list[Mapping[str, Any]], style: str) -> bool:
     return any(style in str(item.get("model_style", item.get("style", item.get("id", "")))).lower() for item in grid)
+
+
+def _primary_symbol(row: Mapping[str, Any]) -> str:
+    for value in (row.get("tradingsymbol"), row.get("symbol")):
+        text = _clean_symbol(value)
+        if text:
+            return text
+    return ""
+
+
+def _symbol_candidates(row: Mapping[str, Any]) -> list[str]:
+    candidates = []
+    for value in (row.get("tradingsymbol"), row.get("symbol")):
+        text = _clean_symbol(value)
+        if text and text not in candidates:
+            candidates.append(text)
+    return candidates
+
+
+def _clean_symbol(value: Any) -> str:
+    return " ".join(str(value or "").upper().strip().split())
+
+
+def _compact_symbol(value: str) -> str:
+    return value.replace(" ", "")
+
+
+def _instrument_type(row: Mapping[str, Any]) -> str:
+    return _clean_symbol(row.get("instrument_type", row.get("segment", "")))
+
+
+def _is_index_proxy_symbol(symbol: str) -> bool:
+    text = _clean_symbol(symbol)
+    compact = _compact_symbol(text)
+    exchange_stripped = compact.split(":", 1)[-1]
+    return text in INDEX_PROXY_SYMBOLS or compact in _INDEX_PROXY_COMPACT_SYMBOLS or exchange_stripped in _INDEX_PROXY_COMPACT_SYMBOLS
+
+
+def _is_futures_like(row: Mapping[str, Any]) -> bool:
+    instrument_type = _instrument_type(row)
+    if instrument_type in _FUTURES_INSTRUMENT_TYPES:
+        return True
+    for symbol in _symbol_candidates(row):
+        compact = _compact_symbol(symbol)
+        if "FUT" in compact or _CONTINUOUS_FUTURES_RE.match(compact):
+            return True
+    return False
+
+
+def _has_continuous_futures_alias(row: Mapping[str, Any]) -> bool:
+    return any(_CONTINUOUS_FUTURES_RE.match(_compact_symbol(symbol)) for symbol in _symbol_candidates(row))
+
+
+def _has_bar_timestamp(row: Mapping[str, Any]) -> bool:
+    if row.get("timestamp") not in (None, "") or row.get("datetime") not in (None, ""):
+        return True
+    date_value = row.get("date")
+    time_value = row.get("time")
+    if date_value not in (None, "") and time_value not in (None, ""):
+        return True
+    date_text = str(date_value or "")
+    return bool(date_text and ("T" in date_text or (len(date_text) >= 16 and date_text[10:11] == " ")))
+
+
+def _timestamp_value(row: Mapping[str, Any]) -> str:
+    if row.get("timestamp") not in (None, ""):
+        return str(row.get("timestamp"))
+    if row.get("datetime") not in (None, ""):
+        return str(row.get("datetime"))
+    if row.get("date") not in (None, "") and row.get("time") not in (None, ""):
+        return f"{row.get('date')}T{row.get('time')}"
+    return str(row.get("date", ""))
 
 
 def _number(value: Any) -> float | None:

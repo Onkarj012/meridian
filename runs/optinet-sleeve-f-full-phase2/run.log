@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/onkarj012/Projects/market/meridian/scripts/run_optinet_sleeve_f_full.py", line 410, in <module>
+    main()
+    ~~~~^^
+  File "/Users/onkarj012/Projects/market/meridian/scripts/run_optinet_sleeve_f_full.py", line 241, in main
+    summary = run(
+        data_root=args.data_root,
+    ...<6 lines>...
+        output=args.output,
+    )
+  File "/Users/onkarj012/Projects/market/meridian/scripts/run_optinet_sleeve_f_full.py", line 112, in run
+    _validate_rows(rows, path)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/onkarj012/Projects/market/meridian/scripts/run_optinet_sleeve_f_full.py", line 345, in _validate_rows
+    raise ValueError(f"Sleeve F real futures validation failed for {path}: {real_feed['failures'][:5]}")
+ValueError: Sleeve F real futures validation failed for /Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2021/5/nifty_fut_14_05_2021.csv: [{'row_index': 1, 'tradingsymbol': 'NIFTY-I', 'symbol': 'NIFTY-I', 'reasons': ['missing_or_zero_oi']}, {'row_index': 9, 'tradingsymbol': 'NIFTY-I', 'symbol': 'NIFTY-I', 'reasons': ['missing_or_zero_oi']}, {'row_index': 10, 'tradingsymbol': 'NIFTY-I', 'symbol': 'NIFTY-I', 'reasons': ['missing_or_zero_oi']}]

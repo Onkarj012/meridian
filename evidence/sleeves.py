@@ -22,6 +22,18 @@ class SleevePromotionThresholds:
 DEFAULT_PROMOTION_THRESHOLDS = SleevePromotionThresholds()
 
 
+class FuturesSleevePromotionThresholds:
+    ci_low_min_bps = 0.0
+    min_trades = 100
+    min_trading_days = 60
+    min_positive_fold_share = 0.60
+    worst_fold_floor_bps = 0.0
+    min_dsr = 0.0
+
+
+FUTURES_PROMOTION_THRESHOLDS = FuturesSleevePromotionThresholds()
+
+
 def canonical_report(
     *,
     sleeve: str,
@@ -80,6 +92,30 @@ def promotion_gates_from_metrics(
         "fixture_mode_not_promotable": not fixture_mode,
     }
     return gates
+
+
+def futures_promotion_gates_from_metrics(
+    *,
+    trades: int,
+    trading_days: int,
+    positive_fold_share: float = 0.0,
+    worst_fold_bps: float = 0.0,
+    ci_low_bps: float = 0.0,
+    dsr: float = 0.0,
+    sealed_test_passed: bool = False,
+    fixture_mode: bool = False,
+) -> dict[str, bool]:
+    thresholds = FUTURES_PROMOTION_THRESHOLDS
+    return {
+        "ci_low_positive_full_cost": float(ci_low_bps) > thresholds.ci_low_min_bps,
+        "validation_trade_count": int(trades) >= thresholds.min_trades,
+        "validation_trading_days": int(trading_days) >= thresholds.min_trading_days,
+        "folds_positive_share": float(positive_fold_share) >= thresholds.min_positive_fold_share,
+        "worst_fold_floor": float(worst_fold_bps) >= thresholds.worst_fold_floor_bps,
+        "deflated_sharpe_positive": float(dsr) > thresholds.min_dsr,
+        "sealed_test_once_passed": bool(sealed_test_passed),
+        "fixture_mode_not_promotable": not fixture_mode,
+    }
 
 
 def gate_failure_reason(gates: Mapping[str, bool], default: str = "promotion_gates_failed") -> str:
