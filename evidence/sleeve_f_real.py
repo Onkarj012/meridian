@@ -7,7 +7,8 @@ from datetime import datetime, timedelta, timezone
 from typing import Any, Iterable, Mapping
 
 from evidence.futures_costs import COST_SCENARIOS_BPS, DEFAULT_PRODUCTION_FUTURES_COST_BPS
-from evidence.sleeves import DEFAULT_PROMOTION_THRESHOLDS, canonical_report, concentration, futures_promotion_gates_from_metrics, gate_failure_reason, json_safe
+from evidence.sleeves import FUTURES_PROMOTION_THRESHOLDS, canonical_report, concentration, futures_promotion_gates_from_metrics, gate_failure_reason, json_safe
+from evidence.stats import DAY_BLOCK_BOOTSTRAP_CONFIDENCE, SLEEVE_F_CAMPAIGN_TRIALS, day_block_bootstrap_ci, day_block_bootstrap_ci_label, deflated_sharpe_ratio
 from features.sleeve_f import build_sleeve_f_router_features, validate_real_futures_feed
 from features.sleeve_f_signals import SESSION_START_MINUTE, build_signal_gate
 
@@ -16,6 +17,8 @@ DEFAULT_SEALED_TEST_FRACTION = 0.20
 DEFAULT_SKIP_FIRST_MINUTES = 15
 IST = timezone(timedelta(hours=5, minutes=30))
 OUTCOME_BUCKETS = ("target", "stop", "timeout", "eod")
+REPLAY_SKIP_COUNTERS = ("skipped_missing_entry_open", "skipped_zero_volume_entry")
+SLEEVE_F_HOLDOUT_TOUCH_COUNT = 3
 
 
 def build_front_month_replay_trades(
@@ -30,6 +33,7 @@ def build_front_month_replay_trades(
     skip_first_minutes: int = DEFAULT_SKIP_FIRST_MINUTES,
     lunch_start_minute: int | str | None = None,
     lunch_end_minute: int | str | None = None,
+    diagnostics: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Replay side-aware first-touch outcomes over front-month futures rows."""
     target = float(target_bps)
@@ -56,7 +60,7 @@ def build_front_month_replay_trades(
         "signal_config": dict(signal_cfg),
         "allow_overlap": bool(allow_overlap),
         "side": config_side,
-        "entry": "next_bar_open_or_signal_close",
+        "entry": "next_bar_open",
         "resolution": "first_touch_stop_before_target_same_bar",
         "mode": "evidence_replay",
         **entry_filters,
@@ -93,10 +97,13 @@ def build_front_month_replay_trades(
             entry_bar = path[0]
             if not _entry_time_allowed(entry_bar, entry_filters):
                 continue
+            entry_volume = _number(entry_bar.get("volume"))
+            if entry_volume == 0:
+                _increment_diagnostic(diagnostics, "skipped_zero_volume_entry")
+                continue
             entry_price = _price(entry_bar.get("open"))
             if entry_price is None:
-                entry_price = _price(signal.get("close", signal.get("price")))
-            if entry_price is None or entry_price <= 0:
+                _increment_diagnostic(diagnostics, "skipped_missing_entry_open")
                 continue
 
             side = _signal_direction(signal_value, default=config_side)
@@ -169,7 +176,11 @@ def build_front_month_replay_trades(
     return json_safe(sorted(trades, key=lambda item: (str(item["signal_timestamp"]), str(item["symbol"]))))
 
 
-def evaluate_replay_trades(trades: Iterable[Mapping[str, Any]], cost_bps: float) -> dict[str, Any]:
+def evaluate_replay_trades(
+    trades: Iterable[Mapping[str, Any]],
+    cost_bps: float,
+    replay_diagnostics: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
     """Evaluate replay trades after a fixed round-trip cost in bps."""
     trade_list = [dict(trade) for trade in trades]
     cost = float(cost_bps)
@@ -205,6 +216,7 @@ def evaluate_replay_trades(trades: Iterable[Mapping[str, Any]], cost_bps: float)
         "yearly_folds": yearly_folds,
         "day_folds": _day_folds(trade_list, gross_returns, net_returns),
         "weekly_folds": _trading_day_bucket_folds(trade_list, gross_returns, net_returns, bucket_size=5),
+        **_replay_skip_counters(replay_diagnostics),
     }
     return json_safe(result)
 
@@ -231,6 +243,7 @@ def run_sleeve_f_real_feed_evidence(
         "grid_candidates": len(grid_list),
         "allow_overlap": bool(allow_overlap),
         "sealed_test_fraction": float(sealed_test_fraction),
+        "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
         "production_cost_bps": float(cost_bps),
         "cost_scenarios_bps": [float(value) for value in cost_scenarios_bps],
     }
@@ -244,16 +257,6 @@ def run_sleeve_f_real_feed_evidence(
             gates={},
             candidate=None,
             reason="real_futures_feed_validation_failed",
-            extra={"feed_validation": validation},
-        )
-    if not grid_committed:
-        return canonical_report(
-            sleeve="F",
-            phase=2,
-            prerequisites=prerequisites,
-            gates={},
-            candidate=None,
-            reason="walkforward_grid_not_committed",
             extra={"feed_validation": validation},
         )
     if not grid_list:
@@ -284,6 +287,7 @@ def run_sleeve_f_real_feed_evidence(
             promotion_flags=promotion_flags,
             allow_overlap=allow_overlap,
             require_signal_config=not fixture_mode,
+            candidate_trials=SLEEVE_F_CAMPAIGN_TRIALS,
         )
         for config in grid_list
     ]
@@ -296,6 +300,7 @@ def run_sleeve_f_real_feed_evidence(
         promotion_flags=promotion_flags,
         allow_overlap=allow_overlap,
         require_signal_config=not fixture_mode,
+        candidate_trials=SLEEVE_F_CAMPAIGN_TRIALS,
         split=split,
     )
     candidate = {
@@ -314,7 +319,7 @@ def run_sleeve_f_real_feed_evidence(
         fixture_mode=fixture_mode,
     )
     promoted = all(gates.values()) and validation["validated"] and bool(grid_committed) and bool(grid_list)
-    reason = None if promoted else gate_failure_reason(gates, "sleeve_f_real_feed_not_promoted")
+    reason = None if promoted else ("walkforward_grid_not_committed" if not grid_committed else gate_failure_reason(gates, "sleeve_f_real_feed_not_promoted"))
     return canonical_report(
         sleeve="F",
         phase=2,
@@ -330,6 +335,7 @@ def run_sleeve_f_real_feed_evidence(
             "stress_survives_5bps": candidate["stress_survives_5bps"],
             "router_features": {"rows": len(features)},
             "walkforward_split": split,
+            "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
             "sealed_test": sealed_test,
             "config_summaries": candidates,
         },
@@ -345,8 +351,10 @@ def _evaluate_config(
     promotion_flags: Mapping[str, Any],
     allow_overlap: bool = False,
     require_signal_config: bool = False,
+    candidate_trials: int,
 ) -> dict[str, Any]:
     signal_cfg = dict(config.get("signal_config") or {})
+    replay_diagnostics: dict[str, Any] = {}
     trades = build_front_month_replay_trades(
         features,
         target_bps=float(config["target_bps"]),
@@ -359,8 +367,17 @@ def _evaluate_config(
         skip_first_minutes=int(config.get("skip_first_minutes", signal_cfg.get("skip_first_minutes", DEFAULT_SKIP_FIRST_MINUTES)) or 0),
         lunch_start_minute=config.get("lunch_start_minute", signal_cfg.get("lunch_start_minute")),
         lunch_end_minute=config.get("lunch_end_minute", signal_cfg.get("lunch_end_minute")),
+        diagnostics=replay_diagnostics,
     )
-    return summarize_replay_candidate(trades, config, cost_bps=cost_bps, cost_scenarios_bps=cost_scenarios_bps, promotion_flags=promotion_flags)
+    return summarize_replay_candidate(
+        trades,
+        config,
+        cost_bps=cost_bps,
+        cost_scenarios_bps=cost_scenarios_bps,
+        promotion_flags=promotion_flags,
+        candidate_trials=candidate_trials,
+        replay_diagnostics=replay_diagnostics,
+    )
 
 
 def summarize_replay_candidate(
@@ -370,10 +387,12 @@ def summarize_replay_candidate(
     cost_bps: float,
     cost_scenarios_bps: Iterable[float] = COST_SCENARIOS_BPS,
     promotion_flags: Mapping[str, Any] | None = None,
+    candidate_trials: int,
+    replay_diagnostics: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Summarize one pre-committed replay config from already-built trades."""
     trade_list = [dict(trade) for trade in trades]
-    metrics = evaluate_replay_trades(trade_list, cost_bps=cost_bps)
+    metrics = evaluate_replay_trades(trade_list, cost_bps=cost_bps, replay_diagnostics=replay_diagnostics)
     selection_folds = _selection_folds(metrics)
     fold_values = [float(fold.get("net_ev_bps", 0.0) or 0.0) for fold in selection_folds]
     worst_fold = min(fold_values) if fold_values else float(metrics["net_ev_bps"])
@@ -386,7 +405,11 @@ def summarize_replay_candidate(
             flags.get("baseline_passed", flags.get("baselines_passed", flags.get("beats_rung0_baselines_net_sharpe", False))),
         )
     )
-    dsr = float(flags.get("dsr", flags.get("deflated_sharpe_ratio", 0.0)) or 0.0)
+    net_returns_by_day = _net_returns_by_day(trade_list, cost_bps)
+    ci_low, ci_high = day_block_bootstrap_ci(net_returns_by_day, samples=1_000, confidence=DAY_BLOCK_BOOTSTRAP_CONFIDENCE, seed=42)
+    production_net_returns = [value for values in net_returns_by_day.values() for value in values]
+    computed_dsr = deflated_sharpe_ratio(production_net_returns, trials=candidate_trials)
+    dsr = float(flags.get("dsr", flags.get("deflated_sharpe_ratio", computed_dsr)) or 0.0)
     cost_scenarios = _cost_scenario_summaries(trade_list, cost_scenarios_bps)
     stress_survives_5bps = bool(cost_scenarios.get("5.0", {}).get("ci_low_bps", 0.0) > 0.0)
     return {
@@ -402,6 +425,8 @@ def summarize_replay_candidate(
         "lunch_start_minute": config.get("lunch_start_minute", dict(config.get("signal_config") or {}).get("lunch_start_minute")),
         "lunch_end_minute": config.get("lunch_end_minute", dict(config.get("signal_config") or {}).get("lunch_end_minute")),
         "trades": int(metrics["trades"]),
+        "skipped_missing_entry_open": int(metrics["skipped_missing_entry_open"]),
+        "skipped_zero_volume_entry": int(metrics["skipped_zero_volume_entry"]),
         "wins": int(metrics["wins"]),
         "losses": int(metrics["losses"]),
         "trading_days": int(metrics["trading_days"]),
@@ -418,7 +443,10 @@ def summarize_replay_candidate(
         "max_drawdown_bps": float(metrics["max_drawdown_bps"]),
         "positive_fold_share": float(positive_fold_share),
         "worst_fold_bps": float(worst_fold),
-        "ci_low_bps": min(float(metrics["net_ev_bps"]), float(worst_fold)),
+        "ci_low_bps": float(ci_low),
+        "ci_high_bps": float(ci_high),
+        "ci_confidence": DAY_BLOCK_BOOTSTRAP_CONFIDENCE,
+        "ci_label": day_block_bootstrap_ci_label(DAY_BLOCK_BOOTSTRAP_CONFIDENCE),
         "distinct_symbols": int(conc["distinct_symbols"]),
         "max_symbol_trade_share": float(conc["max_symbol_trade_share"]),
         "concentration": conc,
@@ -434,6 +462,8 @@ def summarize_replay_candidate(
         "stress_survives_5bps": stress_survives_5bps,
         "beats_baselines": beats_baselines,
         "dsr": dsr,
+        "deflated_sharpe_ratio": dsr,
+        "dsr_trials": int(max(1, candidate_trials)),
         "sealed_test_passed": False,
     }
 
@@ -460,12 +490,14 @@ def _evaluate_sealed_test(
     promotion_flags: Mapping[str, Any],
     allow_overlap: bool,
     require_signal_config: bool,
+    candidate_trials: int,
     split: Mapping[str, Any],
 ) -> dict[str, Any]:
     if not rows:
         return {
             "skipped": True,
             "passed": False,
+            "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
             "reason": "sealed_test_split_empty",
             "trading_days": 0,
             "fraction": split.get("sealed_test_fraction", DEFAULT_SEALED_TEST_FRACTION),
@@ -480,18 +512,22 @@ def _evaluate_sealed_test(
         promotion_flags=promotion_flags,
         allow_overlap=allow_overlap,
         require_signal_config=require_signal_config,
+        candidate_trials=candidate_trials,
     )
-    gate_floor = float(DEFAULT_PROMOTION_THRESHOLDS.worst_fold_floor_bps)
+    gate_floor = float(FUTURES_PROMOTION_THRESHOLDS.worst_fold_floor_bps)
     passed = bool(sealed_summary["trades"] > 0 and sealed_summary["net_ev_bps"] > 0.0 and sealed_summary["worst_fold_bps"] > gate_floor)
     return {
         "skipped": False,
         "passed": passed,
+        "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
         "config_id": sealed_summary["config_id"],
         "trading_days": sealed_summary["trading_days"],
         "fraction": split.get("sealed_test_fraction", DEFAULT_SEALED_TEST_FRACTION),
         "net_ev_bps": sealed_summary["net_ev_bps"],
         "worst_fold_bps": sealed_summary["worst_fold_bps"],
         "touch_rate": sealed_summary["touch_rate"],
+        "skipped_missing_entry_open": sealed_summary["skipped_missing_entry_open"],
+        "skipped_zero_volume_entry": sealed_summary["skipped_zero_volume_entry"],
         "outcome_counts": sealed_summary["outcome_counts"],
         "metrics": sealed_summary["metrics"],
         "folds": sealed_summary["selection_folds"],
@@ -542,6 +578,18 @@ def _selection_folds(metrics: Mapping[str, Any]) -> list[dict[str, Any]]:
         if len(folds) >= 2:
             return folds
     return [dict(item) for item in (metrics.get("folds") or [])]
+
+
+def _net_returns_by_day(trades: Iterable[Mapping[str, Any]], cost_bps: float) -> dict[str, list[float]]:
+    by_day: dict[str, list[float]] = defaultdict(list)
+    cost = float(cost_bps)
+    for trade in trades:
+        day = _date_key(trade)
+        if not day:
+            continue
+        gross = float(_number(trade.get("gross_bps", trade.get("outcome_bps"))) or 0.0)
+        by_day[day].append(gross - cost)
+    return dict(by_day)
 
 
 def _require_grid_signal_configs(grid: Iterable[Mapping[str, Any]]) -> None:
@@ -612,12 +660,20 @@ def _cost_scenario_summaries(trades: Iterable[Mapping[str, Any]], cost_scenarios
         folds = _selection_folds(metrics)
         fold_values = [float(fold.get("net_ev_bps", 0.0) or 0.0) for fold in folds]
         worst_fold = min(fold_values) if fold_values else float(metrics["net_ev_bps"])
-        ci_low = min(float(metrics["net_ev_bps"]), float(worst_fold))
+        ci_low, ci_high = day_block_bootstrap_ci(
+            _net_returns_by_day(trade_list, float(cost)),
+            samples=1_000,
+            confidence=DAY_BLOCK_BOOTSTRAP_CONFIDENCE,
+            seed=42,
+        )
         scenarios[f"{float(cost):.1f}"] = {
             "cost_bps": float(cost),
             "trades": int(metrics["trades"]),
             "net_ev_bps": float(metrics["net_ev_bps"]),
             "ci_low_bps": float(ci_low),
+            "ci_high_bps": float(ci_high),
+            "ci_confidence": DAY_BLOCK_BOOTSTRAP_CONFIDENCE,
+            "ci_label": day_block_bootstrap_ci_label(DAY_BLOCK_BOOTSTRAP_CONFIDENCE),
             "worst_fold_bps": float(worst_fold),
         }
     return json_safe(scenarios)
@@ -746,6 +802,16 @@ def _number(value: Any) -> float | None:
     except (TypeError, ValueError):
         return None
     return result if math.isfinite(result) else None
+
+
+def _replay_skip_counters(diagnostics: Mapping[str, Any] | None) -> dict[str, int]:
+    source = diagnostics or {}
+    return {key: int(source.get(key, 0) or 0) for key in REPLAY_SKIP_COUNTERS}
+
+
+def _increment_diagnostic(diagnostics: dict[str, Any] | None, key: str) -> None:
+    if diagnostics is not None:
+        diagnostics[key] = int(diagnostics.get(key, 0) or 0) + 1
 
 
 def _mean(values: Iterable[float]) -> float:

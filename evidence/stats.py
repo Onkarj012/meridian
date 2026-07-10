@@ -4,7 +4,21 @@ from __future__ import annotations
 import math
 import random
 from collections import Counter
-from typing import Iterable
+from typing import Any, Iterable, Mapping
+
+
+# Sleeve F used 36 Phase-2, 24 extended, and 28 Phase-3 configurations.  This
+# campaign-wide count is intentionally monotonic: add future searched configs,
+# but never reset it for a narrower follow-up grid.
+SLEEVE_F_CAMPAIGN_TRIALS = 88
+
+# Day-block draws use 5th/95th percentiles, which form a two-sided 90% CI.
+DAY_BLOCK_BOOTSTRAP_CONFIDENCE = 0.90
+
+
+def day_block_bootstrap_ci_label(confidence: float = DAY_BLOCK_BOOTSTRAP_CONFIDENCE) -> str:
+    """Return the display label corresponding to a day-block CI confidence."""
+    return f"{float(confidence):.0%} CI"
 
 
 def block_bootstrap_ci(values: Iterable[float], *, samples: int = 1_000, confidence: float = 0.95, seed: int = 42) -> tuple[float, float]:
@@ -28,6 +42,68 @@ def block_bootstrap_ci(values: Iterable[float], *, samples: int = 1_000, confide
     means.sort()
     tail = (1.0 - confidence) / 2.0
     return means[int(tail * (samples - 1))], means[int((1.0 - tail) * (samples - 1))]
+
+
+def day_block_bootstrap_ci(
+    values_by_day: Mapping[Any, Iterable[float]],
+    *,
+    samples: int = 1_000,
+    confidence: float = DAY_BLOCK_BOOTSTRAP_CONFIDENCE,
+    seed: int = 42,
+) -> tuple[float, float]:
+    """Deterministic two-sided day-block bootstrap CI for mean bps/trade.
+
+    Each bootstrap draw resamples trading days with replacement, then computes
+    the per-trade mean over all returns in the sampled day blocks. Its display
+    label is derived from ``confidence`` via ``day_block_bootstrap_ci_label``.
+    """
+    day_blocks = [[float(value) for value in values] for _, values in sorted(values_by_day.items(), key=lambda item: str(item[0]))]
+    day_blocks = [block for block in day_blocks if block]
+    if not day_blocks:
+        return (0.0, 0.0)
+    if not 0.0 < confidence < 1.0:
+        raise ValueError("confidence must be in (0, 1)")
+    lower_quantile = (1.0 - confidence) / 2.0
+    draws = max(1, int(samples))
+    rng = random.Random(seed)
+    means: list[float] = []
+    for _ in range(draws):
+        total = 0.0
+        count = 0
+        for _day in day_blocks:
+            block = day_blocks[rng.randrange(len(day_blocks))]
+            total += sum(block)
+            count += len(block)
+        means.append(total / count if count else 0.0)
+    means.sort()
+    return means[int(lower_quantile * (draws - 1))], means[int((1.0 - lower_quantile) * (draws - 1))]
+
+
+def deflated_sharpe_ratio(returns: Iterable[float], *, trials: int) -> float:
+    """Return a multiple-testing adjusted Sharpe z-statistic.
+
+    Positive values mean the observed Sharpe exceeds the expected best Sharpe
+    from ``trials`` independent candidates under a zero-edge null.
+    """
+    data = [float(value) for value in returns]
+    if len(data) < 2:
+        return 0.0
+    mean = sum(data) / len(data)
+    std = _std(data)
+    if not std:
+        return 0.0
+    sharpe_value = mean / std
+    trial_count = max(1, int(trials))
+    benchmark = 0.0
+    if trial_count > 1:
+        gamma = 0.5772156649015329
+        z_one = _inverse_normal_cdf(1.0 - 1.0 / trial_count)
+        z_two = _inverse_normal_cdf(1.0 - 1.0 / (trial_count * math.e))
+        benchmark = ((1.0 - gamma) * z_one + gamma * z_two) / math.sqrt(len(data) - 1)
+    skew = _moment(data, mean, std, 3)
+    kurtosis = _moment(data, mean, std, 4)
+    denominator = math.sqrt(max(1e-12, 1.0 - skew * sharpe_value + ((kurtosis - 1.0) / 4.0) * sharpe_value * sharpe_value))
+    return (sharpe_value - benchmark) * math.sqrt(len(data) - 1) / denominator
 
 
 def economic_metrics(returns_bps: Iterable[float], daily_returns_bps: Iterable[float] = ()) -> dict[str, float]:
@@ -224,6 +300,10 @@ def _std(values: list[float]) -> float:
         return 0.0
     mean = sum(values) / len(values)
     return math.sqrt(sum((value - mean) ** 2 for value in values) / (len(values) - 1))
+
+
+def _moment(values: list[float], mean: float, std: float, power: int) -> float:
+    return sum(((value - mean) / std) ** power for value in values) / len(values) if values and std else 0.0
 
 
 def _normal_cdf(value: float) -> float:

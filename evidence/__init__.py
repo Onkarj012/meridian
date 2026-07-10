@@ -4,6 +4,8 @@ __all__ = [
     "DEFAULT_PROMOTION_THRESHOLDS",
     "PromotionGateThresholds",
     "block_bootstrap_ci",
+    "day_block_bootstrap_ci",
+    "deflated_sharpe_ratio",
     "build_promotion_readiness_report",
     "economic_metrics",
     "run_backtest",
@@ -19,7 +21,7 @@ def __getattr__(name):
         from . import gates
 
         return getattr(gates, name)
-    if name in {"block_bootstrap_ci", "economic_metrics"}:
+    if name in {"block_bootstrap_ci", "day_block_bootstrap_ci", "deflated_sharpe_ratio", "economic_metrics"}:
         from . import stats
 
         return getattr(stats, name)
