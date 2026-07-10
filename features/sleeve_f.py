@@ -55,6 +55,8 @@ def validate_real_futures_feed(
     warnings: list[dict[str, Any]] = []
     last_oi_by_symbol: dict[str, float] = {}
     stale_oi_count_by_symbol: dict[str, int] = defaultdict(int)
+    zero_oi_count = 0
+    zero_volume_count = 0
     for index, row in enumerate(row_list):
         symbol = _primary_symbol(row)
         instrument_type = _instrument_type(row)
@@ -76,8 +78,11 @@ def validate_real_futures_feed(
             reasons.append("missing_tradingsymbol")
         if not continuous_futures and token in (None, ""):
             reasons.append("missing_instrument_token")
-        if oi is None or oi <= 0:
-            reasons.append("missing_or_zero_oi")
+        if oi is None or oi < 0:
+            reasons.append("missing_or_negative_oi")
+        elif oi == 0:
+            zero_oi_count += 1
+            row_warnings.append("zero_oi")
         elif symbol in last_oi_by_symbol and oi == last_oi_by_symbol[symbol]:
             stale_oi_count_by_symbol[symbol] += 1
             if max_oi_staleness_rows > 0 and stale_oi_count_by_symbol[symbol] >= max_oi_staleness_rows:
@@ -89,8 +94,11 @@ def validate_real_futures_feed(
             stale_oi_count_by_symbol[symbol] = 0
         if oi is not None and oi > 0:
             last_oi_by_symbol[symbol] = oi
-        if require_volume and (volume is None or volume <= 0):
-            reasons.append("missing_or_zero_volume")
+        if require_volume and (volume is None or volume < 0):
+            reasons.append("missing_or_negative_volume")
+        elif volume == 0:
+            zero_volume_count += 1
+            row_warnings.append("zero_volume")
         if reasons:
             failures.append({"row_index": index, "tradingsymbol": row.get("tradingsymbol"), "symbol": row.get("symbol"), "reasons": reasons})
         if row_warnings:
@@ -100,6 +108,10 @@ def validate_real_futures_feed(
         "validated": not failures and bool(row_list),
         "rows": len(row_list),
         "require_volume": bool(require_volume),
+        "zero_oi_count": zero_oi_count,
+        "zero_oi_share": zero_oi_count / len(row_list) if row_list else 0.0,
+        "zero_volume_count": zero_volume_count,
+        "zero_volume_share": zero_volume_count / len(row_list) if row_list else 0.0,
         "failures": failures,
         "warnings": warnings,
     }

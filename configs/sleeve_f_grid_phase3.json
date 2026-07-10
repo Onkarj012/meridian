@@ -1,0 +1,226 @@
+[
+  {
+    "id": "or_k15_conservative_b0_v125_long",
+    "target_bps": 12,
+    "stop_bps": 12,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "long", "or_lookback_minutes": 15, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_conservative_b0_v125_short",
+    "target_bps": 12,
+    "stop_bps": 12,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "short", "or_lookback_minutes": 15, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_core_b2_v125_long",
+    "target_bps": 25,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakout", "direction": "long", "or_lookback_minutes": 15, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_core_b2_v125_short",
+    "target_bps": 25,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakdown", "direction": "short", "or_lookback_minutes": 15, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_core_b0_v150_long",
+    "target_bps": 25,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "long", "or_lookback_minutes": 15, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_core_b0_v150_short",
+    "target_bps": 25,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "short", "or_lookback_minutes": 15, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_trend_b2_v150_long",
+    "target_bps": 45,
+    "stop_bps": 45,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakout", "direction": "long", "or_lookback_minutes": 15, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k15_trend_b2_v150_short",
+    "target_bps": 45,
+    "stop_bps": 45,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakdown", "direction": "short", "or_lookback_minutes": 15, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 15, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_conservative_b0_v125_long",
+    "target_bps": 18,
+    "stop_bps": 18,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "long", "or_lookback_minutes": 30, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_conservative_b0_v125_short",
+    "target_bps": 18,
+    "stop_bps": 18,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "short", "or_lookback_minutes": 30, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_core_b2_v125_long",
+    "target_bps": 35,
+    "stop_bps": 35,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakout", "direction": "long", "or_lookback_minutes": 30, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_core_b2_v125_short",
+    "target_bps": 35,
+    "stop_bps": 35,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakdown", "direction": "short", "or_lookback_minutes": 30, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.25, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_conservative_b0_v150_long",
+    "target_bps": 18,
+    "stop_bps": 18,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "long", "or_lookback_minutes": 30, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_conservative_b0_v150_short",
+    "target_bps": 18,
+    "stop_bps": 18,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "opening_range", "direction": "short", "or_lookback_minutes": 30, "entry_buffer_bps": 0.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_core_b2_v150_long",
+    "target_bps": 35,
+    "stop_bps": 35,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakout", "direction": "long", "or_lookback_minutes": 30, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "or_k30_core_b2_v150_short",
+    "target_bps": 35,
+    "stop_bps": 35,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "or_breakdown", "direction": "short", "or_lookback_minutes": 30, "entry_buffer_bps": 2.0, "vol_confirm_lookback_minutes": 30, "vol_confirm_ratio": 1.5, "max_gap_bps": null, "gap_fade": false, "entry_cutoff_minutes": null, "min_realized_vol_bps": null, "realized_vol_lookback": 30, "start_minute": 555, "end_minute": 930, "session_start_offset": 0, "session_end_offset": 0}
+  },
+  {
+    "id": "basis_mr_z15_t4_s5_h5_long",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "long", "lookback": 30, "z_threshold": 1.5, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z15_t4_s5_h5_short",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "short", "lookback": 30, "z_threshold": 1.5, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z15_t4_s5_h5_alt_long",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "long", "lookback": 30, "z_threshold": 1.5, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z15_t4_s5_h5_alt_short",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "short", "lookback": 30, "z_threshold": 1.5, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z20_t4_s5_h5_long",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "long", "lookback": 30, "z_threshold": 2.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z20_t4_s5_h5_short",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "short", "lookback": 30, "z_threshold": 2.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z20_t4_s5_h5_alt_long",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "long", "lookback": 30, "z_threshold": 2.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_mr_z20_t4_s5_h5_alt_short",
+    "target_bps": 4,
+    "stop_bps": 5,
+    "horizon_bars": 5,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_mean_revert", "direction": "short", "lookback": 30, "z_threshold": 2.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_momo_m10_t5_s6_h10_long",
+    "target_bps": 5,
+    "stop_bps": 6,
+    "horizon_bars": 10,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_momentum", "direction": "long", "lookback": 30, "momentum_threshold_bps": 1.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_momo_m10_t5_s6_h10_short",
+    "target_bps": 5,
+    "stop_bps": 6,
+    "horizon_bars": 10,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_momentum", "direction": "short", "lookback": 30, "momentum_threshold_bps": 1.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_momo_m20_t8_s8_h15_long",
+    "target_bps": 8,
+    "stop_bps": 8,
+    "horizon_bars": 15,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_momentum", "direction": "long", "lookback": 30, "momentum_threshold_bps": 2.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  },
+  {
+    "id": "basis_momo_m20_t8_s8_h15_short",
+    "target_bps": 8,
+    "stop_bps": 8,
+    "horizon_bars": 15,
+    "skip_first_minutes": 5,
+    "signal_config": {"signal": "basis_momentum", "direction": "short", "lookback": 30, "momentum_threshold_bps": 2.0, "session_start_offset": 5, "session_end_offset": 5, "realized_vol_lookback": 30, "min_realized_vol_bps": 1.0, "detrend_open_premium": false, "open_premium_decay_minutes": 10, "spot_source": "auto", "roll_reset_window": true, "start_minute": 555, "end_minute": 930}
+  }
+]

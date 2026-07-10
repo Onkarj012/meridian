@@ -27,8 +27,11 @@ def test_real_futures_feed_rejects_proxy_and_accepts_normalized_futures_rows() -
 
     assert rejected["validated"] is False
     assert "index_proxy_or_missing_futures_symbol" in rejected["failures"][0]["reasons"]
-    assert "missing_or_zero_oi" in rejected["failures"][0]["reasons"]
-    assert "missing_or_zero_volume" in rejected["failures"][0]["reasons"]
+    assert "missing_or_negative_oi" not in rejected["failures"][0]["reasons"]
+    assert "missing_or_negative_volume" not in rejected["failures"][0]["reasons"]
+    assert rejected["zero_oi_count"] == 1
+    assert rejected["zero_volume_count"] == 1
+    assert rejected["warnings"][0]["reasons"] == ["zero_oi", "zero_volume"]
 
     futures = [
         {

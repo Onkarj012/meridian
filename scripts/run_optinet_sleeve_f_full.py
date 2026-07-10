@@ -5,6 +5,7 @@ import argparse
 import json
 import math
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from datetime import date, datetime, time
@@ -18,14 +19,17 @@ if str(ROOT) not in sys.path:
 from evidence.sleeve_f_real import (  # noqa: E402
     DEFAULT_FUTURES_ROUND_TRIP_COST_BPS,
     DEFAULT_SEALED_TEST_FRACTION,
+    SLEEVE_F_HOLDOUT_TOUCH_COUNT,
     build_front_month_replay_trades,
     normalize_replay_grid,
     select_replay_candidate,
     summarize_replay_candidate,
 )
 from evidence.futures_costs import COST_SCENARIOS_BPS  # noqa: E402
-from evidence.sleeves import DEFAULT_PROMOTION_THRESHOLDS, canonical_report, futures_promotion_gates_from_metrics, gate_failure_reason  # noqa: E402
+from evidence.sleeves import FUTURES_PROMOTION_THRESHOLDS, canonical_report, futures_promotion_gates_from_metrics, gate_failure_reason  # noqa: E402
+from evidence.stats import SLEEVE_F_CAMPAIGN_TRIALS  # noqa: E402
 from features.sleeve_f import build_sleeve_f_router_features, validate_real_futures_feed  # noqa: E402
+from features.sleeve_f_signals import enrich_rows_with_prior_close, enrich_rows_with_spot_basis, grid_uses_basis, grid_uses_opening_range  # noqa: E402
 from ingest.optinet_data import iter_nifty_futures_minute_file, validate_for_meridian_futures  # noqa: E402
 
 DEFAULT_DATA_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data")
@@ -87,9 +91,15 @@ def run(
     grid_path = Path(grid)
     output_path = Path(output)
     grid_configs = normalize_replay_grid(_load_grid(grid_path))
+    grid_committed = _grid_is_git_tracked_and_clean(grid_path)
     if not grid_configs:
         raise ValueError("grid must contain at least one config")
     _require_signal_configs(grid_configs)
+    opening_range_required = grid_uses_opening_range(grid_configs)
+    prior_close_state: dict[str, Any] = {}
+    basis_required = grid_uses_basis(grid_configs)
+    basis_spot_source = _basis_spot_source(grid_configs)
+    basis_roll_state: dict[str, Any] = {}
     if limit_rows is not None and int(limit_rows) <= 0:
         raise ValueError("limit_rows must be positive when provided")
 
@@ -111,6 +121,10 @@ def run(
         quality.update(rows)
         _validate_rows(rows, path)
         features = build_sleeve_f_router_features(rows)
+        if opening_range_required:
+            features = enrich_rows_with_prior_close(features, prior_close_state)
+        if basis_required:
+            features = enrich_rows_with_spot_basis(features, data_root=root, spot_source=basis_spot_source, roll_state=basis_roll_state)
         for config in grid_configs:
             trades = build_front_month_replay_trades(
                 features,
@@ -130,7 +144,13 @@ def run(
             break
 
     config_summaries = [
-        summarize_replay_candidate(validation_trades[str(config["id"])], config, cost_bps=cost_bps, cost_scenarios_bps=cost_scenarios_bps)
+        summarize_replay_candidate(
+            validation_trades[str(config["id"])],
+            config,
+            cost_bps=cost_bps,
+            cost_scenarios_bps=cost_scenarios_bps,
+            candidate_trials=SLEEVE_F_CAMPAIGN_TRIALS,
+        )
         for config in grid_configs
     ]
     selected = select_replay_candidate(config_summaries)
@@ -146,6 +166,10 @@ def run(
             quality.update(rows)
             _validate_rows(rows, path)
             features = build_sleeve_f_router_features(rows)
+            if opening_range_required:
+                features = enrich_rows_with_prior_close(features, prior_close_state)
+            if basis_required:
+                features = enrich_rows_with_spot_basis(features, data_root=root, spot_source=basis_spot_source, roll_state=basis_roll_state)
             sealed_trades.extend(
                 build_front_month_replay_trades(
                     features,
@@ -166,7 +190,13 @@ def run(
             if rows_remaining == 0:
                 break
 
-    sealed_summary = summarize_replay_candidate(sealed_trades, selected_config, cost_bps=cost_bps, cost_scenarios_bps=cost_scenarios_bps)
+    sealed_summary = summarize_replay_candidate(
+        sealed_trades,
+        selected_config,
+        cost_bps=cost_bps,
+        cost_scenarios_bps=cost_scenarios_bps,
+        candidate_trials=SLEEVE_F_CAMPAIGN_TRIALS,
+    )
     sealed_test = _sealed_test_from_summary(sealed_summary, split)
     candidate = {**selected, "sealed_test": sealed_test, "sealed_test_passed": bool(sealed_test["passed"])}
     gates = futures_promotion_gates_from_metrics(
@@ -179,13 +209,14 @@ def run(
         sealed_test_passed=candidate["sealed_test_passed"],
         fixture_mode=False,
     )
-    promoted = all(gates.values())
+    promoted = all(gates.values()) and grid_committed
     report = canonical_report(
         sleeve="F",
         phase=2,
         prerequisites={
             "real_feed_validated": True,
-            "committed_grid": True,
+            "committed_grid": grid_committed,
+            "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
             "fixture_mode": False,
             "grid_candidates": len(grid_configs),
             "allow_overlap": bool(allow_overlap),
@@ -197,7 +228,7 @@ def run(
         gates=gates,
         candidate=candidate,
         promoted=promoted,
-        reason=None if promoted else gate_failure_reason(gates, "sleeve_f_real_feed_not_promoted"),
+        reason=None if promoted else ("walkforward_grid_not_committed" if not grid_committed else gate_failure_reason(gates, "sleeve_f_real_feed_not_promoted")),
         extra={
             "metrics": candidate["metrics"],
             "cost_scenarios": candidate["cost_scenarios"],
@@ -205,12 +236,15 @@ def run(
             "sealed_test": sealed_test,
             "config_summaries": config_summaries,
             "walkforward_split": split,
+            "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
         },
     )
 
     summary = {
         "data_root": str(root),
         "grid_path": str(grid_path),
+        "committed_grid": grid_committed,
+        "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
         "output": str(output_path),
         "start": start,
         "end": end,
@@ -221,6 +255,7 @@ def run(
         "rows_loaded": quality.rows_loaded,
         "source_files_considered": len(files),
         "source_files_used": source_files_used,
+        **({"basis_spot_source": basis_spot_source} if basis_required else {}),
         "normalization_quality": quality.as_dict(),
         "walkforward_split": split,
         "outcome_counts": candidate["outcome_counts"],
@@ -276,6 +311,19 @@ def _require_signal_configs(grid: Iterable[Mapping[str, Any]]) -> None:
     for config in grid:
         if not dict(config.get("signal_config") or {}):
             raise ValueError("signal_config required for non-fixture Sleeve F replay")
+
+
+def _basis_spot_source(grid: Iterable[Mapping[str, Any]]) -> str:
+    sources = {
+        str(dict(config.get("signal_config") or {}).get("spot_source", "auto") or "auto").lower()
+        for config in grid
+        if str(dict(config.get("signal_config") or {}).get("signal", "")).lower() in {"basis_mean_revert", "basis_momentum"}
+    }
+    if not sources:
+        return "auto"
+    if len(sources) == 1:
+        return next(iter(sources))
+    return "auto"
 
 
 def _discover_nifty_futures_files(data_root: Path, *, start: str | None, end: str | None) -> list[Path]:
@@ -346,11 +394,12 @@ def _validate_rows(rows: list[dict[str, Any]], path: Path) -> None:
 
 
 def _sealed_test_from_summary(summary: Mapping[str, Any], split: Mapping[str, Any]) -> dict[str, Any]:
-    gate_floor = float(DEFAULT_PROMOTION_THRESHOLDS.worst_fold_floor_bps)
+    gate_floor = float(FUTURES_PROMOTION_THRESHOLDS.worst_fold_floor_bps)
     passed = bool(summary["trades"] > 0 and summary["net_ev_bps"] > 0.0 and summary["worst_fold_bps"] > gate_floor)
     return {
         "skipped": summary["trades"] == 0,
         "passed": passed,
+        "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
         "config_id": summary["config_id"],
         "trading_days": summary["trading_days"],
         "fraction": split["sealed_test_fraction"],
@@ -363,6 +412,33 @@ def _sealed_test_from_summary(summary: Mapping[str, Any], split: Mapping[str, An
         "cost_scenarios": summary["cost_scenarios"],
         "stress_survives_5bps": summary["stress_survives_5bps"],
     }
+
+
+def _grid_is_git_tracked_and_clean(path: Path) -> bool:
+    """Return whether ``path`` is tracked and unchanged from HEAD."""
+    try:
+        resolved = path.resolve()
+        relative = resolved.relative_to(ROOT)
+    except (OSError, ValueError):
+        return False
+    try:
+        tracked = subprocess.run(
+            ["git", "ls-files", "--error-unmatch", "--", str(relative)],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+        )
+        if tracked.returncode != 0:
+            return False
+        clean = subprocess.run(
+            ["git", "diff", "--quiet", "HEAD", "--", str(relative)],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+        )
+    except OSError:
+        return False
+    return clean.returncode == 0
 
 
 def _console_summary(summary: Mapping[str, Any]) -> dict[str, Any]:

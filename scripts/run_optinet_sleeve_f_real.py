@@ -4,15 +4,17 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any, Iterable, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from evidence.sleeve_f_real import DEFAULT_FUTURES_ROUND_TRIP_COST_BPS, run_sleeve_f_real_feed_evidence
+from evidence.sleeve_f_real import DEFAULT_FUTURES_ROUND_TRIP_COST_BPS, SLEEVE_F_HOLDOUT_TOUCH_COUNT, run_sleeve_f_real_feed_evidence
+from evidence.stats import SLEEVE_F_CAMPAIGN_TRIALS
 from features.sleeve_f import validate_real_futures_feed
 from ingest.optinet_data import (
     build_optinet_source_manifest,
@@ -36,10 +38,11 @@ def run(
     limit_rows: int = DEFAULT_LIMIT_ROWS,
     output: str | Path = DEFAULT_OUTPUT,
     grid: Iterable[dict[str, Any]] | None = None,
+    grid_path: str | Path | None = None,
     target_bps: float = DEFAULT_TARGET_BPS,
     stop_bps: float = DEFAULT_STOP_BPS,
     horizon_bars: int = DEFAULT_HORIZON_BARS,
-    fixture_mode: bool = True,
+    fixture_mode: bool = False,
     sample_mode: bool = True,
     cost_bps: float = DEFAULT_FUTURES_ROUND_TRIP_COST_BPS,
     allow_overlap: bool = False,
@@ -63,16 +66,20 @@ def run(
     if not real_feed_validation["validated"]:
         raise ValueError(f"Sleeve F real futures validation failed: {real_feed_validation['failures'][:5]}")
 
-    grid_configs = list(grid) if grid is not None else [_grid_config(target_bps, stop_bps, horizon_bars)]
+    grid_configs = _load_grid(Path(grid_path)) if grid_path is not None else (list(grid) if grid is not None else [_grid_config(target_bps, stop_bps, horizon_bars)])
+    grid_committed = _grid_is_git_tracked_and_clean(Path(grid_path)) if grid_path is not None else False
+    effective_fixture_mode = bool(fixture_mode) if sample_mode else False
+    if not sample_mode:
+        _require_signal_configs(grid_configs)
     report = run_sleeve_f_real_feed_evidence(
         rows,
         grid=grid_configs,
-        grid_committed=True,
-        fixture_mode=fixture_mode or sample_mode,
+        grid_committed=grid_committed,
+        fixture_mode=effective_fixture_mode or sample_mode,
         cost_bps=cost_bps,
         allow_overlap=allow_overlap,
     )
-    if fixture_mode or sample_mode:
+    if effective_fixture_mode or sample_mode:
         report["promoted"] = False
         report["status"] = "quarantined"
         report["reason"] = report.get("reason") or "sample_replay_only_not_promoted"
@@ -92,9 +99,13 @@ def run(
         },
         "source_manifest": _compact_manifest(manifest),
         "grid": grid_configs,
+        "grid_path": str(grid_path) if grid_path is not None else None,
+        "committed_grid": grid_committed,
+        "dsr_trials": SLEEVE_F_CAMPAIGN_TRIALS,
+        "holdout_touch_count": SLEEVE_F_HOLDOUT_TOUCH_COUNT,
         "cost_bps": float(cost_bps),
         "allow_overlap": bool(allow_overlap),
-        "fixture_mode": bool(fixture_mode),
+        "fixture_mode": bool(effective_fixture_mode),
         "sample_mode": bool(sample_mode),
         "limitation": SAMPLE_LIMITATION,
         "report": report,
@@ -107,12 +118,13 @@ def run(
 
 def main(argv: Sequence[str] | None = None) -> dict[str, Any]:
     args = _parser().parse_args(argv)
-    grid = _parse_grid(args.grid_json, args.grid, args.target_bps, args.stop_bps, args.horizon_bars)
+    grid = None if args.grid_file else _parse_grid(args.grid_json, args.grid, args.target_bps, args.stop_bps, args.horizon_bars)
     summary = run(
         data_root=args.data_root,
         limit_rows=args.limit_rows,
         output=args.output,
         grid=grid,
+        grid_path=args.grid_file,
         fixture_mode=args.fixture_mode,
         sample_mode=args.sample_mode,
         cost_bps=args.cost_bps,
@@ -139,7 +151,8 @@ def _parser() -> argparse.ArgumentParser:
         help="Repeatable grid item as target_bps,stop_bps,horizon_bars[,min_realized_vol].",
     )
     parser.add_argument("--grid-json", help="JSON list of grid config objects.")
-    parser.add_argument("--fixture-mode", dest="fixture_mode", action="store_true", default=True)
+    parser.add_argument("--grid-file", help="JSON grid file; must be tracked and clean for committed_grid=true.")
+    parser.add_argument("--fixture-mode", dest="fixture_mode", action="store_true", default=False)
     parser.add_argument("--no-fixture-mode", dest="fixture_mode", action="store_false")
     parser.add_argument("--sample-mode", dest="sample_mode", action="store_true", default=True)
     parser.add_argument("--no-sample-mode", dest="sample_mode", action="store_false")
@@ -193,6 +206,19 @@ def _parse_grid(
     return [_grid_config(target_bps, stop_bps, horizon_bars)]
 
 
+def _require_signal_configs(grid: Iterable[Mapping[str, Any]]) -> None:
+    for config in grid:
+        if not dict(config.get("signal_config") or {}):
+            raise ValueError("signal_config required for non-fixture Sleeve F replay")
+
+
+def _load_grid(path: Path) -> list[dict[str, Any]]:
+    parsed = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(parsed, list):
+        raise ValueError("grid file must contain a JSON list")
+    return [dict(item) for item in parsed]
+
+
 def _parse_grid_item(item: str, index: int) -> dict[str, Any]:
     values = [part.strip() for part in item.split(",")]
     if len(values) not in (3, 4):
@@ -234,6 +260,33 @@ def _compact_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
             for name, summary in families.items()
         },
     }
+
+
+def _grid_is_git_tracked_and_clean(path: Path) -> bool:
+    """Return whether ``path`` is tracked and unchanged from HEAD."""
+    try:
+        resolved = path.resolve()
+        relative = resolved.relative_to(ROOT)
+    except (OSError, ValueError):
+        return False
+    try:
+        tracked = subprocess.run(
+            ["git", "ls-files", "--error-unmatch", "--", str(relative)],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+        )
+        if tracked.returncode != 0:
+            return False
+        clean = subprocess.run(
+            ["git", "diff", "--quiet", "HEAD", "--", str(relative)],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+        )
+    except OSError:
+        return False
+    return clean.returncode == 0
 
 
 def _console_summary(summary: dict[str, Any]) -> dict[str, Any]:
