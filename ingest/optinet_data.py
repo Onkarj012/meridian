@@ -149,12 +149,12 @@ def normalize_index_futures_minute_row(
         "instrument_type": "FUTIDX",
         "expiry": "continuous_front_month",
         "timestamp": _iso_timestamp(_required(row, "date"), _required(row, "time")),
-        "open": _number(row.get("open"), "open"),
-        "high": _number(row.get("high"), "high"),
-        "low": _number(row.get("low"), "low"),
-        "close": _number(row.get("close"), "close"),
+        "open": _positive_number(row.get("open"), "open"),
+        "high": _positive_number(row.get("high"), "high"),
+        "low": _positive_number(row.get("low"), "low"),
+        "close": _positive_number(row.get("close"), "close"),
         "oi": _non_negative_number(row.get("oi"), "oi"),
-        "volume": _positive_number(row.get("volume"), "volume"),
+        "volume": _non_negative_number(row.get("volume"), "volume"),
         "source_path": str(source_path) if source_path is not None else None,
         "timezone": TIMEZONE_NAME,
     }
@@ -382,8 +382,8 @@ def validate_for_meridian_futures(rows: Iterable[dict] | dict | None) -> dict:
         except ValueError as exc:
             errors.append(f"{prefix}: {exc}")
         try:
-            if _number(row.get("volume"), "volume") <= 0:
-                errors.append(f"{prefix}: volume must be > 0")
+            if _number(row.get("volume"), "volume") < 0:
+                errors.append(f"{prefix}: volume must be >= 0")
         except ValueError as exc:
             errors.append(f"{prefix}: {exc}")
     return {"valid": not errors, "row_count": len(data), "errors": errors}

@@ -93,6 +93,42 @@ def test_futures_normalizer_allows_zero_oi_with_positive_volume():
     assert normalized["volume"] == 750
 
 
+def test_futures_normalizer_allows_zero_volume():
+    row = {
+        "date": "02/01/2024",
+        "time": "09:15:00",
+        "symbol": "NIFTY-I",
+        "open": "21000",
+        "high": "21010",
+        "low": "20990",
+        "close": "21005",
+        "oi": "500000",
+        "volume": "0",
+    }
+
+    normalized = normalize_index_futures_minute_row(row, source_path="fut.csv")
+
+    assert normalized["volume"] == 0
+    assert normalized["oi"] == 500000
+
+
+def test_futures_normalizer_rejects_negative_volume():
+    row = {
+        "date": "02/01/2024",
+        "time": "09:15:00",
+        "symbol": "NIFTY-I",
+        "open": "21000",
+        "high": "21010",
+        "low": "20990",
+        "close": "21005",
+        "oi": "500000",
+        "volume": "-1",
+    }
+
+    with pytest.raises(ValueError, match="volume must be >= 0"):
+        normalize_index_futures_minute_row(row, source_path="fut.csv")
+
+
 def test_spot_normalizer_allows_missing_and_zero_volume(tmp_path):
     row = {"date": "2024-01-02", "time": "09:15", "symbol": "NIFTY 50", "open": "21000", "high": "21010", "low": "20990", "close": "21005"}
 
@@ -198,3 +234,19 @@ def test_invalid_futures_rejection_and_validation_errors():
     assert validation["valid"] is False
     assert any("oi must be >= 0" in error for error in validation["errors"])
     assert any("volume" in error for error in validation["errors"])
+
+
+def test_validate_for_meridian_futures_accepts_zero_volume():
+    validation = validate_for_meridian_futures(
+        [
+            {
+                "timestamp": "2024-01-02T09:15:00+05:30",
+                "tradingsymbol": "NIFTY-I",
+                "instrument_type": "FUTIDX",
+                "oi": 500000,
+                "volume": 0,
+            }
+        ]
+    )
+
+    assert validation == {"valid": True, "row_count": 1, "errors": []}
