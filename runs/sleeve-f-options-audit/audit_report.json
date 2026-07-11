@@ -1,0 +1,892 @@
+{
+  "coverage": {
+    "candidate_date_max": "2026-07-10",
+    "candidate_date_min": "2020-01-01",
+    "gap_to_today_days": 2,
+    "most_recent_date": "2026-07-10",
+    "sample_basis": {
+      "basis": "stratified early/middle/recent plus four Thursday expiry-week anchors",
+      "target": 30
+    },
+    "sample_dates": [
+      "2020-01-01",
+      "2020-01-02",
+      "2020-01-03",
+      "2020-01-06",
+      "2020-01-07",
+      "2020-01-08",
+      "2020-01-09",
+      "2020-01-10",
+      "2020-01-13",
+      "2020-01-14",
+      "2020-01-15",
+      "2020-01-16",
+      "2020-01-17",
+      "2020-01-20",
+      "2020-01-21",
+      "2020-01-22",
+      "2020-01-23",
+      "2020-01-24",
+      "2020-01-27",
+      "2020-10-21",
+      "2021-08-12",
+      "2021-08-13",
+      "2022-04-07",
+      "2023-03-23",
+      "2023-03-29",
+      "2024-03-21",
+      "2024-11-07",
+      "2024-11-14",
+      "2025-09-10",
+      "2026-07-10"
+    ],
+    "sampled_days": 30
+  },
+  "csv_parquet_seam": {
+    "sampled_overlap_dates": [
+      {
+        "csv_rows": 400,
+        "date": "2022-04-07",
+        "exact_close_matches": 114,
+        "joined_contracts": 398,
+        "max_abs_close_drift": 294.0,
+        "nonzero_close_drift": 284,
+        "parquet_rows": 4150
+      },
+      {
+        "csv_rows": 281,
+        "date": "2023-03-23",
+        "exact_close_matches": 67,
+        "joined_contracts": 279,
+        "max_abs_close_drift": 155.5,
+        "nonzero_close_drift": 212,
+        "parquet_rows": 2611
+      },
+      {
+        "csv_rows": 374,
+        "date": "2023-03-29",
+        "exact_close_matches": 37,
+        "joined_contracts": 372,
+        "max_abs_close_drift": 153.79999999999995,
+        "nonzero_close_drift": 335,
+        "parquet_rows": 2577
+      },
+      {
+        "csv_rows": 338,
+        "date": "2024-03-21",
+        "exact_close_matches": 101,
+        "joined_contracts": 336,
+        "max_abs_close_drift": 108.75,
+        "nonzero_close_drift": 235,
+        "parquet_rows": 2964
+      },
+      {
+        "csv_rows": 2,
+        "date": "2024-11-07",
+        "exact_close_matches": 0,
+        "joined_contracts": 0,
+        "max_abs_close_drift": null,
+        "nonzero_close_drift": 0,
+        "parquet_rows": 2620
+      },
+      {
+        "csv_rows": 2,
+        "date": "2024-11-14",
+        "exact_close_matches": 0,
+        "joined_contracts": 0,
+        "max_abs_close_drift": null,
+        "nonzero_close_drift": 0,
+        "parquet_rows": 2555
+      },
+      {
+        "csv_rows": 2,
+        "date": "2025-09-10",
+        "exact_close_matches": 0,
+        "joined_contracts": 0,
+        "max_abs_close_drift": null,
+        "nonzero_close_drift": 0,
+        "parquet_rows": 2374
+      }
+    ],
+    "seam_interpretation": "CSV is intraday and Parquet is date-only/EOD; exact row-count equality is not expected. Joined close drift compares CSV final observed close with Parquet close on contract keys."
+  },
+  "generated_at": "2026-07-12T02:16:46.405435",
+  "inventory": {
+    "all_file_bytes": 7184771992,
+    "all_files": 10615,
+    "csv_files": 8451,
+    "option_csv_files": 5631,
+    "option_parquet_files": 2164,
+    "parquet_files": 2164
+  },
+  "roots": [
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/parquet"
+  ],
+  "strike_expiry": {
+    "ambiguous_or_unparseable_count": 2,
+    "csv_encoding": "symbol regex UNDERLYING+DDMMMYY+STRIKE+CE/PE",
+    "examples": [
+      "BANKNIFTY-I",
+      "NIFTY-I"
+    ],
+    "parquet_columns": [
+      "strike_price",
+      "expiry_date",
+      "option_type"
+    ]
+  },
+  "timestamps_cadence": [
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 25105,
+      "date": "2020-01-01",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 21242,
+      "date": "2020-01-02",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 29735,
+      "date": "2020-01-03",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 35030,
+      "date": "2020-01-06",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 35356,
+      "date": "2020-01-07",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 36833,
+      "date": "2020-01-08",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 30610,
+      "date": "2020-01-09",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 36521,
+      "date": "2020-01-10",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 33563,
+      "date": "2020-01-13",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 31840,
+      "date": "2020-01-14",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 30467,
+      "date": "2020-01-15",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 25042,
+      "date": "2020-01-16",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 30817,
+      "date": "2020-01-17",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 32499,
+      "date": "2020-01-20",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 32596,
+      "date": "2020-01-21",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 31686,
+      "date": "2020-01-22",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 27519,
+      "date": "2020-01-23",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 39187,
+      "date": "2020-01-24",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 39382,
+      "date": "2020-01-27",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 53194,
+      "date": "2020-10-21",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 60252,
+      "date": "2021-08-12",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 60871,
+      "date": "2021-08-13",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 81892,
+      "date": "2022-04-07",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 72957,
+      "date": "2023-03-23",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 85248,
+      "date": "2023-03-29",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 1.0,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 376
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 4,
+      "csv_rows": 86654,
+      "date": "2024-03-21",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": 0.9973404255319149,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 376,
+        "valid_minutes": 375
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 2,
+      "csv_rows": 751,
+      "date": "2024-11-07",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": null,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 0,
+        "valid_minutes": 0
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 2,
+      "csv_rows": 752,
+      "date": "2024-11-14",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": null,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 0,
+        "valid_minutes": 0
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 376,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 2,
+      "csv_rows": 751,
+      "date": "2025-09-10",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": null,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 0,
+        "valid_minutes": 0
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    },
+    {
+      "cadence": {
+        "max_gap_minutes": 1.0,
+        "median_gap_minutes": 1.0,
+        "monotonic_after_sort": true,
+        "p95_gap_minutes": 1.0,
+        "timestamp_count": 375,
+        "unique_gap_minutes": [
+          1.0
+        ]
+      },
+      "csv_files": 1,
+      "csv_rows": 375,
+      "date": "2026-07-10",
+      "native_exchange_timestamp": "date+time fields; no fetch timestamp field observed",
+      "surface": {
+        "fraction": null,
+        "n_strikes_each_side": 5,
+        "proxy": "median active strike; nonzero close/LTP; both CE and PE; >=N distinct strikes below and above ATM",
+        "session_minutes": 0,
+        "valid_minutes": 0
+      },
+      "timestamps": "intraday",
+      "timezone": "naive local/unspecified"
+    }
+  ],
+  "today_assumed": "2026-07-12"
+}

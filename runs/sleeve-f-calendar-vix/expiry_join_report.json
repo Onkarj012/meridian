@@ -1,0 +1,625 @@
+{
+  "calendar_path": "runs/sleeve-f-data-contract/contract_calendar.csv",
+  "expiries_path": "runs/sleeve-f-data-contract/expiries.csv",
+  "requested_range": {
+    "start": "2020-01-01",
+    "end": "2026-07-10"
+  },
+  "calendar_observed_range": {
+    "start": "2024-01-01",
+    "end": "2026-07-10",
+    "sessions": 621
+  },
+  "days_to_expiry_convention": "Inclusive trading-session count: index(expiry session) - index(session) + 1, using the supplied calendar rows.",
+  "weekday_regime_timeline": [
+    {
+      "year": 2024,
+      "month": 1,
+      "first_expiry": "2024-01-25",
+      "last_expiry": "2024-01-25",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "first_expiry": "2024-02-29",
+      "last_expiry": "2024-02-29",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "first_expiry": "2024-03-28",
+      "last_expiry": "2024-03-28",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "first_expiry": "2024-04-25",
+      "last_expiry": "2024-04-25",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "first_expiry": "2024-05-30",
+      "last_expiry": "2024-05-30",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "first_expiry": "2024-06-27",
+      "last_expiry": "2024-06-27",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "first_expiry": "2024-07-25",
+      "last_expiry": "2024-07-25",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "first_expiry": "2024-08-29",
+      "last_expiry": "2024-08-29",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "first_expiry": "2024-09-26",
+      "last_expiry": "2024-09-26",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "first_expiry": "2024-10-31",
+      "last_expiry": "2024-10-31",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "first_expiry": "2024-11-28",
+      "last_expiry": "2024-11-28",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "first_expiry": "2024-12-26",
+      "last_expiry": "2024-12-26",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "first_expiry": "2025-01-30",
+      "last_expiry": "2025-01-30",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "first_expiry": "2025-02-27",
+      "last_expiry": "2025-02-27",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "first_expiry": "2025-03-27",
+      "last_expiry": "2025-03-27",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "first_expiry": "2025-04-24",
+      "last_expiry": "2025-04-24",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "first_expiry": "2025-05-29",
+      "last_expiry": "2025-05-29",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "first_expiry": "2025-06-26",
+      "last_expiry": "2025-06-26",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "first_expiry": "2025-07-31",
+      "last_expiry": "2025-07-31",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "first_expiry": "2025-08-28",
+      "last_expiry": "2025-08-28",
+      "weekdays": [
+        "Thursday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "first_expiry": "2025-09-25",
+      "last_expiry": "2025-09-30",
+      "weekdays": [
+        "Thursday",
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "first_expiry": "2025-10-28",
+      "last_expiry": "2025-10-28",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "first_expiry": "2025-11-25",
+      "last_expiry": "2025-11-25",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "first_expiry": "2025-12-30",
+      "last_expiry": "2025-12-30",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "first_expiry": "2026-01-27",
+      "last_expiry": "2026-01-27",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "first_expiry": "2026-02-24",
+      "last_expiry": "2026-02-24",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "first_expiry": "2026-03-30",
+      "last_expiry": "2026-03-30",
+      "weekdays": [
+        "Monday"
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "first_expiry": "2026-04-28",
+      "last_expiry": "2026-04-28",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "first_expiry": "2026-05-26",
+      "last_expiry": "2026-05-26",
+      "weekdays": [
+        "Tuesday"
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "first_expiry": "2026-06-30",
+      "last_expiry": "2026-06-30",
+      "weekdays": [
+        "Tuesday"
+      ]
+    }
+  ],
+  "violations_count": 8,
+  "violations": [
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-01",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-02",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-03",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-06",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-07",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-08",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-09",
+      "expiry": "2026-07-28"
+    },
+    {
+      "type": "expiry_not_in_expiries",
+      "trade_date": "2026-07-10",
+      "expiry": "2026-07-28"
+    }
+  ],
+  "roll_checks": [
+    {
+      "expiry_date": "2024-01-25",
+      "day_after_session": "2024-01-29",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 21351.0,
+        "bar_oi": 4990250.0,
+        "bar_time": "15:29:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 25.549999999999272,
+        "next_close_abs_diff": 137.54999999999927
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 21875.1992,
+        "bar_oi": 12501450.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 19.94919999999911,
+        "next_close_abs_diff": 117.00080000000162
+      }
+    },
+    {
+      "expiry_date": "2024-04-25",
+      "day_after_session": "2024-04-26",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 22575.0996,
+        "bar_oi": 7612900.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 8.500399999997171,
+        "next_close_abs_diff": 78.85039999999935
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 22575.0,
+        "bar_oi": 10539375.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 19.0,
+        "next_close_abs_diff": 92.04999999999927
+      }
+    },
+    {
+      "expiry_date": "2024-06-27",
+      "day_after_session": "2024-06-28",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 24047.0996,
+        "bar_oi": 5821625.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 9.049600000002101,
+        "next_close_abs_diff": 48.75039999999717
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 24131.0,
+        "bar_oi": 14369100.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 1.25,
+        "next_close_abs_diff": 105.0
+      }
+    },
+    {
+      "expiry_date": "2024-09-26",
+      "day_after_session": "2024-09-27",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 26219.9492,
+        "bar_oi": 6295300.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 6.550800000000891,
+        "next_close_abs_diff": 88.90079999999944
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 26345.5996,
+        "bar_oi": 16613450.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 0.4495999999999185,
+        "next_close_abs_diff": 113.55040000000008
+      }
+    },
+    {
+      "expiry_date": "2025-01-30",
+      "day_after_session": "2025-01-31",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 23249.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 13.900000000001455,
+        "next_close_abs_diff": 169.29999999999927
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 23639.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 18.799999999999272,
+        "next_close_abs_diff": 126.15000000000146
+      }
+    },
+    {
+      "expiry_date": "2025-03-27",
+      "day_after_session": "2025-03-28",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 23595.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 1.4000000000014552,
+        "next_close_abs_diff": 182.65000000000146
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 23643.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 5.349999999998545,
+        "next_close_abs_diff": 122.45000000000073
+      }
+    },
+    {
+      "expiry_date": "2025-06-26",
+      "day_after_session": "2025-06-27",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 25554.7,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 3.7000000000007276,
+        "next_close_abs_diff": 60.29999999999927
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 25757.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 6.799999999999272,
+        "next_close_abs_diff": 102.09999999999854
+      }
+    },
+    {
+      "expiry_date": "2025-08-28",
+      "day_after_session": "2025-08-29",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 24500.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 3.7000000000007276,
+        "next_close_abs_diff": 151.70000000000073
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 24577.3,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 8.799999999999272,
+        "next_close_abs_diff": 107.0
+      }
+    },
+    {
+      "expiry_date": "2025-10-28",
+      "day_after_session": "2025-10-29",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 25934.9,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 12.5,
+        "next_close_abs_diff": 155.1999999999971
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 26261.3,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 22.599999999998545,
+        "next_close_abs_diff": 149.90000000000146
+      }
+    },
+    {
+      "expiry_date": "2026-01-27",
+      "day_after_session": "2026-01-28",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 25173.9,
+        "bar_oi": 7876700.0,
+        "bar_time": "15:29:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 9.700000000000728,
+        "next_close_abs_diff": 208.6999999999971
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 25456.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 5.599999999998545,
+        "next_close_abs_diff": 174.29999999999927
+      }
+    },
+    {
+      "expiry_date": "2026-03-30",
+      "day_after_session": "2026-04-01",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 22330.1,
+        "bar_oi": 0.0,
+        "bar_time": "15:30:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 11.69999999999709,
+        "next_close_abs_diff": 96.10000000000218
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 22830.0,
+        "bar_oi": 21163400.0,
+        "bar_time": "15:29:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 29.900000000001455,
+        "next_close_abs_diff": 104.79999999999927
+      }
+    },
+    {
+      "expiry_date": "2026-06-30",
+      "day_after_session": "2026-07-01",
+      "expiry_day": {
+        "verdict": "PASS",
+        "bar_close": 23864.3,
+        "bar_oi": 5271100.0,
+        "bar_time": "15:29:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 2.5,
+        "next_close_abs_diff": 144.79999999999927
+      },
+      "day_after": {
+        "verdict": "PASS",
+        "bar_close": 24084.0,
+        "bar_oi": 0.0,
+        "bar_time": "15:29:00",
+        "closest_contract": "front",
+        "expected_contract": "front",
+        "front_close_abs_diff": 8.599999999998545,
+        "next_close_abs_diff": 111.29999999999927
+      }
+    }
+  ],
+  "roll_check_summary": {
+    "samples": 12,
+    "expiry_day_pass": 12,
+    "day_after_pass": 12
+  }
+}
