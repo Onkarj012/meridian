@@ -1,0 +1,1828 @@
+{
+  "source": "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv",
+  "archive_root": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot",
+  "range": {
+    "start": "2024-11-01",
+    "end": "2026-06-16"
+  },
+  "overlap_checks": [
+    {
+      "trade_date": "2024-10-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/10/nifty_spot01_10_2024.csv",
+      "derived_rows": 375,
+      "vintage_rows": 375,
+      "matching_times": 375,
+      "missing_or_extra_times": 0,
+      "max_abs_close_diff": 3.2000000000007276,
+      "max_relative_close_diff": 0.00012408992641857965,
+      "drift_over_threshold": false
+    },
+    {
+      "trade_date": "2024-10-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/10/nifty_spot03_10_2024.csv",
+      "derived_rows": 375,
+      "vintage_rows": 375,
+      "matching_times": 375,
+      "missing_or_extra_times": 0,
+      "max_abs_close_diff": 3.0500000000029104,
+      "max_relative_close_diff": 0.0001189844578991211,
+      "drift_over_threshold": false
+    },
+    {
+      "trade_date": "2024-10-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/10/nifty_spot04_10_2024.csv",
+      "derived_rows": 375,
+      "vintage_rows": 375,
+      "matching_times": 375,
+      "missing_or_extra_times": 0,
+      "max_abs_close_diff": 1.8500000000021828,
+      "max_relative_close_diff": 7.277218765005557e-05,
+      "drift_over_threshold": false
+    },
+    {
+      "trade_date": "2026-03-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/3/nifty_spot02_03_2026.csv",
+      "derived_rows": 375,
+      "vintage_rows": 375,
+      "matching_times": 375,
+      "missing_or_extra_times": 0,
+      "max_abs_close_diff": 0.0,
+      "max_relative_close_diff": 0.0,
+      "drift_over_threshold": false
+    },
+    {
+      "trade_date": "2026-03-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/3/nifty_spot04_03_2026.csv",
+      "derived_rows": 375,
+      "vintage_rows": 375,
+      "matching_times": 375,
+      "missing_or_extra_times": 0,
+      "max_abs_close_diff": 0.0,
+      "max_relative_close_diff": 0.0,
+      "drift_over_threshold": false
+    },
+    {
+      "trade_date": "2026-03-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/3/nifty_spot05_03_2026.csv",
+      "derived_rows": 375,
+      "vintage_rows": 375,
+      "matching_times": 375,
+      "missing_or_extra_times": 0,
+      "max_abs_close_diff": 0.0,
+      "max_relative_close_diff": 0.0,
+      "drift_over_threshold": false
+    }
+  ],
+  "blocked": false,
+  "written": [
+    {
+      "trade_date": "2024-11-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot04_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot05_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot06_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot07_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot08_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot11_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot12_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot13_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot14_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot18_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot19_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot21_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot22_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot25_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot26_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot27_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot28_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-11-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/11/nifty_spot29_11_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot02_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot03_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot04_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot05_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot06_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot09_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot10_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot11_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot12_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot13_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot16_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot17_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot18_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot19_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot20_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot23_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot24_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot26_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot27_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot30_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2024-12-31",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2024/12/nifty_spot31_12_2024.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot01_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot02_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot03_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot06_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot07_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot08_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot09_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot10_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot13_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot14_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot15_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot16_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot17_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot20_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot21_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot22_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot23_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot24_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot27_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot28_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot29_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot30_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-01-31",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/1/nifty_spot31_01_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot01_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot03_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot04_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot05_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot06_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot07_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot10_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot11_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot12_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot13_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot14_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot17_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot18_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot19_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot20_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot21_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot24_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot25_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot27_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-02-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/2/nifty_spot28_02_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot03_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot04_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot05_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot06_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot07_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot10_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot11_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot12_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot13_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot17_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot18_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot19_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot20_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot21_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot24_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot25_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot26_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot27_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-03-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/3/nifty_spot28_03_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot01_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot02_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot03_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot04_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot07_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot08_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot09_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot11_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot15_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot16_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot17_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot21_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot22_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot23_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot24_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot25_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot28_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot29_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-04-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/4/nifty_spot30_04_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot02_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot05_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot06_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot07_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot08_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot09_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot12_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot13_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot14_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot15_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot16_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot19_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot20_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot21_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot22_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot23_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot26_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot27_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot28_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot29_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-05-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/5/nifty_spot30_05_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot02_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot03_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot04_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot05_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot06_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot09_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot10_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot11_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot12_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot13_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot16_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot17_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot18_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot19_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot20_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot23_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot24_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot25_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot26_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot27_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-06-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/6/nifty_spot30_06_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot01_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot02_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot03_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot04_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot07_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot08_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot09_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot10_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot11_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot14_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot15_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot16_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot17_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot18_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot21_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot22_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot23_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot24_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot25_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot28_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot29_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot30_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-07-31",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/7/nifty_spot31_07_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot01_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot04_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot05_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot06_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot07_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot08_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot11_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot12_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot13_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot14_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot18_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot19_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot20_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot21_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot22_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot25_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot26_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot28_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-08-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/8/nifty_spot29_08_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot01_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot02_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot03_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot04_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot05_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot08_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot09_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot10_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot11_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot12_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot15_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot16_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot17_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot18_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot19_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot22_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot23_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot24_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot25_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot26_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot29_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-09-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/9/nifty_spot30_09_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot01_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot03_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot06_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot07_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot08_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot09_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot10_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot13_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot14_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot15_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot16_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot17_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot20_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot21_10_2025.csv",
+      "rows": 60
+    },
+    {
+      "trade_date": "2025-10-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot23_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot24_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot27_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot28_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot29_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot30_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-10-31",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/10/nifty_spot31_10_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot03_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot04_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot06_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot07_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot10_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot11_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot12_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot13_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot14_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot17_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot18_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot19_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot20_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot21_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot24_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot25_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot26_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot27_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-11-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/11/nifty_spot28_11_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot01_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot02_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot03_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot04_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot05_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot08_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot09_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot10_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot11_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot12_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot15_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot16_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot17_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot18_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot19_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot22_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot23_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot24_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot26_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot29_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot30_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2025-12-31",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2025/12/nifty_spot31_12_2025.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot01_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot02_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot05_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot06_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot07_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot08_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot09_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot12_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot13_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot14_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot16_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot19_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot20_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot21_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot22_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot23_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot27_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot28_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot29_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-01-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/1/nifty_spot30_01_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot01_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot02_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot03_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot04_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot05_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot06_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot09_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot10_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot11_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot12_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot13_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot16_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot17_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot18_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot19_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot20_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot23_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot24_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot25_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot26_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-02-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/2/nifty_spot27_02_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-06-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/6/nifty_spot08_06_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-06-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/6/nifty_spot09_06_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-06-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/6/nifty_spot10_06_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-06-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/6/nifty_spot11_06_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-06-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/6/nifty_spot15_06_2026.csv",
+      "rows": 375
+    },
+    {
+      "trade_date": "2026-06-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot/2026/6/nifty_spot16_06_2026.csv",
+      "rows": 375
+    }
+  ],
+  "skipped": [
+    "2026-03-02",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-11",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-16",
+    "2026-03-17",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-20",
+    "2026-03-23",
+    "2026-03-24",
+    "2026-03-25",
+    "2026-03-27",
+    "2026-03-30",
+    "2026-04-01",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-07",
+    "2026-04-08",
+    "2026-04-09",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-22",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-05",
+    "2026-05-06",
+    "2026-05-07",
+    "2026-05-08",
+    "2026-05-11",
+    "2026-05-12",
+    "2026-05-13",
+    "2026-05-14",
+    "2026-05-15",
+    "2026-05-18",
+    "2026-05-19",
+    "2026-05-20",
+    "2026-05-21",
+    "2026-05-22",
+    "2026-05-25",
+    "2026-05-26",
+    "2026-05-27",
+    "2026-05-29",
+    "2026-06-02",
+    "2026-06-03",
+    "2026-06-05",
+    "2026-06-12"
+  ],
+  "missing_source_days": [],
+  "file_counts_by_year": {
+    "2020": 252,
+    "2021": 248,
+    "2022": 248,
+    "2023": 246,
+    "2024": 248,
+    "2025": 249,
+    "2026": 109
+  }
+}

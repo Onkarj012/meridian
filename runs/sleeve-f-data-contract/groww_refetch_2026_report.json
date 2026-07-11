@@ -1,0 +1,1946 @@
+{
+  "fetched": [
+    {
+      "trade_date": "2026-04-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_01_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_02_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_06_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_07_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_08_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_09_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_10_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_13_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_15_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_16_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_17_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_20_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_21_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_22_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_23_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_24_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_27_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_28_04_2026.csv",
+      "contract": "NSE-NIFTY-28Apr26-FUT"
+    },
+    {
+      "trade_date": "2026-04-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_29_04_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-04-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_30_04_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_04_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_05_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_06_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_07_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_08_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_11_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_12_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_13_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_14_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_15_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_18_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_19_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_20_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_21_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_22_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_25_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_26_05_2026.csv",
+      "contract": "NSE-NIFTY-26May26-FUT"
+    },
+    {
+      "trade_date": "2026-05-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_27_05_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-05-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_29_05_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_01_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_02_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_04_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_05_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_08_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_09_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_10_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_11_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_12_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_15_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_16_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_17_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_18_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_19_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_22_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_23_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_24_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_25_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_29_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    },
+    {
+      "trade_date": "2026-06-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_30_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    }
+  ],
+  "skipped": [],
+  "failed": [],
+  "validation_results": [
+    {
+      "trade_date": "2026-04-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_01_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 22830.0,
+      "last_trade_close": 22830.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 22801.87525608923,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 8753615.0,
+      "close_oi": 21163400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 22800.1,
+      "expected_volume": 8795540.0,
+      "expected_oi": 20817420.0
+    },
+    {
+      "trade_date": "2026-04-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_02_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 22773.0,
+      "last_trade_close": 22773.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 22767.854551892637,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 8754330.0,
+      "close_oi": 21865600.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 22766.6,
+      "expected_volume": 8772075.0,
+      "expected_oi": 21429395.0
+    },
+    {
+      "trade_date": "2026-04-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_06_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23050.2,
+      "last_trade_close": 23050.2,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 23056.093759942527,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 7707245.0,
+      "close_oi": 22015300.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23057.0,
+      "expected_volume": 7712900.0,
+      "expected_oi": 21501935.0
+    },
+    {
+      "trade_date": "2026-04-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_07_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23165.0,
+      "last_trade_close": 23165.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23150.947177223785,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 7258485.0,
+      "close_oi": 22380800.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23151.1,
+      "expected_volume": 7273500.0,
+      "expected_oi": 21563945.0
+    },
+    {
+      "trade_date": "2026-04-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_08_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24087.1,
+      "last_trade_close": 24087.1,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24059.18510207262,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 7930975.0,
+      "close_oi": 20600900.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24057.8,
+      "expected_volume": 8003840.0,
+      "expected_oi": 20142655.0
+    },
+    {
+      "trade_date": "2026-04-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_09_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23864.5,
+      "last_trade_close": 23864.5,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23860.72854766099,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5719155.0,
+      "close_oi": 20135700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23861.3,
+      "expected_volume": 5737680.0,
+      "expected_oi": 19774820.0
+    },
+    {
+      "trade_date": "2026-04-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_10_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24110.0,
+      "last_trade_close": 24110.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24100.05199510404,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5375110.0,
+      "close_oi": 19251700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24101.0,
+      "expected_volume": 5383040.0,
+      "expected_oi": 18576935.0
+    },
+    {
+      "trade_date": "2026-04-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_13_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23850.0,
+      "last_trade_close": 23850.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23858.80366206232,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5407935.0,
+      "close_oi": 19133500.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23858.7,
+      "expected_volume": 5446480.0,
+      "expected_oi": 18687110.0
+    },
+    {
+      "trade_date": "2026-04-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_15_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 24225.0,
+      "last_trade_close": 24225.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 24236.88810901144,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 4196855.0,
+      "close_oi": 18745600.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24237.7,
+      "expected_volume": 4232540.0,
+      "expected_oi": 17909580.0
+    },
+    {
+      "trade_date": "2026-04-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_16_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24186.3,
+      "last_trade_close": 24186.3,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24194.93318278052,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4454775.0,
+      "close_oi": 18001900.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24195.8,
+      "expected_volume": 4463940.0,
+      "expected_oi": 17452825.0
+    },
+    {
+      "trade_date": "2026-04-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_17_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24394.0,
+      "last_trade_close": 24394.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24369.152775956285,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3356015.0,
+      "close_oi": 17556500.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24368.0,
+      "expected_volume": 3358875.0,
+      "expected_oi": 17201665.0
+    },
+    {
+      "trade_date": "2026-04-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_20_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24312.0,
+      "last_trade_close": 24312.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24330.574400348887,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4417205.0,
+      "close_oi": 17112200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24331.8,
+      "expected_volume": 4426825.0,
+      "expected_oi": 16736265.0
+    },
+    {
+      "trade_date": "2026-04-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_21_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24585.5,
+      "last_trade_close": 24585.5,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24584.438203240057,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3605225.0,
+      "close_oi": 16826200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24584.5,
+      "expected_volume": 3607240.0,
+      "expected_oi": 16390010.0
+    },
+    {
+      "trade_date": "2026-04-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_22_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 24385.0,
+      "last_trade_close": 24385.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 24381.00471992654,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 3279575.0,
+      "close_oi": 16456200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24381.2,
+      "expected_volume": 3292445.0,
+      "expected_oi": 16216525.0
+    },
+    {
+      "trade_date": "2026-04-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_23_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 24166.0,
+      "last_trade_close": 24166.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24163.915370979994,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5083585.0,
+      "close_oi": 15474600.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24163.0,
+      "expected_volume": 5105165.0,
+      "expected_oi": 14441440.0
+    },
+    {
+      "trade_date": "2026-04-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_24_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23935.0,
+      "last_trade_close": 23935.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23922.656867013724,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5643495.0,
+      "close_oi": 14665800.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23922.8,
+      "expected_volume": 5646095.0,
+      "expected_oi": 12326860.0
+    },
+    {
+      "trade_date": "2026-04-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_27_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 24127.0,
+      "last_trade_close": 24127.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24120.272995484196,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 6461780.0,
+      "close_oi": 11693800.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24120.1,
+      "expected_volume": 6472635.0,
+      "expected_oi": 8290425.0
+    },
+    {
+      "trade_date": "2026-04-28",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_28_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1527_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23995.0,
+      "last_trade_close": 23995.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23991.292185128983,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3597945.0,
+      "close_oi": 6894000.0,
+      "oi_observation_time": "15:27:00",
+      "expected_close": 23993.8,
+      "expected_volume": 3603080.0,
+      "expected_oi": 6282380.0
+    },
+    {
+      "trade_date": "2026-04-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_29_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 24232.0,
+      "last_trade_close": 24232.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 24252.022212000407,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 5621005.0,
+      "close_oi": 14631300.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24252.0,
+      "expected_volume": 5624385.0,
+      "expected_oi": 14346475.0
+    },
+    {
+      "trade_date": "2026-04-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_30_04_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24136.7,
+      "last_trade_close": 24136.7,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24098.574792729592,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 6181305.0,
+      "close_oi": 15486500.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24098.2,
+      "expected_volume": 6198725.0,
+      "expected_oi": 15229760.0
+    },
+    {
+      "trade_date": "2026-05-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_04_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24199.0,
+      "last_trade_close": 24199.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24206.0677386347,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4765540.0,
+      "close_oi": 15774700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24206.0,
+      "expected_volume": 4780815.0,
+      "expected_oi": 15691520.0
+    },
+    {
+      "trade_date": "2026-05-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_05_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24128.0,
+      "last_trade_close": 24128.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24107.099856037432,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4153500.0,
+      "close_oi": 16070700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24106.3,
+      "expected_volume": 4164745.0,
+      "expected_oi": 16049215.0
+    },
+    {
+      "trade_date": "2026-05-06",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_06_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24466.3,
+      "last_trade_close": 24466.3,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24448.9681995842,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 6449690.0,
+      "close_oi": 16463300.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24447.4,
+      "expected_volume": 6462690.0,
+      "expected_oi": 16343340.0
+    },
+    {
+      "trade_date": "2026-05-07",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_07_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 24405.0,
+      "last_trade_close": 24405.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 24383.70561142857,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 4336930.0,
+      "close_oi": 16951200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24382.8,
+      "expected_volume": 4342975.0,
+      "expected_oi": 16814980.0
+    },
+    {
+      "trade_date": "2026-05-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_08_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24228.7,
+      "last_trade_close": 24228.7,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24234.664779207003,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3871205.0,
+      "close_oi": 17340700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24234.6,
+      "expected_volume": 3892005.0,
+      "expected_oi": 17079075.0
+    },
+    {
+      "trade_date": "2026-05-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_11_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23860.0,
+      "last_trade_close": 23860.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23868.001989640714,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4715945.0,
+      "close_oi": 18105900.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23868.5,
+      "expected_volume": 4745715.0,
+      "expected_oi": 17771715.0
+    },
+    {
+      "trade_date": "2026-05-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_12_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23470.0,
+      "last_trade_close": 23470.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23426.843577856558,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5749705.0,
+      "close_oi": 19300500.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23424.7,
+      "expected_volume": 5760560.0,
+      "expected_oi": 19041295.0
+    },
+    {
+      "trade_date": "2026-05-13",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_13_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23481.0,
+      "last_trade_close": 23481.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 23463.161362038663,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 4782570.0,
+      "close_oi": 18785600.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23462.4,
+      "expected_volume": 4785040.0,
+      "expected_oi": 18454930.0
+    },
+    {
+      "trade_date": "2026-05-14",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_14_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23730.0,
+      "last_trade_close": 23730.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23703.143825807394,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5538260.0,
+      "close_oi": 17910400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23700.1,
+      "expected_volume": 5542160.0,
+      "expected_oi": 17652960.0
+    },
+    {
+      "trade_date": "2026-05-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_15_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23673.4,
+      "last_trade_close": 23673.4,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23644.284930937793,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5142800.0,
+      "close_oi": 17699600.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23643.9,
+      "expected_volume": 5147675.0,
+      "expected_oi": 17040140.0
+    },
+    {
+      "trade_date": "2026-05-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_18_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23659.0,
+      "last_trade_close": 23659.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23662.18762088975,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5480475.0,
+      "close_oi": 16578100.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23658.0,
+      "expected_volume": 5504200.0,
+      "expected_oi": 16072355.0
+    },
+    {
+      "trade_date": "2026-05-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_19_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23605.0,
+      "last_trade_close": 23605.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23609.335752808987,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3324360.0,
+      "close_oi": 16250500.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23612.0,
+      "expected_volume": 3329040.0,
+      "expected_oi": 15932150.0
+    },
+    {
+      "trade_date": "2026-05-20",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_20_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23695.0,
+      "last_trade_close": 23695.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 23668.206793206795,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 3538925.0,
+      "close_oi": 16002300.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23668.5,
+      "expected_volume": 3551730.0,
+      "expected_oi": 15583295.0
+    },
+    {
+      "trade_date": "2026-05-21",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_21_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23635.0,
+      "last_trade_close": 23635.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23630.74627954779,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5008640.0,
+      "close_oi": 17118200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23631.4,
+      "expected_volume": 5029050.0,
+      "expected_oi": 14484340.0
+    },
+    {
+      "trade_date": "2026-05-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_22_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23776.3,
+      "last_trade_close": 23776.3,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23747.061300309597,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5768945.0,
+      "close_oi": 14400600.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23744.0,
+      "expected_volume": 5771870.0,
+      "expected_oi": 11340810.0
+    },
+    {
+      "trade_date": "2026-05-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_25_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 24119.0,
+      "last_trade_close": 24119.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24065.042270944385,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4873440.0,
+      "close_oi": 10938700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24063.0,
+      "expected_volume": 4879810.0,
+      "expected_oi": 8368295.0
+    },
+    {
+      "trade_date": "2026-05-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_26_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23911.3,
+      "last_trade_close": 23911.3,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23913.885356720537,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3279445.0,
+      "close_oi": 7004400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23913.0,
+      "expected_volume": 3281525.0,
+      "expected_oi": 6626815.0
+    },
+    {
+      "trade_date": "2026-05-27",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_27_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24006.2,
+      "last_trade_close": 24006.2,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23995.106871537853,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 2883920.0,
+      "close_oi": 14924800.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23996.7,
+      "expected_volume": 2889965.0,
+      "expected_oi": 14782950.0
+    },
+    {
+      "trade_date": "2026-05-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_29_05_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23740.0,
+      "last_trade_close": 23740.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23748.464442783945,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 8714745.0,
+      "close_oi": 18699100.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23748.8,
+      "expected_volume": 8726185.0,
+      "expected_oi": 17205565.0
+    },
+    {
+      "trade_date": "2026-06-01",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_01_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23459.9,
+      "last_trade_close": 23459.9,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 23462.06972401858,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 4861740.0,
+      "close_oi": 18334000.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23462.0,
+      "expected_volume": 4876365.0,
+      "expected_oi": 17705220.0
+    },
+    {
+      "trade_date": "2026-06-02",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_02_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23605.0,
+      "last_trade_close": 23605.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23602.184872512436,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5729165.0,
+      "close_oi": 17747200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23603.1,
+      "expected_volume": 5756205.0,
+      "expected_oi": 17458155.0
+    },
+    {
+      "trade_date": "2026-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "ok": false,
+      "failures": [
+        "close",
+        "volume"
+      ],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23490.0,
+      "last_trade_close": 23490.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": null,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 0.0,
+      "close_oi": 19328200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23515.7,
+      "expected_volume": 8486920.0,
+      "expected_oi": 19037070.0
+    },
+    {
+      "trade_date": "2026-06-04",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_04_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23535.0,
+      "last_trade_close": 23535.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23510.28417462483,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4262440.0,
+      "close_oi": 19805800.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23511.6,
+      "expected_volume": 4290390.0,
+      "expected_oi": 19696105.0
+    },
+    {
+      "trade_date": "2026-06-05",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_05_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23440.0,
+      "last_trade_close": 23440.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 23452.15655247417,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 5054205.0,
+      "close_oi": 19902800.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23451.7,
+      "expected_volume": 5056285.0,
+      "expected_oi": 19491810.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_08_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23147.1,
+      "last_trade_close": 23147.1,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23174.839443659675,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4860700.0,
+      "close_oi": 20445400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23174.6,
+      "expected_volume": 4881500.0,
+      "expected_oi": 19581575.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_09_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23347.0,
+      "last_trade_close": 23347.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23332.58792499485,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3808350.0,
+      "close_oi": 19868400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23331.1,
+      "expected_volume": 3814590.0,
+      "expected_oi": 19417060.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_10_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23235.5,
+      "last_trade_close": 23235.5,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23240.293123400468,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3461055.0,
+      "close_oi": 19263400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23240.1,
+      "expected_volume": 3466450.0,
+      "expected_oi": 19134310.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_11_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23227.9,
+      "last_trade_close": 23227.9,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23201.369098438994,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3987555.0,
+      "close_oi": 19180700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23200.0,
+      "expected_volume": 3994900.0,
+      "expected_oi": 18778175.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_12_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23714.8,
+      "last_trade_close": 23714.8,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23689.288599560175,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 7129200.0,
+      "close_oi": 18770300.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23686.6,
+      "expected_volume": 7153510.0,
+      "expected_oi": 18200000.0
+    },
+    {
+      "trade_date": "2026-06-15",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_15_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23930.0,
+      "last_trade_close": 23930.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23918.113785577883,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4654455.0,
+      "close_oi": 18025400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23916.6,
+      "expected_volume": 4684940.0,
+      "expected_oi": 17817930.0
+    },
+    {
+      "trade_date": "2026-06-16",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_16_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 24007.0,
+      "last_trade_close": 24007.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 24001.06899546338,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 3262935.0,
+      "close_oi": 17635200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24001.0,
+      "expected_volume": 3267225.0,
+      "expected_oi": 17180800.0
+    },
+    {
+      "trade_date": "2026-06-17",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_17_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24089.9,
+      "last_trade_close": 24089.9,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24094.691119638206,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 2504255.0,
+      "close_oi": 17098900.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24094.0,
+      "expected_volume": 2506660.0,
+      "expected_oi": 16807115.0
+    },
+    {
+      "trade_date": "2026-06-18",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_18_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24209.0,
+      "last_trade_close": 24209.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24193.742604529616,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 2874300.0,
+      "close_oi": 16759700.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24192.5,
+      "expected_volume": 2883270.0,
+      "expected_oi": 16511170.0
+    },
+    {
+      "trade_date": "2026-06-19",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_19_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24077.0,
+      "last_trade_close": 24077.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24059.01675819461,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3675555.0,
+      "close_oi": 16678200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24056.9,
+      "expected_volume": 3696420.0,
+      "expected_oi": 16483480.0
+    },
+    {
+      "trade_date": "2026-06-22",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_22_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 24119.9,
+      "last_trade_close": 24119.9,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24123.253752567547,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 2092350.0,
+      "close_oi": 16216500.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24123.8,
+      "expected_volume": 2096640.0,
+      "expected_oi": 16090685.0
+    },
+    {
+      "trade_date": "2026-06-23",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_23_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar"
+      ],
+      "bar_count": 376,
+      "last_close": 23810.0,
+      "last_trade_close": 23810.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23849.83954033771,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 3709875.0,
+      "close_oi": 16290400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23852.5,
+      "expected_volume": 3711825.0,
+      "expected_oi": 15876575.0
+    },
+    {
+      "trade_date": "2026-06-24",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_24_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 24053.6,
+      "last_trade_close": 24053.6,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24054.836261381897,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5803785.0,
+      "close_oi": 15404300.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24051.8,
+      "expected_volume": 5805670.0,
+      "expected_oi": 13134745.0
+    },
+    {
+      "trade_date": "2026-06-25",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_25_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 24103.3,
+      "last_trade_close": 24103.3,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 24102.95323723229,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 5696535.0,
+      "close_oi": 12147400.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 24102.3,
+      "expected_volume": 5698680.0,
+      "expected_oi": 9944155.0
+    },
+    {
+      "trade_date": "2026-06-29",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_29_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_from_1529_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 376,
+      "last_close": 23971.0,
+      "last_trade_close": 23971.0,
+      "last_trade_close_observation_time": "15:30:00",
+      "close_vwap": 23975.4488330608,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:30:00",
+      "volume": 4902105.0,
+      "close_oi": 9327100.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23972.9,
+      "expected_volume": 4903730.0,
+      "expected_oi": 6888245.0
+    },
+    {
+      "trade_date": "2026-06-30",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_30_06_2026.csv",
+      "ok": true,
+      "failures": [],
+      "notes": [
+        "oi_timing_drift"
+      ],
+      "bar_count": 375,
+      "last_close": 23864.3,
+      "last_trade_close": 23864.3,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": 23861.307262569833,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 4325685.0,
+      "close_oi": 5271100.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23861.8,
+      "expected_volume": 4328220.0,
+      "expected_oi": 4780620.0
+    }
+  ],
+  "validation_failures": [
+    {
+      "trade_date": "2026-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "ok": false,
+      "failures": [
+        "close",
+        "volume"
+      ],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23490.0,
+      "last_trade_close": 23490.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": null,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 0.0,
+      "close_oi": 19328200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23515.7,
+      "expected_volume": 8486920.0,
+      "expected_oi": 19037070.0
+    }
+  ],
+  "warnings": [
+    {
+      "trade_date": "2026-04-01",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-02",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-06",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-07",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-08",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-09",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-10",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-13",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-15",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-16",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-17",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-20",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-21",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-22",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-23",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-24",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-27",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-28",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-29",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-04-30",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-04",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-05",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-06",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-07",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-08",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-11",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-12",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-13",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-14",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-15",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-18",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-19",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-20",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-21",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-22",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-25",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-26",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-27",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-05-29",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-01",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-02",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-03",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-04",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-05",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-08",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-09",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-10",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-11",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-12",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-15",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-16",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-17",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-18",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-19",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-22",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-23",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-24",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-25",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-29",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    },
+    {
+      "trade_date": "2026-06-30",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    }
+  ]
+}

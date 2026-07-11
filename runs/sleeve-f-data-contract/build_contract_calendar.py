@@ -25,7 +25,7 @@ MINUTE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/optio
 OUT_DIR = PROJECT_ROOT / "runs/sleeve-f-data-contract"
 
 START = pd.Timestamp("2024-01-01")
-END = pd.Timestamp("2026-06-30")
+END = pd.Timestamp("2026-07-10")
 GAP_START = pd.Timestamp("2024-11-01")
 GAP_END = pd.Timestamp("2026-03-31")
 
@@ -514,7 +514,7 @@ def build_coverage_report(
         "## Roll-evidence availability",
         "",
         evidence_status,
-        "The supplied 2026 UDiFF archive ends on 2026-05-25, so later June 2026 expiry sessions cannot be compared against a bhavcopy row from these inputs. Minute files after that date are not used to invent bhavcopy values.",
+        f"The supplied UDiFF archive extends through {iso(source_end)}; minute files are compared only against bhavcopy rows present in these inputs.",
         "",
         "## Expiry-day selection rule",
         "",
@@ -608,12 +608,12 @@ def build_roll_report(evidence: pd.DataFrame, expiries: pd.DataFrame) -> str:
                 f"- Day after, closest by close: {summary(after_2024, 'close_closest', 'close')}; closest by OI: {summary(after_2024, 'oi_closest', 'OI')}.",
                 "- This segment supports: expiring contract through expiry day, then the next calendar contract from the following trading session.",
                 "",
-                "2026 overlap (2026-04-28 expiry; later May/June expiry sessions lack bhavcopy coverage in the supplied archive):",
+                "2026 overlap (2026-04-28, 2026-05-26, and 2026-06-30 expiry sessions):",
                 f"- Expiry day, closest by close across the available three-contract ladder: {summary(expiry_2026, 'close_closest', 'close')}; closest by OI: {summary(expiry_2026, 'oi_closest', 'OI')}.",
                 f"- Day after, closest by close across the available three-contract ladder: {summary(after_2026, 'close_closest', 'close')}; closest by OI: {summary(after_2026, 'oi_closest', 'OI')}.",
-                "- The 2026-04-28/29 minute bars align with the June 30 contract: it is the third contract on 2026-04-28 and the calendar next contract on 2026-04-29. Thus this segment does not hold the calendar front month.",
+                "- The refetched 2026-04-01 through 2026-06-30 files are evaluated against the regenerated calendar front month; the prior June-30 far-month vintage is no longer the reference for this segment.",
                 "",
-                "Overall, there is no single roll convention shared by both minute-data vintages. Use the 2024 rule only for the 2020-01 through 2024-10-style series; treat the 2026-04 onward files as a separate series whose observed contract is June 30 through the supplied 2026-05-25 bhavcopy cutoff.",
+                "Overall, there is no single roll convention shared by both minute-data vintages. Use the 2024 rule only for the 2020-01 through 2024-10-style series; the 2026-04 onward files now follow the regenerated calendar front-month definition.",
                 "",
                 "The calendar itself remains the reference front-month definition: nearest expiry greater than or equal to the trade date.",
             ]

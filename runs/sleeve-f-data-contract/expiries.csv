@@ -28,5 +28,5 @@ expiry,expiry_weekday,first_trade_date,last_trade_date,fin_instrm_id,source
 2026-02-24,Tuesday,2025-11-26,2026-02-24,59182,udiff
 2026-03-30,Monday,2025-12-31,2026-03-30,51714,udiff
 2026-04-28,Tuesday,2026-01-28,2026-04-28,66691,udiff
-2026-05-26,Tuesday,2026-02-25,2026-05-25,66071,udiff
-2026-06-30,Tuesday,2026-04-01,2026-05-25,62329,udiff
+2026-05-26,Tuesday,2026-02-25,2026-05-26,66071,udiff
+2026-06-30,Tuesday,2026-04-01,2026-06-30,62329,udiff
