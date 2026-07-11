@@ -32,6 +32,7 @@
 | 1-alt | **Pre-open cross-market snapshot/response** — reduced vector, 4 clocks (08:00/09:00/09:15/09:45 IST) | ~80% of the pre-open hypotheses' value at a fraction of cost; separately quoted contract; loses post-09:45 innovations |
 | 2 | **Options state** — highest expected 60-min relevance if intraday timestamps + live continuation prove out | Competes at top of C3 fallback order |
 | 2 | **ADR/ETF overnight India discovery** — INFY, HDB, IBN, WIT, INDA, EPI official closes; India-specific, PIT-provable, ~3–5 days effort | Promoted in debate from #5 → default fallback after options |
+| 2 | **Licensed media event-flow** — entity-resolved, severity-weighted event intensity; unresolved-shock state; correction lineage (added 2026-07-12, see changelog §4) | Requires licensed/auditable PIT feed; free RSS fails the gate |
 | 2 | **Native announcement intensity** — counts/weights/category/minutes-since-release; no polarity models initially | Sparse exposure, hardest archive proof |
 | 3 | Daily India internal-state: official sector-index dispersion (7 indices), proven FII/DII (turnover-scaled, disagreement, persistence) | Defensible context; mostly absorbed by gap + first 30 min; never appended opportunistically to other families |
 | 3 | Pre-open daily global context (T-1 US/Asia closes, US 10Y) | Mostly decoration once gap/VIX/first-30-min exist |
@@ -42,7 +43,9 @@
 
 Clock starts at C2 artifact freeze. At **C2-freeze + 6 weeks**, the first family whose data contract passes is irrevocably designated C3:
 
-`minute ex-India → snapshot cross-market → options → ADR/ETF discovery → announcements → wait (no manufactured C3)`
+`minute ex-India → snapshot cross-market → options → licensed media event-flow → ADR/ETF discovery → announcements → wait (no manufactured C3)`
+
+> **Changelog 2026-07-12 (pre-freeze amendment, zero k — Sol-ratified):** inserted *licensed media event-flow* after options, before ADR/ETF. Legal because both docs are planning-stage, the cascade has not activated, and no outcome data informed the change. This is the FINAL pre-freeze amendment; any later insertion or reorder is a new registered roadmap version. Media family definition, audit-lane requirements, and registered form (features-into-model, never a news veto): `sleeve-f-architecture-serving-v1.md` §4. Free-RSS-only media does not pass the gate.
 
 - Weeks 0–2 commercial terms + raw samples + live capture starts; weeks 2–4 timestamp/session/seam/coverage/license validation (no labels); weeks 4–5 historical/live parity + failure injection; week 6 one signed, hashed gate report → branch selected.
 - Selection uses provenance/coverage/latency/licensing/live-parity ONLY — never PnL, IC, labels, or attribution. No deadline extensions to rescue a preferred feed; a late-passing feed waits for C4.
