@@ -114,7 +114,10 @@ def compute_features(df: pd.DataFrame, trade_date: date) -> pd.DataFrame:
 
 
 def add_regime(df: pd.DataFrame) -> pd.DataFrame:
-    """Port of the incumbent compression/regime classifier."""
+    """Port of the incumbent compression/regime classifier.
+
+    NONCAUSAL — attribution/parity use only; deployable candidates use features/causal_regime.py.
+    """
     rv = df["realized_vol_30m"]
     rv_p25 = rv.quantile(0.25)
     rv_p75 = rv.quantile(0.75)
