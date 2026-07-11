@@ -18,16 +18,24 @@ from scripts.run_sleeve_f_bridge import (
 )
 
 SOURCE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet")
+FROZEN_CACHE = SOURCE_ROOT / "cache/router_v0/futures_features_proxy.parquet"
 
 
 @pytest.mark.slow
 def test_legacy_parity_bridge_within_predeclared_tolerance():
     if not SOURCE_ROOT.exists():
         pytest.skip("incumbent source checkout is unavailable")
-    raw = pd.read_csv(SOURCE_ROOT / "data/nifty_intraday/NIFTY 50_minute.csv")
-    timestamps = pd.to_datetime(raw["date"])
-    raw = raw[(timestamps >= WINDOW_START) & (timestamps <= WINDOW_END)]
-    features = build_proxy_features(raw)
+    if FROZEN_CACHE.exists():
+        # The parity gate is defined against the frozen proxy feature cache;
+        # rebuilding from the live minute CSV drifts with data snapshots.
+        features = pd.read_parquet(FROZEN_CACHE)
+        features["datetime"] = pd.to_datetime(features["datetime"])
+        features["trade_date"] = pd.to_datetime(features["trade_date"])
+    else:
+        raw = pd.read_csv(SOURCE_ROOT / "data/nifty_intraday/NIFTY 50_minute.csv")
+        timestamps = pd.to_datetime(raw["date"])
+        raw = raw[(timestamps >= WINDOW_START) & (timestamps <= WINDOW_END)]
+        features = build_proxy_features(raw)
     actual, metadata = replay(features, load_router_model(), variant="legacy_parity")
     reference = pd.read_parquet(SOURCE_ROOT / "results/router_v0/phase3_fwd_no_guard.parquet")
     result = compare(summarize(actual), summarize(reference))
