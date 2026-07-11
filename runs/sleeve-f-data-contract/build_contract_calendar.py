@@ -14,14 +14,16 @@ import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
+import os
+
 import pandas as pd
 
 
-PROJECT_ROOT = Path("/Users/onkarj012/Projects/market/meridian")
-SOURCE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/raw")
+PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", "/Users/onkarj012/Projects/market/meridian"))
+SOURCE_ROOT = Path(os.environ.get("SOURCE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/raw"))
 UDIFF_ROOT = SOURCE_ROOT / "udiff"
 LEGACY_ROOT = SOURCE_ROOT / "legacy"
-MINUTE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut")
+MINUTE_ROOT = Path(os.environ.get("MINUTE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut"))
 OUT_DIR = PROJECT_ROOT / "runs/sleeve-f-data-contract"
 
 START = pd.Timestamp("2024-01-01")
@@ -214,7 +216,7 @@ def find_duplicate_rows(futures: pd.DataFrame) -> pd.DataFrame:
     keys = ["trade_date", "instrument_id"]
     dup = futures[futures.duplicated(keys, keep=False)].sort_values(keys)
     if dup.empty:
-        return pd.DataFrame(columns=keys + ["count"])
+        return pd.DataFrame(columns=[*keys, "count"])
     return dup.groupby(keys, as_index=False).size().rename(columns={"size": "count"})
 
 
@@ -374,12 +376,12 @@ def make_roll_evidence(
                     "calendar_third_expiry": iso(third["expiry"]) if third is not None else "",
                     "calendar_third_close": third["close"] if third is not None else pd.NA,
                     "calendar_third_oi": third["oi"] if third is not None else pd.NA,
-                    "close_abs_diff_front": abs(float(minute_close) - float(c["front_close"])) if pd.notna(minute_close) else pd.NA,
-                    "close_abs_diff_next": abs(float(minute_close) - float(c["next_close"])) if pd.notna(minute_close) else pd.NA,
-                    "oi_abs_diff_front": abs(float(minute_oi) - float(c["front_oi"])) if pd.notna(minute_oi) else pd.NA,
-                    "oi_abs_diff_next": abs(float(minute_oi) - float(c["next_oi"])) if pd.notna(minute_oi) else pd.NA,
-                    "close_abs_diff_third": abs(float(minute_close) - float(third["close"])) if third is not None and pd.notna(minute_close) else pd.NA,
-                    "oi_abs_diff_third": abs(float(minute_oi) - float(third["oi"])) if third is not None and pd.notna(minute_oi) else pd.NA,
+                    "close_abs_diff_front": abs(float(minute_close) - float(c["front_close"])) if pd.notna(minute_close) and pd.notna(c["front_close"]) else pd.NA,
+                    "close_abs_diff_next": abs(float(minute_close) - float(c["next_close"])) if pd.notna(minute_close) and pd.notna(c["next_close"]) else pd.NA,
+                    "oi_abs_diff_front": abs(float(minute_oi) - float(c["front_oi"])) if pd.notna(minute_oi) and pd.notna(c["front_oi"]) else pd.NA,
+                    "oi_abs_diff_next": abs(float(minute_oi) - float(c["next_oi"])) if pd.notna(minute_oi) and pd.notna(c["next_oi"]) else pd.NA,
+                    "close_abs_diff_third": abs(float(minute_close) - float(third["close"])) if third is not None and pd.notna(minute_close) and pd.notna(third["close"]) else pd.NA,
+                    "oi_abs_diff_third": abs(float(minute_oi) - float(third["oi"])) if third is not None and pd.notna(minute_oi) and pd.notna(third["oi"]) else pd.NA,
                 }
             )
     return pd.DataFrame(rows)

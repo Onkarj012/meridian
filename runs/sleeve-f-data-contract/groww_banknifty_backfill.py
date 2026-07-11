@@ -31,10 +31,10 @@ from ingest.expired_common import (
 )
 
 
-PROJECT_ROOT = Path("/Users/onkarj012/Projects/market/meridian")
+PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", "/Users/onkarj012/Projects/market/meridian"))
 DEFAULT_CALENDAR = PROJECT_ROOT / "runs/sleeve-f-data-contract/banknifty_contract_calendar.csv"
 DEFAULT_GAPS = PROJECT_ROOT / "runs/sleeve-f-data-contract/banknifty_gap_days.csv"
-DEFAULT_OUT_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/banknifty_data/banknifty_fut")
+DEFAULT_OUT_ROOT = Path(os.environ.get("BANKNIFTY_OUT_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/banknifty_data/banknifty_fut"))
 DEFAULT_REPORT = PROJECT_ROOT / "runs/sleeve-f-data-contract/banknifty_backfill_report.json"
 UNDERLYING = "BANKNIFTY"
 EXCHANGE = "NSE"
@@ -265,6 +265,12 @@ def validate_file(path: Path, row: dict[str, Any], lot: int | None) -> dict[str,
     checks = [("close", actual_close, expected_close, CLOSE_TOLERANCE), ("volume", actual_volume, expected_volume, VOLUME_TOLERANCE), ("oi", actual_oi, expected_oi, OI_TOLERANCE)]
     for label, actual, expected, tolerance in checks:
         if expected is None:
+            continue
+        if expected == 0:
+            valid = actual == 0
+            report[f"{label}_relative_error"] = None if actual is None else (0.0 if actual == 0 else None)
+            if not valid and "session_truncated" not in report["failures"]:
+                report["failures"].append(label)
             continue
         valid = actual is not None and (actual == expected == 0 or abs(actual - expected) / abs(expected) <= tolerance)
         report[f"{label}_relative_error"] = None if actual is None else abs(actual - expected) / abs(expected)

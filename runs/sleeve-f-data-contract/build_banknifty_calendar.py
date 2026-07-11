@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import zipfile
 from collections import Counter
@@ -13,12 +14,12 @@ from pathlib import Path
 import pandas as pd
 
 
-PROJECT_ROOT = Path("/Users/onkarj012/Projects/market/meridian")
-SOURCE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/raw")
+PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", "/Users/onkarj012/Projects/market/meridian"))
+SOURCE_ROOT = Path(os.environ.get("SOURCE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/raw"))
 UDIFF_ROOT = SOURCE_ROOT / "udiff"
 LEGACY_ROOT = SOURCE_ROOT / "legacy"
-ARCHIVE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/banknifty_data/banknifty_fut")
-SPOT_SOURCE = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv")
+ARCHIVE_ROOT = Path(os.environ.get("BANKNIFTY_ARCHIVE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/banknifty_data/banknifty_fut"))
+SPOT_SOURCE = Path(os.environ.get("NIFTY_SPOT_MINUTE_FILE", "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv"))
 OUT_DIR = PROJECT_ROOT / "runs/sleeve-f-data-contract"
 
 START = pd.Timestamp("2024-01-01")

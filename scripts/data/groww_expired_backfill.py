@@ -27,7 +27,7 @@ from ingest.groww_expired import (
     write_day_csv,
 )
 
-DEFAULT_OUT_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut")
+DEFAULT_OUT_ROOT = os.environ.get("DATA_OUT_ROOT")
 DEFAULT_REPORT = Path("runs/sleeve-f-data-contract/groww_backfill_report.json")
 
 
@@ -38,7 +38,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--to", dest="to_date")
     parser.add_argument("--calendar")
     parser.add_argument("--gap-days")
-    parser.add_argument("--out-root", default=str(DEFAULT_OUT_ROOT))
+    parser.add_argument("--out-root", default=DEFAULT_OUT_ROOT)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--validate-only", action="store_true")
@@ -57,6 +57,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if not args.calendar:
         parser.error("--calendar is required unless --probe is used")
+    if not args.out_root:
+        parser.error("--out-root is required unless --probe is used")
     rows = load_target_rows(args.calendar, args.gap_days, args.from_date, args.to_date, args.out_root, validate_only=args.validate_only)
     plan = build_plan(rows)
     print_plan("Groww", plan)
@@ -134,7 +136,7 @@ def main(argv: list[str] | None = None) -> int:
                 report["failed"].append({"trade_date": row["trade_date"], "contract": f"{expiry}", "reason": str(exc)})
     write_report(report, args.report)
     print(f"summary: fetched={len(report['fetched'])} skipped={len(report['skipped'])} failed={len(report['failed'])} validation_failures={len(report['validation_failures'])}")
-    return 1 if report["failed"] else 0
+    return 1 if report["failed"] or report["validation_failures"] else 0
 
 
 if __name__ == "__main__":

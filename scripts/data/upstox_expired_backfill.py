@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +17,7 @@ from ingest.upstox_expired import (
 )
 from ingest.expired_backfill import build_plan, load_target_rows, print_plan, write_report
 
-DEFAULT_OUT_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut")
+DEFAULT_OUT_ROOT = os.environ.get("DATA_OUT_ROOT")
 DEFAULT_REPORT = Path("runs/sleeve-f-data-contract/backfill_report.json")
 
 
@@ -25,7 +27,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--to", dest="to_date")
     parser.add_argument("--calendar", required=True)
     parser.add_argument("--gap-days")
-    parser.add_argument("--out-root", default=str(DEFAULT_OUT_ROOT))
+    parser.add_argument("--out-root", default=DEFAULT_OUT_ROOT, required=DEFAULT_OUT_ROOT is None)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--validate-only", action="store_true")
@@ -89,7 +91,7 @@ def main(argv: list[str] | None = None) -> int:
                 report["failed"].append({"trade_date": row["trade_date"], "contract": f"{exchange_token}/{expiry}", "reason": str(exc)})
     write_report(report, args.report)
     print(f"summary: fetched={len(report['fetched'])} skipped={len(report['skipped'])} failed={len(report['failed'])} validation_failures={len(report['validation_failures'])}")
-    return 1 if report["failed"] else 0
+    return 1 if report["failed"] or report["validation_failures"] else 0
 
 
 if __name__ == "__main__":

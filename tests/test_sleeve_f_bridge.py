@@ -1,6 +1,7 @@
 """Slow, pre-declared bridge gate for the original router ledger."""
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -17,7 +18,7 @@ from scripts.run_sleeve_f_bridge import (
     compare,
 )
 
-SOURCE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet")
+SOURCE_ROOT = Path(os.environ.get("INCUMBENT_SOURCE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet"))
 FROZEN_CACHE = SOURCE_ROOT / "cache/router_v0/futures_features_proxy.parquet"
 
 

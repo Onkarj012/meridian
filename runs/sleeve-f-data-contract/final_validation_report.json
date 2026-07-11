@@ -5,7 +5,7 @@
   "validation_results": [
     {
       "trade_date": "2024-11-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_01_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_01_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -15,7 +15,7 @@
     },
     {
       "trade_date": "2024-11-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_04_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_04_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -35,7 +35,7 @@
     },
     {
       "trade_date": "2024-11-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_05_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_05_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -55,7 +55,7 @@
     },
     {
       "trade_date": "2024-11-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_06_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_06_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -75,7 +75,7 @@
     },
     {
       "trade_date": "2024-11-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_07_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_07_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -95,7 +95,7 @@
     },
     {
       "trade_date": "2024-11-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_08_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_08_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -115,7 +115,7 @@
     },
     {
       "trade_date": "2024-11-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_11_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_11_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -135,7 +135,7 @@
     },
     {
       "trade_date": "2024-11-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_12_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_12_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -155,7 +155,7 @@
     },
     {
       "trade_date": "2024-11-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_13_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_13_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -175,7 +175,7 @@
     },
     {
       "trade_date": "2024-11-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_14_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_14_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -195,7 +195,7 @@
     },
     {
       "trade_date": "2024-11-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_18_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_18_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -215,7 +215,7 @@
     },
     {
       "trade_date": "2024-11-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_19_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_19_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -235,7 +235,7 @@
     },
     {
       "trade_date": "2024-11-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_21_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_21_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -255,7 +255,7 @@
     },
     {
       "trade_date": "2024-11-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_22_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_22_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -277,7 +277,7 @@
     },
     {
       "trade_date": "2024-11-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_25_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_25_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -299,7 +299,7 @@
     },
     {
       "trade_date": "2024-11-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_26_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_26_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -321,7 +321,7 @@
     },
     {
       "trade_date": "2024-11-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_27_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_27_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -343,7 +343,7 @@
     },
     {
       "trade_date": "2024-11-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_28_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_28_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -365,7 +365,7 @@
     },
     {
       "trade_date": "2024-11-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_29_11_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/11/nifty_fut_29_11_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -385,7 +385,7 @@
     },
     {
       "trade_date": "2024-12-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_02_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_02_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -405,7 +405,7 @@
     },
     {
       "trade_date": "2024-12-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_03_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_03_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -425,7 +425,7 @@
     },
     {
       "trade_date": "2024-12-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_04_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_04_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -445,7 +445,7 @@
     },
     {
       "trade_date": "2024-12-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_05_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_05_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -465,7 +465,7 @@
     },
     {
       "trade_date": "2024-12-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_06_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_06_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -485,7 +485,7 @@
     },
     {
       "trade_date": "2024-12-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_09_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_09_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -505,7 +505,7 @@
     },
     {
       "trade_date": "2024-12-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_10_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_10_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -525,7 +525,7 @@
     },
     {
       "trade_date": "2024-12-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_11_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_11_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -545,7 +545,7 @@
     },
     {
       "trade_date": "2024-12-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_12_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_12_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -565,7 +565,7 @@
     },
     {
       "trade_date": "2024-12-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_13_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_13_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -585,7 +585,7 @@
     },
     {
       "trade_date": "2024-12-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_16_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_16_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -605,7 +605,7 @@
     },
     {
       "trade_date": "2024-12-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_17_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_17_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -625,7 +625,7 @@
     },
     {
       "trade_date": "2024-12-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_18_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_18_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -645,7 +645,7 @@
     },
     {
       "trade_date": "2024-12-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_19_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_19_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -665,7 +665,7 @@
     },
     {
       "trade_date": "2024-12-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_20_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_20_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -687,7 +687,7 @@
     },
     {
       "trade_date": "2024-12-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_23_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_23_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -709,7 +709,7 @@
     },
     {
       "trade_date": "2024-12-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_24_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_24_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -731,7 +731,7 @@
     },
     {
       "trade_date": "2024-12-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_26_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_26_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -753,7 +753,7 @@
     },
     {
       "trade_date": "2024-12-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_27_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_27_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -773,7 +773,7 @@
     },
     {
       "trade_date": "2024-12-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_30_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_30_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -793,7 +793,7 @@
     },
     {
       "trade_date": "2024-12-31",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_31_12_2024.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2024/12/nifty_fut_31_12_2024.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -813,7 +813,7 @@
     },
     {
       "trade_date": "2025-01-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_01_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_01_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -835,7 +835,7 @@
     },
     {
       "trade_date": "2025-01-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_02_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_02_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -857,7 +857,7 @@
     },
     {
       "trade_date": "2025-01-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_03_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_03_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -879,7 +879,7 @@
     },
     {
       "trade_date": "2025-01-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_06_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_06_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -901,7 +901,7 @@
     },
     {
       "trade_date": "2025-01-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_07_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_07_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -923,7 +923,7 @@
     },
     {
       "trade_date": "2025-01-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_08_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_08_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -945,7 +945,7 @@
     },
     {
       "trade_date": "2025-01-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_09_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_09_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -967,7 +967,7 @@
     },
     {
       "trade_date": "2025-01-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_10_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_10_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -989,7 +989,7 @@
     },
     {
       "trade_date": "2025-01-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_13_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_13_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1011,7 +1011,7 @@
     },
     {
       "trade_date": "2025-01-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_14_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_14_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1033,7 +1033,7 @@
     },
     {
       "trade_date": "2025-01-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_15_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_15_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1055,7 +1055,7 @@
     },
     {
       "trade_date": "2025-01-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_16_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_16_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1077,7 +1077,7 @@
     },
     {
       "trade_date": "2025-01-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_17_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_17_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1099,7 +1099,7 @@
     },
     {
       "trade_date": "2025-01-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_20_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_20_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1121,7 +1121,7 @@
     },
     {
       "trade_date": "2025-01-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_21_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_21_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1143,7 +1143,7 @@
     },
     {
       "trade_date": "2025-01-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_22_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_22_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1165,7 +1165,7 @@
     },
     {
       "trade_date": "2025-01-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_23_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_23_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1187,7 +1187,7 @@
     },
     {
       "trade_date": "2025-01-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_24_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_24_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1209,7 +1209,7 @@
     },
     {
       "trade_date": "2025-01-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_27_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_27_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1232,7 +1232,7 @@
     },
     {
       "trade_date": "2025-01-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_28_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_28_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1255,7 +1255,7 @@
     },
     {
       "trade_date": "2025-01-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_29_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_29_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1278,7 +1278,7 @@
     },
     {
       "trade_date": "2025-01-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_30_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_30_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1301,7 +1301,7 @@
     },
     {
       "trade_date": "2025-01-31",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_31_01_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/1/nifty_fut_31_01_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1323,7 +1323,7 @@
     },
     {
       "trade_date": "2025-02-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_03_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_03_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1345,7 +1345,7 @@
     },
     {
       "trade_date": "2025-02-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_04_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_04_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1367,7 +1367,7 @@
     },
     {
       "trade_date": "2025-02-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_05_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_05_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1389,7 +1389,7 @@
     },
     {
       "trade_date": "2025-02-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_06_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_06_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1411,7 +1411,7 @@
     },
     {
       "trade_date": "2025-02-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_07_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_07_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1433,7 +1433,7 @@
     },
     {
       "trade_date": "2025-02-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_10_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_10_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1455,7 +1455,7 @@
     },
     {
       "trade_date": "2025-02-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_11_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_11_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1477,7 +1477,7 @@
     },
     {
       "trade_date": "2025-02-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_12_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_12_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1499,7 +1499,7 @@
     },
     {
       "trade_date": "2025-02-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_13_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_13_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1521,7 +1521,7 @@
     },
     {
       "trade_date": "2025-02-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_14_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_14_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1543,7 +1543,7 @@
     },
     {
       "trade_date": "2025-02-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_17_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_17_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1565,7 +1565,7 @@
     },
     {
       "trade_date": "2025-02-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_18_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_18_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1587,7 +1587,7 @@
     },
     {
       "trade_date": "2025-02-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_19_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_19_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1609,7 +1609,7 @@
     },
     {
       "trade_date": "2025-02-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_20_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_20_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1631,7 +1631,7 @@
     },
     {
       "trade_date": "2025-02-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_21_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_21_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1654,7 +1654,7 @@
     },
     {
       "trade_date": "2025-02-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_24_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_24_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1677,7 +1677,7 @@
     },
     {
       "trade_date": "2025-02-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_25_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_25_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1700,7 +1700,7 @@
     },
     {
       "trade_date": "2025-02-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_27_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_27_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1723,7 +1723,7 @@
     },
     {
       "trade_date": "2025-02-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_28_02_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/2/nifty_fut_28_02_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1746,7 +1746,7 @@
     },
     {
       "trade_date": "2025-03-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_03_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_03_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1768,7 +1768,7 @@
     },
     {
       "trade_date": "2025-03-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_04_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_04_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1790,7 +1790,7 @@
     },
     {
       "trade_date": "2025-03-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_05_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_05_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1812,7 +1812,7 @@
     },
     {
       "trade_date": "2025-03-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_06_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_06_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1834,7 +1834,7 @@
     },
     {
       "trade_date": "2025-03-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_07_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_07_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1856,7 +1856,7 @@
     },
     {
       "trade_date": "2025-03-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_10_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_10_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1878,7 +1878,7 @@
     },
     {
       "trade_date": "2025-03-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_11_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_11_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1900,7 +1900,7 @@
     },
     {
       "trade_date": "2025-03-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_12_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_12_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1922,7 +1922,7 @@
     },
     {
       "trade_date": "2025-03-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_13_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_13_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1944,7 +1944,7 @@
     },
     {
       "trade_date": "2025-03-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_17_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_17_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1966,7 +1966,7 @@
     },
     {
       "trade_date": "2025-03-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_18_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_18_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -1988,7 +1988,7 @@
     },
     {
       "trade_date": "2025-03-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_19_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_19_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2010,7 +2010,7 @@
     },
     {
       "trade_date": "2025-03-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_20_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_20_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2032,7 +2032,7 @@
     },
     {
       "trade_date": "2025-03-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_21_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_21_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2054,7 +2054,7 @@
     },
     {
       "trade_date": "2025-03-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_24_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_24_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2077,7 +2077,7 @@
     },
     {
       "trade_date": "2025-03-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_25_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_25_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2100,7 +2100,7 @@
     },
     {
       "trade_date": "2025-03-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_26_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_26_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2123,7 +2123,7 @@
     },
     {
       "trade_date": "2025-03-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_27_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_27_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2146,7 +2146,7 @@
     },
     {
       "trade_date": "2025-03-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_28_03_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/3/nifty_fut_28_03_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2168,7 +2168,7 @@
     },
     {
       "trade_date": "2025-04-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_01_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_01_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2191,7 +2191,7 @@
     },
     {
       "trade_date": "2025-04-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_02_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_02_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2213,7 +2213,7 @@
     },
     {
       "trade_date": "2025-04-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_03_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_03_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2235,7 +2235,7 @@
     },
     {
       "trade_date": "2025-04-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_04_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_04_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2257,7 +2257,7 @@
     },
     {
       "trade_date": "2025-04-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_07_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_07_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2280,7 +2280,7 @@
     },
     {
       "trade_date": "2025-04-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_08_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_08_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2302,7 +2302,7 @@
     },
     {
       "trade_date": "2025-04-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_09_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_09_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2324,7 +2324,7 @@
     },
     {
       "trade_date": "2025-04-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_11_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_11_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2346,7 +2346,7 @@
     },
     {
       "trade_date": "2025-04-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_15_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_15_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2368,7 +2368,7 @@
     },
     {
       "trade_date": "2025-04-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_16_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_16_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2390,7 +2390,7 @@
     },
     {
       "trade_date": "2025-04-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_17_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_17_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2412,7 +2412,7 @@
     },
     {
       "trade_date": "2025-04-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_21_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_21_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2435,7 +2435,7 @@
     },
     {
       "trade_date": "2025-04-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_22_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_22_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2458,7 +2458,7 @@
     },
     {
       "trade_date": "2025-04-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_23_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_23_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2481,7 +2481,7 @@
     },
     {
       "trade_date": "2025-04-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_24_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_24_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2504,7 +2504,7 @@
     },
     {
       "trade_date": "2025-04-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_25_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_25_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2527,7 +2527,7 @@
     },
     {
       "trade_date": "2025-04-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_28_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_28_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2550,7 +2550,7 @@
     },
     {
       "trade_date": "2025-04-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_29_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_29_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2572,7 +2572,7 @@
     },
     {
       "trade_date": "2025-04-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_30_04_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/4/nifty_fut_30_04_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2594,7 +2594,7 @@
     },
     {
       "trade_date": "2025-05-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_02_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_02_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2616,7 +2616,7 @@
     },
     {
       "trade_date": "2025-05-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_05_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_05_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2638,7 +2638,7 @@
     },
     {
       "trade_date": "2025-05-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_06_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_06_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2660,7 +2660,7 @@
     },
     {
       "trade_date": "2025-05-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_07_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_07_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2682,7 +2682,7 @@
     },
     {
       "trade_date": "2025-05-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_08_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_08_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2705,7 +2705,7 @@
     },
     {
       "trade_date": "2025-05-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_09_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_09_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2728,7 +2728,7 @@
     },
     {
       "trade_date": "2025-05-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_12_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_12_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2750,7 +2750,7 @@
     },
     {
       "trade_date": "2025-05-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_13_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_13_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2772,7 +2772,7 @@
     },
     {
       "trade_date": "2025-05-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_14_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_14_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2794,7 +2794,7 @@
     },
     {
       "trade_date": "2025-05-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_15_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_15_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2817,7 +2817,7 @@
     },
     {
       "trade_date": "2025-05-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_16_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_16_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2839,7 +2839,7 @@
     },
     {
       "trade_date": "2025-05-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_19_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_19_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2861,7 +2861,7 @@
     },
     {
       "trade_date": "2025-05-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_20_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_20_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2884,7 +2884,7 @@
     },
     {
       "trade_date": "2025-05-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_21_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_21_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2906,7 +2906,7 @@
     },
     {
       "trade_date": "2025-05-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_22_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_22_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2929,7 +2929,7 @@
     },
     {
       "trade_date": "2025-05-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_23_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_23_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2952,7 +2952,7 @@
     },
     {
       "trade_date": "2025-05-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_26_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_26_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2975,7 +2975,7 @@
     },
     {
       "trade_date": "2025-05-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_27_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_27_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -2998,7 +2998,7 @@
     },
     {
       "trade_date": "2025-05-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_28_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_28_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3021,7 +3021,7 @@
     },
     {
       "trade_date": "2025-05-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_29_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_29_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3044,7 +3044,7 @@
     },
     {
       "trade_date": "2025-05-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_30_05_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/5/nifty_fut_30_05_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3066,7 +3066,7 @@
     },
     {
       "trade_date": "2025-06-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_02_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_02_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3088,7 +3088,7 @@
     },
     {
       "trade_date": "2025-06-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_03_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_03_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3110,7 +3110,7 @@
     },
     {
       "trade_date": "2025-06-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_04_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_04_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3132,7 +3132,7 @@
     },
     {
       "trade_date": "2025-06-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_05_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_05_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3154,7 +3154,7 @@
     },
     {
       "trade_date": "2025-06-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_06_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_06_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3176,7 +3176,7 @@
     },
     {
       "trade_date": "2025-06-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_09_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_09_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3198,7 +3198,7 @@
     },
     {
       "trade_date": "2025-06-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_10_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_10_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3220,7 +3220,7 @@
     },
     {
       "trade_date": "2025-06-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_11_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_11_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3242,7 +3242,7 @@
     },
     {
       "trade_date": "2025-06-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_12_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_12_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3265,7 +3265,7 @@
     },
     {
       "trade_date": "2025-06-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_13_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_13_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3287,7 +3287,7 @@
     },
     {
       "trade_date": "2025-06-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_16_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_16_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3309,7 +3309,7 @@
     },
     {
       "trade_date": "2025-06-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_17_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_17_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3331,7 +3331,7 @@
     },
     {
       "trade_date": "2025-06-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_18_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_18_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3353,7 +3353,7 @@
     },
     {
       "trade_date": "2025-06-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_19_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_19_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3375,7 +3375,7 @@
     },
     {
       "trade_date": "2025-06-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_20_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_20_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3398,7 +3398,7 @@
     },
     {
       "trade_date": "2025-06-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_23_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_23_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3421,7 +3421,7 @@
     },
     {
       "trade_date": "2025-06-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_24_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_24_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3444,7 +3444,7 @@
     },
     {
       "trade_date": "2025-06-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_25_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_25_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3467,7 +3467,7 @@
     },
     {
       "trade_date": "2025-06-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_26_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_26_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3490,7 +3490,7 @@
     },
     {
       "trade_date": "2025-06-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_27_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_27_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3512,7 +3512,7 @@
     },
     {
       "trade_date": "2025-06-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_30_06_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/6/nifty_fut_30_06_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3534,7 +3534,7 @@
     },
     {
       "trade_date": "2025-07-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_01_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_01_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3556,7 +3556,7 @@
     },
     {
       "trade_date": "2025-07-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_02_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_02_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3578,7 +3578,7 @@
     },
     {
       "trade_date": "2025-07-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_03_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_03_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3600,7 +3600,7 @@
     },
     {
       "trade_date": "2025-07-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_04_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_04_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3622,7 +3622,7 @@
     },
     {
       "trade_date": "2025-07-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_07_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_07_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3644,7 +3644,7 @@
     },
     {
       "trade_date": "2025-07-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_08_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_08_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3666,7 +3666,7 @@
     },
     {
       "trade_date": "2025-07-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_09_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_09_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3688,7 +3688,7 @@
     },
     {
       "trade_date": "2025-07-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_10_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_10_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3710,7 +3710,7 @@
     },
     {
       "trade_date": "2025-07-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_11_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_11_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3732,7 +3732,7 @@
     },
     {
       "trade_date": "2025-07-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_14_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_14_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3755,7 +3755,7 @@
     },
     {
       "trade_date": "2025-07-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_15_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_15_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3777,7 +3777,7 @@
     },
     {
       "trade_date": "2025-07-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_16_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_16_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3799,7 +3799,7 @@
     },
     {
       "trade_date": "2025-07-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_17_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_17_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3821,7 +3821,7 @@
     },
     {
       "trade_date": "2025-07-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_18_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_18_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3843,7 +3843,7 @@
     },
     {
       "trade_date": "2025-07-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_21_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_21_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3865,7 +3865,7 @@
     },
     {
       "trade_date": "2025-07-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_22_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_22_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3887,7 +3887,7 @@
     },
     {
       "trade_date": "2025-07-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_23_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_23_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3909,7 +3909,7 @@
     },
     {
       "trade_date": "2025-07-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_24_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_24_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3931,7 +3931,7 @@
     },
     {
       "trade_date": "2025-07-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_25_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_25_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3953,7 +3953,7 @@
     },
     {
       "trade_date": "2025-07-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_28_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_28_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3976,7 +3976,7 @@
     },
     {
       "trade_date": "2025-07-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_29_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_29_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -3999,7 +3999,7 @@
     },
     {
       "trade_date": "2025-07-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_30_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_30_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4022,7 +4022,7 @@
     },
     {
       "trade_date": "2025-07-31",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_31_07_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/7/nifty_fut_31_07_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4045,7 +4045,7 @@
     },
     {
       "trade_date": "2025-08-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_01_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_01_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4067,7 +4067,7 @@
     },
     {
       "trade_date": "2025-08-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_04_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_04_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4089,7 +4089,7 @@
     },
     {
       "trade_date": "2025-08-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_05_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_05_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4111,7 +4111,7 @@
     },
     {
       "trade_date": "2025-08-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_06_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_06_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4133,7 +4133,7 @@
     },
     {
       "trade_date": "2025-08-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_07_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_07_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4155,7 +4155,7 @@
     },
     {
       "trade_date": "2025-08-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_08_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_08_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4177,7 +4177,7 @@
     },
     {
       "trade_date": "2025-08-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_11_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_11_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4199,7 +4199,7 @@
     },
     {
       "trade_date": "2025-08-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_12_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_12_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4221,7 +4221,7 @@
     },
     {
       "trade_date": "2025-08-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_13_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_13_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4243,7 +4243,7 @@
     },
     {
       "trade_date": "2025-08-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_14_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_14_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4265,7 +4265,7 @@
     },
     {
       "trade_date": "2025-08-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_18_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_18_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4287,7 +4287,7 @@
     },
     {
       "trade_date": "2025-08-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_19_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_19_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4309,7 +4309,7 @@
     },
     {
       "trade_date": "2025-08-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_20_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_20_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4331,7 +4331,7 @@
     },
     {
       "trade_date": "2025-08-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_21_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_21_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4353,7 +4353,7 @@
     },
     {
       "trade_date": "2025-08-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_22_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_22_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4376,7 +4376,7 @@
     },
     {
       "trade_date": "2025-08-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_25_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_25_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4399,7 +4399,7 @@
     },
     {
       "trade_date": "2025-08-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_26_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_26_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4422,7 +4422,7 @@
     },
     {
       "trade_date": "2025-08-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_28_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_28_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4445,7 +4445,7 @@
     },
     {
       "trade_date": "2025-08-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_29_08_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/8/nifty_fut_29_08_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4467,7 +4467,7 @@
     },
     {
       "trade_date": "2025-09-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_01_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_01_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4489,7 +4489,7 @@
     },
     {
       "trade_date": "2025-09-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_02_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_02_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4511,7 +4511,7 @@
     },
     {
       "trade_date": "2025-09-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_03_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_03_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4533,7 +4533,7 @@
     },
     {
       "trade_date": "2025-09-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_04_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_04_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4555,7 +4555,7 @@
     },
     {
       "trade_date": "2025-09-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_05_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_05_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4577,7 +4577,7 @@
     },
     {
       "trade_date": "2025-09-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_08_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_08_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4599,7 +4599,7 @@
     },
     {
       "trade_date": "2025-09-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_09_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_09_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4621,7 +4621,7 @@
     },
     {
       "trade_date": "2025-09-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_10_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_10_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4643,7 +4643,7 @@
     },
     {
       "trade_date": "2025-09-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_11_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_11_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4665,7 +4665,7 @@
     },
     {
       "trade_date": "2025-09-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_12_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_12_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -4685,7 +4685,7 @@
     },
     {
       "trade_date": "2025-09-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_15_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_15_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4707,7 +4707,7 @@
     },
     {
       "trade_date": "2025-09-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_16_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_16_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4729,7 +4729,7 @@
     },
     {
       "trade_date": "2025-09-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_17_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_17_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4751,7 +4751,7 @@
     },
     {
       "trade_date": "2025-09-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_18_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_18_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4773,7 +4773,7 @@
     },
     {
       "trade_date": "2025-09-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_19_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_19_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4795,7 +4795,7 @@
     },
     {
       "trade_date": "2025-09-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_22_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_22_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4817,7 +4817,7 @@
     },
     {
       "trade_date": "2025-09-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_23_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_23_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4839,7 +4839,7 @@
     },
     {
       "trade_date": "2025-09-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_24_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_24_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4862,7 +4862,7 @@
     },
     {
       "trade_date": "2025-09-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_25_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_25_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4885,7 +4885,7 @@
     },
     {
       "trade_date": "2025-09-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
       "ok": false,
       "failures": [
         "session_truncated"
@@ -4911,7 +4911,7 @@
     },
     {
       "trade_date": "2025-09-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_29_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_29_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4934,7 +4934,7 @@
     },
     {
       "trade_date": "2025-09-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_30_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_30_09_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4957,7 +4957,7 @@
     },
     {
       "trade_date": "2025-10-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_01_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_01_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -4979,7 +4979,7 @@
     },
     {
       "trade_date": "2025-10-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_03_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_03_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5001,7 +5001,7 @@
     },
     {
       "trade_date": "2025-10-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_06_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_06_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5023,7 +5023,7 @@
     },
     {
       "trade_date": "2025-10-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_07_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_07_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5045,7 +5045,7 @@
     },
     {
       "trade_date": "2025-10-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_08_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_08_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5067,7 +5067,7 @@
     },
     {
       "trade_date": "2025-10-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_09_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_09_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5089,7 +5089,7 @@
     },
     {
       "trade_date": "2025-10-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_10_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_10_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -5109,7 +5109,7 @@
     },
     {
       "trade_date": "2025-10-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_13_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_13_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5131,7 +5131,7 @@
     },
     {
       "trade_date": "2025-10-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_14_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_14_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5153,7 +5153,7 @@
     },
     {
       "trade_date": "2025-10-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_15_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_15_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5175,7 +5175,7 @@
     },
     {
       "trade_date": "2025-10-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_16_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_16_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5197,7 +5197,7 @@
     },
     {
       "trade_date": "2025-10-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_17_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_17_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5219,7 +5219,7 @@
     },
     {
       "trade_date": "2025-10-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_20_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_20_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5241,7 +5241,7 @@
     },
     {
       "trade_date": "2025-10-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_21_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_21_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5252,7 +5252,7 @@
     },
     {
       "trade_date": "2025-10-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_23_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_23_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5275,7 +5275,7 @@
     },
     {
       "trade_date": "2025-10-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_24_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_24_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5298,7 +5298,7 @@
     },
     {
       "trade_date": "2025-10-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_27_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_27_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5320,7 +5320,7 @@
     },
     {
       "trade_date": "2025-10-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_28_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_28_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5343,7 +5343,7 @@
     },
     {
       "trade_date": "2025-10-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_29_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_29_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5365,7 +5365,7 @@
     },
     {
       "trade_date": "2025-10-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_30_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_30_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5387,7 +5387,7 @@
     },
     {
       "trade_date": "2025-10-31",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_31_10_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/10/nifty_fut_31_10_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5409,7 +5409,7 @@
     },
     {
       "trade_date": "2025-11-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_03_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_03_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5431,7 +5431,7 @@
     },
     {
       "trade_date": "2025-11-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_04_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_04_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5453,7 +5453,7 @@
     },
     {
       "trade_date": "2025-11-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_06_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_06_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5475,7 +5475,7 @@
     },
     {
       "trade_date": "2025-11-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_07_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_07_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5497,7 +5497,7 @@
     },
     {
       "trade_date": "2025-11-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_10_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_10_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5519,7 +5519,7 @@
     },
     {
       "trade_date": "2025-11-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_11_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_11_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5541,7 +5541,7 @@
     },
     {
       "trade_date": "2025-11-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_12_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_12_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -5561,7 +5561,7 @@
     },
     {
       "trade_date": "2025-11-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_13_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_13_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5583,7 +5583,7 @@
     },
     {
       "trade_date": "2025-11-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_14_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_14_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5605,7 +5605,7 @@
     },
     {
       "trade_date": "2025-11-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_17_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_17_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5627,7 +5627,7 @@
     },
     {
       "trade_date": "2025-11-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_18_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_18_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5649,7 +5649,7 @@
     },
     {
       "trade_date": "2025-11-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_19_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_19_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -5669,7 +5669,7 @@
     },
     {
       "trade_date": "2025-11-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_20_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_20_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5692,7 +5692,7 @@
     },
     {
       "trade_date": "2025-11-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_21_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_21_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5715,7 +5715,7 @@
     },
     {
       "trade_date": "2025-11-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_24_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_24_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5738,7 +5738,7 @@
     },
     {
       "trade_date": "2025-11-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_25_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_25_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5761,7 +5761,7 @@
     },
     {
       "trade_date": "2025-11-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_26_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_26_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5783,7 +5783,7 @@
     },
     {
       "trade_date": "2025-11-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_27_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_27_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5805,7 +5805,7 @@
     },
     {
       "trade_date": "2025-11-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_28_11_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/11/nifty_fut_28_11_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -5825,7 +5825,7 @@
     },
     {
       "trade_date": "2025-12-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_01_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_01_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5847,7 +5847,7 @@
     },
     {
       "trade_date": "2025-12-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_02_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_02_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5869,7 +5869,7 @@
     },
     {
       "trade_date": "2025-12-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_03_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_03_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -5889,7 +5889,7 @@
     },
     {
       "trade_date": "2025-12-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_04_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_04_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5911,7 +5911,7 @@
     },
     {
       "trade_date": "2025-12-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_05_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_05_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5933,7 +5933,7 @@
     },
     {
       "trade_date": "2025-12-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_08_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_08_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5955,7 +5955,7 @@
     },
     {
       "trade_date": "2025-12-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_09_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_09_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5977,7 +5977,7 @@
     },
     {
       "trade_date": "2025-12-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_10_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_10_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -5999,7 +5999,7 @@
     },
     {
       "trade_date": "2025-12-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_11_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_11_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6021,7 +6021,7 @@
     },
     {
       "trade_date": "2025-12-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_12_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_12_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6043,7 +6043,7 @@
     },
     {
       "trade_date": "2025-12-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_15_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_15_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6065,7 +6065,7 @@
     },
     {
       "trade_date": "2025-12-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_16_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_16_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6087,7 +6087,7 @@
     },
     {
       "trade_date": "2025-12-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_17_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_17_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6109,7 +6109,7 @@
     },
     {
       "trade_date": "2025-12-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_18_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_18_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6131,7 +6131,7 @@
     },
     {
       "trade_date": "2025-12-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_19_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_19_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6153,7 +6153,7 @@
     },
     {
       "trade_date": "2025-12-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_22_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_22_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6175,7 +6175,7 @@
     },
     {
       "trade_date": "2025-12-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_23_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_23_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6197,7 +6197,7 @@
     },
     {
       "trade_date": "2025-12-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_24_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_24_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6219,7 +6219,7 @@
     },
     {
       "trade_date": "2025-12-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_26_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_26_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6241,7 +6241,7 @@
     },
     {
       "trade_date": "2025-12-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_29_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_29_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6264,7 +6264,7 @@
     },
     {
       "trade_date": "2025-12-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_30_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_30_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6284,7 +6284,7 @@
     },
     {
       "trade_date": "2025-12-31",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_31_12_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/12/nifty_fut_31_12_2025.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6306,7 +6306,7 @@
     },
     {
       "trade_date": "2026-01-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_01_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_01_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6328,7 +6328,7 @@
     },
     {
       "trade_date": "2026-01-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_02_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_02_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6350,7 +6350,7 @@
     },
     {
       "trade_date": "2026-01-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_05_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_05_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6370,7 +6370,7 @@
     },
     {
       "trade_date": "2026-01-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_06_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_06_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6392,7 +6392,7 @@
     },
     {
       "trade_date": "2026-01-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_07_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_07_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6414,7 +6414,7 @@
     },
     {
       "trade_date": "2026-01-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_08_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_08_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6436,7 +6436,7 @@
     },
     {
       "trade_date": "2026-01-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_09_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_09_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6456,7 +6456,7 @@
     },
     {
       "trade_date": "2026-01-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_12_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_12_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6476,7 +6476,7 @@
     },
     {
       "trade_date": "2026-01-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_13_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_13_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6496,7 +6496,7 @@
     },
     {
       "trade_date": "2026-01-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_14_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_14_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6518,7 +6518,7 @@
     },
     {
       "trade_date": "2026-01-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_16_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_16_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6540,7 +6540,7 @@
     },
     {
       "trade_date": "2026-01-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_19_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_19_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6562,7 +6562,7 @@
     },
     {
       "trade_date": "2026-01-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_20_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_20_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6584,7 +6584,7 @@
     },
     {
       "trade_date": "2026-01-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_21_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_21_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6607,7 +6607,7 @@
     },
     {
       "trade_date": "2026-01-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_22_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_22_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6630,7 +6630,7 @@
     },
     {
       "trade_date": "2026-01-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_23_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_23_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6652,7 +6652,7 @@
     },
     {
       "trade_date": "2026-01-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_27_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_27_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6674,7 +6674,7 @@
     },
     {
       "trade_date": "2026-01-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_28_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_28_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6696,7 +6696,7 @@
     },
     {
       "trade_date": "2026-01-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_29_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_29_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6718,7 +6718,7 @@
     },
     {
       "trade_date": "2026-01-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_30_01_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/1/nifty_fut_30_01_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6740,7 +6740,7 @@
     },
     {
       "trade_date": "2026-02-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_02_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_02_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6762,7 +6762,7 @@
     },
     {
       "trade_date": "2026-02-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_03_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_03_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6785,7 +6785,7 @@
     },
     {
       "trade_date": "2026-02-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_04_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_04_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6807,7 +6807,7 @@
     },
     {
       "trade_date": "2026-02-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_05_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_05_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6829,7 +6829,7 @@
     },
     {
       "trade_date": "2026-02-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_06_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_06_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6849,7 +6849,7 @@
     },
     {
       "trade_date": "2026-02-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_09_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_09_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -6869,7 +6869,7 @@
     },
     {
       "trade_date": "2026-02-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_10_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_10_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6891,7 +6891,7 @@
     },
     {
       "trade_date": "2026-02-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_11_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_11_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6913,7 +6913,7 @@
     },
     {
       "trade_date": "2026-02-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_12_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_12_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6935,7 +6935,7 @@
     },
     {
       "trade_date": "2026-02-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_13_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_13_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6957,7 +6957,7 @@
     },
     {
       "trade_date": "2026-02-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_16_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_16_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -6979,7 +6979,7 @@
     },
     {
       "trade_date": "2026-02-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_17_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_17_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7001,7 +7001,7 @@
     },
     {
       "trade_date": "2026-02-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_18_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_18_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7023,7 +7023,7 @@
     },
     {
       "trade_date": "2026-02-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_19_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_19_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7046,7 +7046,7 @@
     },
     {
       "trade_date": "2026-02-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_20_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_20_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7069,7 +7069,7 @@
     },
     {
       "trade_date": "2026-02-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_23_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_23_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7092,7 +7092,7 @@
     },
     {
       "trade_date": "2026-02-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_24_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_24_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7115,7 +7115,7 @@
     },
     {
       "trade_date": "2026-02-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_25_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_25_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7137,7 +7137,7 @@
     },
     {
       "trade_date": "2026-02-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_26_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_26_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7159,7 +7159,7 @@
     },
     {
       "trade_date": "2026-02-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_27_02_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/2/nifty_fut_27_02_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7181,7 +7181,7 @@
     },
     {
       "trade_date": "2026-03-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_02_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_02_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7203,7 +7203,7 @@
     },
     {
       "trade_date": "2026-03-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_04_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_04_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7225,7 +7225,7 @@
     },
     {
       "trade_date": "2026-03-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_05_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_05_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7247,7 +7247,7 @@
     },
     {
       "trade_date": "2026-03-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_06_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_06_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7269,7 +7269,7 @@
     },
     {
       "trade_date": "2026-03-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_09_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_09_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7291,7 +7291,7 @@
     },
     {
       "trade_date": "2026-03-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_10_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_10_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7313,7 +7313,7 @@
     },
     {
       "trade_date": "2026-03-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_11_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_11_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7335,7 +7335,7 @@
     },
     {
       "trade_date": "2026-03-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_12_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_12_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7357,7 +7357,7 @@
     },
     {
       "trade_date": "2026-03-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_13_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_13_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7379,7 +7379,7 @@
     },
     {
       "trade_date": "2026-03-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_16_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_16_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7401,7 +7401,7 @@
     },
     {
       "trade_date": "2026-03-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_17_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_17_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7423,7 +7423,7 @@
     },
     {
       "trade_date": "2026-03-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_18_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_18_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -7443,7 +7443,7 @@
     },
     {
       "trade_date": "2026-03-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_19_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_19_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7466,7 +7466,7 @@
     },
     {
       "trade_date": "2026-03-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_20_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_20_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7488,7 +7488,7 @@
     },
     {
       "trade_date": "2026-03-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_23_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_23_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7510,7 +7510,7 @@
     },
     {
       "trade_date": "2026-03-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_24_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_24_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7533,7 +7533,7 @@
     },
     {
       "trade_date": "2026-03-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_25_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_25_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7556,7 +7556,7 @@
     },
     {
       "trade_date": "2026-03-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_27_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_27_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7579,7 +7579,7 @@
     },
     {
       "trade_date": "2026-03-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_30_03_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/3/nifty_fut_30_03_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7602,7 +7602,7 @@
     },
     {
       "trade_date": "2026-04-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_01_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_01_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -7622,7 +7622,7 @@
     },
     {
       "trade_date": "2026-04-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_02_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_02_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7644,7 +7644,7 @@
     },
     {
       "trade_date": "2026-04-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_06_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_06_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -7664,7 +7664,7 @@
     },
     {
       "trade_date": "2026-04-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_07_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_07_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7686,7 +7686,7 @@
     },
     {
       "trade_date": "2026-04-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_08_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_08_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7708,7 +7708,7 @@
     },
     {
       "trade_date": "2026-04-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_09_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_09_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7730,7 +7730,7 @@
     },
     {
       "trade_date": "2026-04-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_10_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_10_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7752,7 +7752,7 @@
     },
     {
       "trade_date": "2026-04-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_13_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_13_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7774,7 +7774,7 @@
     },
     {
       "trade_date": "2026-04-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_15_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_15_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -7794,7 +7794,7 @@
     },
     {
       "trade_date": "2026-04-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_16_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_16_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7816,7 +7816,7 @@
     },
     {
       "trade_date": "2026-04-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_17_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_17_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7838,7 +7838,7 @@
     },
     {
       "trade_date": "2026-04-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_20_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_20_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7860,7 +7860,7 @@
     },
     {
       "trade_date": "2026-04-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_21_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_21_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7882,7 +7882,7 @@
     },
     {
       "trade_date": "2026-04-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_22_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_22_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -7902,7 +7902,7 @@
     },
     {
       "trade_date": "2026-04-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_23_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_23_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7925,7 +7925,7 @@
     },
     {
       "trade_date": "2026-04-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_24_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_24_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7948,7 +7948,7 @@
     },
     {
       "trade_date": "2026-04-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_27_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_27_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7971,7 +7971,7 @@
     },
     {
       "trade_date": "2026-04-28",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_28_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_28_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -7994,7 +7994,7 @@
     },
     {
       "trade_date": "2026-04-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_29_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_29_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8014,7 +8014,7 @@
     },
     {
       "trade_date": "2026-04-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_30_04_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/4/nifty_fut_30_04_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8036,7 +8036,7 @@
     },
     {
       "trade_date": "2026-05-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_04_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_04_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8058,7 +8058,7 @@
     },
     {
       "trade_date": "2026-05-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_05_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_05_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8080,7 +8080,7 @@
     },
     {
       "trade_date": "2026-05-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_06_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_06_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8102,7 +8102,7 @@
     },
     {
       "trade_date": "2026-05-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_07_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_07_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8122,7 +8122,7 @@
     },
     {
       "trade_date": "2026-05-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_08_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_08_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8144,7 +8144,7 @@
     },
     {
       "trade_date": "2026-05-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_11_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_11_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8166,7 +8166,7 @@
     },
     {
       "trade_date": "2026-05-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_12_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_12_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8188,7 +8188,7 @@
     },
     {
       "trade_date": "2026-05-13",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_13_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_13_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8208,7 +8208,7 @@
     },
     {
       "trade_date": "2026-05-14",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_14_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_14_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8230,7 +8230,7 @@
     },
     {
       "trade_date": "2026-05-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_15_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_15_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8252,7 +8252,7 @@
     },
     {
       "trade_date": "2026-05-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_18_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_18_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8274,7 +8274,7 @@
     },
     {
       "trade_date": "2026-05-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_19_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_19_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8296,7 +8296,7 @@
     },
     {
       "trade_date": "2026-05-20",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_20_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_20_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8316,7 +8316,7 @@
     },
     {
       "trade_date": "2026-05-21",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_21_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_21_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8339,7 +8339,7 @@
     },
     {
       "trade_date": "2026-05-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_22_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_22_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8362,7 +8362,7 @@
     },
     {
       "trade_date": "2026-05-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_25_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_25_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8385,7 +8385,7 @@
     },
     {
       "trade_date": "2026-05-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_26_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_26_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8408,7 +8408,7 @@
     },
     {
       "trade_date": "2026-05-27",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_27_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_27_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8430,7 +8430,7 @@
     },
     {
       "trade_date": "2026-05-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_29_05_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_29_05_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8453,7 +8453,7 @@
     },
     {
       "trade_date": "2026-06-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_01_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_01_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8473,7 +8473,7 @@
     },
     {
       "trade_date": "2026-06-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_02_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_02_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8495,7 +8495,7 @@
     },
     {
       "trade_date": "2026-06-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
       "ok": false,
       "failures": [
         "close",
@@ -8518,7 +8518,7 @@
     },
     {
       "trade_date": "2026-06-04",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_04_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_04_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8540,7 +8540,7 @@
     },
     {
       "trade_date": "2026-06-05",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_05_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_05_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8560,7 +8560,7 @@
     },
     {
       "trade_date": "2026-06-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_08_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_08_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8582,7 +8582,7 @@
     },
     {
       "trade_date": "2026-06-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_09_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_09_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8604,7 +8604,7 @@
     },
     {
       "trade_date": "2026-06-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_10_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_10_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8626,7 +8626,7 @@
     },
     {
       "trade_date": "2026-06-11",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_11_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_11_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8648,7 +8648,7 @@
     },
     {
       "trade_date": "2026-06-12",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_12_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_12_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8670,7 +8670,7 @@
     },
     {
       "trade_date": "2026-06-15",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_15_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_15_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8692,7 +8692,7 @@
     },
     {
       "trade_date": "2026-06-16",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_16_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_16_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [],
@@ -8712,7 +8712,7 @@
     },
     {
       "trade_date": "2026-06-17",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_17_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_17_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8734,7 +8734,7 @@
     },
     {
       "trade_date": "2026-06-18",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_18_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_18_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8756,7 +8756,7 @@
     },
     {
       "trade_date": "2026-06-19",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_19_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_19_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8778,7 +8778,7 @@
     },
     {
       "trade_date": "2026-06-22",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_22_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_22_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8800,7 +8800,7 @@
     },
     {
       "trade_date": "2026-06-23",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_23_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_23_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8822,7 +8822,7 @@
     },
     {
       "trade_date": "2026-06-24",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_24_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_24_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8845,7 +8845,7 @@
     },
     {
       "trade_date": "2026-06-25",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_25_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_25_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8868,7 +8868,7 @@
     },
     {
       "trade_date": "2026-06-29",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_29_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_29_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8891,7 +8891,7 @@
     },
     {
       "trade_date": "2026-06-30",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_30_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_30_06_2026.csv",
       "ok": true,
       "failures": [],
       "notes": [
@@ -8913,7 +8913,7 @@
     },
     {
       "trade_date": "2026-07-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_01_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_01_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -8935,7 +8935,7 @@
     },
     {
       "trade_date": "2026-07-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_02_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_02_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -8957,7 +8957,7 @@
     },
     {
       "trade_date": "2026-07-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_03_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_03_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -8979,7 +8979,7 @@
     },
     {
       "trade_date": "2026-07-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_06_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_06_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9001,7 +9001,7 @@
     },
     {
       "trade_date": "2026-07-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_07_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_07_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9023,7 +9023,7 @@
     },
     {
       "trade_date": "2026-07-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_08_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_08_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9045,7 +9045,7 @@
     },
     {
       "trade_date": "2026-07-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_09_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_09_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9067,7 +9067,7 @@
     },
     {
       "trade_date": "2026-07-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_10_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_10_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9091,7 +9091,7 @@
   "validation_failures": [
     {
       "trade_date": "2025-09-26",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
       "ok": false,
       "failures": [
         "session_truncated"
@@ -9117,7 +9117,7 @@
     },
     {
       "trade_date": "2026-06-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
       "ok": false,
       "failures": [
         "close",
@@ -9140,7 +9140,7 @@
     },
     {
       "trade_date": "2026-07-01",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_01_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_01_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9162,7 +9162,7 @@
     },
     {
       "trade_date": "2026-07-02",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_02_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_02_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9184,7 +9184,7 @@
     },
     {
       "trade_date": "2026-07-03",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_03_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_03_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9206,7 +9206,7 @@
     },
     {
       "trade_date": "2026-07-06",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_06_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_06_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9228,7 +9228,7 @@
     },
     {
       "trade_date": "2026-07-07",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_07_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_07_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9250,7 +9250,7 @@
     },
     {
       "trade_date": "2026-07-08",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_08_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_08_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9272,7 +9272,7 @@
     },
     {
       "trade_date": "2026-07-09",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_09_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_09_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"
@@ -9294,7 +9294,7 @@
     },
     {
       "trade_date": "2026-07-10",
-      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_10_07_2026.csv",
+      "path": "<repo>/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/7/nifty_fut_10_07_2026.csv",
       "ok": false,
       "failures": [
         "oi"

@@ -22,7 +22,7 @@ from ingest import groww_expired
 from ingest.envfile import load_env
 
 
-VIX_FILE = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/INDIA VIX_day.csv")
+VIX_FILE = Path(os.environ.get("VIX_FILE", "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/INDIA VIX_day.csv"))
 BACKUP_FILE = Path(str(VIX_FILE) + ".bak-20260711")
 REPORT_FILE = PROJECT_ROOT / "runs/sleeve-f-data-contract/topup_vix_report.json"
 START = date(2026, 6, 17)
@@ -96,7 +96,7 @@ def provenance(source: pd.DataFrame, vintage: pd.DataFrame) -> dict[str, Any]:
 def fetch_nse_archive() -> tuple[pd.DataFrame, list[str]]:
     failures: list[str] = []
     url = "https://www.nseindia.com/api/historical/indicesHistory?" + urllib.parse.urlencode(
-        {"indexType": "INDIA VIX", "from": START.strftime("%d-%m-%Y"), "to": END.strftime("%d-%m-%Y")}
+        {"indexType": "INDIA VIX", "from": CHECK_DAY.strftime("%d-%m-%Y"), "to": END.strftime("%d-%m-%Y")}
     )
     request = urllib.request.Request(
         url,

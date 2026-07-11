@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from collections import Counter
 from pathlib import Path
 
@@ -20,7 +21,7 @@ from groww_banknifty_backfill import (
 )
 
 
-ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/banknifty_data/banknifty_fut")
+ROOT = Path(os.environ.get("BANKNIFTY_OUT_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/banknifty_data/banknifty_fut"))
 CALENDAR = Path("runs/sleeve-f-data-contract/banknifty_contract_calendar.csv")
 REPORT = Path("runs/sleeve-f-data-contract/banknifty_backfill_report.json")
 

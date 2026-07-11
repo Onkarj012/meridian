@@ -26,7 +26,11 @@ WINDOW_END = pd.Timestamp("2026-05-31")
 
 def compare(actual: dict, reference: dict) -> dict:
     def delta(value: float, baseline: float) -> dict:
-        return {"actual": value, "reference": baseline, "delta": value - baseline, "relative_delta": (value - baseline) / baseline if baseline else 0.0}
+        if baseline:
+            relative_delta = (value - baseline) / baseline
+        else:
+            relative_delta = 0.0 if value == baseline else float("inf")
+        return {"actual": value, "reference": baseline, "delta": value - baseline, "relative_delta": relative_delta}
 
     metrics = {
         "trade_count": {**delta(actual["trade_count"], reference["trade_count"]), "tolerance": TRADE_COUNT_TOLERANCE},

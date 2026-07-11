@@ -19,8 +19,8 @@ from ingest import groww_expired
 from ingest.envfile import load_env
 
 
-ARCHIVE_ROOT = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot")
-MINUTE_FILE = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv")
+ARCHIVE_ROOT = Path(os.environ.get("NIFTY_SPOT_ARCHIVE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_spot"))
+MINUTE_FILE = Path(os.environ.get("NIFTY_SPOT_MINUTE_FILE", "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv"))
 BACKUP_FILE = Path(str(MINUTE_FILE) + ".bak-20260711")
 REPORT_FILE = PROJECT_ROOT / "runs/sleeve-f-data-contract/topup_spot_2026_report.json"
 START = date(2026, 6, 17)

@@ -3,7 +3,7 @@
     "start": "2026-06-17",
     "end": "2026-07-10"
   },
-  "backup_path": "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/INDIA VIX_day.csv.bak-20260711",
+  "backup_path": "<repo>/intranet_optinet/data/nifty_intraday/INDIA VIX_day.csv.bak-20260711",
   "days_appended": [
     "2026-06-17",
     "2026-06-18",

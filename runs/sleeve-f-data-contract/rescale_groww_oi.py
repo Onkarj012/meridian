@@ -76,7 +76,7 @@ def rescale_file(path: Path, calendar_row: pd.Series) -> str:
 def run(archive: Path, calendar_path: Path, gaps_path: Path) -> dict[str, int]:
     calendar = pd.read_csv(calendar_path, dtype=str).set_index("trade_date")
     gaps = pd.read_csv(gaps_path, dtype=str)
-    counts = {"rescaled": 0, "already_normalized": 0, "skipped": 0, "missing": 0}
+    counts = {"rescaled": 0, "already_normalized": 0, "skipped": 0, "missing": 0, "ambiguous": 0}
     for trade_date in gaps["trade_date"]:
         if trade_date == "2024-11-01":
             counts["skipped"] += 1
@@ -88,7 +88,12 @@ def run(archive: Path, calendar_path: Path, gaps_path: Path) -> dict[str, int]:
         if not path.exists():
             counts["missing"] += 1
             continue
-        status = rescale_file(path, calendar.loc[trade_date])
+        try:
+            status = rescale_file(path, calendar.loc[trade_date])
+        except ValueError as exc:
+            counts["ambiguous"] += 1
+            print(f"ambiguous {trade_date}: {exc}")
+            continue
         if status == "rescaled":
             counts["rescaled"] += 1
             print(f"rescaled {trade_date}")
