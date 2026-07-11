@@ -1,0 +1,71 @@
+{
+  "source": {
+    "provider": "Groww",
+    "endpoint": "/v1/historical/candles",
+    "symbol": "NSE-NIFTY",
+    "segment": "CASH",
+    "interval": "1minute"
+  },
+  "range": {
+    "start": "2026-06-17",
+    "end": "2026-07-10"
+  },
+  "backup_path": "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv.bak-20260711",
+  "days_appended": [
+    "2026-06-17",
+    "2026-06-18",
+    "2026-06-19",
+    "2026-06-22",
+    "2026-06-23",
+    "2026-06-24",
+    "2026-06-25",
+    "2026-06-29",
+    "2026-06-30",
+    "2026-07-01",
+    "2026-07-02",
+    "2026-07-03",
+    "2026-07-06",
+    "2026-07-07",
+    "2026-07-08",
+    "2026-07-09",
+    "2026-07-10"
+  ],
+  "archive_files_written": [],
+  "archive_days_skipped": [
+    "2026-06-17",
+    "2026-06-18",
+    "2026-06-19",
+    "2026-06-22",
+    "2026-06-23",
+    "2026-06-24",
+    "2026-06-25",
+    "2026-06-29",
+    "2026-06-30",
+    "2026-07-01",
+    "2026-07-02",
+    "2026-07-03",
+    "2026-07-06",
+    "2026-07-07",
+    "2026-07-08",
+    "2026-07-09",
+    "2026-07-10"
+  ],
+  "no_source_data_days": [],
+  "provenance_check": {
+    "trade_date": "2026-06-16",
+    "source_rows": 376,
+    "vintage_rows": 375,
+    "matching_timestamps": 375,
+    "source_only_timestamps": 1,
+    "vintage_only_timestamps": 0,
+    "max_abs_close_diff": 0.0,
+    "max_relative_close_diff": 0.0,
+    "drift_over_threshold": false
+  },
+  "existing_last_timestamp": "2026-06-16 15:29:00",
+  "source_rows_in_target_range": 6392,
+  "missing_archive_days": [],
+  "backup_preexisting": true,
+  "appended_rows": 6392,
+  "blocked": false
+}

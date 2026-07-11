@@ -1,0 +1,58 @@
+{
+  "range": {
+    "start": "2026-06-17",
+    "end": "2026-07-10"
+  },
+  "backup_path": "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/INDIA VIX_day.csv.bak-20260711",
+  "days_appended": [
+    "2026-06-17",
+    "2026-06-18",
+    "2026-06-19",
+    "2026-06-22",
+    "2026-06-23",
+    "2026-06-24",
+    "2026-06-25",
+    "2026-06-29",
+    "2026-06-30",
+    "2026-07-01",
+    "2026-07-02",
+    "2026-07-03",
+    "2026-07-06",
+    "2026-07-07",
+    "2026-07-08",
+    "2026-07-09",
+    "2026-07-10"
+  ],
+  "attempts": [
+    {
+      "source": "Groww Upstox-style index key",
+      "symbol": "NSE_INDEX|India VIX",
+      "status": "failed",
+      "failure": "GrowwApiError: Groww API error (HTTP 400): {'code': 'GA001', 'message': \"groww_symbol must follow the pattern 'Exchange-TradingSymbol' (e.g., NSE-WIPRO)\", 'metadata': None}"
+    },
+    {
+      "source": "Groww instrument symbol",
+      "symbol": "NSE-INDIAVIX",
+      "status": "success",
+      "rows": 18
+    }
+  ],
+  "source": {
+    "provider": "Groww",
+    "symbol": "NSE-INDIAVIX",
+    "endpoint": "/v1/historical/candles",
+    "interval": "1day"
+  },
+  "provenance_check": {
+    "trade_date": "2026-06-16",
+    "source_close": 13.36,
+    "vintage_close": 13.362500190734863,
+    "abs_close_diff": 0.0025001907348638497,
+    "relative_close_diff": 0.00018710501022835556,
+    "drift_over_threshold": false
+  },
+  "existing_last_date": "2026-06-16",
+  "backup_preexisting": false,
+  "appended_rows": 17,
+  "blocked": false
+}
