@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
+from ingest.expired_common import nifty_lot_size
 from ingest.upstox_expired import (
     HttpResponse, UpstoxApiError, candles_to_frame, candles_to_futures_csv,
     contract_key, expired_key, fetch_minute_candles, get_future_contract,
@@ -137,24 +138,26 @@ def test_writer_skips_existing_file_without_overwrite(tmp_path):
 
 
 def valid_day_file(tmp_path, *, close=100.0, volume=10, oi=1000, count=375):
-    timestamps = pd.date_range("2024-11-01 09:15:00", periods=count, freq="min")
+    timestamps = pd.date_range("2024-11-04 09:15:00", periods=count, freq="min")
     frame = pd.DataFrame({"date": timestamps.strftime("%Y-%m-%d"), "time": timestamps.strftime("%H:%M:%S"), "symbol": "NIFTY-I", "open": close, "high": close, "low": close, "close": close, "oi": oi, "volume": volume})
-    return write_day_csv(frame, "2024-11-01", tmp_path)
+    return write_day_csv(frame, "2024-11-04", tmp_path)
 
 
 def validation_row(**updates):
-    row = {"trade_date": "2024-11-01", "front_close": 100, "front_volume": 3750, "front_oi": 1000}
+    # front_volume is in bhavcopy contracts; the Nov-2024 lot size is 25,
+    # so 150 contracts == the 3750 units summed across the fixture file.
+    row = {"trade_date": "2024-11-04", "front_expiry": "2024-11-28", "front_close": 100, "front_volume": 150, "front_oi": 1000}
     row.update(updates)
     return row
 
 
 def test_validation_passes_at_tolerance_boundary(tmp_path):
     path = valid_day_file(tmp_path, close=100.1, volume=10, oi=1050)
-    assert validate_day_file(path, validation_row(front_close=100, front_volume=3750, front_oi=1000))["ok"]
+    assert validate_day_file(path, validation_row(front_close=100, front_volume=150, front_oi=1000))["ok"]
 
 
 def test_validation_flags_bad_bar_count(tmp_path):
-    report = validate_day_file(valid_day_file(tmp_path, count=349), validation_row())
+    report = validate_day_file(valid_day_file(tmp_path, count=344), validation_row())
     assert "bar_count" in report["failures"]
 
 
@@ -171,6 +174,46 @@ def test_validation_flags_bad_volume(tmp_path):
 def test_validation_flags_bad_oi(tmp_path):
     report = validate_day_file(valid_day_file(tmp_path, oi=1060), validation_row())
     assert "oi" in report["failures"]
+
+
+def test_validation_uses_last_nonzero_volume_and_oi_with_notes(tmp_path):
+    path = valid_day_file(tmp_path)
+    frame = pd.read_csv(path)
+    frame.loc[frame.index[-1], ["close", "volume", "oi"]] = [999, 0, 0]
+    frame.to_csv(path, index=False)
+    result = validate_day_file(path, validation_row())
+    assert result["ok"]
+    assert result["last_trade_close"] == 999
+    assert result["close_vwap"] == 100
+    assert result["oi_observation_time"] == "15:28:00"
+    assert result["notes"] == ["oi_from_1528_bar"]
+
+
+def test_validation_uses_last_30_minute_volume_weighted_close(tmp_path):
+    path = valid_day_file(tmp_path)
+    frame = pd.read_csv(path)
+    frame.loc[frame.index[-30:], "close"] = [100] * 29 + [110]
+    frame.to_csv(path, index=False)
+    result = validate_day_file(path, validation_row(front_close=(29 * 100 + 110) / 30))
+    assert result["ok"]
+    assert result["last_trade_close"] == 110
+    assert result["close_vwap"] == pytest.approx((29 * 100 + 110) / 30)
+
+
+def test_validation_reports_truncated_session(tmp_path):
+    path = valid_day_file(tmp_path, count=346)
+    result = validate_day_file(path, validation_row(front_volume=3460 / 25))
+    assert not result["ok"]
+    assert result["failures"] == ["session_truncated"]
+    assert result["notes"] == ["truncated_day"]
+
+
+def test_validation_skips_known_muhurat_dates(tmp_path):
+    missing = validate_day_file(tmp_path / "missing.csv", validation_row(trade_date="2024-11-01"))
+    assert missing["ok"] and missing["skipped"] and missing["notes"] == ["muhurat_skip"]
+    path = valid_day_file(tmp_path)
+    present = validate_day_file(path, validation_row(trade_date="2025-10-21"))
+    assert present["ok"] and present["skipped"] and present["notes"] == ["muhurat_skip"]
 
 
 def test_planning_uses_missing_calendar_files_and_groups_contracts(tmp_path):
@@ -191,3 +234,14 @@ def test_gap_days_are_an_alternative_target_source(tmp_path):
 
 def test_validate_missing_file_is_failure(tmp_path):
     assert validate_day_file(tmp_path / "none.csv", validation_row())["failures"] == ["missing_file"]
+
+
+def test_nifty_lot_size_history():
+    assert nifty_lot_size("2024-03-28") == 50
+    assert nifty_lot_size("2024-11-28") == 25
+    assert nifty_lot_size("2025-01-30") == 25
+    assert nifty_lot_size("2025-02-27") == 75
+    assert nifty_lot_size("2025-06-26") == 75
+    assert nifty_lot_size("2026-03-30") == 65
+    with pytest.raises(ValueError):
+        nifty_lot_size("")

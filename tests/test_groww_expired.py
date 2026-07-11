@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 import pytest
+import pandas as pd
 
 from ingest import groww_expired as groww
 from ingest.envfile import load_env
@@ -142,6 +143,32 @@ def test_candle_conversion_interprets_groww_naive_timestamps_as_ist_and_filters_
     assert out.iloc[0]["open"] == 1.2346
 
 
+def test_groww_oi_rescale_decision_uses_calendar_ratio_and_boundary_fallback():
+    assert groww.should_rescale_groww_oi(
+        "2025-01-01", 100_000, {"front_oi": 10_000_000}
+    )
+    assert not groww.should_rescale_groww_oi(
+        "2025-01-01", 10_000_000, {"front_oi": 10_000_000}
+    )
+    assert not groww.should_rescale_groww_oi(
+        "2024-12-31", 10_000_000, {"front_oi": 10_000_000}
+    )
+    assert groww.should_rescale_groww_oi("2025-01-01", 100_000)
+
+
+def test_groww_oi_rescale_scales_only_x100_day_and_is_noop_near_one():
+    frame = pd.DataFrame({
+        "date": ["2025-01-01", "2025-01-01", "2025-01-02", "2025-01-02"],
+        "oi": [100, 100, 1_000, 1_000],
+    })
+    scaled, changed = groww.rescale_groww_oi(frame, calendar_rows={
+        "2025-01-01": {"front_oi": 10_000},
+        "2025-01-02": {"front_oi": 1_010},
+    })
+    assert changed == ["2025-01-01"]
+    assert scaled["oi"].tolist() == [10_000, 10_000, 1_000, 1_000]
+
+
 def test_candle_shape_difference_is_actionable():
     transport = request_transport(response(200, {"status": "SUCCESS", "payload": {"candles": [["bad"]]}}))
     with pytest.raises(groww.GrowwApiError, match="candle row differs"):
@@ -209,3 +236,65 @@ def test_probe_mode_cli_does_not_require_calendar(monkeypatch, capsys):
     monkeypatch.setattr(cli, "probe", lambda expiry, **kwargs: print(f"probe expiry={expiry}"))
     assert cli.main(["--probe", "2024-12-26"]) == 0
     assert "probe expiry=2024-12-26" in capsys.readouterr().out
+
+
+def _validation_frame(tmp_path):
+    timestamps = pd.date_range("2024-11-04 09:15:00", periods=375, freq="min")
+    frame = pd.DataFrame({
+        "date": timestamps.strftime("%Y-%m-%d"), "time": timestamps.strftime("%H:%M:%S"),
+        "symbol": "NIFTY-I", "open": 100.0, "high": 100.0, "low": 100.0,
+        "close": 100.0, "oi": 1000, "volume": 10,
+    })
+    path = tmp_path / "2024/11/nifty_fut_04_11_2024.csv"
+    path.parent.mkdir(parents=True)
+    frame.to_csv(path, index=False)
+    return path
+
+
+def _validation_row(**updates):
+    row = {"trade_date": "2024-11-04", "front_expiry": "2024-11-28", "front_close": 100, "front_volume": 150, "front_oi": 1000}
+    row.update(updates)
+    return row
+
+
+def test_validation_uses_last_nonzero_volume_and_oi_with_notes(tmp_path):
+    path = _validation_frame(tmp_path)
+    frame = pd.read_csv(path)
+    frame.loc[frame.index[-1], ["close", "volume", "oi"]] = [999, 0, 0]
+    frame.to_csv(path, index=False)
+    result = groww.validate_day_file(path, _validation_row())
+    assert result["ok"]
+    assert result["last_trade_close"] == 999
+    assert result["close_vwap"] == 100
+    assert result["oi_observation_time"] == "15:28:00"
+    assert result["notes"] == ["oi_from_1528_bar"]
+
+
+def test_validation_uses_last_30_minute_volume_weighted_close(tmp_path):
+    path = _validation_frame(tmp_path)
+    frame = pd.read_csv(path)
+    frame.loc[frame.index[-30:], "close"] = [100] * 29 + [110]
+    frame.to_csv(path, index=False)
+    result = groww.validate_day_file(path, _validation_row(front_close=(29 * 100 + 110) / 30))
+    assert result["ok"]
+    assert result["last_trade_close"] == 110
+    assert result["close_vwap"] == pytest.approx((29 * 100 + 110) / 30)
+
+
+def test_validation_reports_truncated_session(tmp_path):
+    path = _validation_frame(tmp_path)
+    frame = pd.read_csv(path).iloc[:346]
+    frame.to_csv(path, index=False)
+    result = groww.validate_day_file(
+        path, _validation_row(front_volume=3460 / 25)
+    )
+    assert not result["ok"]
+    assert result["failures"] == ["session_truncated"]
+    assert result["notes"] == ["truncated_day"]
+
+
+def test_validation_skips_known_muhurat_dates(tmp_path):
+    missing = groww.validate_day_file(tmp_path / "missing.csv", _validation_row(trade_date="2024-11-01"))
+    assert missing["ok"] and missing["skipped"] and missing["notes"] == ["muhurat_skip"]
+    present = groww.validate_day_file(_validation_frame(tmp_path), _validation_row(trade_date="2025-10-21"))
+    assert present["ok"] and present["skipped"] and present["notes"] == ["muhurat_skip"]

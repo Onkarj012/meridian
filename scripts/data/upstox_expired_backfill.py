@@ -35,7 +35,10 @@ def main(argv: list[str] | None = None) -> int:
     rows = load_target_rows(args.calendar, args.gap_days, args.from_date, args.to_date, args.out_root, validate_only=args.validate_only)
     plan = build_plan(rows)
     print_plan("Upstox", plan)
-    report: dict[str, Any] = {"fetched": [], "skipped": [], "failed": [], "validation_failures": []}
+    report: dict[str, Any] = {
+        "fetched": [], "skipped": [], "failed": [],
+        "validation_results": [], "validation_failures": [],
+    }
     if args.dry_run:
         print("dry-run: no network calls or archive writes")
         write_report(report, args.report)
@@ -44,6 +47,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.validate_only:
         for row in rows:
             validation = validate_day_file(minute_file_path(row["trade_date"], args.out_root), row)
+            report["validation_results"].append(validation)
             if not validation["ok"]:
                 report["validation_failures"].append(validation)
         write_report(report, args.report)
@@ -77,6 +81,7 @@ def main(argv: list[str] | None = None) -> int:
                     write_day_csv(by_day[trade_day], trade_day, args.out_root, overwrite=args.overwrite)
                     report["fetched"].append({"trade_date": row["trade_date"], "path": str(path)})
                 validation = validate_day_file(path, row)
+                report["validation_results"].append(validation)
                 if not validation["ok"]:
                     report["validation_failures"].append(validation)
         except Exception as exc:  # preserve remaining contracts for resumability

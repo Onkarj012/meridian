@@ -18,6 +18,7 @@ from ingest.groww_expired import (
     fetch_minute_candles,
     get_access_token,
     resolve_future_contract,
+    GROWW_OI_VALIDATION_RATIO_BOUNDS,
     minute_file_path,
     probe,
     split_by_day,
@@ -59,7 +60,10 @@ def main(argv: list[str] | None = None) -> int:
     rows = load_target_rows(args.calendar, args.gap_days, args.from_date, args.to_date, args.out_root, validate_only=args.validate_only)
     plan = build_plan(rows)
     print_plan("Groww", plan)
-    report: dict[str, Any] = {"fetched": [], "skipped": [], "failed": [], "validation_failures": []}
+    report: dict[str, Any] = {
+        "fetched": [], "skipped": [], "failed": [],
+        "validation_results": [], "validation_failures": [], "warnings": [],
+    }
     if args.dry_run:
         print("dry-run: no network calls or archive writes")
         write_report(report, args.report)
@@ -67,11 +71,26 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.validate_only:
         for row in rows:
-            validation = validate_day_file(minute_file_path(row["trade_date"], args.out_root), row)
+            validation = validate_day_file(
+                minute_file_path(row["trade_date"], args.out_root), row,
+                oi_ratio_bounds=GROWW_OI_VALIDATION_RATIO_BOUNDS,
+            )
+            report["validation_results"].append(validation)
             if not validation["ok"]:
                 report["validation_failures"].append(validation)
+        report["validation_summary"] = {
+            "total": len(report["validation_results"]),
+            "passed": sum(result["ok"] and not result.get("skipped") for result in report["validation_results"]),
+            "failed": sum(not result["ok"] for result in report["validation_results"]),
+            "skipped": sum(result.get("skipped", False) for result in report["validation_results"]),
+        }
         write_report(report, args.report)
-        print(f"validation: {len(rows) - len(report['validation_failures'])} passed, {len(report['validation_failures'])} failed")
+        print(
+            "validation: "
+            f"{report['validation_summary']['passed']} passed, "
+            f"{report['validation_summary']['failed']} failed, "
+            f"{report['validation_summary']['skipped']} skipped"
+        )
         return 1 if report["validation_failures"] else 0
 
     try:
@@ -86,7 +105,15 @@ def main(argv: list[str] | None = None) -> int:
             start = min(row["trade_date"] for row in days)
             end = max(row["trade_date"] for row in days)
             candles = fetch_minute_candles(contract, start, end, access_token=token, transport=urllib_transport)
-            by_day = split_by_day(candles_to_futures_csv(candles))
+            calendar_rows = {row["trade_date"]: row for row in days}
+            converted = candles_to_futures_csv(candles, calendar_rows=calendar_rows)
+            for trade_day in converted.attrs.get("groww_oi_rescaled_dates", []):
+                report["warnings"].append({
+                    "trade_date": trade_day,
+                    "note": "groww_oi_rescaled_x100",
+                    "message": "Groww raw OI was normalized ×100 using the measured 2025-01-01 regime; verify against the calendar ratio.",
+                })
+            by_day = split_by_day(converted)
             for row in days:
                 trade_day = row["trade_date"]
                 path = minute_file_path(trade_day, args.out_root)
@@ -98,7 +125,8 @@ def main(argv: list[str] | None = None) -> int:
                 else:
                     write_day_csv(by_day[date.fromisoformat(trade_day)], trade_day, args.out_root, overwrite=args.overwrite)
                     report["fetched"].append({"trade_date": trade_day, "path": str(path), "contract": contract})
-                validation = validate_day_file(path, row)
+                validation = validate_day_file(path, row, oi_ratio_bounds=GROWW_OI_VALIDATION_RATIO_BOUNDS)
+                report["validation_results"].append(validation)
                 if not validation["ok"]:
                     report["validation_failures"].append(validation)
         except Exception as exc:  # preserve remaining contracts for resumability

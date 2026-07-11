@@ -37,6 +37,17 @@ CANDLE_INTERVAL = "1minute"
 MAX_RETRIES = 5
 REQUESTS_PER_SECOND = 2.0
 
+# Offline forensics measured the Groww OI unit boundary at 2025-01-01:
+# runs/sleeve-f-data-contract/backfill_forensics.md.  The calendar ratio is
+# authoritative when present; this date is only the no-calendar fallback.
+GROWW_OI_X100_START_DATE = date(2025, 1, 1)
+GROWW_OI_NEAR_ONE_RATIO_MIN = 0.5
+GROWW_OI_NEAR_ONE_RATIO_MAX = 2.0
+GROWW_OI_X100_RATIO_MIN = 10.0
+# After unit normalization, the observed expiry/timing tails span this
+# measured bhavcopy/file ratio envelope; retain them as report notes.
+GROWW_OI_VALIDATION_RATIO_BOUNDS = (0.2, 2.0)
+
 
 class GrowwApiError(RuntimeError):
     """A Groww response that is invalid, unsuccessful, or not retryable."""
@@ -332,10 +343,67 @@ def candles_to_frame(candles: Sequence[Sequence[Any]]):
     return _candles_to_frame(candles, naive_timezone=IST)
 
 
-def candles_to_futures_csv(candles: Sequence[Sequence[Any]] | pd.DataFrame):
-    if isinstance(candles, pd.DataFrame):
-        return _candles_to_futures_csv(candles)
-    return _candles_to_futures_csv(candles_to_frame(candles))
+def should_rescale_groww_oi(
+    trade_date: str | date,
+    raw_last_nonzero_oi: float | None,
+    calendar_row: Mapping[str, Any] | None = None,
+) -> bool:
+    """Return whether one fetched day's OI is in Groww's ×100-underreported regime.
+
+    A calendar row lets a live fetch override the historical date fallback.  A
+    raw ratio near one is therefore always a no-op, protecting the ingest if
+    Groww fixes the API.  Ratios between the two regimes are left untouched so
+    an uncertain fetch cannot silently corrupt the archive.
+    """
+    if raw_last_nonzero_oi is None or raw_last_nonzero_oi == 0:
+        return False
+    if calendar_row is not None:
+        expected = calendar_row.get("front_oi")
+        if expected is not None and not pd.isna(expected):
+            ratio = float(expected) / float(raw_last_nonzero_oi)
+            if GROWW_OI_NEAR_ONE_RATIO_MIN <= ratio <= GROWW_OI_NEAR_ONE_RATIO_MAX:
+                return False
+            if ratio >= GROWW_OI_X100_RATIO_MIN:
+                return True
+            return False
+    return as_date(trade_date) >= GROWW_OI_X100_START_DATE
+
+
+def rescale_groww_oi(
+    frame: pd.DataFrame,
+    *,
+    calendar_rows: Mapping[str, Mapping[str, Any]] | None = None,
+) -> tuple[pd.DataFrame, list[str]]:
+    """Scale OI ×100 for affected fetched days and return changed dates."""
+    if frame.empty:
+        return frame.copy(), []
+    work = frame.copy()
+    if "date" not in work or "oi" not in work:
+        return work, []
+    changed: list[str] = []
+    for trade_day, indexes in work.groupby(work["date"].astype(str)).groups.items():
+        oi = pd.to_numeric(work.loc[indexes, "oi"], errors="coerce")
+        nonzero = oi[oi.ne(0) & oi.notna()]
+        last_nonzero = float(nonzero.iloc[-1]) if not nonzero.empty else None
+        row = calendar_rows.get(trade_day) if calendar_rows else None
+        if should_rescale_groww_oi(trade_day, last_nonzero, row):
+            work.loc[indexes, "oi"] = oi * 100
+            changed.append(trade_day)
+    return work, changed
+
+
+def candles_to_futures_csv(
+    candles: Sequence[Sequence[Any]] | pd.DataFrame,
+    *,
+    calendar_rows: Mapping[str, Mapping[str, Any]] | None = None,
+):
+    frame = candles if isinstance(candles, pd.DataFrame) else candles_to_frame(candles)
+    converted = _candles_to_futures_csv(frame)
+    converted, changed = rescale_groww_oi(converted, calendar_rows=calendar_rows)
+    # The caller can turn this into a report warning without changing the CSV
+    # schema or the established conversion return type.
+    converted.attrs["groww_oi_rescaled_dates"] = changed
+    return converted
 
 
 def probe(
