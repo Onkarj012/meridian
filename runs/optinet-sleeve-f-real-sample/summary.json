@@ -1,0 +1,315 @@
+{
+  "cost_bps": 8.0,
+  "data_root": "/Users/onkarj012/Projects/market/intranet_optinet/data",
+  "fixture_mode": true,
+  "grid": [
+    {
+      "horizon_bars": 5,
+      "id": "cli_grid_0",
+      "stop_bps": 50.0,
+      "target_bps": 50.0
+    }
+  ],
+  "limit_rows": 2000,
+  "limitation": "sample replay only; not promoted; no live trading",
+  "normalization_quality": {
+    "meridian_futures_validation": {
+      "errors": [],
+      "row_count": 2000,
+      "valid": true
+    },
+    "minute_quality": {
+      "end": "2026-06-12T15:29:00+05:30",
+      "invalid_session_count": 0,
+      "row_count": 2000,
+      "start": "2026-05-27T09:15:00+05:30",
+      "symbols": [
+        "NIFTY-I"
+      ],
+      "zero_volume_count": 0,
+      "zero_volume_share": 0.0
+    },
+    "real_futures_validation": {
+      "failures": [],
+      "require_volume": true,
+      "rows": 2000,
+      "validated": true,
+      "warnings": []
+    }
+  },
+  "output": "runs/optinet-sleeve-f-real-sample/summary.json",
+  "report": {
+    "candidate": {
+      "beats_baselines": false,
+      "ci_low_bps": -7.800214297584085,
+      "concentration": {
+        "distinct_symbols": 1,
+        "max_symbol_trade_share": 1.0,
+        "symbol_trade_counts": {
+          "NIFTY-I": 1995
+        }
+      },
+      "config_id": "cli_grid_0",
+      "cost_bps": 8.0,
+      "distinct_symbols": 1,
+      "dsr": 0.0,
+      "expected_value_bps": -7.800214297584085,
+      "folds": [
+        {
+          "fold": "2026",
+          "gross_ev_bps": 0.1997857024159154,
+          "hit_rate": 0.1598997493734336,
+          "losses": 1676,
+          "net_ev_bps": -7.800214297584085,
+          "net_return_bps": -15561.42752368025,
+          "trades": 1995,
+          "trading_days": 6,
+          "wins": 319,
+          "year": 2026
+        }
+      ],
+      "gross_ev_bps": 0.1997857024159154,
+      "hit_rate": 0.1598997493734336,
+      "horizon_bars": 5,
+      "losses": 1676,
+      "max_drawdown_bps": -15580.205353297106,
+      "max_symbol_trade_share": 1.0,
+      "metrics": {
+        "cost_bps": 8.0,
+        "folds": [
+          {
+            "fold": "2026",
+            "gross_ev_bps": 0.1997857024159154,
+            "hit_rate": 0.1598997493734336,
+            "losses": 1676,
+            "net_ev_bps": -7.800214297584085,
+            "net_return_bps": -15561.42752368025,
+            "trades": 1995,
+            "trading_days": 6,
+            "wins": 319,
+            "year": 2026
+          }
+        ],
+        "gross_ev_bps": 0.1997857024159154,
+        "hit_rate": 0.1598997493734336,
+        "losses": 1676,
+        "max_drawdown_bps": -15580.205353297106,
+        "net_ev_bps": -7.800214297584085,
+        "profit_factor": 0.11748292541225601,
+        "trades": 1995,
+        "trading_days": 6,
+        "wins": 319
+      },
+      "min_realized_vol": null,
+      "model_family": "front_month_first_touch_replay",
+      "net_ev_bps": -7.800214297584085,
+      "positive_fold_share": 0.0,
+      "profit_factor": 0.11748292541225601,
+      "sealed_test_passed": false,
+      "stop_bps": 50.0,
+      "target_bps": 50.0,
+      "trades": 1995,
+      "trading_days": 6,
+      "wins": 319,
+      "worst_fold_bps": -7.800214297584085
+    },
+    "config_summaries": [
+      {
+        "beats_baselines": false,
+        "ci_low_bps": -7.800214297584085,
+        "concentration": {
+          "distinct_symbols": 1,
+          "max_symbol_trade_share": 1.0,
+          "symbol_trade_counts": {
+            "NIFTY-I": 1995
+          }
+        },
+        "config_id": "cli_grid_0",
+        "cost_bps": 8.0,
+        "distinct_symbols": 1,
+        "dsr": 0.0,
+        "expected_value_bps": -7.800214297584085,
+        "folds": [
+          {
+            "fold": "2026",
+            "gross_ev_bps": 0.1997857024159154,
+            "hit_rate": 0.1598997493734336,
+            "losses": 1676,
+            "net_ev_bps": -7.800214297584085,
+            "net_return_bps": -15561.42752368025,
+            "trades": 1995,
+            "trading_days": 6,
+            "wins": 319,
+            "year": 2026
+          }
+        ],
+        "gross_ev_bps": 0.1997857024159154,
+        "hit_rate": 0.1598997493734336,
+        "horizon_bars": 5,
+        "losses": 1676,
+        "max_drawdown_bps": -15580.205353297106,
+        "max_symbol_trade_share": 1.0,
+        "metrics": {
+          "cost_bps": 8.0,
+          "folds": [
+            {
+              "fold": "2026",
+              "gross_ev_bps": 0.1997857024159154,
+              "hit_rate": 0.1598997493734336,
+              "losses": 1676,
+              "net_ev_bps": -7.800214297584085,
+              "net_return_bps": -15561.42752368025,
+              "trades": 1995,
+              "trading_days": 6,
+              "wins": 319,
+              "year": 2026
+            }
+          ],
+          "gross_ev_bps": 0.1997857024159154,
+          "hit_rate": 0.1598997493734336,
+          "losses": 1676,
+          "max_drawdown_bps": -15580.205353297106,
+          "net_ev_bps": -7.800214297584085,
+          "profit_factor": 0.11748292541225601,
+          "trades": 1995,
+          "trading_days": 6,
+          "wins": 319
+        },
+        "min_realized_vol": null,
+        "model_family": "front_month_first_touch_replay",
+        "net_ev_bps": -7.800214297584085,
+        "positive_fold_share": 0.0,
+        "profit_factor": 0.11748292541225601,
+        "sealed_test_passed": false,
+        "stop_bps": 50.0,
+        "target_bps": 50.0,
+        "trades": 1995,
+        "trading_days": 6,
+        "wins": 319,
+        "worst_fold_bps": -7.800214297584085
+      }
+    ],
+    "feed_validation": {
+      "failures": [],
+      "require_volume": true,
+      "rows": 2000,
+      "validated": true,
+      "warnings": []
+    },
+    "gates": {
+      "beats_rung0_baselines_net_sharpe": false,
+      "ci_low_positive_full_cost": false,
+      "deflated_sharpe_positive": false,
+      "fixture_mode_not_promotable": false,
+      "folds_positive_share": false,
+      "min_distinct_symbols": false,
+      "sealed_test_once_passed": false,
+      "symbol_concentration": false,
+      "validation_trade_count": true,
+      "validation_trading_days": false,
+      "worst_fold_floor": false
+    },
+    "metrics": {
+      "cost_bps": 8.0,
+      "folds": [
+        {
+          "fold": "2026",
+          "gross_ev_bps": 0.1997857024159154,
+          "hit_rate": 0.1598997493734336,
+          "losses": 1676,
+          "net_ev_bps": -7.800214297584085,
+          "net_return_bps": -15561.42752368025,
+          "trades": 1995,
+          "trading_days": 6,
+          "wins": 319,
+          "year": 2026
+        }
+      ],
+      "gross_ev_bps": 0.1997857024159154,
+      "hit_rate": 0.1598997493734336,
+      "losses": 1676,
+      "max_drawdown_bps": -15580.205353297106,
+      "net_ev_bps": -7.800214297584085,
+      "profit_factor": 0.11748292541225601,
+      "trades": 1995,
+      "trading_days": 6,
+      "wins": 319
+    },
+    "phase": 2,
+    "prerequisites": {
+      "committed_grid": true,
+      "fixture_mode": true,
+      "grid_candidates": 1,
+      "real_feed_validated": true
+    },
+    "promoted": false,
+    "real_feed_validated": true,
+    "reason": "ci_low_positive_full_cost",
+    "router_features": {
+      "rows": 2000
+    },
+    "sleeve": "F",
+    "status": "quarantined"
+  },
+  "rows_loaded": 2000,
+  "sample_mode": true,
+  "source_files_used": [
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_12_06_2026.csv",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_05_06_2026.csv",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_02_06_2026.csv",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_29_05_2026.csv",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/5/nifty_fut_27_05_2026.csv"
+  ],
+  "source_manifest": {
+    "families": {
+      "bhavcopy_cm": {
+        "exists": true,
+        "file_count": 1737,
+        "total_bytes": 191494834
+      },
+      "bhavcopy_fo": {
+        "exists": true,
+        "file_count": 602,
+        "total_bytes": 10017493
+      },
+      "indices": {
+        "exists": true,
+        "file_count": 2,
+        "total_bytes": 211686
+      },
+      "nifty500": {
+        "exists": true,
+        "file_count": 531,
+        "total_bytes": 21790936113
+      },
+      "nifty_fut": {
+        "exists": true,
+        "file_count": 1246,
+        "total_bytes": 38634330
+      },
+      "nifty_spot": {
+        "exists": true,
+        "file_count": 1265,
+        "total_bytes": 28757955
+      },
+      "sentiment": {
+        "exists": true,
+        "file_count": 13,
+        "total_bytes": 13000532
+      }
+    },
+    "generated_at": "2026-07-06T09:10:08.750655+05:30",
+    "manifest_id": "6f9d049f50f8efe5830de47db0e5641cf55334993dedc1d0f3f839a2ee4fafbb",
+    "selected_families": [
+      "nifty500",
+      "nifty_fut",
+      "nifty_spot",
+      "bhavcopy_cm",
+      "bhavcopy_fo",
+      "sentiment",
+      "indices"
+    ],
+    "total_bytes": 22073052943
+  }
+}

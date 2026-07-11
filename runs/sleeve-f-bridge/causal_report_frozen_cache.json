@@ -1,0 +1,49 @@
+{
+  "causal": {
+    "exit_counts": {
+      "STOP": 145,
+      "TARGET": 94,
+      "TIME": 583
+    },
+    "net_pnl_inr": 317963.4299999977,
+    "sharpe_daily_ann": 2.066675046414827,
+    "trade_count": 822
+  },
+  "legacy_parity": {
+    "exit_counts": {
+      "STOP": 155,
+      "TARGET": 98,
+      "TIME": 875
+    },
+    "net_pnl_inr": 429227.21999999846,
+    "sharpe_daily_ann": 2.167579314718658,
+    "trade_count": 1128
+  },
+  "legacy_vs_causal_delta": {
+    "exit_counts": {
+      "STOP": -10,
+      "TARGET": -4,
+      "TIME": -292
+    },
+    "net_pnl_inr": -111263.79000000074,
+    "sharpe_daily_ann": -0.10090426830383104,
+    "trade_count": -306
+  },
+  "metadata": {
+    "fill_exit_rule": "next-bar open / OHLC first-touch, stop first on double touch",
+    "input": {
+      "kind": "frozen_proxy_feature_cache",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/cache/router_v0/futures_features_proxy.parquet",
+      "sha256": "18ec8df4bcb928a4742f25562e6a24bd11e9838e01dc3cb31458aa72c5268ad3"
+    },
+    "intraday_cum_halt_applied": false,
+    "lookahead": false,
+    "promotable": false,
+    "selection_rule": "previous eligible trading day's score percentiles",
+    "variant": "causal"
+  },
+  "window": [
+    "2024-11-01",
+    "2026-05-31"
+  ]
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "ext_momentum_sel2_t50_s30_h90_long",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 30, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_momentum_sel2_t50_s30_h90_short",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 30, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_momentum_sel2_t65_s40_h120_long",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 30, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_momentum_sel2_t65_s40_h120_short",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 30, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_momentum_sel2_t80_s50_h180_long",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 30, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_momentum_sel2_t80_s50_h180_short",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 30, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_momentum_sel3_t50_s30_h90_long",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 45, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_momentum_sel3_t50_s30_h90_short",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 45, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_momentum_sel3_t65_s40_h120_long",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 45, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_momentum_sel3_t65_s40_h120_short",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 45, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_momentum_sel3_t80_s50_h180_long",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 45, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_momentum_sel3_t80_s50_h180_short",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 45, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_vwap_sel2_t50_s30_h90_long",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 16, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_vwap_sel2_t50_s30_h90_short",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 16, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_vwap_sel2_t65_s40_h120_long",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 16, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_vwap_sel2_t65_s40_h120_short",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 16, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_vwap_sel2_t80_s50_h180_long",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 16, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_vwap_sel2_t80_s50_h180_short",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 16, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 5.0}
+  },
+  {
+    "id": "ext_vwap_sel3_t50_s30_h90_long",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 24, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_vwap_sel3_t50_s30_h90_short",
+    "target_bps": 50,
+    "stop_bps": 30,
+    "horizon_bars": 90,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 24, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_vwap_sel3_t65_s40_h120_long",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 24, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_vwap_sel3_t65_s40_h120_short",
+    "target_bps": 65,
+    "stop_bps": 40,
+    "horizon_bars": 120,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 24, "session_start_offset": 25, "session_end_offset": 130, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_vwap_sel3_t80_s50_h180_long",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 24, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 6.0}
+  },
+  {
+    "id": "ext_vwap_sel3_t80_s50_h180_short",
+    "target_bps": 80,
+    "stop_bps": 50,
+    "horizon_bars": 180,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 24, "session_start_offset": 25, "session_end_offset": 190, "min_realized_vol_bps": 6.0}
+  }
+]

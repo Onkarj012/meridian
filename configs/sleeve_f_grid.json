@@ -1,0 +1,290 @@
+[
+  {
+    "id": "fast_breakout_l15_t12_s8_h10_long",
+    "target_bps": 12,
+    "stop_bps": 8,
+    "horizon_bars": 10,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakout", "direction": "long", "lookback": 15, "session_start_offset": 15, "session_end_offset": 30, "min_realized_vol_bps": 2.0}
+  },
+  {
+    "id": "fast_breakdown_l15_t12_s8_h10_short",
+    "target_bps": 12,
+    "stop_bps": 8,
+    "horizon_bars": 10,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakdown", "direction": "short", "lookback": 15, "session_start_offset": 15, "session_end_offset": 30, "min_realized_vol_bps": 2.0}
+  },
+  {
+    "id": "fast_breakout_l30_t16_s10_h15_long",
+    "target_bps": 16,
+    "stop_bps": 10,
+    "horizon_bars": 15,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakout", "direction": "long", "lookback": 30, "session_start_offset": 15, "session_end_offset": 35, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "fast_breakdown_l30_t16_s10_h15_short",
+    "target_bps": 16,
+    "stop_bps": 10,
+    "horizon_bars": 15,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakdown", "direction": "short", "lookback": 30, "session_start_offset": 15, "session_end_offset": 35, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "fast_breakout_l45_t20_s12_h20_long",
+    "target_bps": 20,
+    "stop_bps": 12,
+    "horizon_bars": 20,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakout", "direction": "long", "lookback": 45, "session_start_offset": 20, "session_end_offset": 40, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "fast_breakdown_l45_t20_s12_h20_short",
+    "target_bps": 20,
+    "stop_bps": 12,
+    "horizon_bars": 20,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakdown", "direction": "short", "lookback": 45, "session_start_offset": 20, "session_end_offset": 40, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "fast_momentum_l15_t12_s8_h10_long",
+    "target_bps": 12,
+    "stop_bps": 8,
+    "horizon_bars": 10,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 15, "min_momentum_bps": 4, "session_start_offset": 15, "session_end_offset": 30, "min_realized_vol_bps": 2.0}
+  },
+  {
+    "id": "fast_momentum_l15_t12_s8_h10_short",
+    "target_bps": 12,
+    "stop_bps": 8,
+    "horizon_bars": 10,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 15, "min_momentum_bps": 4, "session_start_offset": 15, "session_end_offset": 30, "min_realized_vol_bps": 2.0}
+  },
+  {
+    "id": "fast_momentum_l30_t16_s10_h15_long",
+    "target_bps": 16,
+    "stop_bps": 10,
+    "horizon_bars": 15,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 30, "min_momentum_bps": 6, "session_start_offset": 15, "session_end_offset": 35, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "fast_momentum_l30_t16_s10_h15_short",
+    "target_bps": 16,
+    "stop_bps": 10,
+    "horizon_bars": 15,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 30, "min_momentum_bps": 6, "session_start_offset": 15, "session_end_offset": 35, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "fast_momentum_l45_t20_s12_h20_long",
+    "target_bps": 20,
+    "stop_bps": 12,
+    "horizon_bars": 20,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 45, "min_momentum_bps": 8, "session_start_offset": 20, "session_end_offset": 40, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "fast_momentum_l45_t20_s12_h20_short",
+    "target_bps": 20,
+    "stop_bps": 12,
+    "horizon_bars": 20,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 45, "min_momentum_bps": 8, "session_start_offset": 20, "session_end_offset": 40, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "fast_vwap_l15_t12_s8_h10_long",
+    "target_bps": 12,
+    "stop_bps": 8,
+    "horizon_bars": 10,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 15, "min_vwap_deviation_bps": 2, "session_start_offset": 15, "session_end_offset": 30, "min_realized_vol_bps": 2.0}
+  },
+  {
+    "id": "fast_vwap_l15_t12_s8_h10_short",
+    "target_bps": 12,
+    "stop_bps": 8,
+    "horizon_bars": 10,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 15, "min_vwap_deviation_bps": 2, "session_start_offset": 15, "session_end_offset": 30, "min_realized_vol_bps": 2.0}
+  },
+  {
+    "id": "fast_vwap_l30_t16_s10_h15_long",
+    "target_bps": 16,
+    "stop_bps": 10,
+    "horizon_bars": 15,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 30, "min_vwap_deviation_bps": 3, "session_start_offset": 15, "session_end_offset": 35, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "fast_vwap_l30_t16_s10_h15_short",
+    "target_bps": 16,
+    "stop_bps": 10,
+    "horizon_bars": 15,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 30, "min_vwap_deviation_bps": 3, "session_start_offset": 15, "session_end_offset": 35, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "fast_vwap_l45_t20_s12_h20_long",
+    "target_bps": 20,
+    "stop_bps": 12,
+    "horizon_bars": 20,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 45, "min_vwap_deviation_bps": 4, "session_start_offset": 20, "session_end_offset": 40, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "fast_vwap_l45_t20_s12_h20_short",
+    "target_bps": 20,
+    "stop_bps": 12,
+    "horizon_bars": 20,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 45, "min_vwap_deviation_bps": 4, "session_start_offset": 20, "session_end_offset": 40, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_breakout_l30_t25_s15_h30_long",
+    "target_bps": 25,
+    "stop_bps": 15,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakout", "direction": "long", "lookback": 30, "session_start_offset": 20, "session_end_offset": 45, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "swing_breakdown_l30_t25_s15_h30_short",
+    "target_bps": 25,
+    "stop_bps": 15,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakdown", "direction": "short", "lookback": 30, "session_start_offset": 20, "session_end_offset": 45, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "swing_breakout_l45_t32_s20_h45_long",
+    "target_bps": 32,
+    "stop_bps": 20,
+    "horizon_bars": 45,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakout", "direction": "long", "lookback": 45, "session_start_offset": 20, "session_end_offset": 60, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_breakdown_l45_t32_s20_h45_short",
+    "target_bps": 32,
+    "stop_bps": 20,
+    "horizon_bars": 45,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakdown", "direction": "short", "lookback": 45, "session_start_offset": 20, "session_end_offset": 60, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_breakout_l60_t40_s25_h60_long",
+    "target_bps": 40,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakout", "direction": "long", "lookback": 60, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 3.5}
+  },
+  {
+    "id": "swing_breakdown_l60_t40_s25_h60_short",
+    "target_bps": 40,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "breakdown", "direction": "short", "lookback": 60, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 3.5}
+  },
+  {
+    "id": "swing_momentum_l30_t25_s15_h30_long",
+    "target_bps": 25,
+    "stop_bps": 15,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 30, "min_momentum_bps": 8, "session_start_offset": 20, "session_end_offset": 45, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "swing_momentum_l30_t25_s15_h30_short",
+    "target_bps": 25,
+    "stop_bps": 15,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 30, "min_momentum_bps": 8, "session_start_offset": 20, "session_end_offset": 45, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "swing_momentum_l45_t32_s20_h45_long",
+    "target_bps": 32,
+    "stop_bps": 20,
+    "horizon_bars": 45,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 45, "min_momentum_bps": 12, "session_start_offset": 20, "session_end_offset": 60, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_momentum_l45_t32_s20_h45_short",
+    "target_bps": 32,
+    "stop_bps": 20,
+    "horizon_bars": 45,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 45, "min_momentum_bps": 12, "session_start_offset": 20, "session_end_offset": 60, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_momentum_l60_t40_s25_h60_long",
+    "target_bps": 40,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "long", "lookback": 60, "min_momentum_bps": 15, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 3.5}
+  },
+  {
+    "id": "swing_momentum_l60_t40_s25_h60_short",
+    "target_bps": 40,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "momentum", "direction": "short", "lookback": 60, "min_momentum_bps": 15, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 3.5}
+  },
+  {
+    "id": "swing_vwap_l30_t25_s15_h30_long",
+    "target_bps": 25,
+    "stop_bps": 15,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 30, "min_vwap_deviation_bps": 4, "session_start_offset": 20, "session_end_offset": 45, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "swing_vwap_l30_t25_s15_h30_short",
+    "target_bps": 25,
+    "stop_bps": 15,
+    "horizon_bars": 30,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 30, "min_vwap_deviation_bps": 4, "session_start_offset": 20, "session_end_offset": 45, "min_realized_vol_bps": 2.5}
+  },
+  {
+    "id": "swing_vwap_l45_t32_s20_h45_long",
+    "target_bps": 32,
+    "stop_bps": 20,
+    "horizon_bars": 45,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 45, "min_vwap_deviation_bps": 6, "session_start_offset": 20, "session_end_offset": 60, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_vwap_l45_t32_s20_h45_short",
+    "target_bps": 32,
+    "stop_bps": 20,
+    "horizon_bars": 45,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 45, "min_vwap_deviation_bps": 6, "session_start_offset": 20, "session_end_offset": 60, "min_realized_vol_bps": 3.0}
+  },
+  {
+    "id": "swing_vwap_l60_t40_s25_h60_long",
+    "target_bps": 40,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "long", "lookback": 60, "min_vwap_deviation_bps": 8, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 3.5}
+  },
+  {
+    "id": "swing_vwap_l60_t40_s25_h60_short",
+    "target_bps": 40,
+    "stop_bps": 25,
+    "horizon_bars": 60,
+    "skip_first_minutes": 15,
+    "signal_config": {"signal": "vwap_deviation", "direction": "short", "lookback": 60, "min_vwap_deviation_bps": 8, "session_start_offset": 25, "session_end_offset": 75, "min_realized_vol_bps": 3.5}
+  }
+]
