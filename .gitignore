@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
+.env
 
 # Sleeve F raw grid outputs (165MB) — checksums live in runs/sleeve-f-autopsy/autopsy.json
 runs/optinet-sleeve-f-full-phase2/summary.json

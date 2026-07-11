@@ -20,24 +20,26 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
-import pandas as pd
+from .expired_common import (
+    as_date as _as_date,
+    candles_to_frame,
+    candles_to_futures_csv,
+    minute_file_path,
+    month_chunks,
+    normalise_token as _normalise_token,
+    split_by_day,
+    validate_day_file,
+    write_day_csv,
+)
 
 API_BASE = "https://api.upstox.com/v2"
 NIFTY_INDEX_KEY = "NSE_INDEX|Nifty 50"
-MARKET_OPEN = "09:15:00"
-MARKET_CLOSE = "15:30:00"
-BAR_COUNT_MIN = 350
-BAR_COUNT_MAX = 380
-CLOSE_TOLERANCE = 0.001
-VOLUME_TOLERANCE = 0.05
-OI_TOLERANCE = 0.05
 MAX_RETRIES = 5
 REQUESTS_PER_SECOND = 2.0
-IST = "Asia/Kolkata"
 
 
 @dataclass(frozen=True)
@@ -70,19 +72,6 @@ def expired_key(token: str | int, expiry: str | date | datetime) -> str:
     """Construct the expired-future key accepted by Upstox in practice."""
     expiry_day = _as_date(expiry)
     return f"NSE_FO|{_normalise_token(token)}|{expiry_day:%d-%m-%Y}"
-
-
-def _as_date(value: str | date | datetime) -> date:
-    if isinstance(value, datetime):
-        return value.date()
-    if isinstance(value, date):
-        return value
-    return date.fromisoformat(str(value)[:10])
-
-
-def _normalise_token(value: Any) -> str:
-    text = str(value).strip()
-    return text[:-2] if text.endswith(".0") and text[:-2].isdigit() else text
 
 
 def urllib_transport(url: str, headers: Mapping[str, str]) -> HttpResponse:
@@ -213,21 +202,6 @@ def contract_key(contract: Mapping[str, Any], token: str | int, expiry: str | da
     return None
 
 
-def month_chunks(from_date: str | date, to_date: str | date) -> list[tuple[date, date]]:
-    """Inclusive chunks bounded by calendar months, safe for API span limits."""
-    start, end = _as_date(from_date), _as_date(to_date)
-    if end < start:
-        raise ValueError("to_date must be on or after from_date")
-    chunks: list[tuple[date, date]] = []
-    cursor = start
-    while cursor <= end:
-        next_month = (cursor.replace(day=28) + timedelta(days=4)).replace(day=1)
-        chunk_end = min(end, next_month - timedelta(days=1))
-        chunks.append((cursor, chunk_end))
-        cursor = chunk_end + timedelta(days=1)
-    return chunks
-
-
 def fetch_minute_candles(
     expired_instrument_key: str,
     from_date: str | date,
@@ -250,102 +224,3 @@ def fetch_minute_candles(
     # The service does not promise ordering and adjacent queries can overlap.
     by_timestamp = {str(candle[0]): list(candle) for candle in candles if len(candle) >= 7}
     return [by_timestamp[timestamp] for timestamp in sorted(by_timestamp)]
-
-
-def candles_to_frame(candles: Sequence[Sequence[Any]]) -> pd.DataFrame:
-    """Convert Upstox's array candles to a sorted, IST-timezone DataFrame."""
-    columns = ["timestamp", "open", "high", "low", "close", "volume", "oi"]
-    frame = pd.DataFrame([list(candle[:7]) for candle in candles], columns=columns)
-    if frame.empty:
-        return frame
-    timestamps = pd.to_datetime(frame["timestamp"], utc=True, format="mixed")
-    frame["timestamp"] = timestamps.dt.tz_convert(IST)
-    for column in columns[1:]:
-        frame[column] = pd.to_numeric(frame[column], errors="coerce")
-    return frame.drop_duplicates("timestamp").sort_values("timestamp").reset_index(drop=True)
-
-
-def candles_to_futures_csv(candles: Sequence[Sequence[Any]] | pd.DataFrame) -> pd.DataFrame:
-    """Convert candles to the archive's exact NIFTY-I per-minute CSV schema."""
-    frame = candles if isinstance(candles, pd.DataFrame) else candles_to_frame(candles)
-    columns = ["date", "time", "symbol", "open", "high", "low", "close", "oi", "volume"]
-    if frame.empty:
-        return pd.DataFrame(columns=columns)
-    work = frame.copy()
-    if "timestamp" not in work:
-        raise ValueError("candle frame must contain timestamp")
-    times = work["timestamp"].dt.strftime("%H:%M:%S")
-    work = work[(times >= MARKET_OPEN) & (times <= MARKET_CLOSE)].copy()
-    return pd.DataFrame({
-        "date": work["timestamp"].dt.strftime("%Y-%m-%d"),
-        "time": work["timestamp"].dt.strftime("%H:%M:%S"),
-        "symbol": "NIFTY-I",
-        "open": work["open"].round(4), "high": work["high"].round(4),
-        "low": work["low"].round(4), "close": work["close"].round(4),
-        "oi": work["oi"].fillna(0).astype(int), "volume": work["volume"].fillna(0).astype(int),
-    }).reset_index(drop=True)
-
-
-def split_by_day(csv_frame: pd.DataFrame) -> dict[date, pd.DataFrame]:
-    """Split an archive-shaped frame into one frame for each trade date."""
-    if csv_frame.empty:
-        return {}
-    return {day: group.reset_index(drop=True) for day, group in csv_frame.groupby(pd.to_datetime(csv_frame["date"]).dt.date)}
-
-
-def minute_file_path(day: str | date, out_root: str | Path) -> Path:
-    trade_day = _as_date(day)
-    return Path(out_root) / str(trade_day.year) / str(trade_day.month) / f"nifty_fut_{trade_day:%d_%m_%Y}.csv"
-
-
-def write_day_csv(csv_frame: pd.DataFrame, day: str | date, out_root: str | Path, *, overwrite: bool = False) -> Path | None:
-    """Write a single archive day, returning ``None`` when retained unchanged."""
-    path = minute_file_path(day, out_root)
-    if path.exists() and not overwrite:
-        return None
-    path.parent.mkdir(parents=True, exist_ok=True)
-    csv_frame.to_csv(path, index=False)
-    return path
-
-
-def _number(row: Mapping[str, Any], field: str) -> float | None:
-    value = row.get(field)
-    if value is None or pd.isna(value) or str(value).strip() == "":
-        return None
-    return float(value)
-
-
-def validate_day_file(path: str | Path, calendar_row: Mapping[str, Any]) -> dict[str, Any]:
-    """Validate bar count and available bhavcopy close/volume/OI observations."""
-    path = Path(path)
-    report: dict[str, Any] = {"trade_date": str(calendar_row.get("trade_date", "")), "path": str(path), "ok": True, "failures": []}
-    if not path.exists():
-        report.update(ok=False, failures=["missing_file"])
-        return report
-    frame = pd.read_csv(path)
-    report["bar_count"] = len(frame)
-    if not BAR_COUNT_MIN <= len(frame) <= BAR_COUNT_MAX:
-        report["failures"].append("bar_count")
-    if frame.empty:
-        report["failures"].extend(["close", "volume", "oi"])
-        report["ok"] = False
-        return report
-    actual_close, expected_close = float(frame.iloc[-1]["close"]), _number(calendar_row, "front_close")
-    actual_volume, expected_volume = float(frame["volume"].sum()), _number(calendar_row, "front_volume")
-    actual_oi, expected_oi = float(frame.iloc[-1]["oi"]), _number(calendar_row, "front_oi")
-    report.update(last_close=actual_close, volume=actual_volume, close_oi=actual_oi)
-    for label, actual, expected, tolerance in (
-        ("close", actual_close, expected_close, CLOSE_TOLERANCE),
-        ("volume", actual_volume, expected_volume, VOLUME_TOLERANCE),
-        ("oi", actual_oi, expected_oi, OI_TOLERANCE),
-    ):
-        if expected is not None:
-            report[f"expected_{label}"] = expected
-            if expected == 0:
-                valid = actual == 0
-            else:
-                valid = abs(actual - expected) / abs(expected) <= tolerance
-            if not valid:
-                report["failures"].append(label)
-    report["ok"] = not report["failures"]
-    return report
