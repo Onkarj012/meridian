@@ -277,3 +277,44 @@ Note: NIFTY monthly expiries are also returned interleaved with weekly *options*
 6. **Backtesting APIs' inclusion in the ₹499/mo subscription** — the pricing page's module list still says "Historical Data (up to 3 months)", wording that predates the Oct-2025 Backtesting launch; no separate price is published anywhere read. Inclusion is the reasonable inference.
 7. **"approval" mode operational semantics** — whether approval-type keys require a manual daily approval step on the Groww web console (community/search snippets suggest some daily-approval mechanism exists for one of the modes) vs. fully unattended minting with key+secret+checksum. If unattended operation matters, verify before choosing the mode; TOTP mode is fully scriptable regardless.
 8. **`start_time`/`end_time` epoch-seconds variant** — documented as accepted, but all doc examples use the string form; confirm epoch input works if you prefer it.
+
+## 6. Data quirks found in live backfill
+
+These findings come from the offline validation of 347 locally backfilled gap
+dates (no additional API calls were made during validation):
+
+- Groww commonly emits a `15:30:00` row. On many 2025–2026 files that row has
+  `oi=0`, while the preceding nonzero OI observation is usually at `15:28:00`
+  or `15:29:00`. Validation therefore records an explicit `oi_from_XXXX_bar`
+  note and compares OI to the last nonzero-OI row. The offline scan found a
+  hard unit boundary at **2025-01-01**: the 2024-12-31 ratio
+  (`bhavcopy front_oi / file last nonzero OI`) is 0.985031, while the
+  2025-01-01 ratio is 99.413056. Groww's 2025+ raw OI is normalized ×100 for
+  the 307 explicit backfill days. The live ingest uses the calendar ratio per
+  fetch and skips scaling when the raw ratio is already near one, so a later
+  Groww API fix is safe.
+- The incumbent archive vintage is mixed: many 2023 and 2024 files include
+  `15:30:00`, while others end at `15:29:00`. The frozen Sleeve F feature cache
+  has 315 post-warmup rows/day ending at `15:29:00` from a 375-minute
+  `09:15`–`15:29` input session. New files retain the archive's `15:30` row;
+  close validation uses the volume-weighted mean close of bars from 15:00:00
+  onward (NSE's last-30-minute VWAP); the final trade close remains in the
+  report as diagnostic information.
+- `2024-11-01` (Diwali Muhurat) has no regular-session file and
+  `2025-10-21` (if present) is an evening-only 61-bar Muhurat file. Both are
+  explicit skip-with-note dates, not validation failures.
+- NSE reuses instrument ID `53001` across two September-2025 expiry mappings:
+  `2025-09-25` in the early July rows and `2025-09-30` from August onward. The
+  target `2025-09-29` and `2025-09-30` rows map unambiguously to `2025-09-30`;
+  their file volumes equal 75 times the bhavcopy contract volumes.
+- The `2025-01-30` contract retained lot size 25, so January 2025 file volume
+  is exactly 25 times bhavcopy contracts. Later 2025 contracts use lot 75 and
+  2026 contracts use lot 65. Raw ratios near 64.1 or 74.6 are scaled-lot
+  noise within the existing ±5% tolerance; `2025-09-26` is the exception, a
+  truncated 346-bar file ending at 15:00 with only 0.819 of expected volume.
+  Validation records this as `truncated_day` and fails it as
+  `session_truncated` so the later live retry can replace it.
+- After normalization, residual Groww OI tails around expiry are reported as
+  `oi_timing_drift` notes when their bhavcopy/file ratio remains within the
+  measured 0.2–2.0 envelope. The shared validator's strict 5% OI default is
+  unchanged for other providers.
