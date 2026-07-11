@@ -13,3 +13,6 @@ runs/optinet-sleeve-f-extended/
 runs/optinet-sleeve-f-phase3/
 runs/**/DONE.sentinel
 runs/**/*.log
+
+# Local planning brain — never tracked (user decision 2026-07-12)
+brain/
