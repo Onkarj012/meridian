@@ -22,7 +22,7 @@ Inputs are already validated; this phase builds what training consumes.
 
 **1a. Two label generators (both committed with tests):**
 - **Legacy-parity generator:** close-touch, entry = current futures close, long = close reaches entry×1.0040 before entry×0.9970 within 60 min (mirror of `archive/scripts/sprint1_futures.py:119-165`). Sole purpose: byte-level parity against the archived barrier-label parquet in `intranet_optinet/models/router_v0/`. If parity fails → stop, diagnose.
-- **Execution-consistent generator (used for all deployable candidates):** decision at bar close → entry at next bar open → barriers **measured from actual entry price** (+0.40% / −0.30%) → OHLC first-touch, stop wins double-touch → 60-min same-session timeout at close. Target for classifier candidates: binary net-profitable after per-era costs. For candidate C: net return in R units (§5).
+- **Execution-consistent generator (used for all deployable candidates):** decision at bar close → entry at next bar open → barriers **measured from actual entry price** (+0.40% / −0.30%) → OHLC first-touch, stop wins double-touch → 60-min same-session timeout at close. Target for classifier candidates: binary label = 1 if net PnL on the realized exit (the barrier touch or the 60-min same-session timeout close, per this bullet's replay rule) is strictly positive after era-dated per-trade costs (§1d/§5); label = 0 otherwise, including the net_pnl == 0 case (ties treated as non-profitable). For candidate C: net return in R units (§5).
 
 **1b. Real-feature matrix:** all 39 features from `features/sleeve_f_router.py` computed on real futures volume/OI and real spot close, 2020-01-01→2026-06-30, per-day frames, rows end 15:29, warm-up rows (first 60 min lookback window per day, i.e. pre-09:45 eligibility unchanged) excluded from training.
 
@@ -66,7 +66,7 @@ No new signal families, features, geometries, or gates may be added after the fr
 
 **A. Retrained router (reference candidate).** LightGBM binary classifier, incumbent architecture verbatim (500 rounds max, lr 0.05, 63 leaves, min_data_in_leaf 200, feature/bagging_fraction 0.85, bagging_freq 5, L1 0.1, L2 1.0, is_unbalance), early stop 30 on purged inner validation. Trained per fold on real features + execution-consistent labels.
 
-**B. Fixed a-priori rule (interpretable floor).** *Not* distilled from the proxy-trained incumbent (provenance broken). Fixed before evaluation: trade when `realized_vol_30m` is in the top tercile of its trailing 60-session causal distribution AND `minute_of_day` falls in pre-registered windows; parameters chosen from 2020–2023 data only, frozen at registration.
+**B. Fixed a-priori rule (interpretable floor).** *Not* distilled from the proxy-trained incumbent (provenance broken). Fixed before evaluation: trade when `realized_vol_30m` is in the top tercile of its trailing 60-session causal distribution AND `minute_of_day` falls in pre-registered windows; parameters chosen from 2020 data only (strictly prior to the earliest walk-forward test fold, 2021Q1, so no test fold's calendar range overlaps the calibration window), frozen at registration.
 
 **C. One challenger (meaningfully distinct, not a hyperparameter costume).** LightGBM **Huber regression** predicting execution-consistent net R after costs: 200 trees, depth 2, 4 leaves, lr 0.03, min leaf 100, feature/bagging fraction 0.7, L1 1, L2 10. No tuning, no monotonic constraints. Trades when predicted net R > 0 subject to the same activity-rate threshold machinery.
 

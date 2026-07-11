@@ -1,6 +1,6 @@
 # Meridian / OptiNet market-data lake inventory
 
-Measured from the files under `/Users/onkarj012/Projects/market/intranet_optinet/data` on 2026-07-11. Counts below are physical files/rows unless explicitly labelled as calendar days; `.DS_Store`, backups, README, and LICENSE files are excluded from data counts. Contract comparisons use `contract_calendar.csv` or `banknifty_contract_calendar.csv`.
+Measured from the configured OptiNet data root on 2026-07-11; the machine-specific path is intentionally omitted. Counts below are physical files/rows unless explicitly labelled as calendar days; `.DS_Store`, backups, README, and LICENSE files are excluded from data counts. Contract comparisons use `contract_calendar.csv` or `banknifty_contract_calendar.csv`.
 
 ## Summary
 
