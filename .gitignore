@@ -16,3 +16,10 @@ runs/**/*.log
 
 # Local planning brain — never tracked (user decision 2026-07-12)
 brain/
+
+# C2 feature matrices (97MB + 133MB > GitHub limit) — sha256 pins live in
+# runs/sleeve-f-c2-matrices/hashes.json; rebuild via scripts/data/build_c2_matrices.py
+runs/sleeve-f-c2-matrices/*.parquet
+
+# Collector lake default local root (append-only data, never tracked)
+collector_lake/
