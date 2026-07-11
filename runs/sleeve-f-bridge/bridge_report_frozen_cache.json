@@ -1,0 +1,81 @@
+{
+  "actual": {
+    "exit_counts": {
+      "STOP": 155,
+      "TARGET": 98,
+      "TIME": 875
+    },
+    "net_pnl_inr": 429227.21999999846,
+    "sharpe_daily_ann": 2.167579314718658,
+    "trade_count": 1128
+  },
+  "bridge": {
+    "metrics": {
+      "exit_counts": {
+        "STOP": {
+          "actual": 155,
+          "delta": 0,
+          "reference": 155,
+          "relative_delta": 0.0,
+          "tolerance": 0.02
+        },
+        "TARGET": {
+          "actual": 98,
+          "delta": 0,
+          "reference": 98,
+          "relative_delta": 0.0,
+          "tolerance": 0.02
+        },
+        "TIME": {
+          "actual": 875,
+          "delta": 0,
+          "reference": 875,
+          "relative_delta": 0.0,
+          "tolerance": 0.02
+        }
+      },
+      "net_pnl_inr": {
+        "actual": 429227.21999999846,
+        "delta": 0.0,
+        "reference": 429227.21999999846,
+        "relative_delta": 0.0,
+        "tolerance": 0.01
+      },
+      "trade_count": {
+        "actual": 1128,
+        "delta": 0,
+        "reference": 1128,
+        "relative_delta": 0.0,
+        "tolerance": 0.01
+      }
+    },
+    "passed": true
+  },
+  "metadata": {
+    "fill_exit_rule": "signal-bar close / subsequent close-only, target first",
+    "input": {
+      "kind": "frozen_proxy_feature_cache",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/cache/router_v0/futures_features_proxy.parquet",
+      "sha256": "18ec8df4bcb928a4742f25562e6a24bd11e9838e01dc3cb31458aa72c5268ad3"
+    },
+    "intraday_cum_halt_applied": false,
+    "lookahead": true,
+    "promotable": false,
+    "selection_rule": "same eligible day full-day score percentiles",
+    "variant": "legacy_parity"
+  },
+  "reference": {
+    "exit_counts": {
+      "STOP": 155,
+      "TARGET": 98,
+      "TIME": 875
+    },
+    "net_pnl_inr": 429227.21999999846,
+    "sharpe_daily_ann": 2.167579314718658,
+    "trade_count": 1128
+  },
+  "window": [
+    "2024-11-01",
+    "2026-05-31"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "fetched": [
+    {
+      "trade_date": "2025-09-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
+      "contract": "NSE-NIFTY-30Sep25-FUT"
+    }
+  ],
+  "skipped": [],
+  "failed": [],
+  "validation_results": [
+    {
+      "trade_date": "2025-09-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
+      "ok": false,
+      "failures": [
+        "session_truncated"
+      ],
+      "notes": [
+        "truncated_day",
+        "oi_from_1458_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 346,
+      "last_close": 24684.9,
+      "last_trade_close": 24684.9,
+      "last_trade_close_observation_time": "15:00:00",
+      "close_vwap": null,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:00:00",
+      "volume": 5953500.0,
+      "close_oi": 12996600.0,
+      "oi_observation_time": "14:58:00",
+      "expected_close": 24689.9,
+      "expected_volume": 7268550.0,
+      "expected_oi": 9691950.0
+    }
+  ],
+  "validation_failures": [
+    {
+      "trade_date": "2025-09-26",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2025/9/nifty_fut_26_09_2025.csv",
+      "ok": false,
+      "failures": [
+        "session_truncated"
+      ],
+      "notes": [
+        "truncated_day",
+        "oi_from_1458_bar",
+        "oi_timing_drift"
+      ],
+      "bar_count": 346,
+      "last_close": 24684.9,
+      "last_trade_close": 24684.9,
+      "last_trade_close_observation_time": "15:00:00",
+      "close_vwap": null,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:00:00",
+      "volume": 5953500.0,
+      "close_oi": 12996600.0,
+      "oi_observation_time": "14:58:00",
+      "expected_close": 24689.9,
+      "expected_volume": 7268550.0,
+      "expected_oi": 9691950.0
+    }
+  ],
+  "warnings": [
+    {
+      "trade_date": "2025-09-26",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    }
+  ]
+}

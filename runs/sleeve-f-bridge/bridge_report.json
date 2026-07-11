@@ -1,0 +1,76 @@
+{
+  "actual": {
+    "exit_counts": {
+      "STOP": 157,
+      "TARGET": 101,
+      "TIME": 897
+    },
+    "net_pnl_inr": 417371.37499999884,
+    "sharpe_daily_ann": 2.0512485159680516,
+    "trade_count": 1155
+  },
+  "bridge": {
+    "metrics": {
+      "exit_counts": {
+        "STOP": {
+          "actual": 157,
+          "delta": 2,
+          "reference": 155,
+          "relative_delta": 0.012903225806451613,
+          "tolerance": 0.02
+        },
+        "TARGET": {
+          "actual": 101,
+          "delta": 3,
+          "reference": 98,
+          "relative_delta": 0.030612244897959183,
+          "tolerance": 0.02
+        },
+        "TIME": {
+          "actual": 897,
+          "delta": 22,
+          "reference": 875,
+          "relative_delta": 0.025142857142857144,
+          "tolerance": 0.02
+        }
+      },
+      "net_pnl_inr": {
+        "actual": 417371.37499999884,
+        "delta": -11855.844999999623,
+        "reference": 429227.21999999846,
+        "relative_delta": -0.027621372661313665,
+        "tolerance": 0.01
+      },
+      "trade_count": {
+        "actual": 1155,
+        "delta": 27,
+        "reference": 1128,
+        "relative_delta": 0.023936170212765957,
+        "tolerance": 0.01
+      }
+    },
+    "passed": false
+  },
+  "metadata": {
+    "fill_exit_rule": "signal-bar close / subsequent close-only, target first",
+    "intraday_cum_halt_applied": false,
+    "lookahead": true,
+    "promotable": false,
+    "selection_rule": "same eligible day full-day score percentiles",
+    "variant": "legacy_parity"
+  },
+  "reference": {
+    "exit_counts": {
+      "STOP": 155,
+      "TARGET": 98,
+      "TIME": 875
+    },
+    "net_pnl_inr": 429227.21999999846,
+    "sharpe_daily_ann": 2.167579314718658,
+    "trade_count": 1128
+  },
+  "window": [
+    "2024-11-01",
+    "2026-05-31"
+  ]
+}

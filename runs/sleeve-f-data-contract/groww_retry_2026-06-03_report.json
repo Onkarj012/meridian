@@ -1,0 +1,68 @@
+{
+  "fetched": [
+    {
+      "trade_date": "2026-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "contract": "NSE-NIFTY-30Jun26-FUT"
+    }
+  ],
+  "skipped": [],
+  "failed": [],
+  "validation_results": [
+    {
+      "trade_date": "2026-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "ok": false,
+      "failures": [
+        "close",
+        "volume"
+      ],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23490.0,
+      "last_trade_close": 23490.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": null,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 0.0,
+      "close_oi": 19328200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23515.7,
+      "expected_volume": 8486920.0,
+      "expected_oi": 19037070.0
+    }
+  ],
+  "validation_failures": [
+    {
+      "trade_date": "2026-06-03",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut/2026/6/nifty_fut_03_06_2026.csv",
+      "ok": false,
+      "failures": [
+        "close",
+        "volume"
+      ],
+      "notes": [],
+      "bar_count": 375,
+      "last_close": 23490.0,
+      "last_trade_close": 23490.0,
+      "last_trade_close_observation_time": "15:29:00",
+      "close_vwap": null,
+      "close_vwap_observation_start": "15:00:00",
+      "close_vwap_observation_end": "15:29:00",
+      "volume": 0.0,
+      "close_oi": 19328200.0,
+      "oi_observation_time": "15:29:00",
+      "expected_close": 23515.7,
+      "expected_volume": 8486920.0,
+      "expected_oi": 19037070.0
+    }
+  ],
+  "warnings": [
+    {
+      "trade_date": "2026-06-03",
+      "note": "groww_oi_rescaled_x100",
+      "message": "Groww raw OI was normalized \u00d7100 using the measured 2025-01-01 regime; verify against the calendar ratio."
+    }
+  ]
+}

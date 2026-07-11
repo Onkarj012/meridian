@@ -1,0 +1,35 @@
+{
+  "calendar_rows": 613,
+  "calendar_source_trade_start": "2024-01-01",
+  "calendar_source_trade_end": "2026-06-30",
+  "gap_rows": 2,
+  "source_gap_rows": 2,
+  "source_extension_rows": 0,
+  "latest_expiry_through_2026_06_30": {
+    "expiry": "2026-06-30",
+    "expiry_weekday": "Tuesday",
+    "first_trade_date": "2026-04-01",
+    "last_trade_date": "2026-06-30",
+    "fin_instrm_id": "62326",
+    "source": "udiff"
+  },
+  "udiff_types": [
+    "IDF",
+    "IDO"
+  ],
+  "udiff_type_counts": {
+    "IDF": 1488,
+    "IDO": 522824
+  },
+  "format_counts": {
+    "udiff": 496,
+    "legacy": 125
+  },
+  "expiry_weekday_counts": {
+    "Thursday": 12,
+    "Tuesday": 12,
+    "Wednesday": 9,
+    "Monday": 1
+  },
+  "archive_files_before": 1608
+}
