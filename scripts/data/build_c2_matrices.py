@@ -60,7 +60,7 @@ def _sha256(path: Path) -> str:
 
 
 def _nan_rates(frame: pd.DataFrame, feature_columns: list[str]) -> dict[str, float]:
-    return {column: float(frame[column].isna().mean()) for column in feature_columns}
+    return {column: float(frame[column].isna().mean()) if len(frame) else 0.0 for column in feature_columns}
 
 
 def build(args: argparse.Namespace) -> dict[str, object]:
@@ -112,8 +112,6 @@ def build(args: argparse.Namespace) -> dict[str, object]:
             c2p_writer.close()
     elapsed = time.monotonic() - started
     report: dict[str, object] = {
-        "build_timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "runtime_seconds": elapsed,
         "date_range": {"from": str(args.from_date.date()), "to": str(args.to_date.date())},
         "expiry_derivation_validation": expiry_validation,
         "c2w": {
@@ -121,18 +119,23 @@ def build(args: argparse.Namespace) -> dict[str, object]:
             "row_count": c2w_rows,
             "columns": c2w_columns,
             "config_hash": c2w_config_hash(),
-            "nan_rates": {column: count / c2w_rows for column, count in c2w_nan_counts.items()},
+            "nan_rates": {column: (count / c2w_rows if c2w_rows else 0.0) for column, count in c2w_nan_counts.items()},
         },
         "c2p": {
             "sha256": _sha256(c2p_path),
             "row_count": c2p_rows,
             "columns": c2p_columns,
             "config_hash": c2p_config_hash(),
-            "nan_rates": {column: count / c2p_rows for column, count in c2p_nan_counts.items()},
+            "nan_rates": {column: (count / c2p_rows if c2p_rows else 0.0) for column, count in c2p_nan_counts.items()},
         },
     }
     (args.out_dir / "hashes.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    return report
+    run_report = {
+        "build_timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "runtime_seconds": elapsed,
+    }
+    (args.out_dir / "run_report.json").write_text(json.dumps(run_report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return {**report, **run_report}
 
 
 def parse_args() -> argparse.Namespace:

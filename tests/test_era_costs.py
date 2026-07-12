@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime, timezone
 
 import pytest
 
@@ -20,6 +20,10 @@ def test_october_2024_boundary_changes_stt_and_transaction_charge() -> None:
     assert after["stt_sell"] == pytest.approx(120.0)
     assert before["nse_txn_buy"] == pytest.approx(11.28)
     assert after["nse_txn_buy"] == pytest.approx(10.38)
+
+
+def test_aware_datetime_is_compared_in_ist_calendar():
+    assert cost_rupees(datetime(2024, 9, 30, 19, tzinfo=timezone.utc), 24_000, 24_000)["stt_sell"] == pytest.approx(120.0)
 
 
 def test_january_2026_boundary_changes_reporting_lot_size() -> None:

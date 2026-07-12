@@ -237,6 +237,9 @@ def test_validate_missing_file_is_failure(tmp_path):
 
 
 def test_nifty_lot_size_history():
+    assert nifty_lot_size("2020-05-28") == 75
+    assert nifty_lot_size("2021-06-24") == 75
+    assert nifty_lot_size("2021-07-29") == 50
     assert nifty_lot_size("2024-03-28") == 50
     assert nifty_lot_size("2024-11-28") == 25
     assert nifty_lot_size("2025-01-30") == 25

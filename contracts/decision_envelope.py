@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, fields, replace
+import fcntl
 import hashlib
 import json
 import os
@@ -112,12 +113,17 @@ class DecisionEnvelope:
     signature_id: str | None
     audit_write_status: str
 
+    def __post_init__(self) -> None:
+        for name in _TUPLE_FIELDS:
+            object.__setattr__(self, name, tuple(getattr(self, name)))
+
 
 _TUPLE_FIELDS = {
     "missing_required_features", "invalid_feature_flags", "feature_canary_flags",
     "controller_cohort_session_ids", "eligibility_fail_reasons", "policy_block_reasons",
 }
-_HASH_EXCLUDED = {"envelope_hash", "signature_id", "audit_write_status"}
+_HASH_EXCLUDED = {"envelope_hash", "audit_write_status"}
+# audit_write_status is a set-after-seal write outcome, intentionally unhashed.
 
 
 def _canonical_json(value: object) -> str:
@@ -148,8 +154,6 @@ def from_json_line(line: str) -> DecisionEnvelope:
     expected = tuple(field.name for field in fields(DecisionEnvelope))
     if tuple(data) != expected:
         raise ValueError("decision envelope JSON keys do not match the registered schema order")
-    for name in _TUPLE_FIELDS:
-        data[name] = tuple(data[name])
     return DecisionEnvelope(**data)
 
 
@@ -202,25 +206,35 @@ class EnvelopeWriter:
             self._last_bar[key] = envelope.decision_bar_id
 
     def append(self, envelope: DecisionEnvelope) -> DecisionEnvelope:
-        if envelope.schema_version != SCHEMA_VERSION:
-            raise ValueError(f"unexpected schema_version: {envelope.schema_version}")
-        if envelope.decision_id in self._decision_ids:
-            raise ValueError("decision_id already exists in append-only log")
-        key = (envelope.session_date, envelope.instrument_id, envelope.mode)
-        last = self._last_bar.get(key)
-        if last is not None and envelope.decision_bar_id <= last:
-            raise ValueError("decision_bar_id must increase within (session_date, instrument_id, mode)")
-        chain_key = (envelope.instrument_id, envelope.mode)
-        expected_previous = self._previous.get(chain_key)
-        if envelope.previous_envelope_hash not in (None, expected_previous):
-            raise ValueError("previous_envelope_hash conflicts with writer chain state")
-        resolved = replace(envelope, previous_envelope_hash=expected_previous)
-        resolved = replace(resolved, envelope_hash=compute_envelope_hash(resolved))
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        with self.path.open("a", encoding="utf-8", newline="") as handle:
-            handle.write(to_json_line(resolved))
-            handle.flush()
-            os.fsync(handle.fileno())
+        with self.path.with_name(self.path.name + ".lock").open("a+") as lock:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            try:
+                self._previous = {}
+                self._last_bar = {}
+                self._decision_ids = set()
+                if self.path.exists():
+                    self._load_existing()
+                if envelope.schema_version != SCHEMA_VERSION:
+                    raise ValueError(f"unexpected schema_version: {envelope.schema_version}")
+                if envelope.decision_id in self._decision_ids:
+                    raise ValueError("decision_id already exists in append-only log")
+                key = (envelope.session_date, envelope.instrument_id, envelope.mode)
+                last = self._last_bar.get(key)
+                if last is not None and envelope.decision_bar_id <= last:
+                    raise ValueError("decision_bar_id must increase within (session_date, instrument_id, mode)")
+                chain_key = (envelope.instrument_id, envelope.mode)
+                expected_previous = self._previous.get(chain_key)
+                if envelope.previous_envelope_hash not in (None, expected_previous):
+                    raise ValueError("previous_envelope_hash conflicts with writer chain state")
+                resolved = replace(envelope, previous_envelope_hash=expected_previous)
+                resolved = replace(resolved, envelope_hash=compute_envelope_hash(resolved))
+                with self.path.open("a", encoding="utf-8", newline="") as handle:
+                    handle.write(to_json_line(resolved))
+                    handle.flush()
+                    os.fsync(handle.fileno())
+            finally:
+                fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
         self._previous[chain_key] = resolved.envelope_hash
         self._last_bar[key] = resolved.decision_bar_id
         self._decision_ids.add(resolved.decision_id)

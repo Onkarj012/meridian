@@ -87,8 +87,14 @@ def main(argv: list[str] | None = None) -> int:
                 if not validation["ok"]:
                     report["validation_failures"].append(validation)
         except Exception as exc:  # preserve remaining contracts for resumability
+            succeeded_days = {
+                str(item["trade_date"])
+                for item in report["validation_results"]
+                if item.get("ok")
+            }
             for row in days:
-                report["failed"].append({"trade_date": row["trade_date"], "contract": f"{exchange_token}/{expiry}", "reason": str(exc)})
+                if row["trade_date"] not in succeeded_days:
+                    report["failed"].append({"trade_date": row["trade_date"], "contract": f"{exchange_token}/{expiry}", "reason": str(exc)})
     write_report(report, args.report)
     print(f"summary: fetched={len(report['fetched'])} skipped={len(report['skipped'])} failed={len(report['failed'])} validation_failures={len(report['validation_failures'])}")
     return 1 if report["failed"] or report["validation_failures"] else 0

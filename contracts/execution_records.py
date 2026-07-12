@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, fields, replace
+import fcntl
 import hashlib
 import json
 import os
@@ -87,8 +88,14 @@ class ExecutionEvent:
     event_hash: str
     signature_id: str | None
 
+    def __post_init__(self) -> None:
+        for name in _TUPLE_FIELDS:
+            value = getattr(self, name)
+            object.__setattr__(self, name, tuple(tuple(fill) for fill in value))
 
-_HASH_EXCLUDED = {"event_hash", "signature_id"}
+
+_TUPLE_FIELDS = {"fill_records"}
+_HASH_EXCLUDED = {"event_hash"}
 
 
 def _canonical_json(value: object) -> str:
@@ -118,7 +125,6 @@ def from_json_line(line: str) -> ExecutionEvent:
     expected = tuple(field.name for field in fields(ExecutionEvent))
     if tuple(data) != expected:
         raise ValueError("execution event JSON keys do not match the registered schema order")
-    data["fill_records"] = tuple(tuple(fill) for fill in data["fill_records"])
     return ExecutionEvent(**data)
 
 
@@ -163,19 +169,28 @@ class ExecutionWriter:
             self._previous = events[-1].event_hash
 
     def append(self, event: ExecutionEvent) -> ExecutionEvent:
-        if event.schema_version != SCHEMA_VERSION:
-            raise ValueError(f"unexpected schema_version: {event.schema_version}")
-        if event.execution_event_id in self._event_ids:
-            raise ValueError("execution_event_id already exists in append-only log")
-        if event.previous_event_hash not in (None, self._previous):
-            raise ValueError("previous_event_hash conflicts with writer chain state")
-        resolved = replace(event, previous_event_hash=self._previous)
-        resolved = replace(resolved, event_hash=compute_event_hash(resolved))
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        with self.path.open("a", encoding="utf-8", newline="") as handle:
-            handle.write(to_json_line(resolved))
-            handle.flush()
-            os.fsync(handle.fileno())
+        with self.path.with_name(self.path.name + ".lock").open("a+") as lock:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            try:
+                self._previous = None
+                self._event_ids = set()
+                if self.path.exists():
+                    self._load_existing()
+                if event.schema_version != SCHEMA_VERSION:
+                    raise ValueError(f"unexpected schema_version: {event.schema_version}")
+                if event.execution_event_id in self._event_ids:
+                    raise ValueError("execution_event_id already exists in append-only log")
+                if event.previous_event_hash not in (None, self._previous):
+                    raise ValueError("previous_event_hash conflicts with writer chain state")
+                resolved = replace(event, previous_event_hash=self._previous)
+                resolved = replace(resolved, event_hash=compute_event_hash(resolved))
+                with self.path.open("a", encoding="utf-8", newline="") as handle:
+                    handle.write(to_json_line(resolved))
+                    handle.flush()
+                    os.fsync(handle.fileno())
+            finally:
+                fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
         self._previous = resolved.event_hash
         self._event_ids.add(resolved.execution_event_id)
         return resolved

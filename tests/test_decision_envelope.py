@@ -18,7 +18,7 @@ from contracts.decision_envelope import (
 
 
 FIXTURE = Path(__file__).parent / "fixtures" / "decision_envelope_golden.jsonl"
-GOLDEN_HASH = "62d86d51d08a5343b34405addd5525f82f90c387b3426466f8ac10627a6f5431"
+GOLDEN_HASH = "1743fae8b6a6cc00afff740865d5db54cecae3fc0d51afc4b8a5a055e7f1dea8"
 SCHEMA_HASH = "27637b07ffbd1a9e5538c6f509e5ed2a44a6e98fd4a5eaf3073e2d1afc584485"
 
 
@@ -96,6 +96,15 @@ def test_envelope_is_immutable_and_has_full_registered_field_list() -> None:
         record.decision_id = "mutated"  # type: ignore[misc]
 
 
+def test_direct_lists_are_shallow_frozen_before_hashing() -> None:
+    values = ["feature-a"]
+    record = replace(envelope(), missing_required_features=values, eligibility_fail_reasons=values)
+    values.append("mutated")
+    assert record.missing_required_features == ("feature-a",)
+    assert record.eligibility_fail_reasons == ("feature-a",)
+    assert compute_envelope_hash(record) == compute_envelope_hash(record)
+
+
 def test_json_round_trip_is_byte_exact_and_golden_hash_is_stable() -> None:
     line = FIXTURE.read_text(encoding="utf-8")
     record = from_json_line(line)
@@ -130,3 +139,13 @@ def test_writer_is_append_only_monotonic_and_restart_safe(tmp_path: Path) -> Non
     second = restarted.append(envelope(decision_id="decision-002", bar_id=2))
     assert second.previous_envelope_hash == first.envelope_hash
     assert verify_chain([from_json_line(line) for line in path.read_text(encoding="utf-8").splitlines()]) == []
+
+
+def test_two_writer_instances_re_read_chain_under_lock(tmp_path: Path) -> None:
+    path = tmp_path / "envelopes.jsonl"
+    first_writer, second_writer = EnvelopeWriter(path), EnvelopeWriter(path)
+    first_writer.append(envelope())
+    second_writer.append(envelope(decision_id="decision-002", bar_id=2))
+    first_writer.append(envelope(decision_id="decision-003", bar_id=3))
+    records = [from_json_line(line) for line in path.read_text(encoding="utf-8").splitlines()]
+    assert verify_chain(records) == []

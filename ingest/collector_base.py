@@ -7,6 +7,7 @@ for both writes and idempotent duplicate skips.
 from __future__ import annotations
 
 import hashlib
+import fcntl
 import json
 import os
 from datetime import date, datetime, timezone
@@ -64,57 +65,62 @@ def append_observation(
     root = lake_root_fn(lake_root)
     collector_root = root / "collectors" / collector
     collector_root.mkdir(parents=True, exist_ok=True)
-    raw_text = _raw_text(raw)
-    raw_hash = _sha256(raw_text.encode("utf-8"))
-    received = _utc_iso(receive_ts) if receive_ts else utc_now()
     manifest = collector_root / "manifest.jsonl"
-    entries = _manifest_entries(manifest)
     partition_key = _safe_partition(partition) if partition else None
-    if any(
-        entry.get("raw_sha256") == raw_hash and entry.get("action") == "written"
-        and entry.get("partition") == partition_key
-        for entry in entries
-    ):
-        entry = {
-            "action": "skipped", "file": None, "sha256": None, "rows": 0,
-            "first_ts": None, "last_ts": None, "raw_sha256": raw_hash,
-            "note": "duplicate_raw_payload", "partition": partition_key, "written_at": received,
-        }
-        _append_manifest(manifest, entry)
-        return entry
+    with manifest.with_name(manifest.name + ".lock").open("a+") as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        try:
+            raw_text = _raw_text(raw)
+            raw_hash = _sha256(raw_text.encode("utf-8"))
+            received = _utc_iso(receive_ts) if receive_ts else utc_now()
+            entries = _manifest_entries(manifest)
+            if any(
+                entry.get("raw_sha256") == raw_hash and entry.get("action") == "written"
+                and entry.get("partition") == partition_key
+                for entry in entries
+            ):
+                entry = {
+                    "action": "skipped", "file": None, "sha256": None, "rows": 0,
+                    "first_ts": None, "last_ts": None, "raw_sha256": raw_hash,
+                    "note": "duplicate_raw_payload", "partition": partition_key, "written_at": received,
+                }
+                _append_manifest(manifest, entry)
+                return entry
 
-    rows = [dual_timestamp_record(row, receive_ts=received) for row in records]
-    for row in rows:
-        row.setdefault("raw", raw_text)
-    sequence = max((int(item.get("sequence", 0)) for item in entries), default=0) + 1
-    day = _parse_datetime(received).date()
-    directory = collector_root
-    directory /= f"{day:%Y}"
-    directory /= f"{day:%m}"
-    directory /= f"{day:%d}"
-    if partition:
-        directory /= _safe_partition(partition)
-    directory.mkdir(parents=True, exist_ok=True)
-    data_path = directory / f"{sequence:06d}.jsonl"
-    raw_path = directory / f"{sequence:06d}.raw"
-    # Exclusive creation enforces append-only behaviour even when the caller
-    # accidentally retries while another process is writing.
-    with raw_path.open("x", encoding="utf-8") as handle:
-        handle.write(raw_text)
-    data_text = "".join(json.dumps(row, sort_keys=True, default=str, separators=(",", ":")) + "\n" for row in rows)
-    with data_path.open("x", encoding="utf-8") as handle:
-        handle.write(data_text)
-    source_times = [str(row.get("source_ts") or row.get("exchange_ts") or "") for row in rows]
-    relative = data_path.relative_to(collector_root).as_posix()
-    entry = {
-        "action": "written", "sequence": sequence, "file": relative,
-        "raw_file": raw_path.relative_to(collector_root).as_posix(),
-        "sha256": _sha256(data_text.encode("utf-8")), "raw_sha256": raw_hash,
-        "rows": len(rows), "first_ts": min(source_times, default=None),
-        "last_ts": max(source_times, default=None), "partition": partition_key, "written_at": received,
-    }
-    _append_manifest(manifest, entry)
-    return entry
+            rows = [dual_timestamp_record(row, receive_ts=received) for row in records]
+            for row in rows:
+                row.setdefault("raw", raw_text)
+            sequence = max((int(item.get("sequence", 0)) for item in entries), default=0) + 1
+            day = _parse_datetime(received).date()
+            directory = collector_root
+            directory /= f"{day:%Y}"
+            directory /= f"{day:%m}"
+            directory /= f"{day:%d}"
+            if partition:
+                directory /= _safe_partition(partition)
+            directory.mkdir(parents=True, exist_ok=True)
+            data_path = directory / f"{sequence:06d}.jsonl"
+            raw_path = directory / f"{sequence:06d}.raw"
+            # Exclusive creation enforces append-only behaviour even when the caller
+            # accidentally retries while another process is writing.
+            with raw_path.open("x", encoding="utf-8") as handle:
+                handle.write(raw_text)
+            data_text = "".join(json.dumps(row, sort_keys=True, default=str, separators=(",", ":")) + "\n" for row in rows)
+            with data_path.open("x", encoding="utf-8") as handle:
+                handle.write(data_text)
+            source_times = [str(row.get("source_ts") or row.get("exchange_ts") or "") for row in rows]
+            relative = data_path.relative_to(collector_root).as_posix()
+            entry = {
+                "action": "written", "sequence": sequence, "file": relative,
+                "raw_file": raw_path.relative_to(collector_root).as_posix(),
+                "sha256": _sha256(data_text.encode("utf-8")), "raw_sha256": raw_hash,
+                "rows": len(rows), "first_ts": min(source_times, default=None),
+                "last_ts": max(source_times, default=None), "partition": partition_key, "written_at": received,
+            }
+            _append_manifest(manifest, entry)
+            return entry
+        finally:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
 
 
 def latest_records(
@@ -129,7 +135,10 @@ def latest_records(
             continue
         path = root / str(entry["file"])
         if not path.exists():
-            continue
+            raise FileNotFoundError(f"manifest-referenced collector file is missing: {path}")
+        actual_hash = _sha256(path.read_bytes())
+        if actual_hash != entry.get("sha256"):
+            raise ValueError(f"collector file hash mismatch: {path}")
         for line in path.read_text(encoding="utf-8").splitlines():
             row = json.loads(line)
             received = _parse_datetime(row["receive_ts"])

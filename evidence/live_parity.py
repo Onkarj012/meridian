@@ -29,6 +29,7 @@ class RecomputeResult:
     code_digest: str
     model_digest: str
     config_digest: str
+    unverified_fields: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -59,6 +60,8 @@ class ParityReport:
     decision_equal: bool
     digest_equal: bool
     digest_mismatches: tuple[str, ...]
+    unverified_fields: tuple[str, ...]
+    failure_reasons: tuple[str, ...]
     verdict: ParityVerdict
 
     def to_dict(self) -> dict[str, object]:
@@ -81,6 +84,7 @@ class ParityReport:
             f"| Policy decision | {self.decision_live} | {self.decision_offline} | {'equal' if self.decision_equal else 'different'} |",
             f"| Digests | - | - | {'equal' if self.digest_equal else 'mismatch: ' + ', '.join(self.digest_mismatches)} |",
             "",
+            *([f"Unverified fields: {', '.join(self.unverified_fields)}", ""] if self.unverified_fields else []),
             "## Feature diffs",
             "",
             "| Feature | Live | Offline | Absolute difference |",
@@ -137,9 +141,8 @@ def recompute_from_snapshot(
 
     ``score_fn`` normally returns a mapping with ``score``,
     ``eligibility_pass``, ``eligibility_fail_reasons``, and ``policy_decision``.
-    Omitted non-score output fields intentionally retain their captured values,
-    which supports score-only engines while preserving the comparison surface.
-    ``threshold_active`` and the three digests are also optional mapping keys.
+    Every gated output must be supplied by the offline adapter. Missing gated
+    fields are retained only as display placeholders and are marked unverified.
     """
     raw_features = _call_pipeline(feature_fn, snapshot.bar_window, snapshot.auxiliary_inputs)
     if not isinstance(raw_features, Mapping):
@@ -147,6 +150,13 @@ def recompute_from_snapshot(
     feature_vector = {str(name): float(value) for name, value in raw_features.items()}
     raw_score = _call_pipeline(score_fn, feature_vector, snapshot.auxiliary_inputs)
     values = _normalise_score_output(raw_score, snapshot)
+    unverified_fields = tuple(values.pop("unverified_fields", ()))
+    gated_fields = (
+        "threshold_active", "eligibility_pass", "eligibility_fail_reasons",
+        "policy_decision", "code_digest", "model_digest", "config_digest",
+    )
+    for field in gated_fields:
+        values.setdefault(field, getattr(snapshot, field))
     return RecomputeResult(
         feature_vector=feature_vector,
         score=float(values["score"]),
@@ -157,34 +167,33 @@ def recompute_from_snapshot(
         code_digest=str(values["code_digest"]),
         model_digest=str(values["model_digest"]),
         config_digest=str(values["config_digest"]),
+        unverified_fields=unverified_fields,
     )
 
 
 def _normalise_score_output(raw_score: Any, snapshot: LiveSnapshot) -> dict[str, Any]:
-    defaults: dict[str, Any] = {
-        "threshold_active": snapshot.threshold_active,
-        "eligibility_pass": snapshot.eligibility_pass,
-        "eligibility_fail_reasons": snapshot.eligibility_fail_reasons,
-        "policy_decision": snapshot.policy_decision,
-        "code_digest": snapshot.code_digest,
-        "model_digest": snapshot.model_digest,
-        "config_digest": snapshot.config_digest,
-    }
+    gated_fields = (
+        "threshold_active", "eligibility_pass", "eligibility_fail_reasons",
+        "policy_decision", "code_digest", "model_digest", "config_digest",
+    )
     if isinstance(raw_score, Mapping):
-        values = {**defaults, **raw_score}
+        values = dict(raw_score)
         if "score" not in values:
             raise ValueError("score_fn result mapping must contain 'score'")
+        values["unverified_fields"] = tuple(field for field in gated_fields if field not in values)
         return values
     if isinstance(raw_score, (int, float)):
-        return {**defaults, "score": raw_score}
+        return {"score": raw_score, "unverified_fields": gated_fields}
     if isinstance(raw_score, tuple) and len(raw_score) == 4:
         score, eligibility_pass, fail_reasons, decision = raw_score
         return {
-            **defaults,
             "score": score,
             "eligibility_pass": eligibility_pass,
             "eligibility_fail_reasons": fail_reasons,
             "policy_decision": decision,
+            "unverified_fields": tuple(field for field in gated_fields if field not in {
+                "eligibility_pass", "eligibility_fail_reasons", "policy_decision",
+            }),
         }
     raise TypeError("score_fn must return a score, a four-tuple, or an output mapping")
 
@@ -219,14 +228,17 @@ def compare(snapshot: LiveSnapshot, recompute: RecomputeResult) -> ParityReport:
         for name in ("code_digest", "model_digest", "config_digest")
         if getattr(snapshot, name) != getattr(recompute, name)
     )
+    unverified_fields = tuple(recompute.unverified_fields)
+    failure_reasons = (f"unverified_fields: {list(unverified_fields)}",) if unverified_fields else ()
     numeric_diffs = [score_absdiff, *(diff.absdiff for diff in feature_diffs)]
     all_exact_enough = all(diff <= PASS_TOLERANCE for diff in numeric_diffs)
     all_within_degraded = all(diff <= DEGRADED_TOLERANCE for diff in numeric_diffs)
     some_degraded = any(PASS_TOLERANCE < diff <= DEGRADED_TOLERANCE for diff in numeric_diffs)
-    if not digest_mismatches and all_exact_enough and threshold_equal and eligibility_equal and decision_equal:
+    if not unverified_fields and not digest_mismatches and all_exact_enough and threshold_equal and eligibility_equal and decision_equal:
         verdict: ParityVerdict = "PASS"
     elif (
-        not digest_mismatches
+        not unverified_fields
+        and not digest_mismatches
         and decision_equal
         and threshold_equal
         and eligibility_equal
@@ -255,6 +267,8 @@ def compare(snapshot: LiveSnapshot, recompute: RecomputeResult) -> ParityReport:
         decision_equal=decision_equal,
         digest_equal=not digest_mismatches,
         digest_mismatches=digest_mismatches,
+        unverified_fields=unverified_fields,
+        failure_reasons=failure_reasons,
         verdict=verdict,
     )
 

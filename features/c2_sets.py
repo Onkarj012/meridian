@@ -119,15 +119,27 @@ def c2p_config_hash() -> str:
 
 def _normalise_raw(raw: pd.DataFrame) -> pd.DataFrame:
     df = raw.copy()
+    def parse_timestamps(values: object) -> pd.Series:
+        parsed = pd.to_datetime(values)
+        try:
+            aware = parsed.dt.tz is not None  # type: ignore[union-attr]
+        except AttributeError:
+            aware = any(
+                pd.Timestamp(value).tzinfo is not None and pd.Timestamp(value).utcoffset() is not None
+                for value in parsed
+            )
+        if aware:
+            raise ValueError("timestamps must be naive IST; convert tz-aware datetimes to naive IST before calling C2 builders")
+        return parsed
     if "datetime" not in df:
         if {"date", "time"}.issubset(df.columns):
-            df["datetime"] = pd.to_datetime(df["date"].astype(str) + " " + df["time"].astype(str))
+            df["datetime"] = parse_timestamps(df["date"].astype(str) + " " + df["time"].astype(str))
         elif "date" in df:
-            df["datetime"] = pd.to_datetime(df["date"])
+            df["datetime"] = parse_timestamps(df["date"])
         else:
             raise ValueError("raw data requires datetime or date/time columns")
     else:
-        df["datetime"] = pd.to_datetime(df["datetime"])
+        df["datetime"] = parse_timestamps(df["datetime"])
     df = df.rename(columns={"open": "f_open", "high": "f_high", "low": "f_low", "close": "f_close", "volume": "f_vol", "oi": "f_oi"})
     required = {"f_open", "f_high", "f_low", "f_close"}
     missing = sorted(required.difference(df.columns))
@@ -313,6 +325,15 @@ def _session_zscore(df: pd.DataFrame, values: pd.Series, output_column: str) -> 
 
 def _add_path_features(df: pd.DataFrame) -> pd.DataFrame:
     result = df.copy()
+    grouped_close = result["f_close"].groupby(result["trade_date"], sort=False)
+    grouped_high = result["f_high"].groupby(result["trade_date"], sort=False)
+    grouped_low = result["f_low"].groupby(result["trade_date"], sort=False)
+
+    def grouped_rolling(values: pd.Series, window: int, method: str) -> pd.Series:
+        rolled = values.groupby(result["trade_date"], sort=False).rolling(window, min_periods=window)
+        output = getattr(rolled, method)().reset_index(level=0, drop=True)
+        return output.sort_index()
+
     minute = result["minute_of_day"]
     after_or = minute >= 9 * 60 + 30
     denominator = result["realized_vol_30m"]
@@ -326,17 +347,17 @@ def _add_path_features(df: pd.DataFrame) -> pd.DataFrame:
     or_range = result["or_high"] - result["or_low"]
     result["opening_range_location"] = ((result["f_close"] - result["or_low"]) / or_range.where(or_range > 0)).clip(0, 1).where(after_or)
     for window in (15, 30):
-        net = result["f_close"].diff(window).abs()
-        travel = result["f_close"].diff().abs().rolling(window, min_periods=window).sum()
+        net = grouped_close.diff(window).abs()
+        travel = grouped_rolling(grouped_close.diff().abs(), window, "sum")
         result[f"trend_efficiency_{window}m"] = (net / travel.where(travel > 0)).clip(0, 1)
-    high = result["f_high"].rolling(15, min_periods=15).max()
-    low = result["f_low"].rolling(15, min_periods=15).min()
+    high = grouped_rolling(result["f_high"], 15, "max")
+    low = grouped_rolling(result["f_low"], 15, "min")
     result["pullback_depth_15m"] = ((high - result["f_close"]) / (high - low).where((high - low) > 0)).clip(0, 1)
     for window in (15, 30):
         range_column = f"rolling_range_{window}m"
         result[range_column] = (
-            result["f_high"].rolling(window, min_periods=window).max()
-            - result["f_low"].rolling(window, min_periods=window).min()
+            grouped_rolling(result["f_high"], window, "max")
+            - grouped_rolling(result["f_low"], window, "min")
         )
         result[f"range_expansion_{window}m"] = _same_minute_baseline(
             result, range_column, "median", f"range_expansion_{window}m"
@@ -412,7 +433,10 @@ def _build_all(
 
 def _select(matrix: pd.DataFrame, kind: Literal["c2w", "c2p"]) -> pd.DataFrame:
     columns = KEY_COLUMNS + list(FEATURESET_CONFIG[kind]["columns"]) + ELIGIBILITY_COLUMNS
-    return matrix.reindex(columns=columns).sort_values("datetime", kind="stable").reset_index(drop=True)
+    selected = matrix.reindex(columns=columns).sort_values("datetime", kind="stable").reset_index(drop=True)
+    selected["session_date"] = pd.to_datetime(selected["session_date"]).astype("datetime64[ns]")
+    selected["expiry_week"] = selected["expiry_week"].astype(float)
+    return selected
 
 
 def build_c2w_matrix(raw: pd.DataFrame, **kwargs: object) -> pd.DataFrame:
@@ -450,6 +474,10 @@ def iter_c2_matrices(
     else:
         raise ValueError("trading_dates is required when raw is a day-frame iterable")
     if isinstance(raw, pd.DataFrame):
+        source_dates = raw["date"] if "date" in raw else raw["datetime"]
+        arrival_dates = pd.DatetimeIndex(pd.to_datetime(source_dates)).normalize().drop_duplicates()
+        if any(right <= left for left, right in zip(arrival_dates[:-1], arrival_dates[1:])):
+            raise ValueError("iter_c2_matrices sessions must arrive in strictly increasing trade_date order")
         clean = _normalise_raw(raw)
         if clean.empty:
             return
@@ -485,7 +513,11 @@ def iter_c2_matrices(
         std = float(np.std(prior))
         return (current - float(np.mean(prior))) / std if std > 0 and np.isfinite(current) else np.nan
 
+    previous_session: pd.Timestamp | None = None
     for session, day in day_groups:
+        if previous_session is not None and session <= previous_session:
+            raise ValueError("iter_c2_matrices sessions must arrive in strictly increasing trade_date order")
+        previous_session = session
         minute = (day["datetime"].dt.hour * 60 + day["datetime"].dt.minute).astype(int)
         volume_by_minute = day.assign(minute_of_day=minute).groupby("minute_of_day")["f_vol"].median().to_dict()
         baseline_rows = [{

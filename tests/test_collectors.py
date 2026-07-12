@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from ingest.collector_base import append_observation, dual_timestamp_record
+from ingest.collector_base import append_observation, dual_timestamp_record, latest_records
 from ingest.collectors import adr_etf_closes, fii_dii, gift_nifty, global_minute, nse_announcements, option_chain, snapshot_ledger
 
 
@@ -73,6 +73,27 @@ def test_global_minute_uses_instrument_partitions_with_mocked_fetcher(tmp_path):
     assert result["records"] == 2
     root = tmp_path / "collectors/global_minute"
     assert list(root.glob("*/*/*/instrument=ES")) and list(root.glob("*/*/*/instrument=NQ"))
+
+
+def test_global_minute_same_count_changed_value_is_not_deduplicated(tmp_path):
+    def fetch(close):
+        return ([{"instrument": "ES", "ts": "2026-07-12T03:45:00Z", "open": 1, "high": 2, "low": 0, "close": close, "volume": 3, "provider": "mock"}], {"rows": [{"close": close}]})
+
+    first = global_minute.collect_once(lake_root=tmp_path, fetcher=lambda: fetch(1.0))
+    second = global_minute.collect_once(lake_root=tmp_path, fetcher=lambda: fetch(2.0))
+    assert first["batches"][0]["action"] == "written"
+    assert second["batches"][0]["action"] == "written"
+
+
+def test_latest_records_fails_closed_on_tampered_jsonl(tmp_path):
+    result = append_observation(
+        "example", [dual_timestamp_record({"instrument": "TEST"}, "2026-07-12T09:15:00+05:30")],
+        raw="payload", lake_root=tmp_path,
+    )
+    path = tmp_path / "collectors/example" / result["file"]
+    path.write_text(path.read_text().replace("TEST", "TAMPERED"), encoding="utf-8")
+    with pytest.raises(ValueError, match="hash mismatch"):
+        latest_records("example", lake_root=tmp_path)
 
 
 def test_snapshot_ledger_calculates_quote_age_from_local_lake(tmp_path):

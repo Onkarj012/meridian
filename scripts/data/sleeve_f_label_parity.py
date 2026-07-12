@@ -65,7 +65,7 @@ def compare(parquet_path: Path, data_dir: Path) -> dict[str, object]:
         if pd.api.types.is_float_dtype(joined[left]):
             diff = (joined.loc[both, left] - joined.loc[both, right]).abs()
             max_abs_diff[column] = float(diff.max()) if not diff.empty else 0.0
-            unequal = ~both | (joined[left] != joined[right])
+            unequal = ~both | ((joined[left] - joined[right]).abs() > 1e-9)
         else:
             unequal = ~both | (joined[left] != joined[right])
         mismatch_rows = joined.loc[unequal]

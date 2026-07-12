@@ -18,6 +18,7 @@ from collections.abc import Callable, Mapping
 from datetime import date, datetime
 import hashlib
 import json
+from zoneinfo import ZoneInfo
 
 
 # The pre-2024 NSE charge was member-turnover slab based.  The research
@@ -150,6 +151,8 @@ STRESS_SLIPPAGE_BPS = (3.5, 5.0, 7.0)  # protocol §5, line 99
 
 def _as_date(value: date | str) -> date:
     if isinstance(value, datetime):
+        if value.tzinfo is not None and value.utcoffset() is not None:
+            return value.astimezone(ZoneInfo("Asia/Kolkata")).date()
         return value.date()
     if isinstance(value, date):
         return value

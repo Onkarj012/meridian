@@ -81,6 +81,14 @@ def test_event_is_immutable_and_has_full_registered_field_list() -> None:
         record.decision_id = "mutated"  # type: ignore[misc]
 
 
+def test_direct_nested_lists_are_shallow_frozen_before_hashing() -> None:
+    fills = [["fill-001", "2026-07-12T09:20:01.100000+05:30", 50.0, 25000.25, 50.0, 0.0]]
+    record = replace(event(), fill_records=fills)
+    fills[0][2] = 99.0
+    assert record.fill_records == (tuple(fills[0][:2] + [50.0] + fills[0][3:]),)
+    assert compute_event_hash(record) == compute_event_hash(record)
+
+
 def test_json_round_trip_is_byte_exact_and_schema_hash_is_pinned() -> None:
     record = event()
     assert to_json_line(from_json_line(to_json_line(record))) == to_json_line(record)
@@ -113,3 +121,13 @@ def test_writer_restart_and_correction_supersedes_semantics(tmp_path: Path) -> N
     assert second.supersedes_execution_event_id == first.execution_event_id
     assert second.previous_event_hash == first.event_hash
     assert verify_chain([from_json_line(line) for line in path.read_text(encoding="utf-8").splitlines()]) == []
+
+
+def test_two_writer_instances_re_read_chain_under_lock(tmp_path: Path) -> None:
+    path = tmp_path / "execution.jsonl"
+    first_writer, second_writer = ExecutionWriter(path), ExecutionWriter(path)
+    first_writer.append(event())
+    second_writer.append(event(event_id="execution-002", decision_id="decision-002"))
+    first_writer.append(event(event_id="execution-003", decision_id="decision-003"))
+    records = [from_json_line(line) for line in path.read_text(encoding="utf-8").splitlines()]
+    assert verify_chain(records) == []

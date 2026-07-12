@@ -54,6 +54,9 @@ def exact_score_fn(features, auxiliary):
         "eligibility_pass": True,
         "eligibility_fail_reasons": (),
         "policy_decision": "trade",
+        "code_digest": "sha256:code",
+        "model_digest": "sha256:model",
+        "config_digest": "sha256:config",
     }
 
 
@@ -96,6 +99,18 @@ def test_digest_mismatch_is_fail_even_when_outputs_match() -> None:
     report = compare(record, recompute(record, model_digest="sha256:other-model"))
     assert report.verdict == "FAIL"
     assert report.digest_mismatches == ("model_digest",)
+
+
+def test_score_only_adapter_fails_with_unverified_fields() -> None:
+    record = snapshot()
+    result = recompute_from_snapshot(record, feature_fn=exact_feature_fn, score_fn=lambda features: 0.2)
+    report = compare(record, result)
+    assert report.verdict == "FAIL"
+    assert report.unverified_fields == (
+        "threshold_active", "eligibility_pass", "eligibility_fail_reasons",
+        "policy_decision", "code_digest", "model_digest", "config_digest",
+    )
+    assert "unverified_fields:" in report.failure_reasons[0]
 
 
 def test_snapshot_hash_round_trip_and_tamper_detection() -> None:

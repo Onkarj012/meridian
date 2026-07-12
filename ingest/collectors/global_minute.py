@@ -19,11 +19,10 @@ def fetch_yfinance_minute() -> tuple[list[dict[str, Any]], str]:
     except ImportError:
         return [], json.dumps({"status": "unavailable", "needs": "optional yfinance package or licensed minute-bar vendor"})
     rows: list[dict[str, Any]] = []
-    raw: dict[str, Any] = {"provider": "yfinance", "instruments": {}}
+    raw: dict[str, Any] = {"provider": "yfinance", "rows": []}
     for instrument, ticker in YFINANCE_TICKERS.items():
         frame = yf.download(ticker, period="1d", interval="1m", progress=False, auto_adjust=False, threads=False)
         if frame.empty:
-            raw["instruments"][instrument] = 0
             continue
         frame = frame.reset_index()
         frame.columns = [str(column[0] if isinstance(column, tuple) else column).lower().replace(" ", "_") for column in frame.columns]
@@ -31,8 +30,8 @@ def fetch_yfinance_minute() -> tuple[list[dict[str, Any]], str]:
         for item in frame.to_dict("records"):
             timestamp = str(item[timestamp_column])
             rows.append({"instrument": instrument, "ts": timestamp, "open": item.get("open"), "high": item.get("high"), "low": item.get("low"), "close": item.get("close"), "volume": item.get("volume"), "provider": "yfinance", "source_ts": timestamp, "exchange_ts": timestamp})
-        raw["instruments"][instrument] = len(frame)
-    return rows, json.dumps(raw, sort_keys=True)
+    raw["rows"] = rows
+    return rows, json.dumps(raw, sort_keys=True, separators=(",", ":"), default=str)
 
 
 def collect_once(*, lake_root: str | None = None, fetcher: Callable[[], Any] | None = None, dry_run: bool = False) -> dict[str, Any]:

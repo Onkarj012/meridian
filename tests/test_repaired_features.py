@@ -125,3 +125,10 @@ def test_config_hash_and_multi_session_driver_are_deterministic() -> None:
 
     raw = pd.concat([_session("2024-01-02", [100, 101]), _session("2024-01-03", [102, 103])], ignore_index=True)
     pd.testing.assert_frame_equal(repaired_features_multi(raw), repaired_features_multi(raw.sample(frac=1, random_state=7)))
+
+
+def test_repaired_builder_rejects_timezone_aware_timestamps():
+    raw = _session("2024-01-02", [100, 101])
+    raw["date"] = raw["date"].dt.tz_localize("Asia/Kolkata")
+    with pytest.raises(ValueError, match="naive IST"):
+        repaired_features_multi(raw)

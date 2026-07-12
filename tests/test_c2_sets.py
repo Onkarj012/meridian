@@ -4,6 +4,7 @@ import math
 
 import numpy as np
 import pandas as pd
+import pytest
 from pandas.testing import assert_frame_equal
 
 from features.c2_sets import (
@@ -16,6 +17,7 @@ from features.c2_sets import (
     c2w_config_hash,
     derive_monthly_expiries,
     validate_expiry_derivation,
+    iter_c2_matrices,
 )
 
 
@@ -51,6 +53,30 @@ def test_registered_columns_and_determinism() -> None:
     again_w, again_p = build_c2_matrices(raw.copy())
     assert_frame_equal(c2w, again_w)
     assert_frame_equal(c2p, again_p)
+
+
+def test_batch_and_iterator_paths_are_session_exact():
+    raw = _raw(3)
+    batch_w, batch_p = build_c2_matrices(raw)
+    iterator = list(iter_c2_matrices(raw))
+    iter_w = pd.concat([pair[0] for pair in iterator], ignore_index=True)
+    iter_p = pd.concat([pair[1] for pair in iterator], ignore_index=True)
+    assert_frame_equal(batch_w, iter_w, check_exact=True, check_names=True)
+    assert_frame_equal(batch_p, iter_p, check_exact=True, check_names=True)
+
+
+def test_c2_builders_reject_timezone_aware_timestamps():
+    raw = _raw(1).copy()
+    raw["datetime"] = raw["datetime"].dt.tz_localize("Asia/Kolkata")
+    with pytest.raises(ValueError, match="naive IST"):
+        build_c2_matrices(raw)
+
+
+def test_iterator_requires_strict_session_order():
+    raw = _raw(3)
+    days = [frame for _, frame in raw.groupby(raw["datetime"].dt.normalize(), sort=True)]
+    with pytest.raises(ValueError, match="strictly increasing"):
+        list(iter_c2_matrices([days[1], days[0], days[2]], trading_dates=pd.bdate_range("2024-01-02", periods=3)))
 
 
 def test_trailing_standardizers_never_use_future_sessions() -> None:

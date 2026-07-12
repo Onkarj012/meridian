@@ -18,10 +18,9 @@ def fetch_yfinance_closes() -> tuple[list[dict[str, Any]], str]:
     except ImportError:
         return [], json.dumps({"status": "unavailable", "needs": "optional yfinance package or licensed daily-close vendor"})
     rows: list[dict[str, Any]] = []
-    raw: dict[str, Any] = {"provider": "yfinance", "instruments": {}}
+    raw: dict[str, Any] = {"provider": "yfinance", "rows": []}
     for instrument, ticker in YFINANCE_TICKERS.items():
         frame = yf.Ticker(ticker).history(period="10d", auto_adjust=False, actions=True)
-        raw["instruments"][instrument] = len(frame)
         for timestamp, item in frame.iterrows():
             trade_date = str(timestamp.date())
             base = {"instrument": instrument, "trade_date": trade_date, "close": item.get("Close"), "adj_close": item.get("Adj Close"), "currency": "USD", "record_type": "close", "action_type": None, "action_value": None, "provider": "yfinance", "source_ts": trade_date, "exchange_ts": trade_date}
@@ -30,7 +29,8 @@ def fetch_yfinance_closes() -> tuple[list[dict[str, Any]], str]:
                 value = item.get(column, 0)
                 if value:
                     rows.append({**base, "record_type": "corporate_action", "action_type": action_type, "action_value": value})
-    return rows, json.dumps(raw, sort_keys=True)
+    raw["rows"] = rows
+    return rows, json.dumps(raw, sort_keys=True, separators=(",", ":"), default=str)
 
 
 def collect_once(*, lake_root: str | None = None, fetcher: Callable[[], Any] | None = None, dry_run: bool = False) -> dict[str, Any]:

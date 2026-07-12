@@ -60,10 +60,22 @@ def repair_config_hash() -> str:
 def _normalise_raw(raw: pd.DataFrame) -> pd.DataFrame:
     """Match the raw schema accepted by ``build_proxy_features`` without mutation."""
     df = raw.copy()
+    def parse_timestamps(values: object) -> pd.Series:
+        parsed = pd.to_datetime(values)
+        try:
+            aware = parsed.dt.tz is not None  # type: ignore[union-attr]
+        except AttributeError:
+            aware = any(
+                pd.Timestamp(value).tzinfo is not None and pd.Timestamp(value).utcoffset() is not None
+                for value in parsed
+            )
+        if aware:
+            raise ValueError("timestamps must be naive IST; convert tz-aware datetimes to naive IST before calling repaired feature builders")
+        return parsed
     if "datetime" in df:
-        df["datetime"] = pd.to_datetime(df["datetime"])
+        df["datetime"] = parse_timestamps(df["datetime"])
     elif "date" in df:
-        df["datetime"] = pd.to_datetime(df["date"])
+        df["datetime"] = parse_timestamps(df["date"])
     else:
         raise ValueError("raw data requires a date or datetime column")
 
