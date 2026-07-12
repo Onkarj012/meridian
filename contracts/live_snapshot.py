@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, fields, replace
 import hashlib
+import fcntl
 import json
 import math
 import os
@@ -157,17 +158,28 @@ class LiveSnapshotWriter:
                 self._snapshot_ids.add(snapshot.snapshot_id)
 
     def append(self, snapshot: LiveSnapshot) -> LiveSnapshot:
-        if snapshot.schema_version != LIVE_SNAPSHOT_SCHEMA_VERSION:
-            raise ValueError(f"unexpected schema_version: {snapshot.schema_version}")
-        if snapshot.snapshot_id in self._snapshot_ids:
-            raise ValueError("snapshot_id already exists in append-only log")
-        _validate_json_numbers(snapshot)
-        resolved = replace(snapshot, snapshot_hash=compute_snapshot_hash(snapshot))
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        with self.path.open("a", encoding="utf-8", newline="") as handle:
-            handle.write(to_json_line(resolved))
-            handle.flush()
-            os.fsync(handle.fileno())
+        with self.path.with_name(self.path.name + ".lock").open("a+") as lock:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            try:
+                self._snapshot_ids = set()
+                if self.path.exists():
+                    for existing in read_live_snapshots(self.path):
+                        if existing.snapshot_id in self._snapshot_ids:
+                            raise ValueError("existing live snapshot log contains duplicate snapshot_id")
+                        self._snapshot_ids.add(existing.snapshot_id)
+                if snapshot.schema_version != LIVE_SNAPSHOT_SCHEMA_VERSION:
+                    raise ValueError(f"unexpected schema_version: {snapshot.schema_version}")
+                if snapshot.snapshot_id in self._snapshot_ids:
+                    raise ValueError("snapshot_id already exists in append-only log")
+                _validate_json_numbers(snapshot)
+                resolved = replace(snapshot, snapshot_hash=compute_snapshot_hash(snapshot))
+                with self.path.open("a", encoding="utf-8", newline="") as handle:
+                    handle.write(to_json_line(resolved))
+                    handle.flush()
+                    os.fsync(handle.fileno())
+            finally:
+                fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
         self._snapshot_ids.add(resolved.snapshot_id)
         return resolved
 

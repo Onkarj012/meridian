@@ -4,7 +4,7 @@
 
 ## Scope and sampling
 
-- Roots: `/Users/onkarj012/Projects/market/intranet_optinet/data/option_data`, `/Users/onkarj012/Projects/market/intranet_optinet/data/parquet`
+- Roots: `$SLEEVE_F_OPTIONS_ROOT/option_data`, `$SLEEVE_F_OPTIONS_ROOT/parquet`
 - Candidate option dates: 2020-01-01 to 2026-07-10; sampled 30 days.
 - Basis: stratified early/middle/recent plus four Thursday expiry-week anchors. The sample includes early, middle, recent, and four Thursday expiry-week anchors where available.
 - Inventory: 5,631 option CSVs and 2,164 option Parquet files; all supplied files: 10,615.

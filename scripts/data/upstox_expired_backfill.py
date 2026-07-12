@@ -92,8 +92,12 @@ def main(argv: list[str] | None = None) -> int:
                 for item in report["validation_results"]
                 if item.get("ok")
             }
+            failed_days = {
+                str(item["trade_date"])
+                for item in report["failed"] + report["validation_failures"]
+            }
             for row in days:
-                if row["trade_date"] not in succeeded_days:
+                if row["trade_date"] not in succeeded_days and row["trade_date"] not in failed_days:
                     report["failed"].append({"trade_date": row["trade_date"], "contract": f"{exchange_token}/{expiry}", "reason": str(exc)})
     write_report(report, args.report)
     print(f"summary: fetched={len(report['fetched'])} skipped={len(report['skipped'])} failed={len(report['failed'])} validation_failures={len(report['validation_failures'])}")

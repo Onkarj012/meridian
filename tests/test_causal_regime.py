@@ -72,6 +72,16 @@ def test_minimum_valid_prior_sessions_controls_eligibility():
     assert result.loc[20, "regime_eligible"]
 
 
+def test_missing_current_signal_is_ineligible_with_sufficient_prior_sessions():
+    frame = _frame(21)
+    frame.loc[20, "ema_slope"] = np.nan
+
+    result = add_regime_causal(frame)
+
+    assert result.loc[20, "regime"] == "ineligible"
+    assert not result.loc[20, "regime_eligible"]
+
+
 def test_thresholds_are_matched_to_minute_of_day():
     frame = _frame(22, (600, 601))
     frame.loc[frame["minute_of_day"] == 601, "realized_vol_30m"] += 100.0

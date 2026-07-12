@@ -52,6 +52,9 @@ def main() -> int:
     parser.add_argument("--score-fn", required=True, help="offline adapter as module:attribute")
     args = parser.parse_args()
     reports = run_parity(args.snapshot_path, args.out_dir, _load_callable(args.feature_fn), _load_callable(args.score_fn))
+    if not reports:
+        print("error: no live snapshots were read; parity cannot be considered successful", file=sys.stderr)
+        return 1
     for report in reports:
         print(f"{report.snapshot_id}: {report.verdict}")
     return 0 if all(report.verdict != "FAIL" for report in reports) else 1

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -16,13 +17,17 @@ sys.path.insert(0, str(ROOT))
 from contracts.sleeve_f_labels import generate_legacy_parity_labels_for_sessions
 
 
-DEFAULT_MODELS = Path("/Users/onkarj012/Projects/market/intranet_optinet/models/router_v0")
-DEFAULT_DATA = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut")
+DEFAULT_MODELS = os.environ.get("SLEEVE_F_MODELS_DIR")
+DEFAULT_DATA = os.environ.get("SLEEVE_F_DATA_DIR")
 OUTPUT_DIR = ROOT / "runs/sleeve-f-label-parity"
 
 
 def main() -> int:
     args = parse_args()
+    if args.models_dir is None:
+        raise SystemExit("error: --models-dir or SLEEVE_F_MODELS_DIR is required")
+    if args.data_dir is None:
+        raise SystemExit("error: --data-dir or SLEEVE_F_DATA_DIR is required")
     parquet_paths = sorted(args.models_dir.glob("*.parquet")) + sorted(args.models_dir.glob("*/*.parquet"))
     label_paths = [path for path in parquet_paths if "barrier" in path.name.lower() and "label" in path.name.lower()]
     if not label_paths:
@@ -40,8 +45,8 @@ def main() -> int:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--models-dir", type=Path, default=DEFAULT_MODELS)
-    parser.add_argument("--data-dir", type=Path, default=DEFAULT_DATA)
+    parser.add_argument("--models-dir", type=Path, default=Path(DEFAULT_MODELS) if DEFAULT_MODELS else None)
+    parser.add_argument("--data-dir", type=Path, default=Path(DEFAULT_DATA) if DEFAULT_DATA else None)
     return parser.parse_args()
 
 
@@ -50,6 +55,7 @@ def compare(parquet_path: Path, data_dir: Path) -> dict[str, object]:
     archived["datetime"] = pd.to_datetime(archived["datetime"])
     start, end = archived["datetime"].min(), archived["datetime"].max()
     raw = load_archive_csvs(data_dir, start.normalize(), end.normalize())
+    skipped_empty_frames = int(raw.attrs.get("skipped_empty_frames", 0))
     regenerated = generate_legacy_parity_labels_for_sessions(raw)
     regenerated = regenerated[(regenerated["datetime"] >= start) & (regenerated["datetime"] <= end)].copy()
 
@@ -87,6 +93,7 @@ def compare(parquet_path: Path, data_dir: Path) -> dict[str, object]:
         "joined_rows": int(len(joined)),
         "missing_or_extra_rows": missing_rows,
         "value_mismatch_count": mismatches,
+        "skipped_empty_frames": skipped_empty_frames,
         "max_abs_diff": max_abs_diff,
         "mismatches": detail,
         "spec_conflicts": [
@@ -96,22 +103,35 @@ def compare(parquet_path: Path, data_dir: Path) -> dict[str, object]:
             "Legacy labels use future closes only; execution labels use next-open entry plus OHLC first-touch.",
             "The archived target/stop ordering comparison is strict; execution OHLC double-touches stop first.",
         ],
-        "summary": f"archive_rows={len(archived)}, generated_rows={len(regenerated)}, value_mismatches={mismatches}, missing_or_extra_rows={missing_rows}",
+        "summary": f"archive_rows={len(archived)}, generated_rows={len(regenerated)}, value_mismatches={mismatches}, missing_or_extra_rows={missing_rows}, skipped_empty_frames={skipped_empty_frames}",
     }
 
 
 def load_archive_csvs(data_dir: Path, start: pd.Timestamp, end: pd.Timestamp) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
+    skipped_empty = 0
     for path in sorted(data_dir.rglob("*.csv")):
-        frame = pd.read_csv(path, usecols=lambda column: column in {"date", "time", "open", "high", "low", "close"})
+        try:
+            frame = pd.read_csv(path, usecols=lambda column: column in {"date", "time", "open", "high", "low", "close"})
+        except pd.errors.EmptyDataError:
+            skipped_empty += 1
+            continue
         if not {"date", "time", "open", "high", "low", "close"}.issubset(frame.columns):
+            continue
+        if frame.empty:
+            skipped_empty += 1
             continue
         day = pd.to_datetime(frame["date"].iloc[0]).normalize()
         if start <= day <= end:
             frames.append(frame)
     if not frames:
-        raise FileNotFoundError(f"No archive minute CSVs found in {data_dir} for {start.date()}..{end.date()}")
-    return pd.concat(frames, ignore_index=True)
+        raise FileNotFoundError(
+            f"No non-empty archive minute CSVs found in {data_dir} for {start.date()}..{end.date()}"
+            f" ({skipped_empty} empty/header-only CSVs skipped)"
+        )
+    result = pd.concat(frames, ignore_index=True)
+    result.attrs["skipped_empty_frames"] = skipped_empty
+    return result
 
 
 def write_report(report: dict[str, object]) -> None:

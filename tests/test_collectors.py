@@ -38,6 +38,25 @@ def test_manifest_hash_matches_immutable_data_file(tmp_path):
     assert (tmp_path / "collectors/example" / result["raw_file"]).read_text() == "payload"
 
 
+def test_partial_dual_file_write_is_cleaned_for_retry(tmp_path, monkeypatch):
+    original_open = Path.open
+
+    def fail_data_create(path, mode="r", *args, **kwargs):
+        if path.suffix == ".jsonl" and mode == "x":
+            raise OSError("simulated data-file failure")
+        return original_open(path, mode, *args, **kwargs)
+
+    with monkeypatch.context() as patch:
+        patch.setattr(Path, "open", fail_data_create)
+        with pytest.raises(OSError, match="simulated data-file failure"):
+            append_observation("example", [{"instrument": "TEST"}], raw="payload", lake_root=tmp_path)
+
+    collector_root = tmp_path / "collectors/example"
+    assert not list(collector_root.rglob("*.raw"))
+    result = append_observation("example", [{"instrument": "TEST"}], raw="payload", lake_root=tmp_path)
+    assert result["action"] == "written"
+
+
 def test_every_collector_exposes_a_complete_offline_dry_run_schema():
     collectors = [gift_nifty, global_minute, snapshot_ledger, nse_announcements, option_chain, adr_etf_closes, fii_dii]
     for collector in collectors:

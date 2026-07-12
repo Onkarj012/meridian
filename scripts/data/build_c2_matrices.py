@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -30,7 +31,7 @@ from features.c2_sets import (
 )
 
 
-DEFAULT_ARCHIVE = Path("/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut")
+DEFAULT_ARCHIVE = Path(os.environ.get("SLEEVE_F_FUT_ARCHIVE", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut"))
 DEFAULT_EXPIRIES = Path("runs/sleeve-f-data-contract/expiries.csv")
 DEFAULT_CONTRACT_CALENDAR = Path("runs/sleeve-f-data-contract/contract_calendar.csv")
 DEFAULT_VIX = Path("runs/sleeve-f-calendar-vix/india_vix_clean.csv")

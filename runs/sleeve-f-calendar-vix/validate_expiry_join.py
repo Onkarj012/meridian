@@ -5,14 +5,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 import pandas as pd
 
 
-MINUTE_ROOT = Path(
-    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut"
-)
+MINUTE_ROOT = Path(os.environ.get(
+    "SLEEVE_F_MINUTE_ROOT",
+    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut",
+))
 START = pd.Timestamp("2020-01-01")
 END = pd.Timestamp("2026-07-10")
 
@@ -66,6 +68,8 @@ def roll_verdict(
         for name, _, close in candidates
         if pd.notna(close)
     }
+    if not distances:
+        return "unusable", {"reason": "front_and_next_close_missing"}
     closest = min(distances, key=distances.get)
     expected = "next" if iso(expected_expiry) == iso(calendar_row["next_expiry"]) else "front"
     verdict = "PASS" if closest == expected else "FAIL"
@@ -99,12 +103,17 @@ def choose_roll_samples(calendar: pd.DataFrame, expiries: pd.DataFrame) -> list[
 
 
 def main() -> None:
+    global MINUTE_ROOT
     parser = argparse.ArgumentParser()
     parser.add_argument("--calendar", required=True, type=Path)
     parser.add_argument("--expiries", required=True, type=Path)
     parser.add_argument("--out-dir", required=True, type=Path)
+    parser.add_argument("--minute-root", type=Path, default=MINUTE_ROOT)
     args = parser.parse_args()
     args.out_dir.mkdir(parents=True, exist_ok=True)
+    MINUTE_ROOT = args.minute_root
+    if not MINUTE_ROOT.is_dir():
+        raise FileNotFoundError(f"minute archive root does not exist: {MINUTE_ROOT}")
 
     calendar = pd.read_csv(args.calendar)
     expiries = pd.read_csv(args.expiries)
@@ -148,6 +157,8 @@ def main() -> None:
     ]
 
     samples = choose_roll_samples(calendar, expiries)
+    if not samples:
+        raise RuntimeError(f"no eligible roll samples found under minute archive root: {MINUTE_ROOT}")
     roll_checks: list[dict[str, object]] = []
     dates = calendar["trade_date"]
     for expiry in samples:

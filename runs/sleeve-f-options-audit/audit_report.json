@@ -120,8 +120,8 @@
     "parquet_files": 2164
   },
   "roots": [
-    "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data",
-    "/Users/onkarj012/Projects/market/intranet_optinet/data/parquet"
+    "$SLEEVE_F_OPTIONS_ROOT/option_data",
+    "$SLEEVE_F_OPTIONS_ROOT/parquet"
   ],
   "strike_expiry": {
     "ambiguous_or_unparseable_count": 2,

@@ -103,22 +103,30 @@ def append_observation(
             raw_path = directory / f"{sequence:06d}.raw"
             # Exclusive creation enforces append-only behaviour even when the caller
             # accidentally retries while another process is writing.
-            with raw_path.open("x", encoding="utf-8") as handle:
-                handle.write(raw_text)
-            data_text = "".join(json.dumps(row, sort_keys=True, default=str, separators=(",", ":")) + "\n" for row in rows)
-            with data_path.open("x", encoding="utf-8") as handle:
-                handle.write(data_text)
-            source_times = [str(row.get("source_ts") or row.get("exchange_ts") or "") for row in rows]
-            relative = data_path.relative_to(collector_root).as_posix()
-            entry = {
-                "action": "written", "sequence": sequence, "file": relative,
-                "raw_file": raw_path.relative_to(collector_root).as_posix(),
-                "sha256": _sha256(data_text.encode("utf-8")), "raw_sha256": raw_hash,
-                "rows": len(rows), "first_ts": min(source_times, default=None),
-                "last_ts": max(source_times, default=None), "partition": partition_key, "written_at": received,
-            }
-            _append_manifest(manifest, entry)
-            return entry
+            created_paths: list[Path] = []
+            try:
+                with raw_path.open("x", encoding="utf-8") as handle:
+                    created_paths.append(raw_path)
+                    handle.write(raw_text)
+                data_text = "".join(json.dumps(row, sort_keys=True, default=str, separators=(",", ":")) + "\n" for row in rows)
+                with data_path.open("x", encoding="utf-8") as handle:
+                    created_paths.append(data_path)
+                    handle.write(data_text)
+                source_times = [str(row.get("source_ts") or row.get("exchange_ts") or "") for row in rows]
+                relative = data_path.relative_to(collector_root).as_posix()
+                entry = {
+                    "action": "written", "sequence": sequence, "file": relative,
+                    "raw_file": raw_path.relative_to(collector_root).as_posix(),
+                    "sha256": _sha256(data_text.encode("utf-8")), "raw_sha256": raw_hash,
+                    "rows": len(rows), "first_ts": min(source_times, default=None),
+                    "last_ts": max(source_times, default=None), "partition": partition_key, "written_at": received,
+                }
+                _append_manifest(manifest, entry)
+                return entry
+            except Exception:
+                for path in reversed(created_paths):
+                    path.unlink(missing_ok=True)
+                raise
         finally:
             fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
 

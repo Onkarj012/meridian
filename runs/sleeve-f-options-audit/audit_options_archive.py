@@ -19,6 +19,7 @@ from statistics import median
 import pandas as pd
 
 TODAY = date(2026, 7, 12)
+REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_DATE = re.compile(r"_(\d{2})_(\d{2})_(\d{4})\.csv$", re.I)
 PARQUET_DATE = re.compile(r"options_(\d{8})\.parquet$", re.I)
 SYM_RE = re.compile(r"^(?P<underlying>NIFTY|BANKNIFTY)(?P<day>\d{1,2})(?P<mon>[A-Z]{3})(?P<yy>\d{2})(?P<strike>\d+(?:\.\d+)?)(?P<otype>CE|PE)$", re.I)
@@ -75,16 +76,37 @@ def fmt_bytes(n: int) -> str:
         x /= 1024
 
 
+def report_root(root: Path) -> str:
+    """Describe an input root without persisting a developer's absolute path."""
+    if not root.is_absolute():
+        return str(root)
+    try:
+        return root.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return f"$SLEEVE_F_OPTIONS_ROOT/{root.name}"
+
+
+def report_path(path: Path, roots: list[Path]) -> str:
+    for root in roots:
+        try:
+            relative = path.relative_to(root)
+        except ValueError:
+            continue
+        prefix = report_root(root)
+        return f"{prefix}/{relative.as_posix()}" if relative.parts else prefix
+    return report_root(path)
+
+
 def inventory(all_files: list[Path], roots: list[Path]) -> str:
     lines = ["# Options archive inventory", "", "Read-only inventory. Coverage dates are filename-derived where possible; directory statistics include all files under the supplied roots.", "", "## Roots", ""]
-    for r in roots: lines.append(f"- `{r}` ({'exists' if r.exists() else 'missing'})")
+    for r in roots: lines.append(f"- `{report_root(r)}` ({'exists' if r.exists() else 'missing'})")
     lines += ["", "## Directory tree (two levels)", "", "```text"]
     for root in roots:
-        lines.append(str(root))
+        lines.append(report_root(root))
         dirs = sorted({p.parent for p in all_files if root in p.parents})
         for d in dirs:
             if len(d.relative_to(root).parts) <= 2:
-                lines.append(f"  {d.relative_to(root)}")
+                lines.append(f"  {report_path(d, roots)}")
     lines += ["```", "", "## Per-directory statistics", "", "| Directory | Files | Formats | Size | Date coverage (filename-derived) |", "|---|---:|---|---:|---|"]
     dirs = sorted({p.parent for p in all_files})
     for d in dirs:
@@ -93,7 +115,7 @@ def inventory(all_files: list[Path], roots: list[Path]) -> str:
         dates = sorted(x for x in (file_date(p) for p in ps) if x)
         ext = ", ".join(f"{k} ({v})" for k, v in sorted(exts.items()))
         cov = f"{dates[0]} to {dates[-1]}" if dates else "not derivable"
-        lines.append(f"| `{d}` | {len(ps)} | {ext} | {fmt_bytes(sum(p.stat().st_size for p in ps))} | {cov} |")
+        lines.append(f"| `{report_path(d, roots)}` | {len(ps)} | {ext} | {fmt_bytes(sum(p.stat().st_size for p in ps))} | {cov} |")
     return "\n".join(lines) + "\n"
 
 
@@ -201,11 +223,11 @@ def main() -> None:
         drift=(pd.to_numeric(m["close_num"],errors="coerce")-pd.to_numeric(m["parquet_close"],errors="coerce")).abs()
         seam.append({"date":str(d),"csv_rows":len(c),"parquet_rows":len(p),"joined_contracts":len(m),"exact_close_matches":int((drift.fillna(999)==0).sum()),"nonzero_close_drift":int((drift>1e-9).sum()),"max_abs_close_drift":float(drift.max()) if len(drift) else None})
     recent=max(candidates) if candidates else None
-    result={"generated_at":datetime.now().isoformat(),"today_assumed":str(TODAY),"roots":[str(x) for x in args.roots],"inventory":{"all_files":len(all_files),"csv_files":len([p for p in all_files if p.suffix.lower()=='.csv']),"parquet_files":len([p for p in all_files if p.suffix.lower()=='.parquet']),"option_csv_files":len(csvs),"option_parquet_files":len(pars),"all_file_bytes":sum(p.stat().st_size for p in all_files)},"coverage":{"candidate_date_min":str(min(candidates)) if candidates else None,"candidate_date_max":str(max(candidates)) if candidates else None,"most_recent_date":str(recent) if recent else None,"gap_to_today_days":(TODAY-recent).days if recent else None,"sampled_days":len(sampled),"sample_dates":[str(d) for d in sampled],"sample_basis":sample_basis},"timestamps_cadence":day_stats,"strike_expiry":{"csv_encoding":"symbol regex UNDERLYING+DDMMMYY+STRIKE+CE/PE","parquet_columns":["strike_price","expiry_date","option_type"],"ambiguous_or_unparseable_count":len(set(parse_bad)),"examples":sorted(set(parse_bad))[:10]},"csv_parquet_seam":{"sampled_overlap_dates":seam,"seam_interpretation":"CSV is intraday and Parquet is date-only/EOD; exact row-count equality is not expected. Joined close drift compares CSV final observed close with Parquet close on contract keys."}}
+    result={"generated_at":datetime.now().isoformat(),"today_assumed":str(TODAY),"roots":[report_root(x) for x in args.roots],"inventory":{"all_files":len(all_files),"csv_files":len([p for p in all_files if p.suffix.lower()=='.csv']),"parquet_files":len([p for p in all_files if p.suffix.lower()=='.parquet']),"option_csv_files":len(csvs),"option_parquet_files":len(pars),"all_file_bytes":sum(p.stat().st_size for p in all_files)},"coverage":{"candidate_date_min":str(min(candidates)) if candidates else None,"candidate_date_max":str(max(candidates)) if candidates else None,"most_recent_date":str(recent) if recent else None,"gap_to_today_days":(TODAY-recent).days if recent else None,"sampled_days":len(sampled),"sample_dates":[str(d) for d in sampled],"sample_basis":sample_basis},"timestamps_cadence":day_stats,"strike_expiry":{"csv_encoding":"symbol regex UNDERLYING+DDMMMYY+STRIKE+CE/PE","parquet_columns":["strike_price","expiry_date","option_type"],"ambiguous_or_unparseable_count":len(set(parse_bad)),"examples":sorted(set(parse_bad))[:10]},"csv_parquet_seam":{"sampled_overlap_dates":seam,"seam_interpretation":"CSV is intraday and Parquet is date-only/EOD; exact row-count equality is not expected. Joined close drift compares CSV final observed close with Parquet close on contract keys."}}
     (args.out_dir/'audit_options_archive.py').write_text(Path(__file__).read_text())
     (args.out_dir/'inventory.md').write_text(inventory(all_files,args.roots))
     (args.out_dir/'audit_report.json').write_text(json.dumps(result,default=jsonable,indent=2,sort_keys=True)+"\n")
-    lines=["# Options archive audit report","",f"**Status:** scan/report only; no verdict. All evidence is sampled unless explicitly labeled inventory.","",f"## Scope and sampling\n\n- Roots: {', '.join(f'`{r}`' for r in args.roots)}\n- Candidate option dates: {min(candidates) if candidates else 'none'} to {max(candidates) if candidates else 'none'}; sampled {len(sampled)} days.\n- Basis: {sample_basis['basis']}. The sample includes early, middle, recent, and four Thursday expiry-week anchors where available.\n- Inventory: {len(csvs):,} option CSVs and {len(pars):,} option Parquet files; all supplied files: {len(all_files):,}.\n", "## Timestamps and cadence (sample basis)", "", "CSV rows carry `date` + `time` at intraday grain; no separate fetch timestamp was observed, and timestamps are timezone-naive/unspecified. Parquet option rows carry `date` only, so they are EOD/date-grain for this audit. Cadence below is computed after sorting unique CSV timestamps per sampled day.", "", "| Day | CSV rows | timestamps | median gap (min) | p95 gap | max gap | unique gap examples | valid-surface minutes / observed minutes |", "|---|---:|---|---:|---:|---:|---|---:|"]
+    lines=["# Options archive audit report","",f"**Status:** scan/report only; no verdict. All evidence is sampled unless explicitly labeled inventory.","",f"## Scope and sampling\n\n- Roots: {', '.join(f'`{report_root(r)}`' for r in args.roots)}\n- Candidate option dates: {min(candidates) if candidates else 'none'} to {max(candidates) if candidates else 'none'}; sampled {len(sampled)} days.\n- Basis: {sample_basis['basis']}. The sample includes early, middle, recent, and four Thursday expiry-week anchors where available.\n- Inventory: {len(csvs):,} option CSVs and {len(pars):,} option Parquet files; all supplied files: {len(all_files):,}.\n", "## Timestamps and cadence (sample basis)", "", "CSV rows carry `date` + `time` at intraday grain; no separate fetch timestamp was observed, and timestamps are timezone-naive/unspecified. Parquet option rows carry `date` only, so they are EOD/date-grain for this audit. Cadence below is computed after sorting unique CSV timestamps per sampled day.", "", "| Day | CSV rows | timestamps | median gap (min) | p95 gap | max gap | unique gap examples | valid-surface minutes / observed minutes |", "|---|---:|---|---:|---:|---:|---|---:|"]
     for s in day_stats:
         c=s['cadence']; sv=s['surface']; frac=f"{sv['valid_minutes']} / {sv['session_minutes']} ({sv['fraction']:.1%})" if sv and sv['fraction'] is not None else "n/a"
         lines.append(f"| {s['date']} | {s.get('csv_rows',0):,} | {s['timestamps']} | {c.get('median_gap_minutes') or 'n/a'} | {c.get('p95_gap_minutes') or 'n/a'} | {c.get('max_gap_minutes') or 'n/a'} | {c.get('unique_gap_minutes',[])[:6]} | {frac} |")

@@ -66,6 +66,7 @@ def add_regime_causal(df: pd.DataFrame) -> pd.DataFrame:
     rv = result["realized_vol_30m"].to_numpy()
     ema_slope = result["ema_slope"].to_numpy()
     ret_30m = result["ret_30m"].to_numpy()
+    missing_inputs = np.isnan(rv) | np.isnan(ema_slope) | np.isnan(ret_30m)
     thresholds = REGIME_CONFIG["thresholds"]
 
     compression = (rv < threshold_values["rv_p25"]) & (np.abs(ret_30m) < thresholds["ret_30m_abs"])
@@ -86,8 +87,8 @@ def add_regime_causal(df: pd.DataFrame) -> pd.DataFrame:
     regime[expansion] = "expansion"
     regime[trend_dn] = "trend_dn"
     regime[trend_up] = "trend_up"
-    regime[~valid_prior] = "ineligible"
+    regime[~valid_prior | missing_inputs] = "ineligible"
 
     result["regime"] = regime
-    result["regime_eligible"] = valid_prior.astype(bool)
+    result["regime_eligible"] = (valid_prior & ~missing_inputs).astype(bool)
     return result.drop(columns=["_regime_trade_date", "_regime_session"])
