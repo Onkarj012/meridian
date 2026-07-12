@@ -128,7 +128,7 @@ def test_expiry_derivation_and_validation() -> None:
 
 
 def test_pinned_path_formulae() -> None:
-    c2w, c2p = build_c2_matrices(_raw())
+    _c2w, c2p = build_c2_matrices(_raw())
     final_day = c2p["session_date"].max()
     # At 09:30 the 09:15..09:29 opening range is complete.  The fixture gives
     # OR low=C0-.10, OR high=C14+.10 and C15, so location=(.41/.48).

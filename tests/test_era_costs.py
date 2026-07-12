@@ -1,11 +1,14 @@
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
+import pandas as pd
 import pytest
 
+from features.c2_sets import derive_monthly_expiries
 from ingest.expired_common import nifty_lot_size
 from policy.era_costs import (
     ERA_TABLE,
     STRESS_SLIPPAGE_BPS,
+    _era_for,
     cost_bps,
     cost_bps_fn_for,
     cost_rupees,
@@ -108,3 +111,36 @@ def test_label_cost_callback_and_stress_levels_are_expressible() -> None:
 
 def test_era_table_is_chronological() -> None:
     assert [row["effective_date"] for row in ERA_TABLE] == sorted(row["effective_date"] for row in ERA_TABLE)
+
+
+def _front_expiry_for(trade_date: date) -> str:
+    """Derive the front-month expiry for ``trade_date`` using the registered rule."""
+    month_start = trade_date.replace(day=1)
+    month_end = (month_start + timedelta(days=32)).replace(day=1) - timedelta(days=1)
+    derived = derive_monthly_expiries(pd.bdate_range(month_start, month_end))
+    month = trade_date.strftime("%Y-%m")
+    matches = derived.loc[derived["month"] == month, "derived_expiry"]
+    assert len(matches) == 1, f"expected one derived expiry for {month}"
+    return matches.iloc[0].strftime("%Y-%m-%d")
+
+
+@pytest.mark.parametrize(
+    ("trade_date", "expected_lot_size"),
+    [
+        # Each trade date is safely inside one cost era.  The front-month expiry
+        # in that month belongs to a contract generation whose lot size must
+        # match the era's reporting lot_size.
+        (date(2020, 3, 15), 75),   # 2020-03 expiry generation -> 75
+        (date(2022, 6, 15), 50),   # 2021-07..2024-06 generation -> 50
+        (date(2024, 8, 15), 25),   # 2024-07..2025-01 generation -> 25
+        (date(2025, 6, 15), 75),   # 2025 generation -> 75
+        (date(2026, 5, 15), 65),   # 2026+ generation -> 65
+    ],
+)
+def test_era_lot_size_matches_expiry_generation_lookup(
+    trade_date: date, expected_lot_size: int
+) -> None:
+    era = _era_for(trade_date)
+    assert era["lot_size"] == expected_lot_size
+    front_expiry = _front_expiry_for(trade_date)
+    assert nifty_lot_size(front_expiry) == expected_lot_size

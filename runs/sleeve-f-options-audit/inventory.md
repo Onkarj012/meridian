@@ -4,8 +4,8 @@ Read-only inventory. Coverage dates are filename-derived where possible; directo
 
 ## Roots
 
-- `/Users/onkarj012/Projects/market/intranet_optinet/data/option_data` (exists)
-- `/Users/onkarj012/Projects/market/intranet_optinet/data/parquet` (exists)
+- `$SLEEVE_F_OPTIONS_ROOT/option_data` (exists)
+- `$SLEEVE_F_OPTIONS_ROOT/parquet` (exists)
 
 ## Directory tree (two levels)
 

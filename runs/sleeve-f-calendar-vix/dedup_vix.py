@@ -12,8 +12,7 @@ import pandas as pd
 def vix_asof(clean_df: pd.DataFrame, session_date: object) -> pd.Series | None:
     """Return the latest VIX observation strictly before session_date (T-1)."""
     session = pd.Timestamp(session_date).normalize()
-    dates = pd.to_datetime(clean_df["date"]).dt.normalize()
-    eligible = clean_df.loc[dates < session]
+    eligible = clean_df.loc[clean_df["_date_dt"] < session]
     return None if eligible.empty else eligible.iloc[-1]
 
 
@@ -42,18 +41,24 @@ def main() -> None:
         identical = rows.drop(columns=["date"]).nunique(dropna=False).le(1).all()
         duplicate_records.append({"date": date.strftime("%Y-%m-%d"), "rows": [{k: fmt(v) for k, v in row.items()} for row in values], "identical": bool(identical), "kept": "one row" if identical else "last occurrence"})
     clean = raw.sort_values("_order").drop_duplicates("date", keep="last").sort_values("date").drop(columns=["_order"])
+    clean["_date_dt"] = clean["date"]
     clean["date"] = clean["date"].dt.strftime("%Y-%m-%d")
-    clean.to_csv(args.out_dir / "india_vix_clean.csv", index=False)
+    clean.drop(columns=["_date_dt"]).to_csv(args.out_dir / "india_vix_clean.csv", index=False)
 
     calendar = pd.read_csv(args.calendar, usecols=["trade_date"])
     calendar["trade_date"] = pd.to_datetime(calendar["trade_date"])
-    clean_dates = set(pd.to_datetime(clean["date"]))
+    clean_dates = set(clean["_date_dt"])
     missing = sorted(set(calendar["trade_date"]) - clean_dates)
     sample_sessions = calendar.sort_values("trade_date").iloc[[0, len(calendar) // 4, len(calendar) // 2, (3 * len(calendar)) // 4, len(calendar) - 1]]["trade_date"]
     samples = []
     for session in sample_sessions:
         row = vix_asof(clean, session)
-        samples.append({"session_date": session.strftime("%Y-%m-%d"), "vix_date_used": None if row is None else fmt(row["date"]), "vix_close": None if row is None else fmt(row["close"]), "proof": row is None or pd.Timestamp(row["date"]) < session})
+        samples.append({
+            "session_date": session.strftime("%Y-%m-%d"),
+            "vix_date_used": None if row is None else fmt(row["date"]),
+            "vix_close": None if row is None else fmt(row["close"]),
+            "proof": row is None or row["_date_dt"] < session,
+        })
 
     lines = ["# India VIX report", "", f"Raw rows: {len(raw)}; cleaned rows: {len(clean)}; unique dates: {clean['date'].nunique()}.", "", "## Duplicate dates", ""]
     for duplicate in duplicate_records:

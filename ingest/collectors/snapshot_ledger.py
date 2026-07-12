@@ -15,10 +15,10 @@ SCHEDULE_IST = ("08:00", "09:00", "09:15", "09:45")
 SOURCE_COLLECTORS = ("gift_nifty", "global_minute", "nse_announcements", "option_chain", "adr_etf_closes", "fii_dii")
 CRON_LINES = (
     "CRON_TZ=Asia/Kolkata",
-    "0 8 * * 1-5 /path/to/meridian/.venv/bin/python /path/to/meridian/scripts/collectors/snapshot_ledger.py",
-    "0 9 * * 1-5 /path/to/meridian/.venv/bin/python /path/to/meridian/scripts/collectors/snapshot_ledger.py",
-    "15 9 * * 1-5 /path/to/meridian/.venv/bin/python /path/to/meridian/scripts/collectors/snapshot_ledger.py",
-    "45 9 * * 1-5 /path/to/meridian/.venv/bin/python /path/to/meridian/scripts/collectors/snapshot_ledger.py",
+    "0 8 * * 1-5 $MERIDIAN_ROOT/.venv/bin/python $MERIDIAN_ROOT/scripts/collectors/snapshot_ledger.py",
+    "0 9 * * 1-5 $MERIDIAN_ROOT/.venv/bin/python $MERIDIAN_ROOT/scripts/collectors/snapshot_ledger.py",
+    "15 9 * * 1-5 $MERIDIAN_ROOT/.venv/bin/python $MERIDIAN_ROOT/scripts/collectors/snapshot_ledger.py",
+    "45 9 * * 1-5 $MERIDIAN_ROOT/.venv/bin/python $MERIDIAN_ROOT/scripts/collectors/snapshot_ledger.py",
 )
 
 

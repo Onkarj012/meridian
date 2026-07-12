@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import dataclasses
 from dataclasses import fields, replace
 from pathlib import Path
 
@@ -77,7 +78,7 @@ def event(*, event_id: str = "execution-001", decision_id: str = "decision-001")
 def test_event_is_immutable_and_has_full_registered_field_list() -> None:
     record = event()
     assert len(fields(ExecutionEvent)) == 48
-    with pytest.raises(Exception):
+    with pytest.raises(dataclasses.FrozenInstanceError):
         record.decision_id = "mutated"  # type: ignore[misc]
 
 

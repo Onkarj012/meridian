@@ -125,6 +125,13 @@ _TUPLE_FIELDS = {
 _HASH_EXCLUDED = {"envelope_hash", "audit_write_status"}
 # audit_write_status is a set-after-seal write outcome, intentionally unhashed.
 
+_SCHEMA_FIELD_NAMES = tuple(name for name, _ in ENVELOPE_SCHEMA_FIELDS)
+_DATACLASS_FIELD_NAMES = tuple(field.name for field in fields(DecisionEnvelope))
+assert _SCHEMA_FIELD_NAMES == _DATACLASS_FIELD_NAMES, (
+    f"ENVELOPE_SCHEMA_FIELDS names/order must match DecisionEnvelope fields: "
+    f"{_SCHEMA_FIELD_NAMES!r} vs {_DATACLASS_FIELD_NAMES!r}"
+)
+
 
 def _canonical_json(value: object) -> str:
     """Canonical JSON whose float representation is Python's exact ``repr``."""

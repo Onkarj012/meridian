@@ -69,24 +69,24 @@ def add_regime_causal(df: pd.DataFrame) -> pd.DataFrame:
     missing_inputs = np.isnan(rv) | np.isnan(ema_slope) | np.isnan(ret_30m)
     thresholds = REGIME_CONFIG["thresholds"]
 
-    compression = (rv < threshold_values["rv_p25"]) & (np.abs(ret_30m) < thresholds["ret_30m_abs"])
-    expansion = rv > threshold_values["rv_p90"]
-    trend_dn = (
-        (ema_slope < -thresholds["ema_slope"])
-        & (rv < threshold_values["rv_p75"])
-        & (ret_30m < 0)
-    )
-    trend_up = (
-        (ema_slope > thresholds["ema_slope"])
-        & (rv < threshold_values["rv_p75"])
-        & (ret_30m > 0)
-    )
+    masks = {
+        "compression": (rv < threshold_values["rv_p25"]) & (np.abs(ret_30m) < thresholds["ret_30m_abs"]),
+        "expansion": rv > threshold_values["rv_p90"],
+        "trend_dn": (
+            (ema_slope < -thresholds["ema_slope"])
+            & (rv < threshold_values["rv_p75"])
+            & (ret_30m < 0)
+        ),
+        "trend_up": (
+            (ema_slope > thresholds["ema_slope"])
+            & (rv < threshold_values["rv_p75"])
+            & (ret_30m > 0)
+        ),
+    }
 
     regime = np.full(len(result), "range", dtype=object)
-    regime[compression] = "compression"
-    regime[expansion] = "expansion"
-    regime[trend_dn] = "trend_dn"
-    regime[trend_up] = "trend_up"
+    for label in REGIME_CONFIG["precedence"]:
+        regime[masks[label]] = label
     regime[~valid_prior | missing_inputs] = "ineligible"
 
     result["regime"] = regime

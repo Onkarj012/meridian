@@ -204,7 +204,7 @@ def validate_expiry_derivation(
     matches = (compared.apply(lambda row: row["expiry"] in row["derived_expiries"], axis=1)
                if not compared.empty else pd.Series(dtype=bool))
     return {
-        "overlap_count": int(len(compared)),
+        "overlap_count": len(compared),
         "match_count": int(matches.sum()),
         "match_rate": float(matches.mean()) if len(compared) else np.nan,
         "mismatches": compared.loc[~matches, ["month", "expiry", "derived_expiries"]].to_dict("records"),
@@ -476,7 +476,10 @@ def iter_c2_matrices(
     if isinstance(raw, pd.DataFrame):
         source_dates = raw["date"] if "date" in raw else raw["datetime"]
         arrival_dates = pd.DatetimeIndex(pd.to_datetime(source_dates)).normalize().drop_duplicates()
-        if any(right <= left for left, right in zip(arrival_dates[:-1], arrival_dates[1:])):
+        if any(
+            right <= left
+            for left, right in zip(arrival_dates[:-1], arrival_dates[1:], strict=True)
+        ):
             raise ValueError("iter_c2_matrices sessions must arrive in strictly increasing trade_date order")
         clean = _normalise_raw(raw)
         if clean.empty:
@@ -538,7 +541,10 @@ def iter_c2_matrices(
         for window in (5, 15, 30):
             scale = frame["realized_vol_30m"] * np.sqrt(window / MINUTES_PER_SESSION)
             frame[f"vol_normalized_ret_{window}m"] = frame[f"ret_{window}m"] / scale.where(scale > 0)
-        frame["vwap_dev_z60"] = [prior_map_value(vwap_history, int(m), float(x), "z") for m, x in zip(frame["minute_of_day"], frame["vwap_dev"])]
+        frame["vwap_dev_z60"] = [
+            prior_map_value(vwap_history, int(m), float(x), "z")
+            for m, x in zip(frame["minute_of_day"], frame["vwap_dev"], strict=True)
+        ]
         first_open = float(frame["f_open"].iat[0])
         width = (float(frame["or_high"].iat[0]) - float(frame["or_low"].iat[0])) / first_open if first_open else np.nan
         valid_width = np.array([x for x in width_history if np.isfinite(x)], dtype=float)
@@ -550,9 +556,13 @@ def iter_c2_matrices(
             travel = frame["f_close"].diff().abs().rolling(window, min_periods=window).sum()
             frame[f"trend_efficiency_{window}m"] = (frame["f_close"].diff(window).abs() / travel.where(travel > 0)).clip(0, 1)
             rr = frame["f_high"].rolling(window, min_periods=window).max() - frame["f_low"].rolling(window, min_periods=window).min()
-            frame[f"range_expansion_{window}m"] = [prior_map_value(history, int(m), float(x), "median") for m, x in zip(frame["minute_of_day"], rr)]
+            frame[f"range_expansion_{window}m"] = [
+                prior_map_value(history, int(m), float(x), "median")
+                for m, x in zip(frame["minute_of_day"], rr, strict=True)
+            ]
             frame[f"_rr{window}"] = rr
-        high = frame["f_high"].rolling(15, min_periods=15).max(); low = frame["f_low"].rolling(15, min_periods=15).min()
+        high = frame["f_high"].rolling(15, min_periods=15).max()
+        low = frame["f_low"].rolling(15, min_periods=15).min()
         frame["pullback_depth_15m"] = ((high - frame["f_close"]) / (high - low).where((high - low) > 0)).clip(0, 1)
         gap = first_open - prior_close if prior_close is not None else np.nan
         frame["gap_fill_fraction"] = (((first_open - frame["f_close"]) / gap).clip(0, 1)

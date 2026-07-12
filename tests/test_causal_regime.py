@@ -115,6 +115,43 @@ def test_regime_config_hash_is_pinned():
     assert regime_config_hash() == "75151f226ced8002cf6c76930fcdd273542c88315a8180a913fc74a45c06507a"
 
 
+def test_precedence_drives_classification_and_mixed_frame_is_unchanged():
+    # With a flat prior distribution, quantiles collapse to the prior value,
+    # making each regime branch easy to hit deterministically.
+    frame = _frame(23, (600, 601, 602, 603, 604, 605))
+    frame["realized_vol_30m"] = 10.0
+    frame["ema_slope"] = 0.0
+    frame["ret_30m"] = 0.0
+
+    target_session = frame["trade_date"].unique()[22]
+    target = frame["trade_date"] == target_session
+    settings = {
+        600: (5.0, 0.0, 0.0),      # compression
+        601: (15.0, 0.0, 0.0),     # expansion
+        602: (5.0, -0.002, -0.01), # trend_dn (not compression because ret is large)
+        603: (5.0, 0.002, 0.01),   # trend_up
+        604: (10.0, 0.0, 0.0),     # range
+        605: (10.0, np.nan, 0.0),  # ineligible (missing input)
+    }
+    for minute, (rv, slope, ret) in settings.items():
+        frame.loc[target & (frame["minute_of_day"] == minute), ["realized_vol_30m", "ema_slope", "ret_30m"]] = [rv, slope, ret]
+
+    result = add_regime_causal(frame)
+    by_minute = result.loc[target].set_index("minute_of_day")["regime"]
+    assert by_minute.loc[600] == "compression"
+    assert by_minute.loc[601] == "expansion"
+    assert by_minute.loc[602] == "trend_dn"
+    assert by_minute.loc[603] == "trend_up"
+    assert by_minute.loc[604] == "range"
+    assert by_minute.loc[605] == "ineligible"
+
+    # Sessions without enough valid prior observations remain ineligible.
+    early_session = frame["trade_date"].unique()[19]
+    assert (result.loc[result["trade_date"] == early_session, "regime"] == "ineligible").all()
+
+    assert regime_config_hash() == "75151f226ced8002cf6c76930fcdd273542c88315a8180a913fc74a45c06507a"
+
+
 def test_causal_regime_builder_is_deterministic():
     frame = _frame(30, (600, 601, 602))
     pd.testing.assert_frame_equal(add_regime_causal(frame), add_regime_causal(frame))

@@ -97,6 +97,13 @@ class ExecutionEvent:
 _TUPLE_FIELDS = {"fill_records"}
 _HASH_EXCLUDED = {"event_hash"}
 
+_SCHEMA_FIELD_NAMES = tuple(name for name, _ in EXECUTION_SCHEMA_FIELDS)
+_DATACLASS_FIELD_NAMES = tuple(field.name for field in fields(ExecutionEvent))
+assert _SCHEMA_FIELD_NAMES == _DATACLASS_FIELD_NAMES, (
+    f"EXECUTION_SCHEMA_FIELDS names/order must match ExecutionEvent fields: "
+    f"{_SCHEMA_FIELD_NAMES!r} vs {_DATACLASS_FIELD_NAMES!r}"
+)
+
 
 def _canonical_json(value: object) -> str:
     return json.dumps(value, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
