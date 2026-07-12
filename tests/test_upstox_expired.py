@@ -225,6 +225,39 @@ def test_planning_uses_missing_calendar_files_and_groups_contracts(tmp_path):
     assert len(cli.load_target_rows(CALENDAR_FIXTURE, None, "2024-11-01", "2024-11-05", tmp_path)) == 2
 
 
+def test_contract_exception_does_not_duplicate_prior_failed_days(tmp_path, monkeypatch):
+    rows = [{"trade_date": day} for day in ("2024-11-01", "2024-11-04", "2024-11-05")]
+    days = {date.fromisoformat(row["trade_date"]): object() for row in (rows[0], rows[2])}
+
+    monkeypatch.setattr(cli, "load_target_rows", lambda *args, **kwargs: rows)
+    monkeypatch.setattr(cli, "build_plan", lambda planned: {("12345", "2024-11-28"): planned})
+    monkeypatch.setattr(cli, "access_token_from_env", lambda: "token")
+    monkeypatch.setattr(cli, "get_future_contract", lambda *args, **kwargs: {})
+    monkeypatch.setattr(cli, "contract_key", lambda *args, **kwargs: "contract-key")
+    monkeypatch.setattr(cli, "expired_key", lambda *args, **kwargs: "expired-key")
+    monkeypatch.setattr(cli, "fetch_minute_candles", lambda *args, **kwargs: object())
+    monkeypatch.setattr(cli, "candles_to_futures_csv", lambda candles: candles)
+    monkeypatch.setattr(cli, "split_by_day", lambda candles: days)
+    monkeypatch.setattr(cli, "minute_file_path", lambda trade_day, root: tmp_path / f"{trade_day}.csv")
+    monkeypatch.setattr(cli, "write_day_csv", lambda *args, **kwargs: None)
+
+    def validate(path, row):
+        if row is rows[0]:
+            return {"trade_date": row["trade_date"], "ok": False}
+        if row is rows[2]:
+            raise RuntimeError("validation transport failure")
+        raise AssertionError("the missing-candle day should not be validated")
+
+    monkeypatch.setattr(cli, "validate_day_file", validate)
+    report_path = tmp_path / "report.json"
+
+    assert cli.main([
+        "--calendar", str(CALENDAR_FIXTURE), "--out-root", str(tmp_path), "--report", str(report_path),
+    ]) == 1
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    assert [item["trade_date"] for item in report["failed"]] == ["2024-11-04", "2024-11-05"]
+
+
 def test_gap_days_are_an_alternative_target_source(tmp_path):
     gaps = tmp_path / "gaps.csv"
     gaps.write_text("trade_date,front_instrument_id,front_expiry\n2024-11-04,12345,2024-11-28\n", encoding="utf-8")
@@ -237,6 +270,9 @@ def test_validate_missing_file_is_failure(tmp_path):
 
 
 def test_nifty_lot_size_history():
+    assert nifty_lot_size("2020-05-28") == 75
+    assert nifty_lot_size("2021-06-24") == 75
+    assert nifty_lot_size("2021-07-29") == 50
     assert nifty_lot_size("2024-03-28") == 50
     assert nifty_lot_size("2024-11-28") == 25
     assert nifty_lot_size("2025-01-30") == 25

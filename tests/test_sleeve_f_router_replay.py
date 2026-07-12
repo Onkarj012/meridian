@@ -32,7 +32,17 @@ def test_replay_enforces_three_trade_daily_cap_and_legacy_metadata():
     trades, metadata = replay(_features(), IncreasingModel())
     assert len(trades) == 3
     assert metadata["lookahead"] is True
+    assert metadata["selection_lookahead"] is True
+    assert metadata["residual_lookahead"] == ["regime_eligibility"]
     assert metadata["promotable"] is False
+
+
+def test_causal_metadata_declares_regime_eligibility_residual_lookahead():
+    _, metadata = replay(_features(), IncreasingModel(), variant="causal")
+    assert metadata["lookahead"] is True
+    assert metadata["selection_lookahead"] is False
+    assert metadata["regime_source"] == "add_regime (noncausal full-frame quantiles)"
+    assert metadata["residual_lookahead"] == ["regime_eligibility"]
 
 
 def test_daily_halt_blocks_later_candidates():

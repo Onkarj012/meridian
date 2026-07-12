@@ -94,13 +94,13 @@ def compute_features(df: pd.DataFrame, trade_date: date) -> pd.DataFrame:
     df["gap_pct"] = (first_open - previous) / max(abs(previous), EPS)
 
     df["up_bar"] = (df["f_close"] > df["f_close"].shift(1)).astype(np.int8)
-    consec = np.zeros(n, dtype=np.int8)
+    consec = np.zeros(n, dtype=np.int16)
     for index in range(1, n):
         if df["up_bar"].iat[index] == 1:
             consec[index] = max(consec[index - 1], 0) + 1
         else:
             consec[index] = min(consec[index - 1], 0) - 1
-    df["consec_bars"] = consec
+    df["consec_bars"] = consec.astype(np.int16)
     df["ema9"] = df["f_close"].ewm(span=9, adjust=False).mean()
     df["ema21"] = df["f_close"].ewm(span=21, adjust=False).mean()
     df["ema_slope"] = (df["ema9"] - df["ema21"]) / df["ema21"].replace(0, np.nan)
@@ -114,7 +114,10 @@ def compute_features(df: pd.DataFrame, trade_date: date) -> pd.DataFrame:
 
 
 def add_regime(df: pd.DataFrame) -> pd.DataFrame:
-    """Port of the incumbent compression/regime classifier."""
+    """Port of the incumbent compression/regime classifier.
+
+    NONCAUSAL — attribution/parity use only; deployable candidates use features/causal_regime.py.
+    """
     rv = df["realized_vol_30m"]
     rv_p25 = rv.quantile(0.25)
     rv_p75 = rv.quantile(0.75)

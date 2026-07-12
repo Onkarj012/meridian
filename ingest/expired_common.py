@@ -132,7 +132,8 @@ def _number(row: Mapping[str, Any], field: str) -> float | None:
 # listed contracts; existing ones keep theirs until expiry).
 # History per brain/docs/futures-cost-schedule-research.md.
 NIFTY_LOT_SIZE_BY_EXPIRY = (
-    ("2024-06", 50),  # expiries through 2024-06: lot 50
+    ("2021-06", 75),  # expiries through 2021-06: lot 75
+    ("2024-06", 50),  # 2021-07..2024-06 expiries: lot 50
     ("2025-01", 25),  # 2024-07..2025-01 expiries: lot 25 (Jan-2025 contract retained 25)
     ("2025-12", 75),  # 2025 expiries: lot 75
     ("9999-12", 65),  # 2026+ expiries: lot 65

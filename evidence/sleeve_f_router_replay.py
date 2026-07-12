@@ -1,14 +1,15 @@
 """Replay the incumbent Sleeve F router and its conservative causal variant.
 
 ``legacy_parity`` deliberately uses each eligible day's complete score
-distribution for thresholds and close-only signal-bar fills.  Its metadata
-therefore always reports ``lookahead: true`` and it is unpromotable.
+distribution for thresholds and close-only signal-bar fills.  Its threshold
+selection is lookahead-biased and it is unpromotable.
 
 ``causal`` uses the immediately preceding eligible trading day's score 85th
 and 95th percentiles; its first available day cannot trade.  Entries fill at
 the following bar's open.  It evaluates the entry bar and the following 59
 bars using OHLC first-touch barriers; a bar crossing both barriers exits at the
-stop, the conservative convention.  Its metadata reports ``lookahead: false``.
+stop, the conservative convention.  Regime eligibility remains noncausal in
+both variants because it comes from full-frame quantiles.
 """
 from __future__ import annotations
 
@@ -185,7 +186,10 @@ def replay(features: pd.DataFrame, model, *, variant: SelectionVariant = "legacy
         daily_count[day] = daily_count.get(day, 0) + 1
     metadata = {
         "variant": variant,
-        "lookahead": variant == "legacy_parity",
+        "selection_lookahead": variant == "legacy_parity",
+        "regime_source": "add_regime (noncausal full-frame quantiles)",
+        "residual_lookahead": ["regime_eligibility"],
+        "lookahead": True,
         "promotable": False,
         "selection_rule": "same eligible day full-day score percentiles" if variant == "legacy_parity" else "previous eligible trading day's score percentiles",
         "fill_exit_rule": "signal-bar close / subsequent close-only, target first" if variant == "legacy_parity" else "next-bar open / OHLC first-touch, stop first on double touch",
