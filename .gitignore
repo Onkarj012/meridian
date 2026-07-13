@@ -23,3 +23,5 @@ runs/sleeve-f-c2-matrices/*.parquet
 
 # Collector lake default local root (append-only data, never tracked)
 collector_lake/
+# runs/sleeve-f-c1-matrix/hashes.json committed; rebuild via scripts/data/build_c1_matrix.py
+runs/sleeve-f-c1-matrix/*.parquet
