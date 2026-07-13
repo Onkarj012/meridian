@@ -26,10 +26,10 @@ LEGACY_ROOT = SOURCE_ROOT / "legacy"
 MINUTE_ROOT = Path(os.environ.get("MINUTE_ROOT", "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut"))
 OUT_DIR = PROJECT_ROOT / "runs/sleeve-f-data-contract"
 
-START = pd.Timestamp("2024-01-01")
+START = pd.Timestamp("2020-01-01")
 END = pd.Timestamp("2026-07-10")
 GAP_START = pd.Timestamp("2024-11-01")
-GAP_END = pd.Timestamp("2026-03-31")
+GAP_END = pd.Timestamp("2026-03-30")
 
 UDIFF_REQUIRED = [
     "TradDt",
@@ -88,15 +88,24 @@ def collect_sources() -> tuple[pd.DataFrame, dict[str, object]]:
     udiff_type_counts: Counter[str] = Counter()
     source_file_dates: list[dict[str, object]] = []
     format_counts: Counter[str] = Counter()
+    source_file_counts: Counter[str] = Counter()
+    source_file_anomalies: list[dict[str, str]] = []
 
     for year in (2024, 2025, 2026):
         for path in sorted((UDIFF_ROOT / str(year)).glob("*.zip")):
-            df = read_zip_csv(path)
+            source_file_counts[f"udiff/{year}"] += 1
+            try:
+                df = read_zip_csv(path)
+            except Exception as exc:
+                source_file_anomalies.append({"source": "udiff", "path": str(path), "reason": f"unreadable_zip: {exc}"})
+                continue
             missing = set(UDIFF_REQUIRED) - set(df.columns)
             if missing:
-                raise ValueError(f"{path} missing UDiFF columns: {sorted(missing)}")
+                source_file_anomalies.append({"source": "udiff", "path": str(path), "reason": f"missing_columns: {sorted(missing)}"})
+                continue
             file_date = pd.to_datetime(df["TradDt"], errors="coerce").dropna().dt.normalize()
             if file_date.empty:
+                source_file_anomalies.append({"source": "udiff", "path": str(path), "reason": "empty_or_unparseable_trade_date"})
                 continue
             date = file_date.iloc[0]
             source_file_dates.append({"source": "udiff", "path": str(path), "trade_date": date})
@@ -106,6 +115,7 @@ def collect_sources() -> tuple[pd.DataFrame, dict[str, object]]:
             udiff_type_counts.update(n["FinInstrmTp"].dropna().astype(str).tolist())
             n = n[n["FinInstrmTp"].eq("IDF")].copy()
             if n.empty:
+                source_file_anomalies.append({"source": "udiff", "path": str(path), "reason": "empty_NIFTY_IDF_rows"})
                 continue
             n["trade_date"] = pd.to_datetime(n["TradDt"], errors="coerce").dt.normalize()
             n["expiry"] = pd.to_datetime(n["XpryDt"], errors="coerce").dt.normalize()
@@ -132,14 +142,21 @@ def collect_sources() -> tuple[pd.DataFrame, dict[str, object]]:
                 ]
             )
 
-    for year in (2024,):
+    for year in (2020, 2021, 2022, 2023, 2024):
         for path in sorted((LEGACY_ROOT / str(year)).glob("*.zip")):
-            df = read_zip_csv(path)
+            source_file_counts[f"legacy/{year}"] += 1
+            try:
+                df = read_zip_csv(path)
+            except Exception as exc:
+                source_file_anomalies.append({"source": "legacy", "path": str(path), "reason": f"unreadable_zip: {exc}"})
+                continue
             missing = set(LEGACY_REQUIRED) - set(df.columns)
             if missing:
-                raise ValueError(f"{path} missing legacy columns: {sorted(missing)}")
+                source_file_anomalies.append({"source": "legacy", "path": str(path), "reason": f"missing_columns: {sorted(missing)}"})
+                continue
             file_date = pd.to_datetime(df["TIMESTAMP"], format="%d-%b-%Y", errors="coerce").dropna().dt.normalize()
             if file_date.empty:
+                source_file_anomalies.append({"source": "legacy", "path": str(path), "reason": "empty_or_unparseable_trade_date"})
                 continue
             date = file_date.iloc[0]
             source_file_dates.append({"source": "legacy", "path": str(path), "trade_date": date})
@@ -151,6 +168,7 @@ def collect_sources() -> tuple[pd.DataFrame, dict[str, object]]:
                 & df["OPTION_TYP"].fillna("XX").eq("XX")
             ].copy()
             if n.empty:
+                source_file_anomalies.append({"source": "legacy", "path": str(path), "reason": "empty_NIFTY_FUTIDX_rows"})
                 continue
             n["trade_date"] = pd.to_datetime(n["TIMESTAMP"], format="%d-%b-%Y", errors="coerce").dt.normalize()
             n["expiry"] = pd.to_datetime(n["EXPIRY_DT"], format="%d-%b-%Y", errors="coerce").dt.normalize()
@@ -206,6 +224,8 @@ def collect_sources() -> tuple[pd.DataFrame, dict[str, object]]:
         "udiff_type_counts": dict(sorted(udiff_type_counts.items())),
         "source_file_dates": pd.DataFrame(source_file_dates),
         "format_counts": dict(format_counts),
+        "source_file_counts": dict(sorted(source_file_counts.items())),
+        "source_file_anomalies": source_file_anomalies,
         "udiff_dates": sorted(pd.to_datetime(list(udiff_dates))),
         "legacy_dates_used": sorted(pd.to_datetime(legacy["trade_date"].unique())) if not legacy.empty else [],
     }
@@ -246,7 +266,10 @@ def build_calendar(futures: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_expiries(futures: pd.DataFrame) -> pd.DataFrame:
-    f = futures[futures["expiry"].between(START, END)].copy()
+    # Keep source-observed contracts beyond the final calendar session.  The
+    # active July contract and the following August contract are both needed
+    # to join the final 2026 calendar rows.
+    f = futures[futures["expiry"].ge(START)].copy()
     rows = []
     for expiry, group in f.groupby("expiry", sort=True):
         contracts = group[["instrument_id", "source"]].drop_duplicates().sort_values(["source", "instrument_id"])
@@ -321,7 +344,7 @@ def make_roll_evidence(
     by_date = cal.set_index("trade_date_ts")
     expiry_dates = pd.to_datetime(expiries["expiry"])
     wanted = expiry_dates[
-        ((expiry_dates >= pd.Timestamp("2024-01-01")) & (expiry_dates <= pd.Timestamp("2024-10-31")))
+        ((expiry_dates >= START) & (expiry_dates <= pd.Timestamp("2024-10-31")))
         | ((expiry_dates >= pd.Timestamp("2026-04-01")) & (expiry_dates <= pd.Timestamp("2026-06-30")))
     ]
     rows: list[dict[str, object]] = []
@@ -457,6 +480,20 @@ def build_coverage_report(
         prior = weekday
 
     source_dates_df = metadata["source_file_dates"]
+    source_file_rows = []
+    for source_year, file_count in metadata["source_file_counts"].items():
+        source, year = source_year.split("/", 1)
+        parsed_dates = source_dates_df[
+            source_dates_df["source"].eq(source)
+            & source_dates_df["trade_date"].dt.year.eq(int(year))
+        ]["trade_date"].nunique()
+        source_file_rows.append(f"| {source} | {year} | {file_count} | {parsed_dates} |")
+    source_file_anomalies = metadata["source_file_anomalies"]
+    anomaly_text = (
+        "None; every source ZIP parsed with the required columns and contained the expected filtered futures rows."
+        if not source_file_anomalies
+        else "\n".join(f"- `{item['source']}` `{item['path']}`: {item['reason']}" for item in source_file_anomalies)
+    )
     source_mismatch = source_dates_df.groupby(["source", "trade_date"]).size()
     duplicate_source_dates = source_mismatch[source_mismatch.gt(1)]
     udiff_dates = set(metadata["udiff_dates"])
@@ -496,10 +533,16 @@ def build_coverage_report(
         f"UDiFF NIFTY `FinInstrmTp` values observed: `{', '.join(metadata['udiff_types'])}`. Counts across all NIFTY rows: `{metadata['udiff_type_counts']}`.",
         "The calendar filter is UDiFF `TckrSymb == NIFTY` and `FinInstrmTp == IDF`; `IDF` is the index-futures type. `IDO` is excluded as the index-options type. Futures rows also have empty strike and option-type fields in the observed UDiFF data. Legacy rows use `SYMBOL == NIFTY`, `INSTRUMENT == FUTIDX`, zero strike, and `OPTION_TYP == XX`.",
         "",
-        f"UDiFF files loaded: `{metadata['format_counts'].get('udiff', 0)}`; legacy files loaded: `{metadata['format_counts'].get('legacy', 0)}`. UDiFF dates take precedence. Legacy 2024 was used for `{len(legacy_dates_used)}` dates not covered by UDiFF.",
+        "| Source | Year | Bhavcopy ZIP files | Files with parsed trade dates |",
+        "| --- | ---: | ---: | ---: |",
+        *source_file_rows,
+        "",
+        f"UDiFF files loaded: `{metadata['format_counts'].get('udiff', 0)}`; legacy files loaded: `{metadata['format_counts'].get('legacy', 0)}`. UDiFF dates take precedence. Legacy dates used after precedence filtering: `{len(legacy_dates_used)}`.",
         "Legacy files do not contain `FinInstrmId`; their `fin_instrm_id` values in the CSVs are deterministic synthetic IDs of the form `legacy:NIFTY:FUTIDX:YYYY-MM-DD`, and are not native NSE UDiFF IDs.",
         "",
         "## Archive-date anomalies",
+        "",
+        f"File-level parse/filter anomalies (corrupt ZIP, missing required columns, unparseable trade date, or empty filtered futures rows): {anomaly_text}",
         "",
         f"Weekday-calendar comparison (Mon-Fri dates absent from the observed bhavcopy date set):\n{weekday_gap_text(calendar)}",
         "",
@@ -532,7 +575,7 @@ def build_roll_report(evidence: pd.DataFrame, expiries: pd.DataFrame) -> str:
         "",
         "## Method",
         "",
-        "For each eligible expiry in 2024-01 through 2024-10 and 2026-04 through 2026-06, the last available `NIFTY-I` minute bar was compared with the calendar front and next contract close and OI on the same session. The minute files supplied here end at 15:29:00 for the selected sessions, so 15:29:00 was used when 15:30:00 was absent. OI is the `oi` field on that last bar.",
+        "For each eligible expiry in 2020-01 through 2024-10 and 2026-04 through 2026-06, the last available `NIFTY-I` minute bar was compared with the calendar front and next contract close and OI on the same session. The minute files supplied here end at 15:29:00 for the selected sessions, so 15:29:00 was used when 15:30:00 was absent. OI is the `oi` field on that last bar.",
         "",
         "A lower absolute close difference and a lower absolute OI difference identify the matching contract. The per-session evidence below keeps the raw comparison values visible.",
         "",
@@ -596,8 +639,9 @@ def build_roll_report(evidence: pd.DataFrame, expiries: pd.DataFrame) -> str:
             counts = frame[column].value_counts()
             return ", ".join(f"{name} {int(counts.get(name, 0))}/{len(frame)}" for name in ("front", "next", "third"))
 
-        expiry_2024 = ok[(pd.to_datetime(ok["session_date"]).dt.year == 2024) & ok["session_role"].eq("expiry_day")]
-        after_2024 = ok[(pd.to_datetime(ok["session_date"]).dt.year == 2024) & ok["session_role"].eq("day_after")]
+        early = ok[pd.to_datetime(ok["session_date"]).le(pd.Timestamp("2024-10-31"))]
+        expiry_early = early[early["session_role"].eq("expiry_day")]
+        after_early = early[early["session_role"].eq("day_after")]
         expiry_2026 = ok[(pd.to_datetime(ok["session_date"]).dt.year == 2026) & ok["session_role"].eq("expiry_day")]
         after_2026 = ok[(pd.to_datetime(ok["session_date"]).dt.year == 2026) & ok["session_role"].eq("day_after")]
         lines.extend(
@@ -605,9 +649,9 @@ def build_roll_report(evidence: pd.DataFrame, expiries: pd.DataFrame) -> str:
                 "",
                 "## Conclusion",
                 "",
-                "2024 overlap (10 expiry weeks; the day after 2024-10-31 has no minute CSV):",
-                f"- Expiry day, closest by close: {summary(expiry_2024, 'close_closest', 'close')}; closest by OI: {summary(expiry_2024, 'oi_closest', 'OI')}.",
-                f"- Day after, closest by close: {summary(after_2024, 'close_closest', 'close')}; closest by OI: {summary(after_2024, 'oi_closest', 'OI')}.",
+                "2020-01 through 2024-10 overlap:",
+                f"- Expiry day, closest by close: {summary(expiry_early, 'close_closest', 'close')}; closest by OI: {summary(expiry_early, 'oi_closest', 'OI')}.",
+                f"- Day after, closest by close: {summary(after_early, 'close_closest', 'close')}; closest by OI: {summary(after_early, 'oi_closest', 'OI')}.",
                 "- This segment supports: expiring contract through expiry day, then the next calendar contract from the following trading session.",
                 "",
                 "2026 overlap (2026-04-28, 2026-05-26, and 2026-06-30 expiry sessions):",
