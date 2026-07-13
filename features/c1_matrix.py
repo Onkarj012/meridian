@@ -55,7 +55,8 @@ LABEL_COLUMNS = (
     "gross_return_bps", "gross_return_r", "mfe_bps", "mae_bps", "cost_bps",
     "net_return_bps", "net_return_r", "net_label",
 )
-MATRIX_COLUMNS = ("datetime", "trade_date", *FUTURES_FEATURES, "regime", *LABEL_COLUMNS,
+BAR_COLUMNS = ("f_open", "f_high", "f_low", "f_close", "f_vol", "f_oi")
+MATRIX_COLUMNS = ("datetime", "trade_date", *BAR_COLUMNS, *FUTURES_FEATURES, "regime", *LABEL_COLUMNS,
                   "label_end_ts", *ELIGIBILITY_COLUMNS)
 
 
@@ -65,6 +66,7 @@ def c1_matrix_config_hash() -> str:
         "class_a_features": CLASS_A_FEATURES,
         "decision_window": "09:45..14:54 inclusive, excluding 11:00..11:59",
         "dropped_dates": sorted(str(value.date()) for value in DROPPED_DATES | MUHURAT_DATES),
+        "bar_columns": BAR_COLUMNS,
         "feature_columns": FUTURES_FEATURES,
         "horizon_bars": HORIZON_BARS,
         "regular_session": "09:15..15:29 inclusive",
@@ -236,6 +238,8 @@ def _empty_matrix() -> pd.DataFrame:
             data[column] = pd.Series(dtype="datetime64[ns]")
         elif column in {"regime", "exit_reason"}:
             data[column] = pd.Series(dtype="object")
+        elif column in BAR_COLUMNS:
+            data[column] = pd.Series(dtype="float64")
         elif column in ELIGIBILITY_COLUMNS:
             data[column] = pd.Series(dtype="bool")
         else:

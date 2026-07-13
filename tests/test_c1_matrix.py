@@ -11,7 +11,7 @@ import pandas as pd
 import pyarrow.parquet as pq
 import pytest
 
-from features.c1_matrix import ELIGIBILITY_COLUMNS, MATRIX_COLUMNS, build_c1_matrix
+from features.c1_matrix import BAR_COLUMNS, ELIGIBILITY_COLUMNS, MATRIX_COLUMNS, build_c1_matrix
 from policy.era_costs import cost_bps_fn_for
 
 
@@ -62,6 +62,10 @@ def test_golden_three_session_fixture_has_registered_columns_and_flags() -> None
 
     assert len(matrix) == 195
     assert tuple(matrix.columns) == MATRIX_COLUMNS
+    assert matrix.loc[matrix.index[0], list(BAR_COLUMNS)].to_dict() == {
+        "f_open": 100.0, "f_high": 100.0, "f_low": 100.0, "f_close": 100.0,
+        "f_vol": 1.0, "f_oi": 1_000.0,
+    }
     assert set(ELIGIBILITY_COLUMNS).issubset(matrix)
     assert not matrix["regime_eligible"].any()  # fewer than 20 completed prior sessions
     assert matrix.loc[matrix["datetime"].dt.strftime("%H:%M") == "09:44", "is_warmup_eligible"].eq(False).all()

@@ -3,6 +3,12 @@
     "columns": [
       "datetime",
       "trade_date",
+      "f_open",
+      "f_high",
+      "f_low",
+      "f_close",
+      "f_vol",
+      "f_oi",
       "ret_1m",
       "ret_5m",
       "ret_15m",
@@ -66,11 +72,11 @@
       "label_excluded",
       "is_decision_eligible"
     ],
-    "config_hash": "154b8f7f95d2a1cb719a98f0da022745f65542c3de158cdba428d2bf71ec488d",
+    "config_hash": "dc00d6b97f5f6ce9f4db7b9e721af7597ca186b8e45d4547404a16061fc9e54d",
     "era_table_hash": "5e1954ce973d8a1806dcd11e51a33220bc05eab614bc0cbb4a40f65de658e74f",
     "regime_config_hash": "75151f226ced8002cf6c76930fcdd273542c88315a8180a913fc74a45c06507a",
     "row_count": 599729,
-    "sha256": "7bc9a35c89d5ab492a68f1d1baa39e0d41d905b282035a34440d4fc1742a1910"
+    "sha256": "a534993df198aee0dbef3f01c961e04df0ba4e58a02729a8e8369d37ac333660"
   },
   "date_range": {
     "from": "2020-01-01",
