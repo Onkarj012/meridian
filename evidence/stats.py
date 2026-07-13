@@ -367,3 +367,81 @@ def _pearson(left: list[float], right: list[float]) -> float:
     denom_left = math.sqrt(sum((a - mean_left) ** 2 for a in left))
     denom_right = math.sqrt(sum((b - mean_right) ** 2 for b in right))
     return numerator / (denom_left * denom_right) if denom_left and denom_right else 0.0
+
+
+def moving_block_bootstrap_ci(
+    values: Iterable[float],
+    *,
+    block_size: int = 20,
+    samples: int = 10_000,
+    confidence: float = 0.95,
+    seed: int = 42,
+    statistic: Any = None,
+) -> tuple[float, float]:
+    """Return a deterministic moving-block bootstrap confidence interval.
+
+    This is additive to the older ``block_bootstrap_ci`` primitive.  Blocks
+    are sampled with replacement and wrap at the end of the series, which
+    keeps every draw exactly the same length and preserves local dependence.
+    The default statistic is the arithmetic mean; callers may provide a
+    deterministic callable such as an annualized Sharpe function.
+    """
+    data = [float(value) for value in values]
+    if not data:
+        return (0.0, 0.0)
+    if not 0.0 < confidence < 1.0:
+        raise ValueError("confidence must be in (0, 1)")
+    if int(block_size) < 1 or int(samples) < 1:
+        raise ValueError("block_size and samples must be positive")
+
+    block = min(len(data), int(block_size))
+    draws = int(samples)
+    rng = random.Random(int(seed) & 0xFFFFFFFF)
+    measure = statistic or (lambda draw: sum(draw) / len(draw))
+    statistics: list[float] = []
+    for _ in range(draws):
+        draw: list[float] = []
+        while len(draw) < len(data):
+            start = rng.randrange(len(data))
+            draw.extend(data[(start + offset) % len(data)] for offset in range(block))
+        statistics.append(float(measure(draw[: len(data)])))
+    statistics.sort()
+    tail = (1.0 - confidence) / 2.0
+    return (
+        statistics[int(tail * (draws - 1))],
+        statistics[int((1.0 - tail) * (draws - 1))],
+    )
+
+
+def paired_moving_block_bootstrap_ci(
+    left: Iterable[float],
+    right: Iterable[float],
+    *,
+    block_size: int = 20,
+    samples: int = 10_000,
+    confidence: float = 0.95,
+    seed: int = 42,
+    statistic: Any = None,
+) -> tuple[float, float]:
+    """Return a paired moving-block CI using identical sampled blocks.
+
+    The two series are aligned by position.  A draw samples the same moving
+    block starts from both series before applying ``statistic`` to their
+    element-wise difference, so the default result is the CI-low/high for
+    mean daily PnL difference.
+    """
+    left_data = [float(value) for value in left]
+    right_data = [float(value) for value in right]
+    if len(left_data) != len(right_data):
+        raise ValueError("paired series must have equal lengths")
+    if not left_data:
+        return (0.0, 0.0)
+    difference = [left_value - right_value for left_value, right_value in zip(left_data, right_data)]
+    return moving_block_bootstrap_ci(
+        difference,
+        block_size=block_size,
+        samples=samples,
+        confidence=confidence,
+        seed=seed,
+        statistic=statistic,
+    )
