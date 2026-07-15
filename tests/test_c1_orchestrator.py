@@ -118,8 +118,9 @@ def test_firewall_drops_post_cutoff_before_fold_probe(tmp_path, monkeypatch):
 
 
 def test_placeholder_capital_aborts_non_smoke_run(tmp_path):
+    root = _registration_repo(tmp_path)
     with pytest.raises(wf.PreRunVerificationError, match="PLACEHOLDER"):
-        wf.run(_args(tmp_path, smoke=False, capital=None), matrix=_synthetic_matrix(), folds=[])
+        wf.run(_args(tmp_path, smoke=False, capital=None), root=root, matrix=_synthetic_matrix(), folds=[])
 
 
 def test_dirty_registration_file_aborts(tmp_path):

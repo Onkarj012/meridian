@@ -13,7 +13,7 @@ from typing import Any
 import pandas as pd
 
 from evidence.c1_folds import inner_validation_split
-from evidence.c1_replay import ReplayConfig, replay
+from evidence.c1_replay import ReplayConfig, _prepare_replay, _prepare_rows, _threshold_trade_counts
 
 
 DEFAULT_ACTIVITY_RATE = Decimal("0.70")
@@ -82,16 +82,13 @@ def fit_threshold(
 
     sessions = _session_count(scored)
     target = round_half_up(Decimal(str(activity_rate)) * sessions)
-    counts: list[int] = []
-    for threshold in candidates:
-        result = replay(
-            scored,
-            threshold,
-            sleeve_capital=sleeve_capital,
-            contract_calendar=contract_calendar,
-            config=replay_config,
-        )
-        counts.append(len(result.trades))
+    if sleeve_capital <= 0:
+        raise ValueError("sleeve_capital must be positive")
+    config = replay_config or ReplayConfig()
+    if config.horizon_bars < 1 or config.max_trades_per_day < 1:
+        raise ValueError("horizon_bars and max_trades_per_day must be positive")
+    prepared = _prepare_replay(_prepare_rows(scored, contract_calendar), config)
+    counts = list(_threshold_trade_counts(prepared, candidates, config))
 
     # The second key selects fewer executed trades.  The third key makes the
     # intended direction explicit if two candidate scores have the same count.

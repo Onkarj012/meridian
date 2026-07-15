@@ -7,8 +7,10 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
+import numpy as np
 
 from policy.c1_sizing import (
+    DAILY_HALT_R,
     floor_trade_pnl,
     is_daily_halted,
     size_position,
@@ -74,6 +76,34 @@ class ReplayResult:
         yield self.daily
 
 
+@dataclass(frozen=True)
+class _PreparedReplay:
+    """Numpy views of one prepared frame shared by replay evaluations."""
+
+    rows: pd.DataFrame
+    days: tuple[date, ...]
+    day_codes: np.ndarray
+    day_starts: np.ndarray
+    day_ends: np.ndarray
+    duplicate_timestamps: np.ndarray
+    eligible: np.ndarray
+    candidate_order: np.ndarray
+    datetimes: np.ndarray
+    trade_dates: np.ndarray
+    front_expiries: np.ndarray
+    contract_ids: np.ndarray
+    scores: np.ndarray
+    requested_multipliers: np.ndarray
+    base_lots: np.ndarray
+    f_open: np.ndarray
+    f_high: np.ndarray
+    f_low: np.ndarray
+    f_close: np.ndarray
+    exit_indices: np.ndarray
+    exit_prices: np.ndarray
+    exit_reasons: np.ndarray
+
+
 def replay(
     scored_rows: pd.DataFrame,
     threshold: float,
@@ -90,53 +120,8 @@ def replay(
         raise ValueError("horizon_bars and max_trades_per_day must be positive")
 
     rows = _prepare_rows(scored_rows, contract_calendar)
-    days = sorted(rows["trade_date"].unique())
-    day_bars = {
-        day: group.sort_values("datetime", kind="stable").reset_index(drop=True)
-        for day, group in rows.groupby("trade_date", sort=True)
-    }
-    candidates = _eligible_candidates(rows, threshold)
-    accepted: list[dict[str, Any]] = []
-    day_trade_records: dict[date, list[dict[str, Any]]] = {day: [] for day in days}
-    day_counts: dict[date, int] = {day: 0 for day in days}
-
-    for candidate in candidates.itertuples(index=False):
-        day = candidate.trade_date
-        if day_counts[day] >= cfg.max_trades_per_day:
-            continue
-        bars = day_bars[day]
-        decision_index = _index_for_timestamp(bars, candidate.datetime)
-        entry_index = decision_index + 1
-        if entry_index >= len(bars):
-            continue
-
-        simulation = _simulate_trade(
-            bars,
-            decision_index=decision_index,
-            entry_index=entry_index,
-            score=float(candidate.score),
-            requested_multiplier=float(candidate.requested_multiplier),
-            base_lots=int(candidate.base_lots),
-            front_expiry=candidate.front_expiry,
-            contract_id=candidate.contract_id,
-            config=cfg,
-        )
-        if any(simulation["_entry_index"] <= other["_exit_index"] for other in day_trade_records[day]):
-            continue
-
-        realized_records = [
-            record
-            for record in day_trade_records[day]
-            if record["_exit_index"] < entry_index
-        ]
-        if is_daily_halted(realized_records, day):
-            continue
-        accepted.append(simulation)
-        day_trade_records[day].append(simulation)
-        day_counts[day] += 1
-
-    trades = _trade_frame(accepted)
-    daily = _daily_frame(days, day_trade_records, sleeve_capital, cfg)
+    prepared = _prepare_replay(rows, cfg)
+    trades, daily = _replay_prepared(prepared, threshold, sleeve_capital, cfg)
     return ReplayResult(
         trades=trades,
         daily=daily,
@@ -152,6 +137,53 @@ def replay(
             "calendar": "validated front-contract calendar",
         },
     )
+
+
+def _replay_prepared(
+    prepared: _PreparedReplay,
+    threshold: float,
+    sleeve_capital: float,
+    config: ReplayConfig,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    candidates = prepared.candidate_order
+    days = list(prepared.days)
+    accepted: list[dict[str, Any]] = []
+    day_trade_records: dict[date, list[dict[str, Any]]] = {day: [] for day in days}
+    day_counts: dict[date, int] = {day: 0 for day in days}
+
+    for candidate_index in candidates:
+        candidate_index = int(candidate_index)
+        score = float(prepared.scores[candidate_index])
+        if score < float(threshold):
+            continue
+        day_code = int(prepared.day_codes[candidate_index])
+        day = days[day_code]
+        if day_counts[day] >= config.max_trades_per_day:
+            continue
+        if prepared.duplicate_timestamps[candidate_index]:
+            raise ValueError("each decision timestamp must identify exactly one bar per session")
+        entry_index = candidate_index + 1
+        if entry_index >= prepared.day_ends[day_code]:
+            continue
+
+        if any(entry_index <= other["_exit_index"] for other in day_trade_records[day]):
+            continue
+
+        realized_records = [
+            record
+            for record in day_trade_records[day]
+            if record["_exit_index"] < entry_index
+        ]
+        if is_daily_halted(realized_records, day):
+            continue
+        simulation = _prepared_trade_record(prepared, candidate_index, config)
+        accepted.append(simulation)
+        day_trade_records[day].append(simulation)
+        day_counts[day] += 1
+
+    trades = _trade_frame(accepted)
+    daily = _daily_frame(days, day_trade_records, sleeve_capital, config)
+    return trades, daily
 
 
 def eligible_rows(
@@ -206,6 +238,118 @@ def _prepare_rows(
         raise ValueError("front contract expiry precedes trade date")
     result["contract_id"] = result["front_instrument_id"].fillna(result["front_expiry"].astype(str))
     return result.sort_values(["trade_date", "datetime", "_input_order"], kind="stable").reset_index(drop=True)
+
+
+def _prepare_replay(rows: pd.DataFrame, config: ReplayConfig) -> _PreparedReplay:
+    """Build all per-frame arrays that do not depend on the threshold."""
+    trade_dates = rows["trade_date"].to_numpy(dtype=object)
+    starts = np.flatnonzero(np.r_[True, trade_dates[1:] != trade_dates[:-1]])
+    ends = np.r_[starts[1:], len(rows)]
+    day_codes = np.repeat(np.arange(len(starts), dtype=np.int64), ends - starts)
+    days = tuple(trade_dates[starts].tolist())
+
+    eligible = _eligibility_mask(rows).to_numpy(dtype=bool)
+    scores = rows["score"].to_numpy(dtype=float)
+    candidate_indices = np.flatnonzero(eligible)
+    datetime_ns = rows["datetime"].astype("int64").to_numpy()
+    if len(candidate_indices):
+        order = np.lexsort(
+            (
+                rows["_input_order"].to_numpy(dtype=np.int64)[candidate_indices],
+                -scores[candidate_indices],
+                datetime_ns[candidate_indices],
+            )
+        )
+        candidate_order = candidate_indices[order]
+    else:
+        candidate_order = candidate_indices
+
+    f_open = rows["f_open"].to_numpy(dtype=float)
+    f_high = rows["f_high"].to_numpy(dtype=float)
+    f_low = rows["f_low"].to_numpy(dtype=float)
+    f_close = rows["f_close"].to_numpy(dtype=float)
+    exit_indices, exit_prices, exit_reasons = _precompute_exits(
+        trade_dates,
+        rows["front_expiry"].to_numpy(dtype=object),
+        day_codes,
+        ends,
+        f_open,
+        f_high,
+        f_low,
+        f_close,
+        config,
+    )
+    return _PreparedReplay(
+        rows=rows,
+        days=days,
+        day_codes=day_codes,
+        day_starts=starts,
+        day_ends=ends,
+        duplicate_timestamps=rows.duplicated(["trade_date", "datetime"], keep=False).to_numpy(dtype=bool),
+        eligible=eligible,
+        candidate_order=candidate_order,
+        datetimes=rows["datetime"].to_numpy(),
+        trade_dates=trade_dates,
+        front_expiries=rows["front_expiry"].to_numpy(dtype=object),
+        contract_ids=rows["contract_id"].to_numpy(dtype=object),
+        scores=scores,
+        requested_multipliers=rows["requested_multiplier"].to_numpy(dtype=float),
+        base_lots=rows["base_lots"].to_numpy(dtype=np.int64),
+        f_open=f_open,
+        f_high=f_high,
+        f_low=f_low,
+        f_close=f_close,
+        exit_indices=exit_indices,
+        exit_prices=exit_prices,
+        exit_reasons=exit_reasons,
+    )
+
+
+def _precompute_exits(
+    trade_dates: np.ndarray,
+    front_expiries: np.ndarray,
+    day_codes: np.ndarray,
+    day_ends: np.ndarray,
+    f_open: np.ndarray,
+    f_high: np.ndarray,
+    f_low: np.ndarray,
+    f_close: np.ndarray,
+    config: ReplayConfig,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Resolve the entry-bar barrier state for every possible decision row."""
+    row_indices = np.arange(len(trade_dates), dtype=np.int64)
+    entry_indices = row_indices + 1
+    valid_entry = entry_indices < day_ends[day_codes]
+    safe_entry = np.minimum(entry_indices, len(trade_dates) - 1)
+    target_prices = f_open[safe_entry] * (1.0 + config.target_pct)
+    stop_prices = f_open[safe_entry] * (1.0 - config.stop_pct)
+    walk_ends = np.minimum(day_ends[day_codes], entry_indices + config.horizon_bars)
+    default_exits = np.clip(walk_ends - 1, 0, len(trade_dates) - 1)
+    exit_indices = default_exits.copy()
+    exit_prices = f_close[default_exits].copy()
+    exit_reasons = np.asarray(
+        ["EXPIRY" if day == expiry else "TIMEOUT" for day, expiry in zip(trade_dates, front_expiries)],
+        dtype=object,
+    )
+    unresolved = valid_entry.copy()
+
+    for offset in range(config.horizon_bars):
+        bar_indices = entry_indices + offset
+        safe_bar = np.minimum(bar_indices, len(trade_dates) - 1)
+        active = unresolved & (bar_indices < day_ends[day_codes])
+        stop_hit = active & ((f_open[safe_bar] <= stop_prices) | (f_low[safe_bar] <= stop_prices))
+        target_hit = active & ~stop_hit & (
+            (f_open[safe_bar] >= target_prices) | (f_high[safe_bar] >= target_prices)
+        )
+        exit_indices[stop_hit] = bar_indices[stop_hit]
+        exit_prices[stop_hit] = stop_prices[stop_hit]
+        exit_reasons[stop_hit] = "STOP"
+        exit_indices[target_hit] = bar_indices[target_hit]
+        exit_prices[target_hit] = target_prices[target_hit]
+        exit_reasons[target_hit] = "TARGET"
+        unresolved[stop_hit | target_hit] = False
+
+    return exit_indices, exit_prices, exit_reasons
 
 
 def _load_calendar(source: pd.DataFrame | Path | str | None) -> pd.DataFrame:
@@ -266,77 +410,86 @@ def _eligible_candidates(rows: pd.DataFrame, threshold: float) -> pd.DataFrame:
     )
 
 
-def _simulate_trade(
-    bars: pd.DataFrame,
-    *,
-    decision_index: int,
-    entry_index: int,
-    score: float,
-    requested_multiplier: float,
-    base_lots: int,
-    front_expiry: date,
-    contract_id: str,
+def _trade_values(
+    prepared: _PreparedReplay,
+    candidate_index: int,
     config: ReplayConfig,
-) -> dict[str, Any]:
-    trade_date = bars["trade_date"].iat[entry_index]
-    entry_bar = bars.iloc[entry_index]
-    entry_price = float(entry_bar["f_open"])
-    target_price = entry_price * (1.0 + config.target_pct)
-    stop_price = entry_price * (1.0 - config.stop_pct)
-    walk_end = min(len(bars), entry_index + config.horizon_bars)
-    walk = bars.iloc[entry_index:walk_end]
-    exit_index = int(walk.index[-1])
-    exit_price = float(walk["f_close"].iloc[-1])
-    exit_reason = "EXPIRY" if trade_date == front_expiry else "TIMEOUT"
-    for index, bar in walk.iterrows():
-        if float(bar["f_open"]) <= stop_price or float(bar["f_low"]) <= stop_price:
-            exit_index, exit_price, exit_reason = int(index), stop_price, "STOP"
-            break
-        if float(bar["f_open"]) >= target_price or float(bar["f_high"]) >= target_price:
-            exit_index, exit_price, exit_reason = int(index), target_price, "TARGET"
-            break
-
+) -> tuple[dict[str, Any], Any]:
+    entry_index = candidate_index + 1
+    trade_date = prepared.trade_dates[entry_index]
+    entry_price = float(prepared.f_open[entry_index])
     size = size_position(
         trade_date,
         entry_price,
-        base_lots=base_lots,
-        requested_multiplier=requested_multiplier,
+        base_lots=int(prepared.base_lots[candidate_index]),
+        requested_multiplier=float(prepared.requested_multipliers[candidate_index]),
     )
+    exit_index = int(prepared.exit_indices[candidate_index])
+    exit_price = float(prepared.exit_prices[candidate_index])
     gross = (exit_price - entry_price) * size.quantity
     costs = cost_rupees(trade_date, entry_price, exit_price, lots=size.lots)
     realized = floor_trade_pnl(gross - costs["total"], size.entry_notional)
-    record: dict[str, Any] = {
+    return {
         "trade_date": trade_date,
-        "decision_datetime": bars["datetime"].iat[decision_index],
-        "entry_datetime": bars["datetime"].iat[entry_index],
-        "exit_datetime": bars["datetime"].iat[exit_index],
-        "contract_id": str(contract_id),
-        "front_expiry": front_expiry,
-        "score": score,
+        "decision_datetime": prepared.datetimes[candidate_index],
+        "entry_datetime": prepared.datetimes[entry_index],
+        "exit_datetime": prepared.datetimes[exit_index],
+        "contract_id": str(prepared.contract_ids[candidate_index]),
+        "front_expiry": prepared.front_expiries[candidate_index],
+        "score": float(prepared.scores[candidate_index]),
         "entry_price": entry_price,
         "exit_price": exit_price,
-        "target_price": target_price,
-        "stop_price": stop_price,
-        "exit_reason": exit_reason,
+        "target_price": entry_price * (1.0 + config.target_pct),
+        "stop_price": entry_price * (1.0 - config.stop_pct),
+        "exit_reason": prepared.exit_reasons[candidate_index],
+        "size": size,
+        "gross": gross,
+        "costs": costs,
+        "realized": realized,
+    }, size
+
+
+def _prepared_trade_record(
+    prepared: _PreparedReplay,
+    candidate_index: int,
+    config: ReplayConfig,
+) -> dict[str, Any]:
+    values, size = _trade_values(prepared, candidate_index, config)
+    gross = values["gross"]
+    costs = values["costs"]
+    realized = values["realized"]
+    record: dict[str, Any] = {
+        "trade_date": values["trade_date"],
+        "decision_datetime": values["decision_datetime"],
+        "entry_datetime": values["entry_datetime"],
+        "exit_datetime": values["exit_datetime"],
+        "contract_id": values["contract_id"],
+        "front_expiry": values["front_expiry"],
+        "score": values["score"],
+        "entry_price": values["entry_price"],
+        "exit_price": values["exit_price"],
+        "target_price": values["target_price"],
+        "stop_price": values["stop_price"],
+        "exit_reason": values["exit_reason"],
         "lot_size": size.lot_size,
         "lots": size.lots,
         "quantity": size.quantity,
-        "requested_multiplier": requested_multiplier,
+        "requested_multiplier": float(prepared.requested_multipliers[candidate_index]),
         "multiplier": size.multiplier,
         "entry_notional": size.entry_notional,
         "gross_pnl": gross,
         "cost_rupees": costs["total"],
         "realized_pnl": realized,
         "realized_r": trade_pnl_r(realized, size.entry_notional),
-        "_entry_index": entry_index,
-        "_exit_index": exit_index,
+        "_entry_index": candidate_index + 1,
+        "_exit_index": int(prepared.exit_indices[candidate_index]),
         "_size": size,
     }
     for slippage in config.stress_slippage_bps:
         stress_cost = cost_rupees(
-            trade_date,
-            entry_price,
-            exit_price,
+            values["trade_date"],
+            values["entry_price"],
+            values["exit_price"],
             lots=size.lots,
             slippage_bps=slippage,
         )["total"]
@@ -345,6 +498,65 @@ def _simulate_trade(
             gross - stress_cost, size.entry_notional
         )
     return record
+
+
+def _prepared_trade_r(
+    prepared: _PreparedReplay,
+    candidate_index: int,
+    config: ReplayConfig,
+) -> float:
+    values, size = _trade_values(prepared, candidate_index, config)
+    return trade_pnl_r(values["realized"], size.entry_notional)
+
+
+def _threshold_trade_counts(
+    prepared: _PreparedReplay,
+    thresholds: list[float],
+    config: ReplayConfig,
+) -> tuple[int, ...]:
+    """Evaluate every threshold with one chronological numpy state sweep."""
+    threshold_values = np.asarray(thresholds, dtype=float)
+    threshold_count = len(threshold_values)
+    day_count = len(prepared.days)
+    counts = np.zeros(threshold_count, dtype=np.int64)
+    last_exit = np.full((threshold_count, day_count), -1, dtype=np.int64)
+    day_counts = np.zeros((threshold_count, day_count), dtype=np.int64)
+    realized_r = np.zeros((threshold_count, day_count), dtype=float)
+    halted = np.zeros((threshold_count, day_count), dtype=bool)
+
+    for candidate_index_value in prepared.candidate_order:
+        candidate_index = int(candidate_index_value)
+        score = float(prepared.scores[candidate_index])
+        active_end = int(np.searchsorted(threshold_values, score, side="right"))
+        if active_end == 0:
+            continue
+        day_code = int(prepared.day_codes[candidate_index])
+        entry_index = candidate_index + 1
+        if np.all(day_counts[:active_end, day_code] >= config.max_trades_per_day):
+            continue
+        if prepared.duplicate_timestamps[candidate_index]:
+            raise ValueError("each decision timestamp must identify exactly one bar per session")
+        if entry_index >= prepared.day_ends[day_code]:
+            continue
+
+        eligible = (
+            (day_counts[:active_end, day_code] < config.max_trades_per_day)
+            & (last_exit[:active_end, day_code] < entry_index)
+            & ~halted[:active_end, day_code]
+        )
+        accepted = np.flatnonzero(eligible)
+        if len(accepted) == 0:
+            continue
+
+        candidate_r = _prepared_trade_r(prepared, candidate_index, config)
+        accepted_global = accepted
+        day_counts[accepted_global, day_code] += 1
+        last_exit[accepted_global, day_code] = prepared.exit_indices[candidate_index]
+        realized_r[accepted_global, day_code] += candidate_r
+        halted[accepted_global, day_code] = realized_r[accepted_global, day_code] <= DAILY_HALT_R
+        counts[accepted_global] += 1
+
+    return tuple(int(value) for value in counts)
 
 
 def _intervals_overlap(left: dict[str, Any], right: dict[str, Any]) -> bool:
