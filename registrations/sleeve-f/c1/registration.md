@@ -41,7 +41,8 @@
 ## 5. Risk and sizing
 
 R = 30 bps × entry notional; per-trade floor −1R; daily halt −5R (restart-proof); date-specific integer lots; reporting in normalized sleeve-return bps.
-**Sleeve capital: — PLACEHOLDER — must be frozen by the principal before any outcome run** (any constant; makes normalized bps concrete). *(User decision #4, deferred 2026-07-11.)*
+**Sleeve capital: ₹1,000,000 (10 lakh INR)** (fixed constant; makes normalized bps concrete). *(User decision #4, frozen by the principal 2026-07-15.)*
+*(Principal decision 2026-07-15: candidate B's pre-registered minute windows were never assigned literal values in any frozen text; B is skipped in the C1 walk-forward — the runner records the skip in the report — and is not evaluated in Campaign 1.)*
 
 ## 6. Gates (pre-registered, hard)
 
