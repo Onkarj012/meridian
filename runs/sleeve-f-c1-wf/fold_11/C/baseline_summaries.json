@@ -1,0 +1,113 @@
+{
+  "random_entry": {
+    "daily_file": "baseline_random_entry_daily.csv",
+    "executed_trade_count": 52,
+    "metadata": {
+      "baseline": "random_entry",
+      "calendar": "validated front-contract calendar",
+      "candidate_set_size": 302,
+      "eligibility": "09:45 <= decision < 14:55; 11:00 <= decision < 12:00 excluded; compression excluded",
+      "horizon_bars": 60,
+      "matched_exactly": true,
+      "matching": "exact first; otherwise closest count, lower executed count, smaller set",
+      "max_trades_per_day": 3,
+      "median_total_return_bps": -194.80385802935197,
+      "replicates": 1000,
+      "representative_replicate": 296,
+      "sleeve_capital": 1000000.0,
+      "stop_pct": 0.003,
+      "stress_slippage_bps": [
+        3.5,
+        5.0,
+        7.0
+      ],
+      "target_executed_trade_count": 52,
+      "target_pct": 0.004,
+      "threshold": 0.5
+    },
+    "null_count": 1000,
+    "target_trade_count": 52,
+    "trades_file": "baseline_random_entry_trades.csv"
+  },
+  "time_of_day": {
+    "daily_file": "baseline_time_of_day_daily.csv",
+    "executed_trade_count": 52,
+    "metadata": {
+      "baseline": "time_of_day",
+      "calendar": "validated front-contract calendar",
+      "candidate_set_size": 229,
+      "eligibility": "09:45 <= decision < 14:55; 11:00 <= decision < 12:00 excluded; compression excluded",
+      "horizon_bars": 60,
+      "matched_exactly": true,
+      "matching": "exact first; otherwise closest count, lower executed count, smaller set",
+      "max_trades_per_day": 3,
+      "sleeve_capital": 1000000.0,
+      "stop_pct": 0.003,
+      "stress_slippage_bps": [
+        3.5,
+        5.0,
+        7.0
+      ],
+      "target_executed_trade_count": 52,
+      "target_pct": 0.004,
+      "threshold": 0.5
+    },
+    "null_count": 0,
+    "target_trade_count": 52,
+    "trades_file": "baseline_time_of_day_trades.csv"
+  },
+  "unconditional_long": {
+    "daily_file": "baseline_unconditional_long_daily.csv",
+    "executed_trade_count": 52,
+    "metadata": {
+      "baseline": "unconditional_long",
+      "calendar": "validated front-contract calendar",
+      "candidate_set_size": 876,
+      "eligibility": "09:45 <= decision < 14:55; 11:00 <= decision < 12:00 excluded; compression excluded",
+      "horizon_bars": 60,
+      "matched_exactly": true,
+      "matching": "exact first; otherwise closest count, lower executed count, smaller set",
+      "max_trades_per_day": 3,
+      "sleeve_capital": 1000000.0,
+      "stop_pct": 0.003,
+      "stress_slippage_bps": [
+        3.5,
+        5.0,
+        7.0
+      ],
+      "target_executed_trade_count": 52,
+      "target_pct": 0.004,
+      "threshold": 0.5
+    },
+    "null_count": 0,
+    "target_trade_count": 52,
+    "trades_file": "baseline_unconditional_long_trades.csv"
+  },
+  "volatility": {
+    "daily_file": "baseline_volatility_daily.csv",
+    "executed_trade_count": 52,
+    "metadata": {
+      "baseline": "volatility",
+      "calendar": "validated front-contract calendar",
+      "candidate_set_size": 766,
+      "eligibility": "09:45 <= decision < 14:55; 11:00 <= decision < 12:00 excluded; compression excluded",
+      "horizon_bars": 60,
+      "matched_exactly": true,
+      "matching": "exact first; otherwise closest count, lower executed count, smaller set",
+      "max_trades_per_day": 3,
+      "sleeve_capital": 1000000.0,
+      "stop_pct": 0.003,
+      "stress_slippage_bps": [
+        3.5,
+        5.0,
+        7.0
+      ],
+      "target_executed_trade_count": 52,
+      "target_pct": 0.004,
+      "threshold": 0.5
+    },
+    "null_count": 0,
+    "target_trade_count": 52,
+    "trades_file": "baseline_volatility_trades.csv"
+  }
+}

@@ -1,0 +1,765 @@
+# Sleeve F C1 walk-forward
+
+**Status:** OUTCOME_WF
+**Matrix SHA-256:** `a534993df198aee0dbef3f01c961e04df0ba4e58a02729a8e8369d37ac333660`
+**Sleeve capital:** `1000000.0` (REGISTRATION)
+
+## Pre-run and firewall
+
+Registration files were required to be tracked and clean. Rows after 2025-06-30 23:59:59 were dropped immediately after load and asserted absent after every fold split and downstream scored frame.
+
+## Candidates
+
+### Candidate A
+
+```json
+{
+  "dsr_k": 95,
+  "folds": [
+    "fold_1",
+    "fold_10",
+    "fold_11",
+    "fold_12",
+    "fold_13",
+    "fold_14",
+    "fold_15",
+    "fold_16",
+    "fold_17",
+    "fold_18",
+    "fold_2",
+    "fold_3",
+    "fold_4",
+    "fold_5",
+    "fold_6",
+    "fold_7",
+    "fold_8",
+    "fold_9"
+  ],
+  "metrics": {
+    "annualized_sharpe": -1.2677500695655293,
+    "daily_count": 1108,
+    "dsr": -5.134544230161734,
+    "dsr_k": 95,
+    "mean_daily_pnl_bps": -1.5785226568103585,
+    "mean_daily_pnl_mbb_20d_10k_ci95": {
+      "lower": -2.7811521968987445,
+      "upper": -0.3668075364701985
+    },
+    "quarterly_pnl_concentration": {
+      "absolute_pnl_shares": {
+        "2021Q1": 0.0005273258929083457,
+        "2021Q2": 0.07429058371871007,
+        "2021Q3": 0.05682018772556832,
+        "2021Q4": 0.0021502339342798125,
+        "2022Q1": 0.07521110364255099,
+        "2022Q2": 0.03670726718397817,
+        "2022Q3": 0.11009720282046132,
+        "2022Q4": 0.07997760067950498,
+        "2023Q1": 0.13660450472314722,
+        "2023Q2": 0.0038871314426052856,
+        "2023Q3": 0.011980172255264078,
+        "2023Q4": 0.07559017468133565,
+        "2024Q1": 0.12897604428637469,
+        "2024Q2": 0.04127725857873868,
+        "2024Q3": 0.026804504914215797,
+        "2024Q4": 0.052595902309120014,
+        "2025Q1": 0.04516348878062373,
+        "2025Q2": 0.041339312430612805
+      },
+      "gate_status": "REPORT-ONLY",
+      "max_absolute_share": 0.13660450472314722,
+      "max_positive_share": 0.39494191240744214,
+      "positive_pnl_shares": {
+        "2022Q1": 0.3929613502295265,
+        "2022Q2": 0.19178733693905414,
+        "2023Q2": 0.020309400423977227,
+        "2023Q4": 0.39494191240744214
+      },
+      "quarterly_pnl_bps": {
+        "2021Q1": -1.4942995844459341,
+        "2021Q2": -210.51950960885085,
+        "2021Q3": -161.01311171764186,
+        "2021Q4": -6.093183963971093,
+        "2022Q1": 213.1280151993563,
+        "2022Q2": 104.0185108238146,
+        "2022Q3": -311.98582629028976,
+        "2022Q4": -226.63498430019104,
+        "2023Q1": -387.10038210985584,
+        "2023Q2": 11.015083798248805,
+        "2023Q3": -33.948582201980656,
+        "2023Q4": 214.2022004486474,
+        "2024Q1": -365.48337939117323,
+        "2024Q2": -116.96863584887015,
+        "2024Q3": -75.95674912468868,
+        "2024Q4": -149.04262434489897,
+        "2025Q1": -127.98116577360003,
+        "2025Q2": -117.14447975548615
+      }
+    },
+    "score_quintile_monotonicity": {
+      "counts": [
+        173,
+        173,
+        173,
+        173,
+        173
+      ],
+      "means": [
+        -291.05055218255063,
+        -192.98237161596214,
+        -240.63131930098353,
+        -383.4239406008032,
+        97.10373066800045
+      ],
+      "monotonic": false,
+      "slope": 97.03857071263778
+    },
+    "seed_policy": "SHA-256 of ordered data values and metric label; first four digest bytes as uint32",
+    "sharpe_mbb_20d_10k_ci95": {
+      "lower": -2.1928906382782043,
+      "upper": -0.3058671908668633
+    },
+    "slices": {
+      "expiry_vs_non_expiry_weeks": {
+        "expiry": {
+          "mean_pnl_bps": -411.25786296519624,
+          "pnl_bps": -46060.88065210198,
+          "trades": 112
+        },
+        "gate_status": "REPORT-ONLY",
+        "non_expiry": {
+          "mean_pnl_bps": -171.10150029546577,
+          "pnl_bps": -128839.42972248571,
+          "trades": 753
+        }
+      },
+      "lagged_vix_terciles": {
+        "available": false,
+        "diagnostic_only": true
+      },
+      "late_entry": {
+        "<=14:29": {
+          "mean_pnl_bps": -220.30842582897478,
+          "pnl_bps": -168756.25418499467,
+          "trades": 766
+        },
+        ">=14:30": {
+          "mean_pnl_bps": -62.06117363225389,
+          "pnl_bps": -6144.056189593135,
+          "trades": 99
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "lot_eras": {
+        "effective_2020-07-01_lot_75": {
+          "mean_pnl_bps": -235.57089910366318,
+          "pnl_bps": -21201.380919329687,
+          "trades": 90
+        },
+        "effective_2021-07-01_lot_50": {
+          "mean_pnl_bps": -198.38387784111987,
+          "pnl_bps": -77568.09623587786,
+          "trades": 391
+        },
+        "effective_2023-04-01_lot_50": {
+          "mean_pnl_bps": -138.65872056910854,
+          "pnl_bps": -29118.331319512792,
+          "trades": 210
+        },
+        "effective_2024-07-01_lot_25": {
+          "mean_pnl_bps": -217.0192832133962,
+          "pnl_bps": -7595.674912468867,
+          "trades": 35
+        },
+        "effective_2024-10-01_lot_25": {
+          "mean_pnl_bps": -340.5741251222195,
+          "pnl_bps": -15666.409755622099,
+          "trades": 46
+        },
+        "effective_2025-02-01_lot_75": {
+          "mean_pnl_bps": -255.38083044920882,
+          "pnl_bps": -23750.41723177642,
+          "trades": 93
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "tax_eras": {
+        "effective_2020-07-01_stt_0.01_txn_1.88": {
+          "mean_pnl_bps": -235.57089910366318,
+          "pnl_bps": -21201.380919329687,
+          "trades": 90
+        },
+        "effective_2021-07-01_stt_0.01_txn_1.88": {
+          "mean_pnl_bps": -198.38387784111987,
+          "pnl_bps": -77568.09623587786,
+          "trades": 391
+        },
+        "effective_2023-04-01_stt_0.0125_txn_1.88": {
+          "mean_pnl_bps": -138.65872056910854,
+          "pnl_bps": -29118.331319512792,
+          "trades": 210
+        },
+        "effective_2024-07-01_stt_0.0125_txn_1.88": {
+          "mean_pnl_bps": -217.0192832133962,
+          "pnl_bps": -7595.674912468867,
+          "trades": 35
+        },
+        "effective_2024-10-01_stt_0.02_txn_1.73": {
+          "mean_pnl_bps": -340.5741251222195,
+          "pnl_bps": -15666.409755622099,
+          "trades": 46
+        },
+        "effective_2025-02-01_stt_0.02_txn_1.73": {
+          "mean_pnl_bps": -255.38083044920882,
+          "pnl_bps": -23750.41723177642,
+          "trades": 93
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "time_buckets": {
+        "09:45-10:59": {
+          "mean_pnl_bps": -207.7275353492113,
+          "pnl_bps": -25965.941918651413,
+          "trades": 125
+        },
+        "12:00-13:29": {
+          "mean_pnl_bps": -202.93874493223754,
+          "pnl_bps": -78537.29428877593,
+          "trades": 387
+        },
+        "13:30-14:29": {
+          "mean_pnl_bps": -252.96463770695755,
+          "pnl_bps": -64253.017977567215,
+          "trades": 254
+        },
+        "14:30-14:54": {
+          "mean_pnl_bps": -62.06117363225389,
+          "pnl_bps": -6144.056189593135,
+          "trades": 99
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "vendor_seam": {
+        "gate_status": "REPORT-ONLY",
+        "post_2024_11": {
+          "mean_pnl_bps": -235.23033153861223,
+          "pnl_bps": -28227.63978463347,
+          "trades": 120
+        },
+        "pre_2024_10": {
+          "mean_pnl_bps": -186.61636830191352,
+          "pnl_bps": -135483.48338718922,
+          "trades": 726
+        },
+        "seam_2024_10_11": {
+          "mean_pnl_bps": -588.9045896192126,
+          "pnl_bps": -11189.18720276504,
+          "trades": 19
+        }
+      }
+    },
+    "total_pnl_bps": -1749.0031037458773,
+    "trade_days": 504
+  },
+  "paired_vs_baselines": {
+    "random_entry": {
+      "baseline_sharpe": -1.0682542332327045,
+      "candidate_sharpe": -1.2677500695655293,
+      "delta_sharpe": -0.19949583633282475,
+      "mean_daily_pnl_diff": -0.27479096969633887,
+      "paired_mbb_ci_high": 1.0510394898016304,
+      "paired_mbb_ci_low": -1.6062539006077057
+    },
+    "time_of_day": {
+      "baseline_sharpe": -0.8818234208606807,
+      "candidate_sharpe": -1.2677500695655293,
+      "delta_sharpe": -0.3859266487048486,
+      "mean_daily_pnl_diff": -0.4692667457128705,
+      "paired_mbb_ci_high": 1.077993715187409,
+      "paired_mbb_ci_low": -2.1482554384388584
+    },
+    "unconditional_long": {
+      "baseline_sharpe": -1.3081597187537823,
+      "candidate_sharpe": -1.2677500695655293,
+      "delta_sharpe": 0.04040964918825307,
+      "mean_daily_pnl_diff": -0.18878211072654982,
+      "paired_mbb_ci_high": 1.3305886361312427,
+      "paired_mbb_ci_low": -1.7061546907906344
+    },
+    "volatility": {
+      "baseline_sharpe": -0.8486098900553647,
+      "candidate_sharpe": -1.2677500695655293,
+      "delta_sharpe": -0.4191401795101646,
+      "mean_daily_pnl_diff": -0.4126690359280544,
+      "paired_mbb_ci_high": 0.974660315286006,
+      "paired_mbb_ci_low": -1.8287835738290934
+    }
+  },
+  "six_a_wf": {
+    "gate": "6a_wf",
+    "legs": {
+      "matched_baselines_paired": {
+        "enforced": true,
+        "passed": false,
+        "value": false
+      },
+      "net_mean_daily_pnl": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">",
+        "passed": false,
+        "threshold": 0.0,
+        "value": -1.5785226568103585
+      },
+      "operationally_executable": {
+        "enforced": true,
+        "passed": true,
+        "value": true
+      },
+      "quarter_era_bucket_domination": {
+        "enforced": false,
+        "passed": null,
+        "reason": "registration \u00a76 says no domination but supplies no measurable share cap",
+        "status": "REPORT-ONLY"
+      },
+      "stress_5_bps_positive_pnl": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">",
+        "passed": false,
+        "threshold": 0.0,
+        "value": -4.77884852911716
+      },
+      "stress_5_bps_positive_sharpe": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">",
+        "passed": false,
+        "threshold": 0.0,
+        "value": -3.905939842606519
+      },
+      "wf_sharpe": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">=",
+        "passed": false,
+        "threshold": 0.75,
+        "value": -1.2677500695655293
+      },
+      "wf_trade_minimum": {
+        "enforced": true,
+        "hard_fail": true,
+        "operator": ">=",
+        "passed": true,
+        "threshold": 300,
+        "value": 865.0
+      }
+    },
+    "passed": false
+  },
+  "six_b_wf_preview": {
+    "aggregation": "conservative minimum across all matched baselines",
+    "gate": "6b_wf_preview",
+    "legs": {
+      "wf_delta_sharpe": {
+        "operator": ">=",
+        "threshold": 0.25,
+        "value": -0.4191401795101646
+      },
+      "wf_paired_mbb_ci_low": {
+        "operator": ">",
+        "threshold": 0.0,
+        "value": -2.1482554384388584
+      }
+    },
+    "passed": false,
+    "status": "PREVIEW_ONLY_HOLDOUT_REQUIRED"
+  },
+  "status": "OUTCOME_WF"
+}
+```
+
+### Candidate B
+
+```json
+{
+  "folds": [],
+  "reason": "no --b-artifact supplied; registered minute windows remain an open governance item",
+  "status": "SKIPPED"
+}
+```
+
+### Candidate C
+
+```json
+{
+  "dsr_k": 95,
+  "folds": [
+    "fold_1",
+    "fold_10",
+    "fold_11",
+    "fold_12",
+    "fold_13",
+    "fold_14",
+    "fold_15",
+    "fold_16",
+    "fold_17",
+    "fold_18",
+    "fold_2",
+    "fold_3",
+    "fold_4",
+    "fold_5",
+    "fold_6",
+    "fold_7",
+    "fold_8",
+    "fold_9"
+  ],
+  "metrics": {
+    "annualized_sharpe": -1.3409746948842753,
+    "daily_count": 1108,
+    "dsr": -5.238525591213019,
+    "dsr_k": 95,
+    "mean_daily_pnl_bps": -0.9870274578864339,
+    "mean_daily_pnl_mbb_20d_10k_ci95": {
+      "lower": -1.725016969847228,
+      "upper": -0.2544100268445326
+    },
+    "quarterly_pnl_concentration": {
+      "absolute_pnl_shares": {
+        "2021Q1": 0.07694550115533709,
+        "2021Q2": 0.05715966029371877,
+        "2021Q3": 0.004447857171810398,
+        "2021Q4": 0.024759091733839042,
+        "2022Q1": 0.024515182824232304,
+        "2022Q2": 0.005567012312217954,
+        "2022Q3": 0.07683433466372835,
+        "2022Q4": 0.07481149900787705,
+        "2023Q1": 0.10500234482221382,
+        "2023Q2": 0.011333005799356975,
+        "2023Q3": 0.15325431314305765,
+        "2023Q4": 0.06673499722409434,
+        "2024Q1": 0.11835787942282605,
+        "2024Q2": 0.08701313199375495,
+        "2024Q3": 0.03351739428630891,
+        "2024Q4": 0.022455069010586876,
+        "2025Q1": 0.006944702988636446,
+        "2025Q2": 0.050347022146403006
+      },
+      "gate_status": "REPORT-ONLY",
+      "max_absolute_share": 0.15325431314305765,
+      "max_positive_share": 0.5862085311169685,
+      "positive_pnl_shares": {
+        "2021Q3": 0.03485255413784065,
+        "2022Q1": 0.19209626199234428,
+        "2022Q2": 0.04362203877122891,
+        "2022Q4": 0.5862085311169685,
+        "2023Q2": 0.08880325579469582,
+        "2025Q1": 0.054417358186921824
+      },
+      "quarterly_pnl_bps": {
+        "2021Q1": -112.9887024286024,
+        "2021Q2": -83.93467780278436,
+        "2021Q3": 6.531344950448109,
+        "2021Q4": -36.35687085421198,
+        "2022Q1": 35.998708898107424,
+        "2022Q2": 8.1747404086916,
+        "2022Q3": -112.82546276609044,
+        "2022Q4": 109.85508018947247,
+        "2023Q1": -154.1880748748584,
+        "2023Q2": 16.641669761824048,
+        "2023Q3": -225.04247452574708,
+        "2023Q4": -97.9953425438674,
+        "2024Q1": -173.79967662032067,
+        "2024Q2": -127.77226388291771,
+        "2024Q3": -49.21778183694651,
+        "2024Q4": -32.973586140259336,
+        "2025Q1": 10.197775927847637,
+        "2025Q2": -73.93082919795381
+      }
+    },
+    "score_quintile_monotonicity": {
+      "counts": [
+        98,
+        98,
+        98,
+        98,
+        98
+      ],
+      "means": [
+        -29.772270110309876,
+        -331.4931290210851,
+        -316.9418044711005,
+        -265.47670578398106,
+        -172.26142055043033
+      ],
+      "monotonic": false,
+      "slope": -35.622287610030114
+    },
+    "seed_policy": "SHA-256 of ordered data values and metric label; first four digest bytes as uint32",
+    "sharpe_mbb_20d_10k_ci95": {
+      "lower": -2.3346182069314194,
+      "upper": -0.34548939737251994
+    },
+    "slices": {
+      "expiry_vs_non_expiry_weeks": {
+        "expiry": {
+          "mean_pnl_bps": -427.7397592822098,
+          "pnl_bps": -27375.344594061426,
+          "trades": 64
+        },
+        "gate_status": "REPORT-ONLY",
+        "non_expiry": {
+          "mean_pnl_bps": -192.4584453984871,
+          "pnl_bps": -81987.29773975551,
+          "trades": 426
+        }
+      },
+      "lagged_vix_terciles": {
+        "available": false,
+        "diagnostic_only": true
+      },
+      "late_entry": {
+        "<=14:29": {
+          "mean_pnl_bps": -220.488753749939,
+          "pnl_bps": -78934.97384247817,
+          "trades": 358
+        },
+        ">=14:30": {
+          "mean_pnl_bps": -230.5126400858994,
+          "pnl_bps": -30427.668491338718,
+          "trades": 132
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "lot_eras": {
+        "effective_2020-07-01_lot_75": {
+          "mean_pnl_bps": -262.5645069751824,
+          "pnl_bps": -19692.33802313868,
+          "trades": 75
+        },
+        "effective_2021-07-01_lot_50": {
+          "mean_pnl_bps": -68.33039906623978,
+          "pnl_bps": -14281.053404844113,
+          "trades": 209
+        },
+        "effective_2023-04-01_lot_50": {
+          "mean_pnl_bps": -353.46981849478414,
+          "pnl_bps": -60796.808781102874,
+          "trades": 172
+        },
+        "effective_2024-07-01_lot_25": {
+          "mean_pnl_bps": -328.1185455796433,
+          "pnl_bps": -4921.77818369465,
+          "trades": 15
+        },
+        "effective_2024-10-01_lot_25": {
+          "mean_pnl_bps": -985.157051660983,
+          "pnl_bps": -5910.942309965898,
+          "trades": 6
+        },
+        "effective_2025-02-01_lot_75": {
+          "mean_pnl_bps": -289.20935623620414,
+          "pnl_bps": -3759.721631070654,
+          "trades": 13
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "tax_eras": {
+        "effective_2020-07-01_stt_0.01_txn_1.88": {
+          "mean_pnl_bps": -262.5645069751824,
+          "pnl_bps": -19692.33802313868,
+          "trades": 75
+        },
+        "effective_2021-07-01_stt_0.01_txn_1.88": {
+          "mean_pnl_bps": -68.33039906623978,
+          "pnl_bps": -14281.053404844113,
+          "trades": 209
+        },
+        "effective_2023-04-01_stt_0.0125_txn_1.88": {
+          "mean_pnl_bps": -353.46981849478414,
+          "pnl_bps": -60796.808781102874,
+          "trades": 172
+        },
+        "effective_2024-07-01_stt_0.0125_txn_1.88": {
+          "mean_pnl_bps": -328.1185455796433,
+          "pnl_bps": -4921.77818369465,
+          "trades": 15
+        },
+        "effective_2024-10-01_stt_0.02_txn_1.73": {
+          "mean_pnl_bps": -985.157051660983,
+          "pnl_bps": -5910.942309965898,
+          "trades": 6
+        },
+        "effective_2025-02-01_stt_0.02_txn_1.73": {
+          "mean_pnl_bps": -289.20935623620414,
+          "pnl_bps": -3759.721631070654,
+          "trades": 13
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "time_buckets": {
+        "09:45-10:59": {
+          "mean_pnl_bps": -655.8380830009384,
+          "pnl_bps": -23610.17098803378,
+          "trades": 36
+        },
+        "12:00-13:29": {
+          "mean_pnl_bps": -92.9910320016937,
+          "pnl_bps": -8834.1480401609,
+          "trades": 95
+        },
+        "13:30-14:29": {
+          "mean_pnl_bps": -204.80464675895797,
+          "pnl_bps": -46490.65481428346,
+          "trades": 227
+        },
+        "14:30-14:54": {
+          "mean_pnl_bps": -230.5126400858994,
+          "pnl_bps": -30427.668491338718,
+          "trades": 132
+        },
+        "gate_status": "REPORT-ONLY"
+      },
+      "vendor_seam": {
+        "gate_status": "REPORT-ONLY",
+        "post_2024_11": {
+          "mean_pnl_bps": -452.47573024409996,
+          "pnl_bps": -7239.611683905599,
+          "trades": 16
+        },
+        "pre_2024_10": {
+          "mean_pnl_bps": -211.6602513647141,
+          "pnl_bps": -99691.97839278034,
+          "trades": 471
+        },
+        "seam_2024_10_11": {
+          "mean_pnl_bps": -810.350752376984,
+          "pnl_bps": -2431.052257130952,
+          "trades": 3
+        }
+      }
+    },
+    "total_pnl_bps": -1093.6264233381687,
+    "trade_days": 349
+  },
+  "paired_vs_baselines": {
+    "random_entry": {
+      "baseline_sharpe": -1.3651041714936807,
+      "candidate_sharpe": -1.3409746948842753,
+      "delta_sharpe": 0.024129476609405343,
+      "mean_daily_pnl_diff": 0.03064025495608902,
+      "paired_mbb_ci_high": 0.22512095988909103,
+      "paired_mbb_ci_low": -0.15407110617504144
+    },
+    "time_of_day": {
+      "baseline_sharpe": -1.535244552009302,
+      "candidate_sharpe": -1.3409746948842753,
+      "delta_sharpe": 0.19426985712502676,
+      "mean_daily_pnl_diff": 0.15245340346109257,
+      "paired_mbb_ci_high": 0.5033188736600133,
+      "paired_mbb_ci_low": -0.13896565217434315
+    },
+    "unconditional_long": {
+      "baseline_sharpe": -1.261152084614575,
+      "candidate_sharpe": -1.3409746948842753,
+      "delta_sharpe": -0.07982261026970039,
+      "mean_daily_pnl_diff": -0.05273321789183428,
+      "paired_mbb_ci_high": 0.24202530230609046,
+      "paired_mbb_ci_low": -0.34844176593845005
+    },
+    "volatility": {
+      "baseline_sharpe": -1.253561663234969,
+      "candidate_sharpe": -1.3409746948842753,
+      "delta_sharpe": -0.08741303164930625,
+      "mean_daily_pnl_diff": -0.028412273744507322,
+      "paired_mbb_ci_high": 0.2939707972914166,
+      "paired_mbb_ci_low": -0.37178878851348557
+    }
+  },
+  "six_a_wf": {
+    "gate": "6a_wf",
+    "legs": {
+      "matched_baselines_paired": {
+        "enforced": true,
+        "passed": false,
+        "value": false
+      },
+      "net_mean_daily_pnl": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">",
+        "passed": false,
+        "threshold": 0.0,
+        "value": -0.9870274578864339
+      },
+      "operationally_executable": {
+        "enforced": true,
+        "passed": true,
+        "value": true
+      },
+      "quarter_era_bucket_domination": {
+        "enforced": false,
+        "passed": null,
+        "reason": "registration \u00a76 says no domination but supplies no measurable share cap",
+        "status": "REPORT-ONLY"
+      },
+      "stress_5_bps_positive_pnl": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">",
+        "passed": false,
+        "threshold": 0.0,
+        "value": -2.8062373191641776
+      },
+      "stress_5_bps_positive_sharpe": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">",
+        "passed": false,
+        "threshold": 0.0,
+        "value": -3.7650163534755707
+      },
+      "wf_sharpe": {
+        "enforced": true,
+        "hard_fail": false,
+        "operator": ">=",
+        "passed": false,
+        "threshold": 0.75,
+        "value": -1.3409746948842753
+      },
+      "wf_trade_minimum": {
+        "enforced": true,
+        "hard_fail": true,
+        "operator": ">=",
+        "passed": true,
+        "threshold": 300,
+        "value": 490.0
+      }
+    },
+    "passed": false
+  },
+  "six_b_wf_preview": {
+    "aggregation": "conservative minimum across all matched baselines",
+    "gate": "6b_wf_preview",
+    "legs": {
+      "wf_delta_sharpe": {
+        "operator": ">=",
+        "threshold": 0.25,
+        "value": -0.08741303164930625
+      },
+      "wf_paired_mbb_ci_low": {
+        "operator": ">",
+        "threshold": 0.0,
+        "value": -0.37178878851348557
+      }
+    },
+    "passed": false,
+    "status": "PREVIEW_ONLY_HOLDOUT_REQUIRED"
+  },
+  "status": "OUTCOME_WF"
+}
+```
+
+Candidate B: **SKIPPED** — no frozen B constants artifact supplied; registered minute windows remain an open governance item.
+
+DSR trial count: **k = 95**. 6b is a WF preview only; full 6b requires the separate one-shot holdout.
