@@ -6,11 +6,11 @@ Source calendar span: 2020-01-01 to 2026-07-10; requested span was 2020-01-01 to
 
 | Year | Bhavcopy trading days | Minute-data days on disk | Difference |
 |---:|---:|---:|---:|
-| 2020 | 250 | 252 | -2 |
+| 2020 | 251 | 252 | -1 |
 | 2021 | 247 | 248 | -1 |
 | 2022 | 248 | 248 | 0 |
 | 2023 | 245 | 246 | -1 |
-| 2024 | 246 | 248 | -2 |
+| 2024 | 249 | 248 | 1 |
 | 2025 | 248 | 248 | 0 |
 | 2026 | 127 | 127 | 0 |
 
@@ -22,21 +22,21 @@ Minute files are identified by `nifty_fut_DD_MM_YYYY.csv` under the supplied min
 
 ## Source and filter audit
 
-UDiFF NIFTY `FinInstrmTp` values observed: `IDF, IDO`. Counts across all NIFTY rows: `{'IDF': 1488, 'IDO': 825530}`.
+UDiFF NIFTY `FinInstrmTp` values observed: `IDF, IDO`. Counts across all NIFTY rows: `{'IDF': 1497, 'IDO': 830119}`.
 The calendar filter is UDiFF `TckrSymb == NIFTY` and `FinInstrmTp == IDF`; `IDF` is the index-futures type. `IDO` is excluded as the index-options type. Futures rows also have empty strike and option-type fields in the observed UDiFF data. Legacy rows use `SYMBOL == NIFTY`, `INSTRUMENT == FUTIDX`, zero strike, and `OPTION_TYP == XX`.
 
 | Source | Year | Bhavcopy ZIP files | Files with parsed trade dates |
 | --- | ---: | ---: | ---: |
-| legacy | 2020 | 250 | 250 |
+| legacy | 2020 | 251 | 251 |
 | legacy | 2021 | 247 | 247 |
 | legacy | 2022 | 248 | 248 |
 | legacy | 2023 | 245 | 245 |
 | legacy | 2024 | 125 | 125 |
-| udiff | 2024 | 121 | 121 |
+| udiff | 2024 | 124 | 124 |
 | udiff | 2025 | 248 | 248 |
 | udiff | 2026 | 127 | 127 |
 
-UDiFF files loaded: `496`; legacy files loaded: `1115`. UDiFF dates take precedence. Legacy dates used after precedence filtering: `1115`.
+UDiFF files loaded: `499`; legacy files loaded: `1116`. UDiFF dates take precedence. Legacy dates used after precedence filtering: `1116`.
 Legacy files do not contain `FinInstrmId`; their `fin_instrm_id` values in the CSVs are deterministic synthetic IDs of the form `legacy:NIFTY:FUTIDX:YYYY-MM-DD`, and are not native NSE UDiFF IDs.
 
 ## Archive-date anomalies

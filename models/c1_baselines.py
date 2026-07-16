@@ -13,9 +13,10 @@ from hashlib import sha256
 from statistics import median
 from typing import Any, Mapping
 
+import numpy as np
 import pandas as pd
 
-from evidence.c1_replay import ReplayConfig, ReplayResult, eligible_rows, replay
+from evidence.c1_replay import ReplayConfig, ReplayResult, prepare_static_replay, replay_scores
 
 
 RANDOM_ENTRY_REPLICATES = 1_000
@@ -96,33 +97,37 @@ def activity_matched_baselines(
         raise ValueError("random_replicates must be positive")
     rows = _normalise_rows(scored_rows)
     target = _executed_count(candidate_trades)
+
+    # The calendar join and barrier-exit resolution depend only on the base
+    # frame (OHLC bars + calendar), never on which bars are scored. Building
+    # this once and reusing it across every candidate-set size and every
+    # random-baseline replicate is what makes ~1,000 replicates tractable;
+    # each of those previously re-ran the full replay() prepare step.
+    resolved_calendar = contract_calendar if contract_calendar is not None else _calendar_from_rows(rows)
+    static = prepare_static_replay(rows, contract_calendar=resolved_calendar, config=config)
+    eligible = static.rows.loc[static.eligible].copy()
+
     baselines: dict[str, BaselineResult] = {
         "time_of_day": _match_ranked(
-            rows,
-            _time_of_day_order(rows, candidate_trades, contract_calendar),
+            static,
+            _time_of_day_order(eligible, candidate_trades),
             target,
             name="time_of_day",
             sleeve_capital=sleeve_capital,
-            contract_calendar=contract_calendar,
-            config=config,
         ),
         "volatility": _match_ranked(
-            rows,
-            _volatility_order(rows, contract_calendar),
+            static,
+            _volatility_order(eligible),
             target,
             name="volatility",
             sleeve_capital=sleeve_capital,
-            contract_calendar=contract_calendar,
-            config=config,
         ),
         "unconditional_long": _match_ranked(
-            rows,
-            _earliest_order(rows, contract_calendar),
+            static,
+            _earliest_order(eligible),
             target,
             name="unconditional_long",
             sleeve_capital=sleeve_capital,
-            contract_calendar=contract_calendar,
-            config=config,
         ),
     }
 
@@ -131,13 +136,11 @@ def activity_matched_baselines(
         seed = random_entry_seed(protocol_version, candidate, fold, replicate)
         random_results.append(
             _match_ranked(
-                rows,
-                _random_order(rows, seed, contract_calendar),
+                static,
+                _random_order(eligible, seed),
                 target,
                 name="random_entry",
                 sleeve_capital=sleeve_capital,
-                contract_calendar=contract_calendar,
-                config=config,
                 seed=seed,
             )
         )
@@ -196,12 +199,6 @@ def _executed_count(candidate_trades: pd.DataFrame | ReplayResult | int) -> int:
     return count
 
 
-def _eligible_for_order(rows: pd.DataFrame, contract_calendar: pd.DataFrame | str | None = None) -> pd.DataFrame:
-    result = rows.copy()
-    result["score"] = 1.0
-    return eligible_rows(result, contract_calendar=contract_calendar if contract_calendar is not None else _calendar_from_rows(result))
-
-
 def _calendar_from_rows(rows: pd.DataFrame) -> pd.DataFrame | None:
     if "front_expiry" not in rows:
         return None
@@ -212,7 +209,7 @@ def _calendar_from_rows(rows: pd.DataFrame) -> pd.DataFrame | None:
     return calendar.drop_duplicates("trade_date")
 
 
-def _time_of_day_order(rows: pd.DataFrame, candidate_trades: Any, contract_calendar: pd.DataFrame | str | None = None) -> list[int]:
+def _time_of_day_order(eligible: pd.DataFrame, candidate_trades: Any) -> list[int]:
     """Rank candidate minutes by fold frequency, then minute and timestamp.
 
     The most-traded candidate decision minutes come first; frequency ties are
@@ -220,7 +217,7 @@ def _time_of_day_order(rows: pd.DataFrame, candidate_trades: Any, contract_calen
     the target count, the same deterministic ordering expands to the next
     minutes rather than changing the matching rule.
     """
-    eligible = _eligible_for_order(rows, contract_calendar)
+    eligible = eligible.copy()
     if isinstance(candidate_trades, ReplayResult):
         trades = candidate_trades.trades
     elif isinstance(candidate_trades, pd.DataFrame):
@@ -242,8 +239,8 @@ def _time_of_day_order(rows: pd.DataFrame, candidate_trades: Any, contract_calen
     ).index.tolist()
 
 
-def _volatility_order(rows: pd.DataFrame, contract_calendar: pd.DataFrame | str | None = None) -> list[int]:
-    eligible = _eligible_for_order(rows, contract_calendar)
+def _volatility_order(eligible: pd.DataFrame) -> list[int]:
+    eligible = eligible.copy()
     column = next((name for name in ("realized_vol_30m", "trailing_realized_vol_30m", "volatility") if name in eligible), None)
     if column is None:
         raise ValueError("volatility baseline requires realized_vol_30m")
@@ -255,13 +252,11 @@ def _volatility_order(rows: pd.DataFrame, contract_calendar: pd.DataFrame | str 
     ).index.tolist()
 
 
-def _earliest_order(rows: pd.DataFrame, contract_calendar: pd.DataFrame | str | None = None) -> list[int]:
-    eligible = _eligible_for_order(rows, contract_calendar)
+def _earliest_order(eligible: pd.DataFrame) -> list[int]:
     return eligible.sort_values(["datetime", "_input_order"], kind="stable").index.tolist()
 
 
-def _random_order(rows: pd.DataFrame, seed: int, contract_calendar: pd.DataFrame | str | None = None) -> list[int]:
-    eligible = _eligible_for_order(rows, contract_calendar)
+def _random_order(eligible: pd.DataFrame, seed: int) -> list[int]:
     order = eligible.index.tolist()
     import random
 
@@ -270,34 +265,24 @@ def _random_order(rows: pd.DataFrame, seed: int, contract_calendar: pd.DataFrame
 
 
 def _match_ranked(
-    rows: pd.DataFrame,
+    static: Any,
     order: list[int],
     target: int,
     *,
     name: str,
     sleeve_capital: float,
-    contract_calendar: pd.DataFrame | str | None,
-    config: ReplayConfig | None,
     seed: int | None = None,
 ) -> BaselineResult:
-    if contract_calendar is None:
-        contract_calendar = _calendar_from_rows(rows)
-    candidates = rows.loc[order].copy() if order else rows.iloc[0:0].copy()
+    n = len(static.rows)
+    candidates = static.rows.loc[order] if order else static.rows.iloc[0:0]
+    candidate_positions = candidates.index.to_numpy()
     best: tuple[tuple[int, int, int], ReplayResult, int] | None = None
     for candidate_set_size in range(0, len(candidates) + 1):
-        scored = rows.copy()
-        scored["score"] = 0.0
+        scores = np.zeros(n, dtype=float)
         if candidate_set_size:
-            selected = candidates.iloc[:candidate_set_size]
-            selected_scores = list(range(candidate_set_size, 0, -1))
-            scored.loc[selected.index, "score"] = selected_scores
-        result = replay(
-            scored,
-            BASELINE_THRESHOLD,
-            sleeve_capital=sleeve_capital,
-            contract_calendar=contract_calendar,
-            config=config,
-        )
+            selected_positions = candidate_positions[:candidate_set_size]
+            scores[selected_positions] = np.arange(candidate_set_size, 0, -1, dtype=float)
+        result = replay_scores(static, scores, BASELINE_THRESHOLD, sleeve_capital=sleeve_capital)
         executed = len(result.trades)
         key = (abs(executed - target), executed, candidate_set_size)
         if best is None or key < best[0]:

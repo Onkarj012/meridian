@@ -77,6 +77,43 @@ class ReplayResult:
 
 
 @dataclass(frozen=True)
+class _StaticReplay:
+    """Numpy views of one prepared frame that do not depend on scores.
+
+    Calendar-join, day segmentation, and barrier-exit resolution only read
+    OHLC bars and the contract calendar, so they are identical for every
+    score assignment tried against the same base frame (e.g. every
+    candidate-set size and every random-baseline replicate). Building this
+    once and reusing it is what makes the activity-matched baseline search
+    (which replays the same frame under many score assignments) tractable.
+    """
+
+    rows: pd.DataFrame
+    config: ReplayConfig
+    days: tuple[date, ...]
+    day_codes: np.ndarray
+    day_starts: np.ndarray
+    day_ends: np.ndarray
+    duplicate_timestamps: np.ndarray
+    eligible: np.ndarray
+    candidate_indices: np.ndarray
+    datetime_ns: np.ndarray
+    datetimes: np.ndarray
+    trade_dates: np.ndarray
+    front_expiries: np.ndarray
+    contract_ids: np.ndarray
+    requested_multipliers: np.ndarray
+    base_lots: np.ndarray
+    f_open: np.ndarray
+    f_high: np.ndarray
+    f_low: np.ndarray
+    f_close: np.ndarray
+    exit_indices: np.ndarray
+    exit_prices: np.ndarray
+    exit_reasons: np.ndarray
+
+
+@dataclass(frozen=True)
 class _PreparedReplay:
     """Numpy views of one prepared frame shared by replay evaluations."""
 
@@ -120,23 +157,66 @@ def replay(
         raise ValueError("horizon_bars and max_trades_per_day must be positive")
 
     rows = _prepare_rows(scored_rows, contract_calendar)
-    prepared = _prepare_replay(rows, cfg)
+    static = _prepare_static(rows, cfg)
+    prepared = _apply_scores(static, rows["score"].to_numpy(dtype=float))
     trades, daily = _replay_prepared(prepared, threshold, sleeve_capital, cfg)
-    return ReplayResult(
-        trades=trades,
-        daily=daily,
-        metadata={
-            "threshold": float(threshold),
-            "sleeve_capital": float(sleeve_capital),
-            "target_pct": cfg.target_pct,
-            "stop_pct": cfg.stop_pct,
-            "horizon_bars": cfg.horizon_bars,
-            "max_trades_per_day": cfg.max_trades_per_day,
-            "stress_slippage_bps": list(cfg.stress_slippage_bps),
-            "eligibility": "09:45 <= decision < 14:55; 11:00 <= decision < 12:00 excluded; compression excluded",
-            "calendar": "validated front-contract calendar",
-        },
-    )
+    return ReplayResult(trades=trades, daily=daily, metadata=_replay_metadata(threshold, sleeve_capital, cfg))
+
+
+def _replay_metadata(threshold: float, sleeve_capital: float, cfg: ReplayConfig) -> dict[str, Any]:
+    return {
+        "threshold": float(threshold),
+        "sleeve_capital": float(sleeve_capital),
+        "target_pct": cfg.target_pct,
+        "stop_pct": cfg.stop_pct,
+        "horizon_bars": cfg.horizon_bars,
+        "max_trades_per_day": cfg.max_trades_per_day,
+        "stress_slippage_bps": list(cfg.stress_slippage_bps),
+        "eligibility": "09:45 <= decision < 14:55; 11:00 <= decision < 12:00 excluded; compression excluded",
+        "calendar": "validated front-contract calendar",
+    }
+
+
+def prepare_static_replay(
+    scored_rows: pd.DataFrame,
+    *,
+    contract_calendar: pd.DataFrame | Path | str | None = None,
+    config: ReplayConfig | None = None,
+) -> _StaticReplay:
+    """Precompute the score-independent replay structure for one base frame.
+
+    Callers that replay the same base rows under many different score
+    assignments (activity-matched baseline search, which tries a range of
+    candidate-set sizes and, for the random-entry baseline, ~1,000
+    replicates) should build this once and pass it to :func:`replay_scores`
+    instead of calling :func:`replay` per assignment — each :func:`replay`
+    call redundantly redoes the calendar join and barrier-exit resolution,
+    which do not depend on scores.
+    """
+    cfg = config or ReplayConfig()
+    rows = _prepare_rows(scored_rows, contract_calendar)
+    return _prepare_static(rows, cfg)
+
+
+def replay_scores(
+    static: _StaticReplay,
+    scores: np.ndarray,
+    threshold: float,
+    *,
+    sleeve_capital: float,
+) -> ReplayResult:
+    """Replay ``static`` under a given score assignment.
+
+    Equivalent to calling :func:`replay` with a frame carrying ``scores`` in
+    its score column, but skips the calendar join and exit precomputation
+    already captured in ``static``.
+    """
+    cfg = static.config
+    if sleeve_capital <= 0:
+        raise ValueError("sleeve_capital must be positive")
+    prepared = _apply_scores(static, np.asarray(scores, dtype=float))
+    trades, daily = _replay_prepared(prepared, threshold, sleeve_capital, cfg)
+    return ReplayResult(trades=trades, daily=daily, metadata=_replay_metadata(threshold, sleeve_capital, cfg))
 
 
 def _replay_prepared(
@@ -241,7 +321,18 @@ def _prepare_rows(
 
 
 def _prepare_replay(rows: pd.DataFrame, config: ReplayConfig) -> _PreparedReplay:
-    """Build all per-frame arrays that do not depend on the threshold."""
+    """Compatibility wrapper: build the full prepared frame in one call.
+
+    ``policy/c1_threshold.py`` calls this directly for its own single-frame
+    threshold-fitting sweep, which does not repeat over many score
+    assignments and so doesn't need the static/scores split.
+    """
+    static = _prepare_static(rows, config)
+    return _apply_scores(static, rows["score"].to_numpy(dtype=float))
+
+
+def _prepare_static(rows: pd.DataFrame, config: ReplayConfig) -> _StaticReplay:
+    """Build the per-frame arrays that do not depend on scores."""
     trade_dates = rows["trade_date"].to_numpy(dtype=object)
     starts = np.flatnonzero(np.r_[True, trade_dates[1:] != trade_dates[:-1]])
     ends = np.r_[starts[1:], len(rows)]
@@ -249,20 +340,8 @@ def _prepare_replay(rows: pd.DataFrame, config: ReplayConfig) -> _PreparedReplay
     days = tuple(trade_dates[starts].tolist())
 
     eligible = _eligibility_mask(rows).to_numpy(dtype=bool)
-    scores = rows["score"].to_numpy(dtype=float)
     candidate_indices = np.flatnonzero(eligible)
     datetime_ns = rows["datetime"].astype("int64").to_numpy()
-    if len(candidate_indices):
-        order = np.lexsort(
-            (
-                rows["_input_order"].to_numpy(dtype=np.int64)[candidate_indices],
-                -scores[candidate_indices],
-                datetime_ns[candidate_indices],
-            )
-        )
-        candidate_order = candidate_indices[order]
-    else:
-        candidate_order = candidate_indices
 
     f_open = rows["f_open"].to_numpy(dtype=float)
     f_high = rows["f_high"].to_numpy(dtype=float)
@@ -279,20 +358,21 @@ def _prepare_replay(rows: pd.DataFrame, config: ReplayConfig) -> _PreparedReplay
         f_close,
         config,
     )
-    return _PreparedReplay(
+    return _StaticReplay(
         rows=rows,
+        config=config,
         days=days,
         day_codes=day_codes,
         day_starts=starts,
         day_ends=ends,
         duplicate_timestamps=rows.duplicated(["trade_date", "datetime"], keep=False).to_numpy(dtype=bool),
         eligible=eligible,
-        candidate_order=candidate_order,
+        candidate_indices=candidate_indices,
+        datetime_ns=datetime_ns,
         datetimes=rows["datetime"].to_numpy(),
         trade_dates=trade_dates,
         front_expiries=rows["front_expiry"].to_numpy(dtype=object),
         contract_ids=rows["contract_id"].to_numpy(dtype=object),
-        scores=scores,
         requested_multipliers=rows["requested_multiplier"].to_numpy(dtype=float),
         base_lots=rows["base_lots"].to_numpy(dtype=np.int64),
         f_open=f_open,
@@ -302,6 +382,46 @@ def _prepare_replay(rows: pd.DataFrame, config: ReplayConfig) -> _PreparedReplay
         exit_indices=exit_indices,
         exit_prices=exit_prices,
         exit_reasons=exit_reasons,
+    )
+
+
+def _apply_scores(static: _StaticReplay, scores: np.ndarray) -> _PreparedReplay:
+    """Attach one score assignment to a precomputed static frame."""
+    candidate_indices = static.candidate_indices
+    if len(candidate_indices):
+        order = np.lexsort(
+            (
+                static.rows["_input_order"].to_numpy(dtype=np.int64)[candidate_indices],
+                -scores[candidate_indices],
+                static.datetime_ns[candidate_indices],
+            )
+        )
+        candidate_order = candidate_indices[order]
+    else:
+        candidate_order = candidate_indices
+    return _PreparedReplay(
+        rows=static.rows,
+        days=static.days,
+        day_codes=static.day_codes,
+        day_starts=static.day_starts,
+        day_ends=static.day_ends,
+        duplicate_timestamps=static.duplicate_timestamps,
+        eligible=static.eligible,
+        candidate_order=candidate_order,
+        datetimes=static.datetimes,
+        trade_dates=static.trade_dates,
+        front_expiries=static.front_expiries,
+        contract_ids=static.contract_ids,
+        scores=scores,
+        requested_multipliers=static.requested_multipliers,
+        base_lots=static.base_lots,
+        f_open=static.f_open,
+        f_high=static.f_high,
+        f_low=static.f_low,
+        f_close=static.f_close,
+        exit_indices=static.exit_indices,
+        exit_prices=static.exit_prices,
+        exit_reasons=static.exit_reasons,
     )
 
 
