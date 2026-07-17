@@ -4,11 +4,14 @@ from __future__ import annotations
 
 import argparse
 from datetime import date
+import hashlib
+import io
 import json
 import os
 from pathlib import Path
 import pickle
 import sys
+import tempfile
 from typing import Any, Mapping, Sequence
 
 import pandas as pd
@@ -32,9 +35,11 @@ from scripts.run_c1_walkforward import (
     _assert_firewall,
     _assert_tracked_and_clean,
     _calendar_for,
+    _matrix_hash,
     _git_registration_files,
     _read_frame,
     _relative,
+    _unit_complete,
     load_matrix,
     registration_sleeve_capital,
 )
@@ -85,6 +90,8 @@ def _load_frozen_decision(wf_dir: Path, candidate: str, fold: str) -> tuple[Any,
     model_path = unit_dir / "model.pkl"
     if not marker.exists() or not metadata_path.exists() or not threshold_path.exists():
         raise PreRunVerificationError(f"HOLDOUT ABORT: frozen WF artifact is incomplete: {unit_dir}")
+    if not _unit_complete(unit_dir):
+        raise PreRunVerificationError(f"HOLDOUT ABORT: frozen WF unit hash validation failed: {unit_dir}")
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     threshold = float(json.loads(threshold_path.read_text(encoding="utf-8"))["threshold"])
     if candidate == "B":
@@ -108,7 +115,45 @@ def _score(model: Any, rows: pd.DataFrame, candidate: str, b_artifact: Mapping[s
     return scored
 
 
+def _sha256_bytes(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
+def _sha256(path: Path) -> str:
+    return _sha256_bytes(path.read_bytes())
+
+
+def _acquire_holdout_ledger(path: Path, payload: Mapping[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            json.dump(dict(payload), handle, indent=2, sort_keys=True)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        try:
+            os.link(temporary_path, path)
+        except FileExistsError as exc:
+            raise PreRunVerificationError("HOLDOUT ABORT: holdout already spent") from exc
+        temporary_path.unlink()
+        directory_fd = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory_fd)
+        finally:
+            os.close(directory_fd)
+    finally:
+        temporary_path.unlink(missing_ok=True)
+
+
 def run(args: argparse.Namespace, *, root: Path = REPO_ROOT) -> dict[str, Any]:
+    out_dir = root / args.out_dir if not args.out_dir.is_absolute() else args.out_dir
+    ledger_path = root / "runs/sleeve-f-c1-holdout/HOLDOUT_OPENED.json"
+    fixed_summary_path = ledger_path.parent / "summary.json"
+    summary_output_path = out_dir / "summary.json"
+    if ledger_path.exists() or fixed_summary_path.exists() or summary_output_path.exists():
+        raise PreRunVerificationError("HOLDOUT ABORT: holdout already spent")
     registrations = _git_registration_files(root)
     _assert_tracked_and_clean(registrations, root=root)
     summary_path = root / args.wf_dir if not args.wf_dir.is_absolute() else args.wf_dir
@@ -123,8 +168,47 @@ def run(args: argparse.Namespace, *, root: Path = REPO_ROOT) -> dict[str, Any]:
         raise PreRunVerificationError("HOLDOUT ABORT: registration sleeve capital is missing or non-positive")
     _confirm_one_shot(args.yes_i_understand_one_shot)
 
+    selected = wf_summary.get("selected_candidate")
+    if selected is None:
+        raise PreRunVerificationError("HOLDOUT ABORT: 6c kill / no survivor — holdout stays sealed")
+    selected = str(selected).upper()
+    if args.candidate is not None and args.candidate != selected:
+        raise PreRunVerificationError(
+            f"HOLDOUT ABORT: --candidate {args.candidate} does not match selected_candidate {selected}"
+        )
+    candidate = selected
+
     matrix_dir = root / args.matrix_dir if not args.matrix_dir.is_absolute() else args.matrix_dir
-    matrix, matrix_hash = load_matrix(matrix_dir)
+    matrix_path = matrix_dir / "c1.parquet"
+    hashes_path = matrix_dir / "hashes.json"
+    if not matrix_path.exists() or not hashes_path.exists():
+        raise PreRunVerificationError("HOLDOUT ABORT: matrix artifact or hashes.json is missing")
+    hashes_value = _matrix_hash(hashes_path)
+    matrix_bytes = matrix_path.read_bytes()
+    matrix_hash = _sha256_bytes(matrix_bytes)
+    if matrix_hash != hashes_value:
+        raise PreRunVerificationError(
+            f"HOLDOUT ABORT: matrix sha256 mismatch: hashes.json={hashes_value}, actual={matrix_hash}"
+        )
+    frozen_hash = wf_summary.get("matrix", {}).get("sha256")
+    if matrix_hash != frozen_hash:
+        raise PreRunVerificationError(
+            f"HOLDOUT ABORT: matrix sha256 does not match WF summary: summary={frozen_hash}, actual={matrix_hash}"
+        )
+    ledger = {
+        "candidate": selected,
+        "wf_summary_path": str(summary_path),
+        "wf_summary_sha256": _sha256(summary_path),
+        "matrix_sha256": matrix_hash,
+        "opened_at": pd.Timestamp.now(tz="UTC").isoformat(),
+    }
+    _acquire_holdout_ledger(ledger_path, ledger)
+    if fixed_summary_path.exists() or summary_output_path.exists():
+        raise PreRunVerificationError("HOLDOUT ABORT: holdout already spent")
+
+    matrix, loaded_matrix_hash = load_matrix(matrix_dir, matrix_bytes=matrix_bytes)
+    if loaded_matrix_hash != matrix_hash:
+        raise PreRunVerificationError("HOLDOUT ABORT: loaded matrix sha256 changed after ledger seal")
     timestamps = pd.to_datetime(matrix["datetime"], errors="raise")
     holdout = matrix.loc[(timestamps >= HOLDOUT_START) & (timestamps <= HOLDOUT_END)].copy().reset_index(drop=True)
     if holdout.empty:
@@ -133,15 +217,7 @@ def run(args: argparse.Namespace, *, root: Path = REPO_ROOT) -> dict[str, Any]:
     assert not (holdout_timestamps < HOLDOUT_START).any(), "holdout range breach: pre-holdout row entered holdout replay"
     assert not (holdout_timestamps > HOLDOUT_END).any(), "holdout range breach: post-2026-06-30 row entered holdout replay"
 
-    candidate = args.candidate or wf_summary.get("selected_candidate")
     final = wf_summary.get("final_configuration", {})
-    candidate = candidate or final.get("candidate")
-    if not candidate:
-        raise PreRunVerificationError(
-            "HOLDOUT ABORT: WF summary has no surviving selected candidate (6c kill); "
-            "holdout stays closed unless --candidate is passed explicitly"
-        )
-    candidate = str(candidate).upper()
     fold = str(final.get("fold") or wf_summary.get("folds", [{}])[-1].get("name", "fold_18"))
     wf_dir = root / args.wf_dir if not args.wf_dir.is_absolute() else args.wf_dir
     model, threshold, model_metadata = _load_frozen_decision(wf_dir, candidate, fold)
@@ -199,11 +275,9 @@ def run(args: argparse.Namespace, *, root: Path = REPO_ROOT) -> dict[str, Any]:
         "dsr_k": 95,
         "refit": False,
     }
-    out_dir = root / args.out_dir if not args.out_dir.is_absolute() else args.out_dir
-    out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "trades.csv").write_text(result.trades.to_csv(index=False), encoding="utf-8")
     result.daily.reset_index().to_csv(out_dir / "daily.csv", index=False)
-    (out_dir / "summary.json").write_text(json.dumps(output, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8")
+    summary_output_path.write_text(json.dumps(output, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8")
     (out_dir / "report.md").write_text(
         "# Sleeve F C1 one-shot holdout\n\n"
         "**WARNING:** §7 holdout is opened once and is now spent.\n\n"

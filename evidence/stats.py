@@ -80,9 +80,9 @@ def day_block_bootstrap_ci(
 
 
 def deflated_sharpe_ratio(returns: Iterable[float], *, trials: int) -> float:
-    """Return a multiple-testing adjusted Sharpe z-statistic.
+    """Return the normal-CDF-scaled multiple-testing adjusted Sharpe score.
 
-    Positive values mean the observed Sharpe exceeds the expected best Sharpe
+    Values near one mean the observed Sharpe exceeds the expected best Sharpe
     from ``trials`` independent candidates under a zero-edge null.
     """
     data = [float(value) for value in returns]
@@ -103,7 +103,8 @@ def deflated_sharpe_ratio(returns: Iterable[float], *, trials: int) -> float:
     skew = _moment(data, mean, std, 3)
     kurtosis = _moment(data, mean, std, 4)
     denominator = math.sqrt(max(1e-12, 1.0 - skew * sharpe_value + ((kurtosis - 1.0) / 4.0) * sharpe_value * sharpe_value))
-    return (sharpe_value - benchmark) * math.sqrt(len(data) - 1) / denominator
+    z = (sharpe_value - benchmark) * math.sqrt(len(data) - 1) / denominator
+    return 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
 
 
 def economic_metrics(returns_bps: Iterable[float], daily_returns_bps: Iterable[float] = ()) -> dict[str, float]:
@@ -381,7 +382,7 @@ def moving_block_bootstrap_ci(
     """Return a deterministic moving-block bootstrap confidence interval.
 
     This is additive to the older ``block_bootstrap_ci`` primitive.  Blocks
-    are sampled with replacement and wrap at the end of the series, which
+    are sampled with replacement from valid non-wrapping starts, which
     keeps every draw exactly the same length and preserves local dependence.
     The default statistic is the arithmetic mean; callers may provide a
     deterministic callable such as an annualized Sharpe function.
@@ -402,8 +403,8 @@ def moving_block_bootstrap_ci(
     for _ in range(draws):
         draw: list[float] = []
         while len(draw) < len(data):
-            start = rng.randrange(len(data))
-            draw.extend(data[(start + offset) % len(data)] for offset in range(block))
+            start = 0 if block == len(data) else rng.randrange(len(data) - block + 1)
+            draw.extend(data[start + offset] for offset in range(block))
         statistics.append(float(measure(draw[: len(data)])))
     statistics.sort()
     tail = (1.0 - confidence) / 2.0

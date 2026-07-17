@@ -6,6 +6,7 @@ import math
 import pandas as pd
 import pytest
 
+from evidence import stats
 from evidence.c1_metrics import (
     annualized_sharpe,
     mbb_ci,
@@ -58,3 +59,49 @@ def test_score_quintiles_are_monotonic_on_constructed_scores():
     assert result["counts"] == [2, 2, 2, 2, 2]
     assert result["monotonic"] is True
     assert result["means"] == sorted(result["means"])
+
+
+def test_moving_block_bootstrap_uses_only_nonwrapping_contiguous_blocks(monkeypatch):
+    starts: list[int] = []
+    draws: list[list[float]] = []
+
+    class ForcedHighStartRandom:
+        def __init__(self, seed):
+            pass
+
+        def randrange(self, stop):
+            starts.append(stop)
+            return stop - 1
+
+    monkeypatch.setattr(stats.random, "Random", ForcedHighStartRandom)
+    stats.moving_block_bootstrap_ci(
+        [0, 1, 2, 3, 4],
+        block_size=3,
+        samples=1,
+        statistic=lambda draw: draws.append(draw) or sum(draw),
+    )
+
+    assert starts == [3, 3]
+    assert draws == [[2, 3, 4, 2, 3]]
+
+
+def test_deflated_sharpe_ratio_is_bounded_and_trials_one_is_positive_baseline():
+    returns = [1.0, -0.5] * 10
+
+    baseline = stats.deflated_sharpe_ratio(returns, trials=1)
+    adjusted = stats.deflated_sharpe_ratio(returns, trials=100)
+
+    assert 0.0 < baseline < 1.0
+    assert baseline > 0.9
+    assert adjusted < baseline
+
+    known = [1.0, 2.0, 3.0, 4.0]
+    mean = sum(known) / len(known)
+    std = math.sqrt(sum((value - mean) ** 2 for value in known) / (len(known) - 1))
+    sharpe = mean / std
+    skew = sum(((value - mean) / std) ** 3 for value in known) / len(known)
+    kurtosis = sum(((value - mean) / std) ** 4 for value in known) / len(known)
+    denominator = math.sqrt(1.0 - skew * sharpe + ((kurtosis - 1.0) / 4.0) * sharpe * sharpe)
+    z = sharpe * math.sqrt(len(known) - 1) / denominator
+    expected = 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
+    assert stats.deflated_sharpe_ratio(known, trials=1) == pytest.approx(expected, abs=1e-9)

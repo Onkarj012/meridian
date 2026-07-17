@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from evidence.c1_replay import ReplayConfig
+from evidence.c1_replay import ReplayConfig, replay
 from policy.c1_threshold import fit_threshold, round_half_up
 
 
@@ -74,3 +74,18 @@ def test_counts_are_from_replay_after_exclusivity_and_three_trade_cap() -> None:
     assert result.candidates_evaluated == (0.5, 0.6, 0.7, 0.8, 0.9)
     assert result.achieved_counts == (3, 2, 2, 1, 1)
     assert result.achieved_count <= 3
+
+
+def test_all_nonfinite_scores_freeze_zero_trade_threshold_with_diagnostic() -> None:
+    rows, calendar = _rows({"2024-06-03": [np.nan, np.inf]})
+
+    result = fit_threshold(rows, contract_calendar=calendar)
+
+    assert result.threshold == np.inf
+    assert result.achieved_count == 0
+    assert "no finite scores" in result.diagnostics["note"]
+    replayed = replay(rows, result.threshold, sleeve_capital=1_000_000.0, contract_calendar=calendar)
+    assert replayed.trades.empty
+    assert replayed.daily["trade_count"].eq(0).all()
+    assert replayed.daily["policy_return_bps"].eq(0.0).all()
+    assert np.isfinite(replayed.daily.select_dtypes(include="number").to_numpy()).all()

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from decimal import Decimal, ROUND_HALF_UP
+import math
 from typing import Any
 
 import pandas as pd
@@ -32,12 +33,15 @@ class ThresholdFitResult:
 
     @property
     def diagnostics(self) -> dict[str, Any]:
-        return {
+        result = {
             "target": self.target,
             "achieved_count": self.achieved_count,
             "candidates_evaluated": list(self.candidates_evaluated),
             "achieved_counts": list(self.achieved_counts),
         }
+        if math.isinf(self.threshold):
+            result["note"] = "no finite scores — zero-trade fold"
+        return result
 
     def __iter__(self):
         """Allow ``threshold, diagnostics = fit_threshold(...)``."""
@@ -71,22 +75,30 @@ def fit_threshold(
         raise ValueError(f"validation_rows needs {score_column!r}")
     if Decimal(str(activity_rate)) < 0:
         raise ValueError("activity_rate must be non-negative")
-
-    scored = validation_rows.copy()
-    if score_column != "score":
-        scored["score"] = scored[score_column]
-    scores = pd.to_numeric(scored["score"], errors="coerce")
-    candidates = sorted(float(value) for value in scores.dropna().unique())
-    if not candidates:
-        raise ValueError("validation_rows must contain at least one finite score")
-
-    sessions = _session_count(scored)
-    target = round_half_up(Decimal(str(activity_rate)) * sessions)
     if sleeve_capital <= 0:
         raise ValueError("sleeve_capital must be positive")
     config = replay_config or ReplayConfig()
     if config.horizon_bars < 1 or config.max_trades_per_day < 1:
         raise ValueError("horizon_bars and max_trades_per_day must be positive")
+
+    scored = validation_rows.copy()
+    if score_column != "score":
+        scored["score"] = scored[score_column]
+    scores = pd.to_numeric(scored["score"], errors="coerce")
+    candidates = sorted(float(value) for value in scores.dropna().unique() if math.isfinite(float(value)))
+    if not candidates:
+        sessions = _session_count(scored)
+        target = round_half_up(Decimal(str(activity_rate)) * sessions)
+        return ThresholdFitResult(
+            threshold=float("inf"),
+            target=target,
+            achieved_count=0,
+            candidates_evaluated=(),
+            achieved_counts=(),
+        )
+
+    sessions = _session_count(scored)
+    target = round_half_up(Decimal(str(activity_rate)) * sessions)
     prepared = _prepare_replay(_prepare_rows(scored, contract_calendar), config)
     counts = list(_threshold_trade_counts(prepared, candidates, config))
 

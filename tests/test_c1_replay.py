@@ -199,6 +199,20 @@ def test_replay_is_byte_identical_on_repeated_runs():
     assert first.daily.to_json(date_format="iso", orient="split") == second.daily.to_json(date_format="iso", orient="split")
 
 
+def test_nonfinite_scores_are_never_tradable_at_infinite_threshold():
+    day = RULES["dates"]["base"]
+    finite_rows = _bars(day, ["09:45", "09:46"], score_at={"09:45": 1.0})
+    finite_result = _run(finite_rows, _calendar(day))
+    nonfinite_rows = finite_rows.assign(score=[float("inf"), float("nan")])
+    nonfinite_result = _run(nonfinite_rows, _calendar(day), threshold=float("inf"))
+
+    assert len(finite_result.trades) == 1
+    assert nonfinite_result.trades.empty
+    assert nonfinite_result.daily["trade_count"].eq(0).all()
+    assert nonfinite_result.daily["policy_return_bps"].eq(0.0).all()
+    assert not pd.isna(nonfinite_result.daily.select_dtypes(include="number").to_numpy()).any()
+
+
 def test_stress_recost_changes_net_without_changing_trade_set():
     day = RULES["dates"]["base"]
     rows = _bars(

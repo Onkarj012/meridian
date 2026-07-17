@@ -117,9 +117,11 @@ def test_firewall_drops_post_cutoff_before_fold_probe(tmp_path, monkeypatch):
     assert seen and all(timestamp <= wf.HOLDOUT_CUTOFF for _, timestamp in seen)
 
 
-def test_placeholder_capital_aborts_non_smoke_run(tmp_path):
-    root = _registration_repo(tmp_path)
-    with pytest.raises(wf.PreRunVerificationError, match="PLACEHOLDER"):
+@pytest.mark.parametrize("placeholder", [True, False])
+def test_non_smoke_pre_run_guards_reject_placeholder_or_injected_matrix(tmp_path, placeholder):
+    root = _registration_repo(tmp_path, placeholder=placeholder)
+    expected = "PLACEHOLDER" if placeholder else "injected matrix"
+    with pytest.raises(wf.PreRunVerificationError, match=expected):
         wf.run(_args(tmp_path, smoke=False, capital=None), root=root, matrix=_synthetic_matrix(), folds=[])
 
 
@@ -131,21 +133,40 @@ def test_dirty_registration_file_aborts(tmp_path):
         wf.run(_args(tmp_path), root=root, matrix=_synthetic_matrix(), folds=[])
 
 
-def test_completed_unit_is_skipped_and_byte_identical(tmp_path, monkeypatch):
-    unit_dir = tmp_path / "fold_01" / "A"
+@pytest.mark.parametrize("mismatch", ["metadata", "marker"])
+def test_completed_unit_resume_rejects_metadata_only_or_marker_only_mismatch(tmp_path, monkeypatch, mismatch):
+    if mismatch == "metadata":
+        unit_dir = tmp_path / "metadata" / "fold_01" / "A"
+    else:
+        unit_dir = tmp_path / "marker" / "fold_01" / "A"
     unit_dir.mkdir(parents=True)
     (unit_dir / "stable.txt").write_text("deterministic\n", encoding="utf-8")
+    (unit_dir / "unit.json").write_text(json.dumps({
+        "matrix_sha256": "test-matrix",
+        "sleeve_capital": 1_000_000.0,
+        "fold_name": "fold_1",
+        "candidate": "A",
+    }), encoding="utf-8")
     wf._mark_unit_complete(unit_dir)
-    before = {path.name: path.read_bytes() for path in unit_dir.iterdir()}
-    monkeypatch.setattr(wf, "_load_unit", lambda path: {"metadata": {}, "trades": pd.DataFrame(), "daily": pd.DataFrame(), "baselines": {}})
-    unit = wf._run_unit(
-        fold=WalkForwardFold("fold_1", pd.Timestamp("2020-01-01"), pd.Timestamp("2020-01-02"), pd.Timestamp("2020-01-03"), pd.Timestamp("2020-01-03")),
-        candidate="A", samples=None, unit_dir=unit_dir, sleeve_capital=1_000_000.0,
-        contract_calendar=pd.DataFrame(), random_replicates=1, b_artifact=None, smoke=True, probe=None,
-    )
-    after = {path.name: path.read_bytes() for path in unit_dir.iterdir()}
-    assert unit["skipped_resume"] is True
-    assert before == after
+    marker = json.loads((unit_dir / "COMPLETE.json").read_text(encoding="utf-8"))
+    if mismatch == "metadata":
+        (unit_dir / "unit.json").write_text(json.dumps({
+            "matrix_sha256": "stale-matrix",
+            "sleeve_capital": 1_000_000.0,
+            "fold_name": "fold_1",
+            "candidate": "A",
+        }), encoding="utf-8")
+        marker["content_hash"] = wf._unit_hash(unit_dir)
+    else:
+        marker["matrix_sha256"] = "stale-matrix"
+    (unit_dir / "COMPLETE.json").write_text(json.dumps(marker), encoding="utf-8")
+    monkeypatch.setattr(wf, "_load_unit", lambda path: {"metadata": json.loads((path / "unit.json").read_text(encoding="utf-8")), "trades": pd.DataFrame(), "daily": pd.DataFrame(), "baselines": {}})
+    with pytest.raises(wf.PreRunVerificationError, match="stale or incomplete"):
+        wf._run_unit(
+            fold=WalkForwardFold("fold_1", pd.Timestamp("2020-01-01"), pd.Timestamp("2020-01-02"), pd.Timestamp("2020-01-03"), pd.Timestamp("2020-01-03")),
+            candidate="A", samples=None, unit_dir=unit_dir, sleeve_capital=1_000_000.0, matrix_sha256="test-matrix",
+            contract_calendar=pd.DataFrame(), random_replicates=1, b_artifact=None, smoke=True, probe=None,
+        )
 
 
 def test_holdout_refusals_without_summary_without_flag_and_placeholder(tmp_path):
@@ -185,3 +206,129 @@ def test_candidate_b_is_skipped_with_explicit_report_entry(tmp_path, monkeypatch
     assert summary["candidate_B"]["status"] == "SKIPPED"
     assert "open governance item" in summary["candidate_B"]["reason"]
     assert "Candidate B: **SKIPPED**" in (tmp_path / "wf/report.md").read_text(encoding="utf-8")
+
+
+def test_load_matrix_rejects_parquet_hash_mismatch(tmp_path):
+    matrix_dir = tmp_path / "matrix"
+    matrix_dir.mkdir()
+    pd.DataFrame({"datetime": [pd.Timestamp("2024-01-01")]}).to_parquet(matrix_dir / "c1.parquet")
+    (matrix_dir / "hashes.json").write_text(json.dumps({"sha256": "wrong"}), encoding="utf-8")
+
+    with pytest.raises(wf.PreRunVerificationError, match="sha256 mismatch"):
+        wf.load_matrix(matrix_dir)
+
+
+def test_resume_rejects_completed_unit_without_matching_matrix_hash(tmp_path, monkeypatch):
+    unit_dir = tmp_path / "fold_01" / "A"
+    unit_dir.mkdir(parents=True)
+    (unit_dir / "stable.txt").write_text("deterministic\n", encoding="utf-8")
+    (unit_dir / "unit.json").write_text(json.dumps({"candidate": "A"}), encoding="utf-8")
+    wf._mark_unit_complete(unit_dir)
+    monkeypatch.setattr(wf, "_load_unit", lambda path: {"metadata": {"candidate": "A"}})
+
+    with pytest.raises(wf.PreRunVerificationError, match="stale or incomplete"):
+        wf._run_unit(
+            fold=WalkForwardFold("fold_1", pd.Timestamp("2020-01-01"), pd.Timestamp("2020-01-02"), pd.Timestamp("2020-01-03"), pd.Timestamp("2020-01-03")),
+            candidate="A", samples=None, unit_dir=unit_dir, sleeve_capital=1_000_000.0, matrix_sha256="current-matrix",
+            contract_calendar=pd.DataFrame(), random_replicates=1, b_artifact=None, smoke=True, probe=None,
+        )
+
+
+def _holdout_repo_with_summary(tmp_path: Path, summary: dict[str, object]) -> Path:
+    root = _registration_repo(tmp_path, placeholder=False, with_summary=True)
+    summary_path = root / "runs/sleeve-f-c1-wf/summary.json"
+    summary_path.write_text(json.dumps(summary), encoding="utf-8")
+    subprocess.run(["git", "add", str(summary_path)], cwd=root, check=True)
+    subprocess.run(["git", "commit", "-qm", "update wf summary"], cwd=root, check=True)
+    return root
+
+
+def _holdout_args(root: Path, *, candidate: str | None = None, out_dir: Path | None = None) -> SimpleNamespace:
+    values = ["--open-holdout", "--yes-i-understand-one-shot"]
+    if candidate is not None:
+        values += ["--candidate", candidate]
+    args = holdout.build_parser().parse_args(values)
+    args.matrix_dir = root / "matrix"
+    args.wf_dir = Path("runs/sleeve-f-c1-wf")
+    args.out_dir = out_dir or root / "holdout"
+    return args
+
+
+def test_holdout_aborts_when_matrix_hash_differs_from_wf_summary(tmp_path):
+    root = _holdout_repo_with_summary(tmp_path, {"selected_candidate": "A", "matrix": {"sha256": "wf-hash"}})
+    matrix_dir = root / "matrix"
+    matrix_dir.mkdir()
+    matrix_path = matrix_dir / "c1.parquet"
+    matrix_path.write_bytes(b"matrix artifact")
+    actual = wf._sha256(matrix_path)
+    (matrix_dir / "hashes.json").write_text(json.dumps({"sha256": actual}), encoding="utf-8")
+    with pytest.raises(holdout.PreRunVerificationError, match="does not match WF summary"):
+        holdout.run(_holdout_args(root), root=root)
+
+
+def test_holdout_refuses_existing_ledger_or_summary_output(tmp_path):
+    root = _holdout_repo_with_summary(tmp_path, {"selected_candidate": "A"})
+    out_dir = root / "holdout-a"
+    ledger = root / "runs/sleeve-f-c1-holdout/HOLDOUT_OPENED.json"
+    ledger.parent.mkdir(parents=True)
+    ledger.write_text("{}", encoding="utf-8")
+    with pytest.raises(holdout.PreRunVerificationError, match="already spent"):
+        holdout.run(_holdout_args(root, out_dir=out_dir), root=root)
+    ledger.unlink()
+    out_dir.mkdir()
+    (out_dir / "summary.json").write_text("{}", encoding="utf-8")
+    with pytest.raises(holdout.PreRunVerificationError, match="already spent"):
+        holdout.run(_holdout_args(root, out_dir=out_dir), root=root)
+
+
+def test_holdout_ledger_is_acquired_before_matrix_load_and_remains_on_abort(tmp_path, monkeypatch):
+    root = _holdout_repo_with_summary(tmp_path, {"selected_candidate": "A"})
+    matrix_dir = root / "matrix"
+    matrix_dir.mkdir()
+    matrix_path = matrix_dir / "c1.parquet"
+    matrix = pd.DataFrame({"datetime": [pd.Timestamp("2025-07-01 09:45")], "f_open": [100.0]})
+    matrix.to_parquet(matrix_path)
+    matrix_hash = wf._sha256(matrix_path)
+    (matrix_dir / "hashes.json").write_text(json.dumps({"sha256": matrix_hash}), encoding="utf-8")
+    summary_path = root / "runs/sleeve-f-c1-wf/summary.json"
+    summary_path.write_text(json.dumps({"selected_candidate": "A", "matrix": {"sha256": matrix_hash}}), encoding="utf-8")
+    subprocess.run(["git", "add", str(summary_path)], cwd=root, check=True)
+    subprocess.run(["git", "commit", "-qm", "pin matrix hash"], cwd=root, check=True)
+
+    ledger_path = root / "runs/sleeve-f-c1-holdout/HOLDOUT_OPENED.json"
+    seen: list[bool] = []
+
+    def fail_after_ledger(matrix_dir: Path, *, matrix_bytes: bytes):
+        seen.append(ledger_path.exists())
+        raise holdout.PreRunVerificationError("synthetic matrix-loader abort")
+
+    monkeypatch.setattr(holdout, "load_matrix", fail_after_ledger)
+    with pytest.raises(holdout.PreRunVerificationError, match="synthetic matrix-loader abort"):
+        holdout.run(_holdout_args(root, out_dir=root / "fresh-out"), root=root)
+    assert seen == [True]
+    assert ledger_path.exists()
+
+
+def test_holdout_aborts_when_wf_selected_candidate_is_null_even_with_candidate(tmp_path):
+    root = _holdout_repo_with_summary(tmp_path, {"selected_candidate": None})
+
+    with pytest.raises(holdout.PreRunVerificationError, match="no survivor"):
+        holdout.run(_holdout_args(root, candidate="A"), root=root)
+
+
+def test_holdout_aborts_when_candidate_differs_from_wf_selection(tmp_path):
+    root = _holdout_repo_with_summary(tmp_path, {"selected_candidate": "B"})
+    with pytest.raises(holdout.PreRunVerificationError, match="does not match selected_candidate"):
+        holdout.run(_holdout_args(root, candidate="A"), root=root)
+
+
+def test_holdout_rejects_tampered_frozen_unit_after_completion(tmp_path):
+    unit_dir = tmp_path / "wf" / "fold_1" / "B"
+    unit_dir.mkdir(parents=True)
+    (unit_dir / "unit.json").write_text(json.dumps({"candidate": "B"}), encoding="utf-8")
+    (unit_dir / "threshold.json").write_text(json.dumps({"threshold": 0.5}), encoding="utf-8")
+    wf._mark_unit_complete(unit_dir)
+    (unit_dir / "threshold.json").write_text(json.dumps({"threshold": 0.9}), encoding="utf-8")
+
+    with pytest.raises(holdout.PreRunVerificationError, match="hash validation failed"):
+        holdout._load_frozen_decision(tmp_path / "wf", "B", "fold_1")

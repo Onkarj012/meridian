@@ -6,6 +6,7 @@ import argparse
 from dataclasses import asdict
 from datetime import date
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -129,21 +130,27 @@ def _matrix_hash(hashes_path: Path) -> str:
     return str(value)
 
 
-def load_matrix(matrix_dir: Path) -> tuple[pd.DataFrame, str]:
+def load_matrix(matrix_dir: Path, *, matrix_bytes: bytes | None = None) -> tuple[pd.DataFrame, str]:
     matrix_path = matrix_dir / "c1.parquet"
     hashes_path = matrix_dir / "hashes.json"
     if not matrix_path.exists():
         raise PreRunVerificationError(f"PRE-RUN ABORT: matrix artifact does not exist: {matrix_path}")
     if not hashes_path.exists():
         raise PreRunVerificationError(f"PRE-RUN ABORT: matrix hashes.json does not exist: {hashes_path}")
-    matrix_hash = _matrix_hash(hashes_path)
+    expected_hash = _matrix_hash(hashes_path)
+    artifact_bytes = matrix_path.read_bytes() if matrix_bytes is None else matrix_bytes
+    actual_hash = hashlib.sha256(artifact_bytes).hexdigest()
+    if actual_hash != expected_hash:
+        raise PreRunVerificationError(
+            f"PRE-RUN ABORT: C1 matrix sha256 mismatch: hashes.json={expected_hash}, actual={actual_hash}"
+        )
     try:
-        matrix = pd.read_parquet(matrix_path)
+        matrix = pd.read_parquet(io.BytesIO(artifact_bytes))
     except Exception as exc:  # pragma: no cover - exact parquet backend errors vary
         raise PreRunVerificationError(f"PRE-RUN ABORT: unable to load C1 matrix: {matrix_path}: {exc}") from exc
     if "datetime" not in matrix:
         raise PreRunVerificationError("PRE-RUN ABORT: C1 matrix needs datetime for the holdout firewall")
-    return matrix, matrix_hash
+    return matrix, actual_hash
 
 
 def _assert_firewall(rows: pd.DataFrame, label: str, probe: Callable[[str, pd.DataFrame], None] | None = None) -> None:
@@ -234,6 +241,12 @@ def _unit_complete(unit_dir: Path) -> bool:
 
 def _mark_unit_complete(unit_dir: Path) -> None:
     marker = {"content_hash": _unit_hash(unit_dir), "marker_version": 1}
+    metadata_path = unit_dir / "unit.json"
+    if metadata_path.exists():
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        for key in ("matrix_sha256", "sleeve_capital", "fold_name", "candidate"):
+            if key in metadata:
+                marker[key] = metadata[key]
     (unit_dir / "COMPLETE.json").write_text(
         json.dumps(marker, sort_keys=True, separators=(",", ":")) + "\n", encoding="utf-8"
     )
@@ -307,6 +320,7 @@ def _run_unit(
     samples: Any,
     unit_dir: Path,
     sleeve_capital: float,
+    matrix_sha256: str,
     contract_calendar: pd.DataFrame | str,
     random_replicates: int,
     b_artifact: Mapping[str, Any] | None,
@@ -316,6 +330,22 @@ def _run_unit(
     unit_dir.mkdir(parents=True, exist_ok=True)
     if _unit_complete(unit_dir):
         loaded = _load_unit(unit_dir)
+        metadata = loaded["metadata"]
+        expected_metadata = {
+            "matrix_sha256": matrix_sha256,
+            "sleeve_capital": sleeve_capital,
+            "fold_name": fold.name,
+            "candidate": candidate,
+        }
+        marker = json.loads((unit_dir / "COMPLETE.json").read_text(encoding="utf-8"))
+        if any(
+            metadata.get(key) != value or marker.get(key) != value
+            for key, value in expected_metadata.items()
+        ):
+            raise PreRunVerificationError(
+                f"PRE-RUN ABORT: completed unit inputs are stale or incomplete: {unit_dir}; "
+                "use a fresh --out-dir"
+            )
         loaded["skipped_resume"] = True
         return loaded
 
@@ -390,10 +420,13 @@ def _run_unit(
     paths["random_null"].write_text(json.dumps(random_null, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8")
     metadata = {
         "candidate": candidate,
+        "fold_name": fold.name,
         "fold": fold.as_dict(),
         "oos_start": fold.oos_start.date().isoformat(),
         "oos_end": fold.oos_end.date().isoformat(),
         "threshold": threshold,
+        "matrix_sha256": matrix_sha256,
+        "sleeve_capital": sleeve_capital,
         "model_metadata": trained.metadata if candidate != "B" else {"candidate": "B", "artifact": "frozen-constants"},
         "smoke": bool(smoke),
     }
@@ -514,6 +547,8 @@ def run(
         raise PreRunVerificationError("PRE-RUN ABORT: sleeve capital is not numeric in registration.md")
     if sleeve_capital <= 0:
         raise PreRunVerificationError("PRE-RUN ABORT: sleeve capital must be positive")
+    if matrix is not None and not args.smoke:
+        raise PreRunVerificationError("PRE-RUN ABORT: injected matrix is allowed only for --smoke")
     if matrix is None:
         matrix, matrix_hash = load_matrix(root / args.matrix_dir if not args.matrix_dir.is_absolute() else args.matrix_dir)
     else:
@@ -544,7 +579,8 @@ def run(
             unit_dir = out_dir / fold.name / candidate
             unit = _run_unit(
                 fold=fold, candidate=candidate, samples=samples, unit_dir=unit_dir,
-                sleeve_capital=sleeve_capital, contract_calendar=contract_calendar,
+                sleeve_capital=sleeve_capital, matrix_sha256=matrix_hash,
+                contract_calendar=contract_calendar,
                 random_replicates=args.random_replicates, b_artifact=b_artifact,
                 smoke=args.smoke, probe=firewall_probe,
             )

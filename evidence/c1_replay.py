@@ -234,7 +234,7 @@ def _replay_prepared(
     for candidate_index in candidates:
         candidate_index = int(candidate_index)
         score = float(prepared.scores[candidate_index])
-        if score < float(threshold):
+        if not np.isfinite(score) or score < float(threshold):
             continue
         day_code = int(prepared.day_codes[candidate_index])
         day = days[day_code]
@@ -493,7 +493,7 @@ def _eligibility_mask(rows: pd.DataFrame) -> pd.Series:
     times = rows["datetime"].dt.time
     mask = (times >= dtime(9, 45)) & (times < dtime(14, 55))
     mask &= ~((times >= dtime(11, 0)) & (times < dtime(12, 0)))
-    mask &= rows["score"].notna()
+    mask &= rows["score"].notna() & np.isfinite(rows["score"])
     if "eligible" in rows:
         mask &= rows["eligible"].fillna(False).astype(bool)
     if "eligibility_pass" in rows:
@@ -647,6 +647,8 @@ def _threshold_trade_counts(
     for candidate_index_value in prepared.candidate_order:
         candidate_index = int(candidate_index_value)
         score = float(prepared.scores[candidate_index])
+        if not np.isfinite(score):
+            continue
         active_end = int(np.searchsorted(threshold_values, score, side="right"))
         if active_end == 0:
             continue
