@@ -216,6 +216,7 @@ def direction_baselines(
     horizon: int,
     *,
     feature_columns: Iterable[str] | None = None,
+    comparator_features: pd.DataFrame | None = None,
 ) -> dict[str, pd.DataFrame]:
     """Return fixed direction-baseline probability frames."""
     target = f"target_h{horizon}_dir"
@@ -232,10 +233,13 @@ def direction_baselines(
         result["multinomial_linear"] = linear
         try:
             from models.intraday_predictor import fit_horizon_models, predict_horizon
+            comparator_columns = list(comparator_features.columns) if comparator_features is not None else columns
+            comparator_train = comparator_features.loc[train_rows.index] if comparator_features is not None else train_rows[columns]
+            comparator_evaluation = comparator_features.loc[evaluation_rows.index] if comparator_features is not None else evaluation_rows[columns]
             target_frame = train_rows.copy()
             target_frame[f"target_h{horizon}_mag_bps"] = target_frame.get(f"target_h{horizon}_return_bps", 0.0)
-            bundle = fit_horizon_models(train_rows[columns], target_frame, np.ones(len(train_rows), dtype=bool), horizon)
-            result["frozen_v0_lightgbm"] = predict_horizon(bundle, evaluation_rows[columns])
+            bundle = fit_horizon_models(comparator_train[comparator_columns], target_frame, np.ones(len(comparator_train), dtype=bool), horizon)
+            result["frozen_v0_lightgbm"] = predict_horizon(bundle, comparator_evaluation[comparator_columns])
         except (ImportError, ValueError, TypeError):
             result["frozen_v0_lightgbm"] = _constant_probabilities(len(evaluation_rows), 1 / 3)
     return result

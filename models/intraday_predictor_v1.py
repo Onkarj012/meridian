@@ -63,8 +63,9 @@ def fit_horizon_models(
         raise ValueError("train_rows must align with features")
     direction_column = f"target_h{horizon}_dir"
     magnitude_column = f"target_h{horizon}_normalized_magnitude"
-    if direction_column not in targets or magnitude_column not in targets:
-        raise ValueError(f"targets need {direction_column!r} and {magnitude_column!r}")
+    return_column = f"target_h{horizon}_return_bps"
+    if direction_column not in targets or magnitude_column not in targets or return_column not in targets:
+        raise ValueError(f"targets need {direction_column!r}, {magnitude_column!r}, and {return_column!r}")
     usable = mask & targets[direction_column].notna().to_numpy() & targets[magnitude_column].notna().to_numpy()
     if usable.sum() < 3:
         raise ValueError("training rows do not contain enough valid labels")
@@ -73,7 +74,7 @@ def fit_horizon_models(
     # multiclass architecture, class weighting, seeds, and deterministic mode.
     direction_targets = pd.DataFrame({
         direction_column: targets[direction_column],
-        f"target_h{horizon}_mag_bps": targets[magnitude_column],
+        f"target_h{horizon}_mag_bps": targets[return_column].abs(),
     }, index=targets.index)
     frozen = fit_v0_horizon_models(
         features,

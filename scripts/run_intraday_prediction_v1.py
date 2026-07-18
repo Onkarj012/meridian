@@ -119,21 +119,28 @@ def run_experiment(
             prepared.drop(columns=["trade_date"], errors="ignore"), pd.Timestamp(protocol["burned_periods"][0].split("/")[0]), "V1-C", **(external_loader_kwargs or {}),
         )
 
+    comparator_features, comparator_manifest = build_prediction_features_v1(
+        prepared, "V1-A", cutoff=pd.Timestamp(protocol["sealed_test"].split("/")[0] if final_test else protocol["burned_periods"][0].split("/")[0]),
+    )
+    comparator_features = comparator_features.reset_index(drop=True)
     candidate_metrics: dict[str, Any] = {}
     all_predictions: dict[int, list[pd.DataFrame]] = {horizon: [] for horizon in HORIZONS}
     manifests: dict[str, list[str]] = {}
     for candidate in CANDIDATES:
-        features, manifest = build_prediction_features_v1(
-            prepared, candidate, cutoff=pd.Timestamp(protocol["sealed_test"].split("/")[0] if final_test else protocol["burned_periods"][0].split("/")[0]), external_features=external_features,
-            external_loader_kwargs=external_loader_kwargs,
-        )
+        if candidate == "V1-A":
+            features, manifest = comparator_features.copy(), comparator_manifest
+        else:
+            features, manifest = build_prediction_features_v1(
+                prepared, candidate, cutoff=pd.Timestamp(protocol["sealed_test"].split("/")[0] if final_test else protocol["burned_periods"][0].split("/")[0]), external_features=external_features,
+                external_loader_kwargs=external_loader_kwargs,
+            )
         features = features.reset_index(drop=True)
         manifests[candidate] = manifest
         candidate_metrics[candidate] = {}
         if smoke:
             split = _smoke_split(targets)
             for horizon in HORIZONS:
-                result = _run_split(features, targets, split, horizon, candidate=candidate, label="smoke", bootstrap=draws, n_estimators=40)
+                result = _run_split(features, targets, split, horizon, candidate=candidate, label="smoke", bootstrap=draws, n_estimators=40, comparator_features=comparator_features)
                 candidate_metrics[candidate][f"smoke_h{horizon}"] = result["metrics"]
                 all_predictions[horizon].append(result["predictions"])
             fold_dates = [{"name": "smoke", "train_end": str(split["train_date"]), "calibration_end": str(split["calibration_date"])}]
@@ -141,7 +148,7 @@ def run_experiment(
             fold_dates = []
             for horizon in HORIZONS:
                 split = apply_final_split(targets, horizon)
-                result = _run_split(features, targets, split, horizon, candidate=candidate, label="final", bootstrap=draws, n_estimators=350)
+                result = _run_split(features, targets, split, horizon, candidate=candidate, label="final", bootstrap=draws, n_estimators=350, comparator_features=comparator_features)
                 candidate_metrics[candidate][f"final_h{horizon}"] = result["metrics"]
                 all_predictions[horizon].append(result["predictions"])
         else:
@@ -153,7 +160,7 @@ def run_experiment(
                     if any(len(split[name]) < 3 for name in ("train", "calibration", "oos")):
                         candidate_metrics[candidate][key] = {"status": "not_run", "rows": {name: len(split[name]) for name in ("train", "calibration", "oos")}}
                         continue
-                    result = _run_split(features, targets, split, horizon, candidate=candidate, label=fold.name, bootstrap=draws, n_estimators=350)
+                    result = _run_split(features, targets, split, horizon, candidate=candidate, label=fold.name, bootstrap=draws, n_estimators=350, comparator_features=comparator_features)
                     candidate_metrics[candidate][key] = result["metrics"]
                     all_predictions[horizon].append(result["predictions"])
 
@@ -216,7 +223,7 @@ def main(argv: list[str] | None = None) -> int:
     return 0 if return_code is not None else 0
 
 
-def _run_split(features: pd.DataFrame, targets: pd.DataFrame, split: dict[str, pd.DataFrame], horizon: int, *, candidate: str, label: str, bootstrap: int, n_estimators: int) -> dict[str, Any]:
+def _run_split(features: pd.DataFrame, targets: pd.DataFrame, split: dict[str, pd.DataFrame], horizon: int, *, candidate: str, label: str, bootstrap: int, n_estimators: int, comparator_features: pd.DataFrame | None = None) -> dict[str, Any]:
     train_index, calibration_index, oos_index = split["train"].index, split["calibration"].index, split["oos"].index
     train_mask = targets.index.isin(train_index)
     models = fit_horizon_models(features, targets, train_mask, horizon, n_estimators=n_estimators)
@@ -255,9 +262,17 @@ def _run_split(features: pd.DataFrame, targets: pd.DataFrame, split: dict[str, p
         "multiclass_brier": multiclass_brier(scored["realized_dir"], scored),
         "baselines": {},
     }
-    train_baseline_rows = pd.concat([split["train"][[f"target_h{horizon}_dir"]], features.loc[train_index]], axis=1)
-    eval_baseline_rows = pd.concat([split["oos"][[f"target_h{horizon}_dir"]], features.loc[oos_index]], axis=1).loc[valid.to_numpy()].reset_index(drop=True)
-    direction_baseline_rows = direction_baselines(train_baseline_rows, eval_baseline_rows, horizon, feature_columns=features.columns)
+    baseline_columns = [f"target_h{horizon}_dir", f"target_h{horizon}_return_bps"]
+    train_valid = split["train"][baseline_columns].notna().all(axis=1)
+    train_baseline_rows = pd.concat([split["train"].loc[train_valid, baseline_columns], features.loc[train_index].loc[train_valid]], axis=1)
+    eval_baseline_rows = pd.concat([split["oos"][baseline_columns], features.loc[oos_index]], axis=1).loc[valid.to_numpy()]
+    direction_baseline_rows = direction_baselines(
+        train_baseline_rows,
+        eval_baseline_rows,
+        horizon,
+        feature_columns=features.columns,
+        comparator_features=comparator_features,
+    )
     for name, baseline_prediction in direction_baseline_rows.items():
         metrics["baselines"][name] = {
             "direction": direction_metrics(scored["realized_dir"], baseline_prediction),

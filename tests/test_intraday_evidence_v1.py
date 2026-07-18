@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from types import SimpleNamespace
 
 import numpy as np
 import pandas as pd
@@ -10,7 +11,7 @@ from evidence.intraday_folds_v1 import (
     apply_fold, assert_development_safe, fold_table, intraday_folds,
 )
 from evidence.intraday_metrics_v1 import (
-    development_gate_verdicts, fixed_magnitude_baselines, magnitude_metrics,
+    development_gate_verdicts, direction_baselines, fixed_magnitude_baselines, magnitude_metrics,
 )
 
 
@@ -68,3 +69,46 @@ def test_magnitude_skill_gate_verdict_and_time_bucket_fallback() -> None:
     })
     baselines = fixed_magnitude_baselines(train, evaluation, 15)
     assert baselines["time_bucket_30m_train_median"].tolist() == pytest.approx([20.0, 30.0])
+
+
+def test_direction_baselines_uses_comparator_features_for_frozen_v0(monkeypatch) -> None:
+    train = pd.DataFrame({
+        "target_h15_dir": ["DOWN", "FLAT", "UP", "DOWN", "FLAT", "UP"],
+        "candidate_feature": np.arange(6, dtype=float),
+    }, index=np.arange(6))
+    evaluation = pd.DataFrame({
+        "target_h15_dir": ["DOWN", "UP"],
+        "candidate_feature": [6.0, 7.0],
+    }, index=[6, 7])
+    comparator = pd.DataFrame({
+        "legacy_feature_a": np.arange(8, dtype=float),
+        "legacy_feature_b": np.arange(8, dtype=float) + 10,
+    }, index=np.arange(8))
+    captured = {}
+
+    def fake_fit(features, targets, train_rows, horizon, **kwargs):
+        bundle = SimpleNamespace(feature_columns=list(features.columns))
+        captured["bundle"] = bundle
+        return bundle
+
+    def fake_predict(bundle, features):
+        return pd.DataFrame({
+            "p_down_raw": np.full(len(features), 1 / 3),
+            "p_flat_raw": np.full(len(features), 1 / 3),
+            "p_up_raw": np.full(len(features), 1 / 3),
+        }, index=features.index)
+
+    import models.intraday_predictor as v0_predictor
+    monkeypatch.setattr(v0_predictor, "fit_horizon_models", fake_fit)
+    monkeypatch.setattr(v0_predictor, "predict_horizon", fake_predict)
+
+    baselines = direction_baselines(
+        train,
+        evaluation,
+        15,
+        feature_columns=["candidate_feature"],
+        comparator_features=comparator,
+    )
+
+    assert captured["bundle"].feature_columns == list(comparator.columns)
+    assert "frozen_v0_lightgbm" in baselines

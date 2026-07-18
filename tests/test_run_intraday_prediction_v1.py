@@ -63,3 +63,27 @@ def test_smoke_runs_are_deterministic_and_write_all_candidate_artifacts(tmp_path
             assert (directory / name).exists()
         payload = json.loads((directory / "candidate_ablation.json").read_text(encoding="utf-8"))
         assert set(payload) == {"V1-A", "V1-B", "V1-C"}
+
+
+def test_runner_threads_v1_a_comparator_features(tmp_path, monkeypatch) -> None:
+    from scripts import run_intraday_prediction_v1 as runner
+
+    captured = []
+    original = runner.direction_baselines
+
+    def wrapped_direction_baselines(train_rows, evaluation_rows, horizon, *, feature_columns=None, comparator_features=None):
+        captured.append(None if comparator_features is None else list(comparator_features.columns))
+        return original(
+            train_rows,
+            evaluation_rows,
+            horizon,
+            feature_columns=feature_columns,
+            comparator_features=comparator_features,
+        )
+
+    monkeypatch.setattr(runner, "direction_baselines", wrapped_direction_baselines)
+    frame = _frame()
+    run_experiment(frame, tmp_path / "comparator", smoke=True, bootstrap=1, external_features=_external(len(frame)))
+
+    assert captured
+    assert all(len(columns) == 42 for columns in captured)
