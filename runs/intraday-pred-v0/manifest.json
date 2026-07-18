@@ -1,0 +1,128 @@
+{
+  "feature_manifest": [
+    "log_ret_1m",
+    "log_ret_5m",
+    "log_ret_15m",
+    "log_ret_30m",
+    "log_ret_60m",
+    "realized_vol_5m",
+    "realized_vol_15m",
+    "realized_vol_30m",
+    "atr_5m_norm",
+    "atr_15m_norm",
+    "atr_30m_norm",
+    "vwap_dev",
+    "vwap_slope_5m",
+    "or_dist_high",
+    "or_dist_low",
+    "or_breakout_up",
+    "or_breakout_dn",
+    "oi_chg_1m",
+    "oi_chg_5m",
+    "oi_chg_30m",
+    "oi_long_buildup",
+    "oi_short_buildup",
+    "oi_short_cover",
+    "oi_long_unwind",
+    "vol_zscore",
+    "vol_oi_ratio",
+    "vol_oi_ratio_missing",
+    "basis",
+    "basis_chg_30m",
+    "ema_slope",
+    "consec_bars",
+    "regime",
+    "session_time_sin",
+    "session_time_cos",
+    "minutes_to_close",
+    "day_of_week",
+    "bar_body",
+    "bar_range",
+    "close_location",
+    "upper_wick_fraction",
+    "lower_wick_fraction",
+    "session_gap"
+  ],
+  "feature_count": 42,
+  "params": {
+    "horizons": [
+      15,
+      60
+    ],
+    "bootstrap": 2000,
+    "smoke": false,
+    "n_estimators": 350,
+    "num_threads": 8
+  },
+  "seed": 20260718,
+  "fold_dates": [
+    {
+      "name": "fold_1",
+      "train_start": "2021-01-01",
+      "train_end": "2022-06-23",
+      "embargo_1_start": "2022-06-24",
+      "embargo_1_end": "2022-06-30",
+      "calibration_start": "2022-07-01",
+      "calibration_end": "2022-09-23",
+      "embargo_2_start": "2022-09-24",
+      "embargo_2_end": "2022-09-30",
+      "oos_start": "2022-10-01",
+      "oos_end": "2022-12-31"
+    },
+    {
+      "name": "fold_2",
+      "train_start": "2021-01-01",
+      "train_end": "2022-12-24",
+      "embargo_1_start": "2022-12-25",
+      "embargo_1_end": "2022-12-31",
+      "calibration_start": "2023-01-01",
+      "calibration_end": "2023-03-24",
+      "embargo_2_start": "2023-03-25",
+      "embargo_2_end": "2023-03-31",
+      "oos_start": "2023-04-01",
+      "oos_end": "2023-06-30"
+    },
+    {
+      "name": "fold_3",
+      "train_start": "2021-01-01",
+      "train_end": "2023-06-23",
+      "embargo_1_start": "2023-06-24",
+      "embargo_1_end": "2023-06-30",
+      "calibration_start": "2023-07-01",
+      "calibration_end": "2023-09-23",
+      "embargo_2_start": "2023-09-24",
+      "embargo_2_end": "2023-09-30",
+      "oos_start": "2023-10-01",
+      "oos_end": "2023-12-31"
+    },
+    {
+      "name": "fold_4",
+      "train_start": "2021-01-01",
+      "train_end": "2023-12-24",
+      "embargo_1_start": "2023-12-25",
+      "embargo_1_end": "2023-12-31",
+      "calibration_start": "2024-01-01",
+      "calibration_end": "2024-03-24",
+      "embargo_2_start": "2024-03-25",
+      "embargo_2_end": "2024-03-31",
+      "oos_start": "2024-04-01",
+      "oos_end": "2024-06-30"
+    }
+  ],
+  "final_split": null,
+  "data_hash": "c9f72250a7bf79d9774613ca7426576cfa854377655716ca146d684d057eda18",
+  "row_count": 508918,
+  "session_count": 1359,
+  "class_proportions": {
+    "h15": {
+      "DOWN": 0.35951603492573675,
+      "FLAT": 0.2528451373179245,
+      "UP": 0.38763882775633873
+    },
+    "h60": {
+      "DOWN": 0.3580821391956482,
+      "FLAT": 0.23985197530112867,
+      "UP": 0.40206588550322314
+    }
+  }
+}
