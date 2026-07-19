@@ -2,7 +2,7 @@
 
 **Status:** `KILLED_AT_DEV_GATES`
 **Decision date:** 2026-07-19
-**Principal acknowledgement:** PENDING — Onkar has not yet reviewed this record. Until acknowledged, this document records the gate outcomes and the registration-mandated disposition, not a ratified decision.
+**Principal acknowledgement:** RATIFIED_BY_DELEGATION (2026-07-19). The principal delegated the verdict to the design authority: "whatever may be the case, discuss with Sol and get a verdict on it and drive a plan forward, either for this phase or the next phases, which one will improve the system." Sol ratified the kill without change to the disposition — see [verdict-2026-07-19.md](verdict-2026-07-19.md). This records delegation, not independent principal review of each metric.
 
 ## Registration and artifact identity
 
