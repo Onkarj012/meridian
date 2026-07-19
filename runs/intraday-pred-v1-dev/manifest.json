@@ -1,0 +1,476 @@
+{
+  "artifact_version": "intraday-pred-v1",
+  "audit_counts": {
+    "banknifty": {
+      "accepted_rows": 921413,
+      "duplicates_collapsed": 3690,
+      "join_coverage": 0.9971630164432776,
+      "join_rows": 461854,
+      "max_accepted_timestamp": "2024-12-31 15:29:00",
+      "min_accepted_timestamp": "2015-01-09 09:15:00",
+      "off_session_rows": 687,
+      "raw_rows": 1046599,
+      "source_path": "/Users/onkarj012/Projects/market/intranet_optinet/data/banknifty_intraday/bank-nifty-1m-data.csv",
+      "source_sha256": "5826b09aa91494408045a1454121e62e4aad79677269e4c34f226d27bf12dffa"
+    },
+    "nifty_spot": {
+      "accepted_rows": 921459,
+      "duplicates_collapsed": 0,
+      "join_coverage": 0.9972644915020036,
+      "join_rows": 461901,
+      "max_accepted_timestamp": "2024-12-31 15:29:00",
+      "min_accepted_timestamp": "2015-01-09 09:15:00",
+      "off_session_rows": 598,
+      "raw_rows": 1062380,
+      "source_path": "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/NIFTY 50_minute.csv",
+      "source_sha256": "4103e588fa5d4154b80ce329b01602a08ae4616baaf93743a79c1c8c150c95c2"
+    },
+    "vix": {
+      "accepted_rows": 3911,
+      "duplicates_collapsed": 3,
+      "join_coverage": 1.0,
+      "join_rows": 463168,
+      "max_accepted_timestamp": "2024-12-31 00:00:00",
+      "min_accepted_timestamp": "2009-03-02 00:00:00",
+      "off_session_rows": 0,
+      "raw_rows": 4291,
+      "source_path": "/Users/onkarj012/Projects/market/intranet_optinet/data/nifty_intraday/INDIA VIX_day.csv",
+      "source_sha256": "30ca5785e46068eed86e2acefc4d0b5f905ccdeea871f1bba14977f4e25f2ebe"
+    }
+  },
+  "determinism_excluded_fields": [
+    "runtime_metadata",
+    "unseal_event.timestamp_utc"
+  ],
+  "dev_gates": {
+    "H15": {
+      "checks": {
+        "confidence_decile_spearman": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.8,
+          "value": 0.49395025448305485
+        },
+        "confidence_ece": {
+          "operator": "lte",
+          "passed": true,
+          "threshold": 0.03,
+          "value": 0.017275849306410965
+        },
+        "confidence_top_minus_bottom": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.08,
+          "value": 0.02492240774776868
+        },
+        "direction_balanced_accuracy": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.37,
+          "value": 0.3573021857663916
+        },
+        "direction_macro_auc": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.54,
+          "value": 0.528582618070507
+        },
+        "direction_positive_folds": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 4.0,
+          "value": 5.0
+        },
+        "magnitude_daily_ic_mean": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 0.05,
+          "value": 0.1358913258283458
+        },
+        "magnitude_non_overlapping_skill": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.01,
+          "value": 0.0066089571537070405
+        },
+        "magnitude_positive_day_fraction": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 0.55,
+          "value": 0.8413114754098361
+        },
+        "magnitude_positive_folds": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 4.0,
+          "value": 4.0
+        },
+        "magnitude_relative_skill": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.02,
+          "value": 0.008375381066864094
+        }
+      },
+      "horizon": "H15",
+      "passed": false,
+      "status": "failed"
+    },
+    "H60": {
+      "checks": {
+        "confidence_decile_spearman": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.8,
+          "value": 0.33850283732760394
+        },
+        "confidence_ece": {
+          "operator": "lte",
+          "passed": true,
+          "threshold": 0.05,
+          "value": 0.030908084679044906
+        },
+        "confidence_top_minus_bottom": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.08,
+          "value": 0.05609102823904324
+        },
+        "direction_balanced_accuracy": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.37,
+          "value": 0.34931575869444914
+        },
+        "direction_macro_auc": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.54,
+          "value": 0.5223457054720501
+        },
+        "direction_positive_folds": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 4.0,
+          "value": 5.0
+        },
+        "magnitude_daily_ic_mean": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 0.05,
+          "value": 0.06715157608982122
+        },
+        "magnitude_non_overlapping_skill": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.01,
+          "value": -0.011834814494743263
+        },
+        "magnitude_positive_day_fraction": {
+          "operator": "gte",
+          "passed": true,
+          "threshold": 0.55,
+          "value": 0.5891803278688524
+        },
+        "magnitude_positive_folds": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 4.0,
+          "value": 0.0
+        },
+        "magnitude_relative_skill": {
+          "operator": "gte",
+          "passed": false,
+          "threshold": 0.02,
+          "value": -0.013118098203329084
+        }
+      },
+      "horizon": "H60",
+      "passed": false,
+      "status": "failed"
+    }
+  },
+  "feature_manifest": {
+    "candidates": {
+      "V1-A": [
+        "log_ret_1m",
+        "log_ret_5m",
+        "log_ret_15m",
+        "log_ret_30m",
+        "log_ret_60m",
+        "realized_vol_5m",
+        "realized_vol_15m",
+        "realized_vol_30m",
+        "atr_5m_norm",
+        "atr_15m_norm",
+        "atr_30m_norm",
+        "vwap_dev",
+        "vwap_slope_5m",
+        "or_dist_high",
+        "or_dist_low",
+        "or_breakout_up",
+        "or_breakout_dn",
+        "oi_chg_1m",
+        "oi_chg_5m",
+        "oi_chg_30m",
+        "oi_long_buildup",
+        "oi_short_buildup",
+        "oi_short_cover",
+        "oi_long_unwind",
+        "vol_zscore",
+        "vol_oi_ratio",
+        "vol_oi_ratio_missing",
+        "basis",
+        "basis_chg_30m",
+        "ema_slope",
+        "consec_bars",
+        "regime",
+        "session_time_sin",
+        "session_time_cos",
+        "minutes_to_close",
+        "day_of_week",
+        "bar_body",
+        "bar_range",
+        "close_location",
+        "upper_wick_fraction",
+        "lower_wick_fraction",
+        "session_gap"
+      ],
+      "V1-B": [
+        "log_ret_1m",
+        "log_ret_5m",
+        "log_ret_15m",
+        "log_ret_30m",
+        "log_ret_60m",
+        "realized_vol_5m",
+        "realized_vol_15m",
+        "realized_vol_30m",
+        "atr_5m_norm",
+        "atr_15m_norm",
+        "atr_30m_norm",
+        "vwap_dev",
+        "vwap_slope_5m",
+        "or_dist_high",
+        "or_dist_low",
+        "or_breakout_up",
+        "or_breakout_dn",
+        "oi_chg_1m",
+        "oi_chg_5m",
+        "oi_chg_30m",
+        "oi_long_buildup",
+        "oi_short_buildup",
+        "oi_short_cover",
+        "oi_long_unwind",
+        "vol_zscore",
+        "vol_oi_ratio",
+        "vol_oi_ratio_missing",
+        "ema_slope",
+        "consec_bars",
+        "regime",
+        "session_time_sin",
+        "session_time_cos",
+        "minutes_to_close",
+        "day_of_week",
+        "bar_body",
+        "bar_range",
+        "close_location",
+        "upper_wick_fraction",
+        "lower_wick_fraction",
+        "session_gap",
+        "spot_log_ret_1m",
+        "spot_log_ret_5m",
+        "spot_log_ret_15m",
+        "spot_log_ret_30m",
+        "spot_log_ret_60m",
+        "spot_rv_15m",
+        "spot_rv_60m",
+        "spot_missing",
+        "basis_bps_l1",
+        "basis_delta_5m",
+        "basis_delta_15m",
+        "basis_delta_30m",
+        "basis_z_60m",
+        "basis_missing"
+      ],
+      "V1-C": [
+        "log_ret_1m",
+        "log_ret_5m",
+        "log_ret_15m",
+        "log_ret_30m",
+        "log_ret_60m",
+        "realized_vol_5m",
+        "realized_vol_15m",
+        "realized_vol_30m",
+        "atr_5m_norm",
+        "atr_15m_norm",
+        "atr_30m_norm",
+        "vwap_dev",
+        "vwap_slope_5m",
+        "or_dist_high",
+        "or_dist_low",
+        "or_breakout_up",
+        "or_breakout_dn",
+        "oi_chg_1m",
+        "oi_chg_5m",
+        "oi_chg_30m",
+        "oi_long_buildup",
+        "oi_short_buildup",
+        "oi_short_cover",
+        "oi_long_unwind",
+        "vol_zscore",
+        "vol_oi_ratio",
+        "vol_oi_ratio_missing",
+        "ema_slope",
+        "consec_bars",
+        "regime",
+        "session_time_sin",
+        "session_time_cos",
+        "minutes_to_close",
+        "day_of_week",
+        "bar_body",
+        "bar_range",
+        "close_location",
+        "upper_wick_fraction",
+        "lower_wick_fraction",
+        "session_gap",
+        "spot_log_ret_1m",
+        "spot_log_ret_5m",
+        "spot_log_ret_15m",
+        "spot_log_ret_30m",
+        "spot_log_ret_60m",
+        "spot_rv_15m",
+        "spot_rv_60m",
+        "spot_missing",
+        "basis_bps_l1",
+        "basis_delta_5m",
+        "basis_delta_15m",
+        "basis_delta_30m",
+        "basis_z_60m",
+        "basis_missing",
+        "bank_log_ret_5m",
+        "bank_log_ret_15m",
+        "bank_log_ret_30m",
+        "bank_log_ret_60m",
+        "bank_rel_ret_5m",
+        "bank_rel_ret_15m",
+        "bank_rel_ret_30m",
+        "bank_rel_ret_60m",
+        "bank_spot_rv_ratio_30m",
+        "bank_missing",
+        "vix_close_l1d",
+        "vix_log_ret_1d",
+        "vix_log_ret_5d",
+        "vix_z20",
+        "vix_range_l1d",
+        "vix_stale_calendar_days",
+        "vix_missing"
+      ]
+    },
+    "path": "registrations/intraday-pred-v1/feature_manifest.json",
+    "sha256": "973c17495edc2a9f860e0d26f71e8b2fd1214e348b89d1a70acb11a472a6ad89"
+  },
+  "fold_dates": [
+    {
+      "calibration_end": "2022-09-23",
+      "calibration_start": "2022-07-01",
+      "embargo_1_end": "2022-06-30",
+      "embargo_1_start": "2022-06-24",
+      "embargo_2_end": "2022-09-30",
+      "embargo_2_start": "2022-09-24",
+      "name": "fold_1",
+      "oos_end": "2022-12-31",
+      "oos_start": "2022-10-01",
+      "train_end": "2022-06-23",
+      "train_start": "2021-01-01"
+    },
+    {
+      "calibration_end": "2023-03-24",
+      "calibration_start": "2023-01-01",
+      "embargo_1_end": "2022-12-31",
+      "embargo_1_start": "2022-12-25",
+      "embargo_2_end": "2023-03-31",
+      "embargo_2_start": "2023-03-25",
+      "name": "fold_2",
+      "oos_end": "2023-06-30",
+      "oos_start": "2023-04-01",
+      "train_end": "2022-12-24",
+      "train_start": "2021-01-01"
+    },
+    {
+      "calibration_end": "2023-09-23",
+      "calibration_start": "2023-07-01",
+      "embargo_1_end": "2023-06-30",
+      "embargo_1_start": "2023-06-24",
+      "embargo_2_end": "2023-09-30",
+      "embargo_2_start": "2023-09-24",
+      "name": "fold_3",
+      "oos_end": "2023-12-31",
+      "oos_start": "2023-10-01",
+      "train_end": "2023-06-23",
+      "train_start": "2021-01-01"
+    },
+    {
+      "calibration_end": "2024-03-24",
+      "calibration_start": "2024-01-01",
+      "embargo_1_end": "2023-12-31",
+      "embargo_1_start": "2023-12-25",
+      "embargo_2_end": "2024-03-31",
+      "embargo_2_start": "2024-03-25",
+      "name": "fold_4",
+      "oos_end": "2024-06-30",
+      "oos_start": "2024-04-01",
+      "train_end": "2023-12-24",
+      "train_start": "2021-01-01"
+    },
+    {
+      "calibration_end": "2024-09-23",
+      "calibration_start": "2024-07-01",
+      "embargo_1_end": "2024-06-30",
+      "embargo_1_start": "2024-06-24",
+      "embargo_2_end": "2024-09-30",
+      "embargo_2_start": "2024-09-24",
+      "name": "fold_5",
+      "oos_end": "2024-12-31",
+      "oos_start": "2024-10-01",
+      "train_end": "2024-06-23",
+      "train_start": "2021-01-01"
+    }
+  ],
+  "mode": "dev",
+  "model_params": {
+    "candidates": [
+      "V1-A",
+      "V1-B",
+      "V1-C"
+    ],
+    "horizons": [
+      15,
+      60
+    ],
+    "n_estimators": 350,
+    "num_threads": 8
+  },
+  "package_versions": {
+    "lightgbm": "4.6.0",
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "pyarrow": "24.0.0",
+    "scikit-learn": "1.9.0"
+  },
+  "registration_hash": "d1f1a6bd4df400a6851f476dc1789f62840b9bcb1547c99e62f5cb86de9a1fa4",
+  "row_count": 463168,
+  "runtime_metadata": {
+    "generated_at_utc": "2026-07-18T18:52:24.246871+00:00"
+  },
+  "seed": 20260718,
+  "session_count": 1237,
+  "source_hashes": {
+    "c1": "842315298cb40fb8b5a90c87731849d694c705485add76d845141d12f2f57599",
+    "external": {
+      "banknifty": "5826b09aa91494408045a1454121e62e4aad79677269e4c34f226d27bf12dffa",
+      "nifty_spot": "4103e588fa5d4154b80ce329b01602a08ae4616baaf93743a79c1c8c150c95c2",
+      "vix": "30ca5785e46068eed86e2acefc4d0b5f905ccdeea871f1bba14977f4e25f2ebe"
+    }
+  },
+  "unseal_event": null
+}

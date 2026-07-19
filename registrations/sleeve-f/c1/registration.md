@@ -41,7 +41,8 @@
 ## 5. Risk and sizing
 
 R = 30 bps × entry notional; per-trade floor −1R; daily halt −5R (restart-proof); date-specific integer lots; reporting in normalized sleeve-return bps.
-**Sleeve capital: — PLACEHOLDER — must be frozen by the principal before any outcome run** (any constant; makes normalized bps concrete). *(User decision #4, deferred 2026-07-11.)*
+**Sleeve capital: ₹1,000,000 (10 lakh INR)** (fixed constant; makes normalized bps concrete). *(User decision #4, frozen by the principal 2026-07-15.)*
+*(Principal decision 2026-07-15: candidate B's pre-registered minute windows were never assigned literal values in any frozen text; B is skipped in the C1 walk-forward — the runner records the skip in the report — and is not evaluated in Campaign 1.)*
 
 ## 6. Gates (pre-registered, hard)
 
@@ -72,3 +73,9 @@ Frozen `final_long.lgb` under (i) proxy+legacy execution (2.1676), (ii) proxy+ca
 | VIX clean series | `runs/sleeve-f-calendar-vix/india_vix_clean.csv` | 4,288 rows, 3 dupes resolved last-wins |
 
 No new signal families, features, geometries, or gates after this commit. Any change = protocol v2, new registration, k increments.
+
+---
+
+## Post-outcome annotation — 2026-07-16
+
+The pre-registered text above is preserved exactly. Its frozen identity is the registration-freeze commit `1f387b8` (blob `1f1d9c9986d508cec91b7ac1e54e7d75899fe454`). The authoritative C1 post-WF disposition is `registrations/sleeve-f/c1/decision.md`, with frozen artifact commit `82533fb18856adcac2fa4f1a50ac5c861fb2e10b` and manifest SHA-256 `9a3704b4a87331c17b41f9867b116dfa683925f78c9434a2b20e067db630c7b9`. Status: `KILLED_AT_WF`; `selected_candidate: none`; C1 holdout accessed: `false`.

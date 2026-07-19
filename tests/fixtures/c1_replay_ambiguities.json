@@ -1,0 +1,17 @@
+{
+  "registered_rules": {
+    "double_touch": "stop wins when a bar touches stop and target",
+    "entry_bar": "the decision bar is not barrier-eligible; the next-open entry bar is",
+    "eligibility": "09:45 inclusive, 14:55 exclusive, and 11:00 inclusive through 12:00 exclusive",
+    "halt": "realized daily loss reaches -5R and blocks entries from the next bar",
+    "timeout": "min(60 bars, last same-session bar) at close",
+    "zero_day": "zero-trade sessions remain in the daily series",
+    "stress": "re-cost accepted trades without changing the trade set"
+  },
+  "dates": {
+    "base": "2024-06-03",
+    "expiry": "2024-06-27",
+    "roll": "2024-06-28",
+    "zero": "2024-07-01"
+  }
+}

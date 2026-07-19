@@ -527,10 +527,19 @@ def _load_spot_dir_for_date(date_key: str, data_root: Path) -> dict[str, float]:
         data_root / "option_data" / "nifty_data" / "nifty_spot" / f"{day.year}" / f"{day.month:02d}",
     ]
     path: Path | None = None
+    # Archive convention is nifty_spot{DD}_{MM}_{YYYY}.csv (no separator after
+    # "spot") across all years; the underscore variant is kept as a fallback.
+    names = (
+        f"nifty_spot{day.day:02d}_{day.month:02d}_{day.year}.csv",
+        f"nifty_spot_{day.day:02d}_{day.month:02d}_{day.year}.csv",
+    )
     for root in roots:
-        candidate = root / f"nifty_spot_{day.day:02d}_{day.month:02d}_{day.year}.csv"
-        if candidate.exists():
-            path = candidate
+        for name in names:
+            candidate = root / name
+            if candidate.exists():
+                path = candidate
+                break
+        if path is not None:
             break
     return _read_spot_csv_for_date(path, date_key) if path is not None else {}
 

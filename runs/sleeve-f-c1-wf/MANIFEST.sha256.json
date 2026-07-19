@@ -1,0 +1,2900 @@
+{
+  "schema": "sha256-manifest-v1",
+  "provenance_commit": "4b9d0a12edf8a1953593e2f75fa22c494ae67f73",
+  "matrix_sha256": "a534993df198aee0dbef3f01c961e04df0ba4e58a02729a8e8369d37ac333660",
+  "registration_freeze_commit": "1f387b8",
+  "dsr_k": 95,
+  "holdout_accessed": false,
+  "files": [
+    {
+      "path": "fold_1/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "efd15b797fd6c027e8cee746155d3987c36ba6551f1ba23eac9d21594d334e36"
+    },
+    {
+      "path": "fold_1/A/baseline_random_entry_daily.csv",
+      "bytes": 3522,
+      "sha256": "798d3cc45eb2046d68f0224a91380769bd7512584dd3e542070de83156023216"
+    },
+    {
+      "path": "fold_1/A/baseline_random_entry_trades.csv",
+      "bytes": 10139,
+      "sha256": "c7aea43c091a713db9bb1bc740d827653cd9259e5b399c4e407ccde17f19a354"
+    },
+    {
+      "path": "fold_1/A/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "db5d1f6576b8ddb425a720c689dfefeb83862445e34c38df126be69dcf153524"
+    },
+    {
+      "path": "fold_1/A/baseline_time_of_day_daily.csv",
+      "bytes": 3749,
+      "sha256": "59d4018fb8ee1a172c0c4ff5fc6233fc0313a6d908aded388f53a3b8c0170f89"
+    },
+    {
+      "path": "fold_1/A/baseline_time_of_day_trades.csv",
+      "bytes": 10279,
+      "sha256": "91cc948bffd1aa1092ea7daef619dd8cc4d1e6b4c8afe83e25be9dbca2e937b8"
+    },
+    {
+      "path": "fold_1/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2620,
+      "sha256": "dc81b2a7fff9ed50adef686b2f0a416e0de16bd51eb7de5de355b95514c3257a"
+    },
+    {
+      "path": "fold_1/A/baseline_unconditional_long_trades.csv",
+      "bytes": 10320,
+      "sha256": "07f443118df9a2d26bb39b5373b58430d52dbaafe47ad69f1cdda87ada852106"
+    },
+    {
+      "path": "fold_1/A/baseline_volatility_daily.csv",
+      "bytes": 2864,
+      "sha256": "8bb56ee98b42815e30a07bc1651b7b507f9bbd281bbd191b3296843d23532398"
+    },
+    {
+      "path": "fold_1/A/baseline_volatility_trades.csv",
+      "bytes": 10207,
+      "sha256": "5c2f14ad20b13da90087cf004f8e22e055244fec51b80ff695f57a638941d922"
+    },
+    {
+      "path": "fold_1/A/daily.csv",
+      "bytes": 3343,
+      "sha256": "55aacfebbb8d3899db7971d1effedfb5d6a4feca800db1ed8e441acb87cc42c1"
+    },
+    {
+      "path": "fold_1/A/model.pkl",
+      "bytes": 113392,
+      "sha256": "b11394447d10b8e77682f3e2e76c0ba92ae80ff6f5cbaeb94fcc1d8898fce4cc"
+    },
+    {
+      "path": "fold_1/A/random_null.json",
+      "bytes": 5719139,
+      "sha256": "33f74746fb4547924ac51aacad8f908c70493332cc4d5c9671f1326e5d90c0b7"
+    },
+    {
+      "path": "fold_1/A/threshold.json",
+      "bytes": 391050,
+      "sha256": "aa6bf82b0a7bc71f64a4e1e53890641f4d0666164d90c0ad431faf3dff3f627f"
+    },
+    {
+      "path": "fold_1/A/trades.csv",
+      "bytes": 10917,
+      "sha256": "b14c7c347dd234a34f61c753c78f7b1e1454c1276755bb4b24ae23822a83997b"
+    },
+    {
+      "path": "fold_1/A/unit.json",
+      "bytes": 1747,
+      "sha256": "c4d8a72cc39bb7471554cad415536c2a43ceb1b7de9c66d2107ba6d23b7dd5e1"
+    },
+    {
+      "path": "fold_1/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "fbc3b3b51184b059b3fc18dd1e7f3d106d9f24d6011220e248fb6b2aa50268d7"
+    },
+    {
+      "path": "fold_1/C/baseline_random_entry_daily.csv",
+      "bytes": 3043,
+      "sha256": "dafa211e69833a3dbbac9d6666441d5041b7cc0814aaa1fcfc1b94d85532bdd2"
+    },
+    {
+      "path": "fold_1/C/baseline_random_entry_trades.csv",
+      "bytes": 8072,
+      "sha256": "d8a9f0150cf25c90467a139e365812a77f63c217d99d6e8037ce2afa0d5429cf"
+    },
+    {
+      "path": "fold_1/C/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "214286f09d569f6aa313abd0d710e22f6444c8d242bd3f0f7519dc6dd88e1147"
+    },
+    {
+      "path": "fold_1/C/baseline_time_of_day_daily.csv",
+      "bytes": 3044,
+      "sha256": "b679ad7665a55b4a5452bd01a04ac8ce2ac3fc486727339d773d78248183a96a"
+    },
+    {
+      "path": "fold_1/C/baseline_time_of_day_trades.csv",
+      "bytes": 8060,
+      "sha256": "88531308b156c3c1fdcc99e860afe7051410579e4cebaaf6f7fae5502ad1dccd"
+    },
+    {
+      "path": "fold_1/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3044,
+      "sha256": "b679ad7665a55b4a5452bd01a04ac8ce2ac3fc486727339d773d78248183a96a"
+    },
+    {
+      "path": "fold_1/C/baseline_unconditional_long_trades.csv",
+      "bytes": 8070,
+      "sha256": "7ce84b29ce6ff06cf4cca60dbe1f5a4a7991db28b0fd82601af6ff8edc2540b9"
+    },
+    {
+      "path": "fold_1/C/baseline_volatility_daily.csv",
+      "bytes": 3044,
+      "sha256": "3f68ffe54c5d7d1a32b9bc43a97fc94fa0f59c99f0fc1401a939c3d0eddf9102"
+    },
+    {
+      "path": "fold_1/C/baseline_volatility_trades.csv",
+      "bytes": 8056,
+      "sha256": "1a6c12a2f2c90c21327866ed37a606b1ff9d5dc0329c16f606de1c8f93e1002c"
+    },
+    {
+      "path": "fold_1/C/daily.csv",
+      "bytes": 3044,
+      "sha256": "b679ad7665a55b4a5452bd01a04ac8ce2ac3fc486727339d773d78248183a96a"
+    },
+    {
+      "path": "fold_1/C/model.pkl",
+      "bytes": 118791,
+      "sha256": "cf53f33b8339980722c89e61620157e6f28153facc69e6199bd9e47cbef6379f"
+    },
+    {
+      "path": "fold_1/C/random_null.json",
+      "bytes": 5636768,
+      "sha256": "9a022d5fc2b769873f4ae457db5fc372cafd147cc57649cb10fe850df7ff4eb3"
+    },
+    {
+      "path": "fold_1/C/threshold.json",
+      "bytes": 6308,
+      "sha256": "75abfb3867910bd3ee5180ec806d16fc24f41bdebf672881c4b1bf12530e8b7a"
+    },
+    {
+      "path": "fold_1/C/trades.csv",
+      "bytes": 8521,
+      "sha256": "85dec1c6245f9e2e130a02a2674d44718d6d601c962f251b7d360ed1458744d5"
+    },
+    {
+      "path": "fold_1/C/unit.json",
+      "bytes": 1721,
+      "sha256": "4d6abb969dc05e81c50a71b2cc04e258fd07c64fd0cb4cf4a3b4585e6501f4f9"
+    },
+    {
+      "path": "fold_10/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "37a0b6392f3f4b067303df83e923992a1534301f0377223898d2126cf470cc99"
+    },
+    {
+      "path": "fold_10/A/baseline_random_entry_daily.csv",
+      "bytes": 3734,
+      "sha256": "5dba90d440e3054be30390e9f6d66cfafc884707ed2d5a9e5d85d4a8d165c585"
+    },
+    {
+      "path": "fold_10/A/baseline_random_entry_trades.csv",
+      "bytes": 12209,
+      "sha256": "ba19e2a98ea3086be56373a551cee578f0e4477428b4c510587c5c829cbdf7fc"
+    },
+    {
+      "path": "fold_10/A/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "7edb71197cb105225ce8ab02d1c669ec173f1d7a6d15b1a9de9eb7a91b0fa265"
+    },
+    {
+      "path": "fold_10/A/baseline_time_of_day_daily.csv",
+      "bytes": 4211,
+      "sha256": "3d9a27b0400188354d7a8f74581b463c4afb82bca7fef024aa0dbf8360ab05ba"
+    },
+    {
+      "path": "fold_10/A/baseline_time_of_day_trades.csv",
+      "bytes": 12164,
+      "sha256": "950f3e2a3caa554d5e52606499002494d213f9c570b1428850d2c0021f128f2a"
+    },
+    {
+      "path": "fold_10/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2762,
+      "sha256": "b016d14df14c07fc95b85a9780736dc9d2d9013facf65dc9b2aab049e8f6616d"
+    },
+    {
+      "path": "fold_10/A/baseline_unconditional_long_trades.csv",
+      "bytes": 12183,
+      "sha256": "f3c5674dc3ddda4fde023e2b7914f17827811014dd2afa76130fa0a9e9c1bbae"
+    },
+    {
+      "path": "fold_10/A/baseline_volatility_daily.csv",
+      "bytes": 3425,
+      "sha256": "a5bf0bc8e3c1f48b76629f0ce43ea166a6f29f24c1694c993d4bc9d0ec7458a2"
+    },
+    {
+      "path": "fold_10/A/baseline_volatility_trades.csv",
+      "bytes": 12264,
+      "sha256": "4b94d86ca9729d3e906a8a56b7a2f3407c53823358806e5da4d1d5fc87744d22"
+    },
+    {
+      "path": "fold_10/A/daily.csv",
+      "bytes": 3484,
+      "sha256": "84eea3bcd33d683d1b1a20d6d4ae8ba22caed3122de774e4e2e148b6f742b2c0"
+    },
+    {
+      "path": "fold_10/A/model.pkl",
+      "bytes": 36130,
+      "sha256": "9c0b809d6a014a6517ab42820bd5cc74a90d4c940f7680205af8ac0f7ea0ae47"
+    },
+    {
+      "path": "fold_10/A/random_null.json",
+      "bytes": 5819109,
+      "sha256": "fd5def2bd0c4245443232a44fff5f4c51582fbe966e76a9a52ae0aca1293c88d"
+    },
+    {
+      "path": "fold_10/A/threshold.json",
+      "bytes": 124305,
+      "sha256": "3407fe2df64220822948400a29458e7a3811d238da30dfa60c4e3fdd661053c6"
+    },
+    {
+      "path": "fold_10/A/trades.csv",
+      "bytes": 12676,
+      "sha256": "1760b79679c71cfe81c30c63f0f5441afce5f084700dabaa40732e42adac574f"
+    },
+    {
+      "path": "fold_10/A/unit.json",
+      "bytes": 1748,
+      "sha256": "d9e8485e72c9a5f6f81e4626513b554e2dd2320aad4c533ba08828d2b9b6649e"
+    },
+    {
+      "path": "fold_10/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "025cc56167ce4d17917ef6393550b1fda8827e5a6b779f5b1996c09d9d4da78e"
+    },
+    {
+      "path": "fold_10/C/baseline_random_entry_daily.csv",
+      "bytes": 3400,
+      "sha256": "0c73d8d121ce40f653a6763516a4e9870f754f7f8247fb8c4f84c300f51ed7e4"
+    },
+    {
+      "path": "fold_10/C/baseline_random_entry_trades.csv",
+      "bytes": 11524,
+      "sha256": "896bffc74ac17bc5717f60fc3640d82f2a5df59845649b9bbcd03af8e86e24e2"
+    },
+    {
+      "path": "fold_10/C/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "1fc33da0effbc8cc74d09172d2801714dbc66d6b53f23e3ef4ebf7c2a8c62bbc"
+    },
+    {
+      "path": "fold_10/C/baseline_time_of_day_daily.csv",
+      "bytes": 3390,
+      "sha256": "b825ce381114282c01bf6a9272b336980bba2696838b4a044214fdf7eb2e31a0"
+    },
+    {
+      "path": "fold_10/C/baseline_time_of_day_trades.csv",
+      "bytes": 11556,
+      "sha256": "e6c851f5d11accc615371826dd3b13f90884c6e0cf04575a6c574264ff2bbfcd"
+    },
+    {
+      "path": "fold_10/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3386,
+      "sha256": "564d4f604ded1fe713f4f83b038d8fb66773c371f6733d4a7e6b5554a35d8b77"
+    },
+    {
+      "path": "fold_10/C/baseline_unconditional_long_trades.csv",
+      "bytes": 11555,
+      "sha256": "bfd15170f7562ebdcb1a3d59d78bbb7597dc77bf7ae50b7e352f304ce8ee3fb7"
+    },
+    {
+      "path": "fold_10/C/baseline_volatility_daily.csv",
+      "bytes": 3407,
+      "sha256": "6119dcdb78951de05a5e0db811763525ad03a379954f5533d4a3a07d646e4a3f"
+    },
+    {
+      "path": "fold_10/C/baseline_volatility_trades.csv",
+      "bytes": 11556,
+      "sha256": "80d6e0c922c194022e1374c77873437476afb62a598c0e8048cf18a4146b84e9"
+    },
+    {
+      "path": "fold_10/C/daily.csv",
+      "bytes": 3390,
+      "sha256": "b825ce381114282c01bf6a9272b336980bba2696838b4a044214fdf7eb2e31a0"
+    },
+    {
+      "path": "fold_10/C/model.pkl",
+      "bytes": 120824,
+      "sha256": "0e40a3a5d9a03ee0e31587b325e48fae16edcc18c41899563a18ec4511597b59"
+    },
+    {
+      "path": "fold_10/C/random_null.json",
+      "bytes": 5724686,
+      "sha256": "72b8b8c287e84b8f5586b05bcc249ba8623b2f4bdd6b33820a79d07b05f6983d"
+    },
+    {
+      "path": "fold_10/C/threshold.json",
+      "bytes": 60528,
+      "sha256": "b8474c8cd959bde852d40a573b701ee47cf394bd489942f22cb2fe5f6a75d680"
+    },
+    {
+      "path": "fold_10/C/trades.csv",
+      "bytes": 12205,
+      "sha256": "f67262f1256f669b2d2f8f85cd50149f00f4f72225374cb5d63e561854828147"
+    },
+    {
+      "path": "fold_10/C/unit.json",
+      "bytes": 1721,
+      "sha256": "27e751f2c9a79e9ea4206bdf8c4c7ef8759622e38828210e3e9eea09cd7ca66d"
+    },
+    {
+      "path": "fold_11/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "49f48233ca474b601fee3086832fda4ad7d75ceea6fe4707e8267c5cc4b8911b"
+    },
+    {
+      "path": "fold_11/A/baseline_random_entry_daily.csv",
+      "bytes": 3692,
+      "sha256": "ea53f4f67ad654958ee6e0987574070991d9cc466402a3d29b8c5b463421e0d2"
+    },
+    {
+      "path": "fold_11/A/baseline_random_entry_trades.csv",
+      "bytes": 10795,
+      "sha256": "2878c787d554088e7fd400c35496a1d42cf0f6481f0e00c8b52a28b1b8006e17"
+    },
+    {
+      "path": "fold_11/A/baseline_summaries.json",
+      "bytes": 3654,
+      "sha256": "847486fe27e11f41fc32765adc5f7c3d6657d32ff0e7e87319b1571819ee540d"
+    },
+    {
+      "path": "fold_11/A/baseline_time_of_day_daily.csv",
+      "bytes": 4192,
+      "sha256": "0fe61462a246c43cf4b2fe6613de31b7d62601fbcaa571b347da1f6dd2027c83"
+    },
+    {
+      "path": "fold_11/A/baseline_time_of_day_trades.csv",
+      "bytes": 10860,
+      "sha256": "47dd32f66cb93c995639831856cecc8b3c5e43b318401ab57233db699ef41d7b"
+    },
+    {
+      "path": "fold_11/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2728,
+      "sha256": "d6d8dc10c79f82ae4ebb4a2532de4fa8627e3fc2abf6c38c2ede3afc523dc1af"
+    },
+    {
+      "path": "fold_11/A/baseline_unconditional_long_trades.csv",
+      "bytes": 10995,
+      "sha256": "477ba72381e962c8e2b1f2533f73c644034ef05baacd82a3d23b8a2bb92970c6"
+    },
+    {
+      "path": "fold_11/A/baseline_volatility_daily.csv",
+      "bytes": 3414,
+      "sha256": "5e1214afc5ad903b7d4fb028477551744de88e504102808bba171964df35fd23"
+    },
+    {
+      "path": "fold_11/A/baseline_volatility_trades.csv",
+      "bytes": 10855,
+      "sha256": "79ee239483ae473a253eed5b54b8254af2a55d649bdd9c4ee7d5d852999cc00c"
+    },
+    {
+      "path": "fold_11/A/daily.csv",
+      "bytes": 3166,
+      "sha256": "1ca30fb2c57137ad7633894102e4f016ac9b4f1539931f8fed81a6d4871c4c78"
+    },
+    {
+      "path": "fold_11/A/model.pkl",
+      "bytes": 50117,
+      "sha256": "afedaeb5bc8d5413bbf990487e9cfd11d6dd42b4a254d4626083a75723153c8a"
+    },
+    {
+      "path": "fold_11/A/random_null.json",
+      "bytes": 6051955,
+      "sha256": "24c91db14b19e8f0c5c70c252741fe0cfd8fe86ca19f39676f988444e0345e50"
+    },
+    {
+      "path": "fold_11/A/threshold.json",
+      "bytes": 232338,
+      "sha256": "dce7639fe42d8940953442ab6d9acf172b9b7341406da5ab543ab11e6689ac44"
+    },
+    {
+      "path": "fold_11/A/trades.csv",
+      "bytes": 11341,
+      "sha256": "3c97d6c31232db43d721253b066ba4ef2614f334da3336d4dfbd413fc398af96"
+    },
+    {
+      "path": "fold_11/A/unit.json",
+      "bytes": 1748,
+      "sha256": "f4f9f7688d71d21227e091f76882efd417e8d31c88764af5c4b13ed02835cfe9"
+    },
+    {
+      "path": "fold_11/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "3f05cd9f567ca8c168215601bdbaefef1f120c408b1539cb9c5b6a687a93d774"
+    },
+    {
+      "path": "fold_11/C/baseline_random_entry_daily.csv",
+      "bytes": 3678,
+      "sha256": "d74dc05ccb0a1902aa6930497c29292bb1315fa8070740e0ad8c93c9b9341afd"
+    },
+    {
+      "path": "fold_11/C/baseline_random_entry_trades.csv",
+      "bytes": 14204,
+      "sha256": "d8cac48796b7c974a21e7610b66bef73bf5e69eefbf2ad46303d25cfa1b17748"
+    },
+    {
+      "path": "fold_11/C/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "3bd20755c25e9be446563d4d9e03e63db91012958aead967de914a4a78c1b8dd"
+    },
+    {
+      "path": "fold_11/C/baseline_time_of_day_daily.csv",
+      "bytes": 3691,
+      "sha256": "cd8d14efc09766e0589c7feea9ae8d22da5975371bdaa2e76e13090cf15fb21f"
+    },
+    {
+      "path": "fold_11/C/baseline_time_of_day_trades.csv",
+      "bytes": 14358,
+      "sha256": "13b99047aed9929197038f14cf6e4eacecf6cfab0f4b7f9ccfdc2e11ffd0cd18"
+    },
+    {
+      "path": "fold_11/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3693,
+      "sha256": "736bd75fc358647c1890b73718a228b4fe539782755c6ba2b2443f84d2eacea3"
+    },
+    {
+      "path": "fold_11/C/baseline_unconditional_long_trades.csv",
+      "bytes": 14458,
+      "sha256": "6ab5e90cfef07d540751f5641f7866a6ced2235bcc385e2db7131c5498e7f6e4"
+    },
+    {
+      "path": "fold_11/C/baseline_volatility_daily.csv",
+      "bytes": 3629,
+      "sha256": "5d550856c0e16566e08771a1223b3149688dd14de1c4d6e60235201335261046"
+    },
+    {
+      "path": "fold_11/C/baseline_volatility_trades.csv",
+      "bytes": 14338,
+      "sha256": "eaeea0ab2570d7795e706fd10abd071bbbd42f134b23a5fd5ce3dc0f22083076"
+    },
+    {
+      "path": "fold_11/C/daily.csv",
+      "bytes": 3652,
+      "sha256": "ff57e801e92bd416a789bc1d6bfc7ee47dc11e561ee57bb56dfdd05cfa7aa91d"
+    },
+    {
+      "path": "fold_11/C/model.pkl",
+      "bytes": 120847,
+      "sha256": "616ffb50900c21403aa081027fd76731d3234fdae14899e3b49b36d0ed743d58"
+    },
+    {
+      "path": "fold_11/C/random_null.json",
+      "bytes": 6016489,
+      "sha256": "ee7fa6a51417a1c5f18e77848d9b44885c10f52d1c303b4a528b84f853e3510b"
+    },
+    {
+      "path": "fold_11/C/threshold.json",
+      "bytes": 63664,
+      "sha256": "6425e6e5836257f53ee422aef6c1f69eac2f858615c90668744fb2b1e024b85d"
+    },
+    {
+      "path": "fold_11/C/trades.csv",
+      "bytes": 15264,
+      "sha256": "3c37924a606a1a1b86a3f7d15a7b360e6a22e194532bf7c675469af879ca0cbe"
+    },
+    {
+      "path": "fold_11/C/unit.json",
+      "bytes": 1722,
+      "sha256": "c6749542f15d7f548814ea3f5cb807a267609deb10f664e16078120fb16a09c7"
+    },
+    {
+      "path": "fold_12/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "3a0b7669080727ad55077ed8b8d315f4d6e8dfc71cc0cb61bf78e2a57e8ad1e5"
+    },
+    {
+      "path": "fold_12/A/baseline_random_entry_daily.csv",
+      "bytes": 3761,
+      "sha256": "bcf630c12f446233e4fad3361f458fdd1b35cb41be938e603ea64d70b1ca71f5"
+    },
+    {
+      "path": "fold_12/A/baseline_random_entry_trades.csv",
+      "bytes": 11374,
+      "sha256": "53d372ffce1ed8a5891b51e0ff73c37b10daea6a659e7f91430a4422a10c44a8"
+    },
+    {
+      "path": "fold_12/A/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "c673b7a93d3db07acaf302311f903d23878cfce2853b964638411709253d33e8"
+    },
+    {
+      "path": "fold_12/A/baseline_time_of_day_daily.csv",
+      "bytes": 4172,
+      "sha256": "7d80eb8faf130eb31bc18b49d462826671414408b652852a4ff9b88ec9543bb3"
+    },
+    {
+      "path": "fold_12/A/baseline_time_of_day_trades.csv",
+      "bytes": 11431,
+      "sha256": "d1293e0ae639ba9dccf0016b5267df0419e58b89446baabd9ce503c53391f438"
+    },
+    {
+      "path": "fold_12/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2689,
+      "sha256": "33f2d548bc279fc9a978bb999cfa16179c0735daa8795bfdb10d97680c514375"
+    },
+    {
+      "path": "fold_12/A/baseline_unconditional_long_trades.csv",
+      "bytes": 11655,
+      "sha256": "82c1b660a29bec88e3c2aa7ff44d153ac312e4b13205577b19e27440ee105687"
+    },
+    {
+      "path": "fold_12/A/baseline_volatility_daily.csv",
+      "bytes": 3262,
+      "sha256": "69ed74e2ce00b97b03d7b3f39f0d19dd46d3ae9f1b0e5b8e7ed1a3f08906ac13"
+    },
+    {
+      "path": "fold_12/A/baseline_volatility_trades.csv",
+      "bytes": 11347,
+      "sha256": "8e1a8b46294ea0fc6610474e3f5090b72bb2cce9479f82105ef1db18ce33d9f1"
+    },
+    {
+      "path": "fold_12/A/daily.csv",
+      "bytes": 3144,
+      "sha256": "ef9ce0dbf4a42a1eca02f0a349c9ac9c4449bf6109b0bbdade5da5ea5c392d33"
+    },
+    {
+      "path": "fold_12/A/model.pkl",
+      "bytes": 35913,
+      "sha256": "3872dc42ac85cec97d5a6a69d13ca321cdc7ac3b42c37160761bb1e231d692c9"
+    },
+    {
+      "path": "fold_12/A/random_null.json",
+      "bytes": 5799866,
+      "sha256": "9e9b4116703dc93aae4ecb348cc06e4866fcb9eb5e9e0549f3c792170c7c8183"
+    },
+    {
+      "path": "fold_12/A/threshold.json",
+      "bytes": 54760,
+      "sha256": "3f2deb76e75e258c7dd6f3257c671dcdb1bd87bf311f1c247fd69ca8707cde5d"
+    },
+    {
+      "path": "fold_12/A/trades.csv",
+      "bytes": 11885,
+      "sha256": "794e1d5174b1e041b959b0ddbd64242a14a606098ce26c0daa8a7223dc290cbf"
+    },
+    {
+      "path": "fold_12/A/unit.json",
+      "bytes": 1748,
+      "sha256": "5c4311716689b52402df201c73ea471527646ecae5085764dd32e4f7b739defe"
+    },
+    {
+      "path": "fold_12/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "6510e58c4b9de9f4d8228f6f75a97e4f9dbbd973b04d8372d4178b5553f0260e"
+    },
+    {
+      "path": "fold_12/C/baseline_random_entry_daily.csv",
+      "bytes": 3268,
+      "sha256": "6819303e87aa9e9d1bc761630f57428b3122fe218eb49500688590fd57b9948b"
+    },
+    {
+      "path": "fold_12/C/baseline_random_entry_trades.csv",
+      "bytes": 11675,
+      "sha256": "f54eefad89c10739a397fed860c6e7ddc9d150b4fc27529b3503791b9c745bef"
+    },
+    {
+      "path": "fold_12/C/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "b4d70dfb7ee122ae5fefd6a35436324745b92d22720f168247207cd1014104a6"
+    },
+    {
+      "path": "fold_12/C/baseline_time_of_day_daily.csv",
+      "bytes": 3180,
+      "sha256": "9a79c664fb044ea9e22d66036aed039040256ddf784fa6cc043f125132609882"
+    },
+    {
+      "path": "fold_12/C/baseline_time_of_day_trades.csv",
+      "bytes": 11585,
+      "sha256": "a8fcdf17bc746a3ef9386b9339fed6dedb95ee2431b860fc557592bd88c22950"
+    },
+    {
+      "path": "fold_12/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3319,
+      "sha256": "a2b16079543f6515b5680108fc5bdcafdf504b37b367c05551d3a01e794c894c"
+    },
+    {
+      "path": "fold_12/C/baseline_unconditional_long_trades.csv",
+      "bytes": 11793,
+      "sha256": "f255917ef53d9b4d0a4e5d004d628b4608fe22b8316e425637109220f6851e01"
+    },
+    {
+      "path": "fold_12/C/baseline_volatility_daily.csv",
+      "bytes": 3253,
+      "sha256": "4a656b8504d40a324a1b797ae2e264b3c3b1e5e3f03b2f22a7e5288280742a9b"
+    },
+    {
+      "path": "fold_12/C/baseline_volatility_trades.csv",
+      "bytes": 11726,
+      "sha256": "0d0d14f0a6ea461e04c2b582d9bb45748ca6696842a83df75f6828349154d591"
+    },
+    {
+      "path": "fold_12/C/daily.csv",
+      "bytes": 3255,
+      "sha256": "82dc7fc7aaf6fd996ea22079ccd763e32b050c51bb5188ad3f1aea88647cd107"
+    },
+    {
+      "path": "fold_12/C/model.pkl",
+      "bytes": 120802,
+      "sha256": "87d22c113b9736539c6b66be2c011541ee906104af50b4a27d32341f0c19085b"
+    },
+    {
+      "path": "fold_12/C/random_null.json",
+      "bytes": 5703177,
+      "sha256": "10b0197b2e003f247833f91ee526d44f5f2f42af7e1954cb0f1b90cebcd27437"
+    },
+    {
+      "path": "fold_12/C/threshold.json",
+      "bytes": 65965,
+      "sha256": "50198192fe1dab57b68623dc21825a6249bb65c9ef66f430f01f2b641a49ac8a"
+    },
+    {
+      "path": "fold_12/C/trades.csv",
+      "bytes": 12288,
+      "sha256": "cfcb0c586583649392e36ded61368c56c2827aad57b4bf6533128714d0da2836"
+    },
+    {
+      "path": "fold_12/C/unit.json",
+      "bytes": 1722,
+      "sha256": "72be60284c437d91a493a99ad6bf89aa90e8810866155df1ee8cc38bbb0bc602"
+    },
+    {
+      "path": "fold_13/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "22ad69b7cf47abe86c7e1016627c53e2f68fbc672eb66b094d291ca007b6eb80"
+    },
+    {
+      "path": "fold_13/A/baseline_random_entry_daily.csv",
+      "bytes": 4179,
+      "sha256": "656a7e2e9122d96b023f825999ea5712e41999eeb9de5b17e53c296ace983f4d"
+    },
+    {
+      "path": "fold_13/A/baseline_random_entry_trades.csv",
+      "bytes": 15398,
+      "sha256": "bcad420df3bc3121ed537038779d8e518c296046471d318307c5f63fe761a4c2"
+    },
+    {
+      "path": "fold_13/A/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "16df3a9919d4fcaf37c98669b4bee8e2d82f5924491e26031f8519d120d67ecc"
+    },
+    {
+      "path": "fold_13/A/baseline_time_of_day_daily.csv",
+      "bytes": 4891,
+      "sha256": "11a83156e32500ec3f50f44be04360161fac824f38008fdce43ec12a67643b97"
+    },
+    {
+      "path": "fold_13/A/baseline_time_of_day_trades.csv",
+      "bytes": 15408,
+      "sha256": "977f5a81becc8dd6a868d668fe009ce8aafa001441cebc3206bd1fdd797cdefc"
+    },
+    {
+      "path": "fold_13/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3053,
+      "sha256": "f4dc0450a1be9d0d2b9418b502e667725b6bc8a706ec4230b7bd6b0fb797d56a"
+    },
+    {
+      "path": "fold_13/A/baseline_unconditional_long_trades.csv",
+      "bytes": 15398,
+      "sha256": "eb35607b7220f5ea6bdec7772c48d5a67119a153995f626adfd7312a0aab72c2"
+    },
+    {
+      "path": "fold_13/A/baseline_volatility_daily.csv",
+      "bytes": 3553,
+      "sha256": "2974c3c3e3fbe6f3612883c63d2a7e22754011bb4820ed02050289b99ba88380"
+    },
+    {
+      "path": "fold_13/A/baseline_volatility_trades.csv",
+      "bytes": 15589,
+      "sha256": "252a6a927a6930beb020a2b019336ab29273bb9a93cc67c27274f1c597ea2295"
+    },
+    {
+      "path": "fold_13/A/daily.csv",
+      "bytes": 3883,
+      "sha256": "adfb235b33a3700e87423bc6578612595733d083ca1aa172cd6fa90886b11895"
+    },
+    {
+      "path": "fold_13/A/model.pkl",
+      "bytes": 50190,
+      "sha256": "b9cbc5c8cf8f42789f49cdb8a0e725c370e0ac6c3dcd6fd77ccfde32220748f8"
+    },
+    {
+      "path": "fold_13/A/random_null.json",
+      "bytes": 6075628,
+      "sha256": "313b98139b0bd3e50cdc5d19ce22a18da4051bc580e5ddec56b0be10a5e9245e"
+    },
+    {
+      "path": "fold_13/A/threshold.json",
+      "bytes": 214332,
+      "sha256": "923c6aa5d530cddbc72108a9b5c76515ff8fcbcd0d751e73e401b72875ecb689"
+    },
+    {
+      "path": "fold_13/A/trades.csv",
+      "bytes": 16451,
+      "sha256": "68124763cf57bfb53ee33fadafafa88585dc799941d6f3f151262aab737aeb0a"
+    },
+    {
+      "path": "fold_13/A/unit.json",
+      "bytes": 1747,
+      "sha256": "163a462b5c11ae60cc1e77b3f7565c78d3a84810ceb9e276c79f3385e8666d9e"
+    },
+    {
+      "path": "fold_13/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "95757f088e133c9525130a69946bc782d9ba3b9e38598842aefd8326085e05e7"
+    },
+    {
+      "path": "fold_13/C/baseline_random_entry_daily.csv",
+      "bytes": 2886,
+      "sha256": "5c1955478dfee1b4c8c4e3d3d4273b40c6230c68e9816a1a67cf04b60a26204d"
+    },
+    {
+      "path": "fold_13/C/baseline_random_entry_trades.csv",
+      "bytes": 6060,
+      "sha256": "3e55b254ea6884304935628b06cf2f44f74b3328de78ebb0a6b0714ad722fb04"
+    },
+    {
+      "path": "fold_13/C/baseline_summaries.json",
+      "bytes": 3654,
+      "sha256": "d19baee2a84fc0113dc464cb27ba9d3bf970ffecc34ff3f18b57939820e44a35"
+    },
+    {
+      "path": "fold_13/C/baseline_time_of_day_daily.csv",
+      "bytes": 2886,
+      "sha256": "5c1955478dfee1b4c8c4e3d3d4273b40c6230c68e9816a1a67cf04b60a26204d"
+    },
+    {
+      "path": "fold_13/C/baseline_time_of_day_trades.csv",
+      "bytes": 6045,
+      "sha256": "a9ca77e4ce3472958558c1a9795e77133b242b780a6a0a2786bb6fc7d6579e6a"
+    },
+    {
+      "path": "fold_13/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2886,
+      "sha256": "5c1955478dfee1b4c8c4e3d3d4273b40c6230c68e9816a1a67cf04b60a26204d"
+    },
+    {
+      "path": "fold_13/C/baseline_unconditional_long_trades.csv",
+      "bytes": 6058,
+      "sha256": "d2abe6169928970ac92865ccb32c1fe8e452c0233dcfbf6c3a8585753ed35e88"
+    },
+    {
+      "path": "fold_13/C/baseline_volatility_daily.csv",
+      "bytes": 2903,
+      "sha256": "754f5754c282ed74e2f5e0e98e40646fa7109fb9dc3e57ee2dae29a238a75860"
+    },
+    {
+      "path": "fold_13/C/baseline_volatility_trades.csv",
+      "bytes": 6087,
+      "sha256": "86e55367705424969c4546fcd9812a1f8eac5e74d2b0434b416afc0c3e7f9d00"
+    },
+    {
+      "path": "fold_13/C/daily.csv",
+      "bytes": 2886,
+      "sha256": "5c1955478dfee1b4c8c4e3d3d4273b40c6230c68e9816a1a67cf04b60a26204d"
+    },
+    {
+      "path": "fold_13/C/model.pkl",
+      "bytes": 120867,
+      "sha256": "a19288218102373367f05e1b774377aa0f8eaedac1f5d8176c68601f9fa75b5c"
+    },
+    {
+      "path": "fold_13/C/random_null.json",
+      "bytes": 5752402,
+      "sha256": "c4f9265eef822c733f22e638a90f31deebb80bf3bf738a11498876ad239e551a"
+    },
+    {
+      "path": "fold_13/C/threshold.json",
+      "bytes": 54944,
+      "sha256": "6f28d9fc4c97427cb56702f994d382cfe29912279c94da6c00a8b0513d81d893"
+    },
+    {
+      "path": "fold_13/C/trades.csv",
+      "bytes": 6403,
+      "sha256": "32f924ac2b6a74bcc265324dc58a24d36bb6b284d85c5392deefe34068facce0"
+    },
+    {
+      "path": "fold_13/C/unit.json",
+      "bytes": 1721,
+      "sha256": "f9bf8e046b4c23ce3f66a53fda6e616b40f6a2f922f0c563ed9a620d1e9f5a6d"
+    },
+    {
+      "path": "fold_14/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "93b3874ba23cd4c7de34017767c8e3695c260ab03dbb8b0796fe88b6cf0d18f3"
+    },
+    {
+      "path": "fold_14/A/baseline_random_entry_daily.csv",
+      "bytes": 3296,
+      "sha256": "9db25b12ca6a15b1003f09945bd422b982d5530ac00d4b8c26d1a3e9895ab082"
+    },
+    {
+      "path": "fold_14/A/baseline_random_entry_trades.csv",
+      "bytes": 8032,
+      "sha256": "49e0ba5894c5ad834fc98611de5e9f59aa68b6b5c5f068bbb16bd4ed8fcdab33"
+    },
+    {
+      "path": "fold_14/A/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "9f14cd4c270eb1db221434c997ece8028cea682e99a7528512a3e8b002993a41"
+    },
+    {
+      "path": "fold_14/A/baseline_time_of_day_daily.csv",
+      "bytes": 3493,
+      "sha256": "e8bc6069d7651a46b0c3d7d7f7cfbc89c429ef33b5b40718e851084615a107db"
+    },
+    {
+      "path": "fold_14/A/baseline_time_of_day_trades.csv",
+      "bytes": 8101,
+      "sha256": "b2d26f81eb5755d7bd7ae0c77f85c4903d4ffd235897b95c7e04707cbe034ca3"
+    },
+    {
+      "path": "fold_14/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2477,
+      "sha256": "c9577c91babbeb4dd008b8bbea3c6e832f10187db322851a2422aa50506bfebf"
+    },
+    {
+      "path": "fold_14/A/baseline_unconditional_long_trades.csv",
+      "bytes": 7802,
+      "sha256": "9e3e1520d685e5859e8fe3f60c2a22b337555ea53ca8ed0efb285cd3f56f8529"
+    },
+    {
+      "path": "fold_14/A/baseline_volatility_daily.csv",
+      "bytes": 2852,
+      "sha256": "ce4a311958c81b4bb3299b4dc2c6074c8f580a7e90e2821bc853de883ce07de5"
+    },
+    {
+      "path": "fold_14/A/baseline_volatility_trades.csv",
+      "bytes": 7938,
+      "sha256": "e0e7a3faca2148410b094f91a2a54876a00c426781eb66b6a5f6e95e626a4da4"
+    },
+    {
+      "path": "fold_14/A/daily.csv",
+      "bytes": 2864,
+      "sha256": "0dcd8886af3840fa686e3f6a5a0cf28178e72a95885430fc988da4a02470c7b8"
+    },
+    {
+      "path": "fold_14/A/model.pkl",
+      "bytes": 50268,
+      "sha256": "6ee47edee63101cf39bef48c0c910100d1bbe06de720ea771a83f68930d6ed36"
+    },
+    {
+      "path": "fold_14/A/random_null.json",
+      "bytes": 5758301,
+      "sha256": "02c48a64fb6a9687de9e45389198e1efcef0cbfffc8888dac228f38b10e171e3"
+    },
+    {
+      "path": "fold_14/A/threshold.json",
+      "bytes": 463762,
+      "sha256": "672cdb6712e3c65b87d1c942f67c7089c155426e99af27007cc7b362b9497f08"
+    },
+    {
+      "path": "fold_14/A/trades.csv",
+      "bytes": 8333,
+      "sha256": "f2b32169ec0c3a36412b84c80b5107efe855268be0b8e4bff21c915999c9f1c4"
+    },
+    {
+      "path": "fold_14/A/unit.json",
+      "bytes": 1748,
+      "sha256": "1443ca83a81733a4387e4d29441c179cc7862ac9c5a2786f68b6b28df1215d44"
+    },
+    {
+      "path": "fold_14/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "1b2e47f4e4dc65fd2eedbe80c47a9c3fe84c57295ae4f0b2743bae444df27508"
+    },
+    {
+      "path": "fold_14/C/baseline_random_entry_daily.csv",
+      "bytes": 2517,
+      "sha256": "3bd76b001b82c3ccdfed15da259a63b31f6bbf8c97d9e5ea0adcad6579b91376"
+    },
+    {
+      "path": "fold_14/C/baseline_random_entry_trades.csv",
+      "bytes": 3898,
+      "sha256": "695cbe12e3c10cd7e42fb7ec6a35444140bfc2e71b2c3fd304e48be1bda9cc82"
+    },
+    {
+      "path": "fold_14/C/baseline_summaries.json",
+      "bytes": 3654,
+      "sha256": "e0be84322f6e4376ccdfc919335fe148efe3d3641d0467349a54a21aaaa4db85"
+    },
+    {
+      "path": "fold_14/C/baseline_time_of_day_daily.csv",
+      "bytes": 2517,
+      "sha256": "3bd76b001b82c3ccdfed15da259a63b31f6bbf8c97d9e5ea0adcad6579b91376"
+    },
+    {
+      "path": "fold_14/C/baseline_time_of_day_trades.csv",
+      "bytes": 3895,
+      "sha256": "05c2db9f4acd6755e8629a287e7f9e6b8fa0d51fcfd709f5632ab4fc1b5fc553"
+    },
+    {
+      "path": "fold_14/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2517,
+      "sha256": "3bd76b001b82c3ccdfed15da259a63b31f6bbf8c97d9e5ea0adcad6579b91376"
+    },
+    {
+      "path": "fold_14/C/baseline_unconditional_long_trades.csv",
+      "bytes": 3901,
+      "sha256": "7a0425b165a5bdc54eac3fe56ec72f47f68c48010a45e64053afe0fd32de2dfc"
+    },
+    {
+      "path": "fold_14/C/baseline_volatility_daily.csv",
+      "bytes": 2517,
+      "sha256": "3bd76b001b82c3ccdfed15da259a63b31f6bbf8c97d9e5ea0adcad6579b91376"
+    },
+    {
+      "path": "fold_14/C/baseline_volatility_trades.csv",
+      "bytes": 3898,
+      "sha256": "0a71073fc9f6508ebccdbae7130ca365f965a8f51201e3ce770924f5fc88f7fc"
+    },
+    {
+      "path": "fold_14/C/daily.csv",
+      "bytes": 2517,
+      "sha256": "3bd76b001b82c3ccdfed15da259a63b31f6bbf8c97d9e5ea0adcad6579b91376"
+    },
+    {
+      "path": "fold_14/C/model.pkl",
+      "bytes": 121006,
+      "sha256": "36cee818878548e653681bce730e87f0d1d165bf7bd4501cc611c53be352dd38"
+    },
+    {
+      "path": "fold_14/C/random_null.json",
+      "bytes": 5589718,
+      "sha256": "abbdbadf5ea6c17b3d3bfa26325fa1d454adfed13564dbd6fcf5907927203da2"
+    },
+    {
+      "path": "fold_14/C/threshold.json",
+      "bytes": 44393,
+      "sha256": "625495e41ca00897c867b15ebe9f00e8b05d1814fa572a689147963520b8cfa2"
+    },
+    {
+      "path": "fold_14/C/trades.csv",
+      "bytes": 4124,
+      "sha256": "4c7c4ed0f0f02d6fba04599bb02d2bf9de99e472139420d2999a15aac4e73577"
+    },
+    {
+      "path": "fold_14/C/unit.json",
+      "bytes": 1721,
+      "sha256": "025312e61db927999c6c7d7c9c608cec48343c8ce2c87982c4c8d965a7132859"
+    },
+    {
+      "path": "fold_15/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "224e6d25a8107523f8b015c86b333e2bd1d7deb928a06e50c90ea91046210023"
+    },
+    {
+      "path": "fold_15/A/baseline_random_entry_daily.csv",
+      "bytes": 3645,
+      "sha256": "19c72d45bc0e814f111dcd3727d798f2fdcbdd37a6ebb764a647e0e30772c342"
+    },
+    {
+      "path": "fold_15/A/baseline_random_entry_trades.csv",
+      "bytes": 8790,
+      "sha256": "f68f4ce3e1e45359935fc7b125e16d3af960bfd7ba9d2bdf0ee6e432fc1943bb"
+    },
+    {
+      "path": "fold_15/A/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "203fbd7a1c5b20c77386ec197ed76a27f97051b62576e2458429557d674ce6d4"
+    },
+    {
+      "path": "fold_15/A/baseline_time_of_day_daily.csv",
+      "bytes": 3936,
+      "sha256": "a663fdafb3b70b4db700f15d66dfad0ac3e546a24ed5fe6307ab8f049e7a515e"
+    },
+    {
+      "path": "fold_15/A/baseline_time_of_day_trades.csv",
+      "bytes": 8955,
+      "sha256": "9d1d63d36ecfe5230e0da9d7bba83cf3f9a91bec7f26bedfb1e7a400beeffa99"
+    },
+    {
+      "path": "fold_15/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2693,
+      "sha256": "a1be8d2a349e9be4f76b6b5b7d0bf94178cda9f6854608ab640373e424e8e2b9"
+    },
+    {
+      "path": "fold_15/A/baseline_unconditional_long_trades.csv",
+      "bytes": 9182,
+      "sha256": "8c4b8c19f926a214507b1bf097b32ef81b46d6657308395667f69d07cbe7987c"
+    },
+    {
+      "path": "fold_15/A/baseline_volatility_daily.csv",
+      "bytes": 2969,
+      "sha256": "b95eeabf14b95b8569a17d86ba54e6a0c6a3876d570ab5c98160bea6c301bd74"
+    },
+    {
+      "path": "fold_15/A/baseline_volatility_trades.csv",
+      "bytes": 8650,
+      "sha256": "80b0fc85f2edfbbc7bf1aaeaa20e3fc3098458ad76c37cf04732673acb83a75a"
+    },
+    {
+      "path": "fold_15/A/daily.csv",
+      "bytes": 3392,
+      "sha256": "fb752ee976765c78dd067820c658ee0e9e0a361afc45692e889b6f1de1371681"
+    },
+    {
+      "path": "fold_15/A/model.pkl",
+      "bytes": 21693,
+      "sha256": "e587ca5f43cff1b0d5bda3b8c51094e38bb3ba199cf6b3aa221bb797d0e1028f"
+    },
+    {
+      "path": "fold_15/A/random_null.json",
+      "bytes": 6080226,
+      "sha256": "e327d3c92007ebb312d2ec155db13a8f5f6628aa10d09bc55152f57a758f52f8"
+    },
+    {
+      "path": "fold_15/A/threshold.json",
+      "bytes": 11349,
+      "sha256": "f72e90469b5de05697ef25c28f06c0edc1a83f8173ccff9e1bde1cc65cf532b3"
+    },
+    {
+      "path": "fold_15/A/trades.csv",
+      "bytes": 9313,
+      "sha256": "3ea836891ce9ee9e1c488e8d21b60982e190a66d94fe11fbc405136e49f489d3"
+    },
+    {
+      "path": "fold_15/A/unit.json",
+      "bytes": 1749,
+      "sha256": "7a930fa5a097ccb7d3cbf27cd0df26d5aee7a3d8a29524e1b8ea6a80047ec9ff"
+    },
+    {
+      "path": "fold_15/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "aa483c299b9178dbe270b23d423227d8ba184d837fe01e439c255559b559317a"
+    },
+    {
+      "path": "fold_15/C/baseline_random_entry_daily.csv",
+      "bytes": 2740,
+      "sha256": "cc0d7ac49bc83d2b1c5bd930acb9eb5fd3b1bff9eb795740a061b3c5d36c58c5"
+    },
+    {
+      "path": "fold_15/C/baseline_random_entry_trades.csv",
+      "bytes": 3905,
+      "sha256": "473067a3182e1be1ba3b24ea6dc6119f31b4621b7394a3b1a5541df2dd82d508"
+    },
+    {
+      "path": "fold_15/C/baseline_summaries.json",
+      "bytes": 3654,
+      "sha256": "ede815146e0e2c273288ae3cd48b342509f8ebf72a14f03f4dc2750457b079e7"
+    },
+    {
+      "path": "fold_15/C/baseline_time_of_day_daily.csv",
+      "bytes": 2744,
+      "sha256": "54448b5e833e988c561373ba47052b670728e83048a8dab55c122d0147deba49"
+    },
+    {
+      "path": "fold_15/C/baseline_time_of_day_trades.csv",
+      "bytes": 3947,
+      "sha256": "9672cfabee4b246f313a7aebb53c87647c69d9149a58841d5f590ecf3cc27bfc"
+    },
+    {
+      "path": "fold_15/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2737,
+      "sha256": "0b7f236f1bc68f6b3295754d846a7c5676995e61649a06007a88817443c75ff5"
+    },
+    {
+      "path": "fold_15/C/baseline_unconditional_long_trades.csv",
+      "bytes": 3902,
+      "sha256": "30e473b332bf213e26bda523bfd3468c05697ad0b4b8c0e72982889d3f2021e9"
+    },
+    {
+      "path": "fold_15/C/baseline_volatility_daily.csv",
+      "bytes": 2755,
+      "sha256": "0d9c7a76478f05d86e28b7875f6173ebf6719f52cc63b00afc443533cb0eb15a"
+    },
+    {
+      "path": "fold_15/C/baseline_volatility_trades.csv",
+      "bytes": 3946,
+      "sha256": "415ab3afbb9f9206c1e5bd3269c67cd421b3aa3dc9dcaa698f9436c0f8c9c19f"
+    },
+    {
+      "path": "fold_15/C/daily.csv",
+      "bytes": 2768,
+      "sha256": "698d9c70701393928b019ea17e005565ee772bdbe94dc97bba0691f984c6cd8e"
+    },
+    {
+      "path": "fold_15/C/model.pkl",
+      "bytes": 120967,
+      "sha256": "4716ab1d589da7c8c826f006ee9df6aeaff4aa28722e03e5d5e0f73206e97fa4"
+    },
+    {
+      "path": "fold_15/C/random_null.json",
+      "bytes": 5884831,
+      "sha256": "727e8ab64bd2f5cd2c04b736e341613a8d0488a3e368fb03a8e670545cfa0be7"
+    },
+    {
+      "path": "fold_15/C/threshold.json",
+      "bytes": 48729,
+      "sha256": "e0907b32ef120b37fba8f9b5faa0f4d9ab79a095a1a8dcf48bbb1889fb876093"
+    },
+    {
+      "path": "fold_15/C/trades.csv",
+      "bytes": 4230,
+      "sha256": "a4f32e8da622177f2b6f5ac93bb39164ba4b04d471dad6bdbc8a1e00518934cb"
+    },
+    {
+      "path": "fold_15/C/unit.json",
+      "bytes": 1721,
+      "sha256": "086f24a30e25d65e7c58b8a3584107e31fb3707a22d9ff6fa3af12f48c00ce3f"
+    },
+    {
+      "path": "fold_16/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "cb4db84802f0aa34595f329b8dc611c60b33ac8d522a29209677a8e64d40f6b3"
+    },
+    {
+      "path": "fold_16/A/baseline_random_entry_daily.csv",
+      "bytes": 3298,
+      "sha256": "9f6e17a9213ec1dbcbbd3f4edb11dc59097f72016d87777735eb3a0682ae9601"
+    },
+    {
+      "path": "fold_16/A/baseline_random_entry_trades.csv",
+      "bytes": 7476,
+      "sha256": "bae06ac89b5b76290906bcf33a158a35c64ded2583af4e6d25a4ff18b352e702"
+    },
+    {
+      "path": "fold_16/A/baseline_summaries.json",
+      "bytes": 3654,
+      "sha256": "b82b2a6e13858ad7831a60c25b1a63d823beae7ad32ce2a9e16472f3eec16c16"
+    },
+    {
+      "path": "fold_16/A/baseline_time_of_day_daily.csv",
+      "bytes": 3397,
+      "sha256": "82957aa347d3301117b2bc4e866257c9a3556cb9e99b946598bca6189a882083"
+    },
+    {
+      "path": "fold_16/A/baseline_time_of_day_trades.csv",
+      "bytes": 7592,
+      "sha256": "155aae777c6f120f1916c60cb6c991dc8081944c6f29f4b569abfe06c013b7f9"
+    },
+    {
+      "path": "fold_16/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2476,
+      "sha256": "b18d9733e6c4adb57c8b4e38f4bff3b52b783d101528a43fbfec8a986a843e32"
+    },
+    {
+      "path": "fold_16/A/baseline_unconditional_long_trades.csv",
+      "bytes": 7615,
+      "sha256": "beda4d4fde63961088a495dc47bdc699c9531a74c0f2064ff3758176acaa3911"
+    },
+    {
+      "path": "fold_16/A/baseline_volatility_daily.csv",
+      "bytes": 2863,
+      "sha256": "361d1744d668121c9ad176d86aa93faaae930c54bb605a9b31387c290c570a20"
+    },
+    {
+      "path": "fold_16/A/baseline_volatility_trades.csv",
+      "bytes": 7534,
+      "sha256": "e476973638635e5cf307f4fb915e3055b4f1b304c231c2f923ba84bc963fd017"
+    },
+    {
+      "path": "fold_16/A/daily.csv",
+      "bytes": 2761,
+      "sha256": "06085b4ec28442a4204c3ec77834afbc0845731f7aec5b10131cb52501d76fbc"
+    },
+    {
+      "path": "fold_16/A/model.pkl",
+      "bytes": 14519,
+      "sha256": "3105a45b12644eac8af9df1116783172169b951896d118101795aeff9838c345"
+    },
+    {
+      "path": "fold_16/A/random_null.json",
+      "bytes": 5777922,
+      "sha256": "6685ca6ad43a16695a62acae9072b7a26f29298a444acee0589ac356ec468728"
+    },
+    {
+      "path": "fold_16/A/threshold.json",
+      "bytes": 2366,
+      "sha256": "3fc4e6a9107d1c938e4d10f70b4881644cc191dcff64208ed3d6bc01936595f6"
+    },
+    {
+      "path": "fold_16/A/trades.csv",
+      "bytes": 8110,
+      "sha256": "8318cc2decc43578a2182387ced6561784556040d71dfb21bd441af054b7d859"
+    },
+    {
+      "path": "fold_16/A/unit.json",
+      "bytes": 1749,
+      "sha256": "1216a04b70c86c24749725698ce68cf9c0ec0efc89addc0bd21081e57b9d59ba"
+    },
+    {
+      "path": "fold_16/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "8c954c45e0717d8d6247ad78b0124b60662c6b6a67c2d40b05d27be9425ad725"
+    },
+    {
+      "path": "fold_16/C/baseline_random_entry_daily.csv",
+      "bytes": 2077,
+      "sha256": "e13397243c5ab418c23618a03d8b9bb9cffc23a9c0c10d0f651bf29e9ae45ca2"
+    },
+    {
+      "path": "fold_16/C/baseline_random_entry_trades.csv",
+      "bytes": 1204,
+      "sha256": "9178538e097e43c3b1e1f6be5f33d1edceb7b458e52dd8b32b9542f65f2a4901"
+    },
+    {
+      "path": "fold_16/C/baseline_summaries.json",
+      "bytes": 3637,
+      "sha256": "99d8ffabda7824bfa08be87b1b8004a569b47c8458c4a0373700e73e93e66499"
+    },
+    {
+      "path": "fold_16/C/baseline_time_of_day_daily.csv",
+      "bytes": 2077,
+      "sha256": "8ebf918939df38f23111ab057172096ec56076bc578821b228f0b2b73952b53d"
+    },
+    {
+      "path": "fold_16/C/baseline_time_of_day_trades.csv",
+      "bytes": 1199,
+      "sha256": "62539a3ba918fb5a8da29caef234654c2e9ec19bd5a5d541ce05af71110226cb"
+    },
+    {
+      "path": "fold_16/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2077,
+      "sha256": "8ebf918939df38f23111ab057172096ec56076bc578821b228f0b2b73952b53d"
+    },
+    {
+      "path": "fold_16/C/baseline_unconditional_long_trades.csv",
+      "bytes": 1201,
+      "sha256": "ccbaadd0855c0b64f8d2914e69cf41c34d060eb4945757db5d4b79c6df5313d4"
+    },
+    {
+      "path": "fold_16/C/baseline_volatility_daily.csv",
+      "bytes": 2085,
+      "sha256": "0b188565b65c18b582dc66274522749d3c81560b07217545eddd248ab7ed04b4"
+    },
+    {
+      "path": "fold_16/C/baseline_volatility_trades.csv",
+      "bytes": 1212,
+      "sha256": "e0e251769caed474f9c6a3e82f89790bede287788eea69f7c45d1b87e24addfa"
+    },
+    {
+      "path": "fold_16/C/daily.csv",
+      "bytes": 2089,
+      "sha256": "42eca924375ffec72d08a4f793b84bbd3d4c7328619e97607620eacf1479346b"
+    },
+    {
+      "path": "fold_16/C/model.pkl",
+      "bytes": 121062,
+      "sha256": "faeb5de3156ccb8daabd1fa28f7d1238123eb2a566733aa348386a3d088754ec"
+    },
+    {
+      "path": "fold_16/C/random_null.json",
+      "bytes": 5478326,
+      "sha256": "157c25e02d4504a2a2a44731e2cf4cdbc0f11b433f002e3aab7f96d75e42ee1f"
+    },
+    {
+      "path": "fold_16/C/threshold.json",
+      "bytes": 41011,
+      "sha256": "171e262b7d2ac8471afc775acc9d296c6511c4e758f962ad768383659d966cc8"
+    },
+    {
+      "path": "fold_16/C/trades.csv",
+      "bytes": 1293,
+      "sha256": "9f65d34520789ab3ac80c663189e63012b628af9cebe5f92cc7261eed3b4419b"
+    },
+    {
+      "path": "fold_16/C/unit.json",
+      "bytes": 1722,
+      "sha256": "35984ba63095d3e2221f252a400bdfebd14962b60a90515fb7fea5df75feeafd"
+    },
+    {
+      "path": "fold_17/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "65f73d556af92c01fda40f84942792a624d6af89a58b2a7ec0f857aa23f553e3"
+    },
+    {
+      "path": "fold_17/A/baseline_random_entry_daily.csv",
+      "bytes": 4109,
+      "sha256": "956318cc6d07f392452f4e62d8a02dd2b7adcd6f8a97f724ed325bcbc055dbe6"
+    },
+    {
+      "path": "fold_17/A/baseline_random_entry_trades.csv",
+      "bytes": 12139,
+      "sha256": "3a1fec386323935a622e3d227bc912fde8669cb48689ea1c7842a4c4cc879713"
+    },
+    {
+      "path": "fold_17/A/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "22656432f87b77da6d2d05f7a3289966a020eca9b58ab9613413b3e9a2f6ea56"
+    },
+    {
+      "path": "fold_17/A/baseline_time_of_day_daily.csv",
+      "bytes": 4584,
+      "sha256": "301e2c9fa8c4836a8a580967cdefd105b4f15e45c6a855024a47790a3ed6d69c"
+    },
+    {
+      "path": "fold_17/A/baseline_time_of_day_trades.csv",
+      "bytes": 12300,
+      "sha256": "a642bba09362ce7bcda99c68e37a8c10910437e980dcc3f0250de7179f94d26c"
+    },
+    {
+      "path": "fold_17/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2863,
+      "sha256": "a88ddf2dbf3d3ebfd45870d462ed06aa51315d3c10f1439450e274dd07407cbe"
+    },
+    {
+      "path": "fold_17/A/baseline_unconditional_long_trades.csv",
+      "bytes": 12255,
+      "sha256": "6300c9cde5538629c64b24f0b3b0fbd16486b3e1a3f55604e8e6527057b7b268"
+    },
+    {
+      "path": "fold_17/A/baseline_volatility_daily.csv",
+      "bytes": 3581,
+      "sha256": "8416e5300dc06c2326fc6516150f22f9c2a66dc53e414decb9eecbec53afb053"
+    },
+    {
+      "path": "fold_17/A/baseline_volatility_trades.csv",
+      "bytes": 12146,
+      "sha256": "371fcc47e59d957c51d2f386f80994c1506eccace82c86993f415232d96c5431"
+    },
+    {
+      "path": "fold_17/A/daily.csv",
+      "bytes": 3602,
+      "sha256": "54a2b8ccfdbbc1b91a27ab150dfdd3eb1078843964ff88ab734b77a09fa0b1ca"
+    },
+    {
+      "path": "fold_17/A/model.pkl",
+      "bytes": 14563,
+      "sha256": "44b738583a1d8086dffff05f891479f1977a50fb76cfaebe3749ce6e945d0dee"
+    },
+    {
+      "path": "fold_17/A/random_null.json",
+      "bytes": 5940658,
+      "sha256": "41752bf76ec432a74734ccdf7af63d3691ad619abf7a71092851022b21381a26"
+    },
+    {
+      "path": "fold_17/A/threshold.json",
+      "bytes": 2376,
+      "sha256": "8c3841aeb8c697560dff5d6c1d5531ca45b0aeb2d46cef77020deff12265cf1a"
+    },
+    {
+      "path": "fold_17/A/trades.csv",
+      "bytes": 13128,
+      "sha256": "46ca9ee9dc38ec9d4b7351408eda8db948c9e0332ae0897e4d03d9def42e2409"
+    },
+    {
+      "path": "fold_17/A/unit.json",
+      "bytes": 1748,
+      "sha256": "b9cbabf50d83d0e37bc0d92f59b8c1a1e55c8fc4509fd641a3409a6677662e3d"
+    },
+    {
+      "path": "fold_17/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "09f9a34d890907e43c3ead7ad97ab58af0dcd3769290d7da40fba61aec99fe5b"
+    },
+    {
+      "path": "fold_17/C/baseline_random_entry_daily.csv",
+      "bytes": 2312,
+      "sha256": "68dbb3cc45be15a719f605c83d4c8c2b3505229b60ed6f4f0e30b1e13c1f0f0c"
+    },
+    {
+      "path": "fold_17/C/baseline_random_entry_trades.csv",
+      "bytes": 2159,
+      "sha256": "c5f8263b9589d115bd5e14c3fe79608760897dabc412fa2f4234983bfc740058"
+    },
+    {
+      "path": "fold_17/C/baseline_summaries.json",
+      "bytes": 3637,
+      "sha256": "86c76e1c2f67d7025752e170dc236c21a2d57a66a82006717fa510457fadbae0"
+    },
+    {
+      "path": "fold_17/C/baseline_time_of_day_daily.csv",
+      "bytes": 2312,
+      "sha256": "68dbb3cc45be15a719f605c83d4c8c2b3505229b60ed6f4f0e30b1e13c1f0f0c"
+    },
+    {
+      "path": "fold_17/C/baseline_time_of_day_trades.csv",
+      "bytes": 2153,
+      "sha256": "133dc8efead5582f1eea0de832e94f9f4a88f962b3989bc433d84923f21cb81b"
+    },
+    {
+      "path": "fold_17/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2312,
+      "sha256": "68dbb3cc45be15a719f605c83d4c8c2b3505229b60ed6f4f0e30b1e13c1f0f0c"
+    },
+    {
+      "path": "fold_17/C/baseline_unconditional_long_trades.csv",
+      "bytes": 2159,
+      "sha256": "d3553b7312609eb38bbe5f09502922fc329255cfb8f20b79384de13c0e9f4f1c"
+    },
+    {
+      "path": "fold_17/C/baseline_volatility_daily.csv",
+      "bytes": 2312,
+      "sha256": "68dbb3cc45be15a719f605c83d4c8c2b3505229b60ed6f4f0e30b1e13c1f0f0c"
+    },
+    {
+      "path": "fold_17/C/baseline_volatility_trades.csv",
+      "bytes": 2158,
+      "sha256": "a25e5f2e7dd6d60d3b848efdfdefbfbd6ac759c0750581864938fca60db68a54"
+    },
+    {
+      "path": "fold_17/C/daily.csv",
+      "bytes": 2312,
+      "sha256": "68dbb3cc45be15a719f605c83d4c8c2b3505229b60ed6f4f0e30b1e13c1f0f0c"
+    },
+    {
+      "path": "fold_17/C/model.pkl",
+      "bytes": 121113,
+      "sha256": "e75249a2f0e0e65870f0e9f6bf2de83769083dd85b7745e42e6b0e529dc8f2e0"
+    },
+    {
+      "path": "fold_17/C/random_null.json",
+      "bytes": 5535793,
+      "sha256": "de8e7ea0f6e4b8293a86e6ea5ec5301e2dff8a906bf759bcd7f4d34e5c3b6fef"
+    },
+    {
+      "path": "fold_17/C/threshold.json",
+      "bytes": 21637,
+      "sha256": "44ac48c02fb84dcf1feec75a77882f606e633f34500352bf8ea59545a2070de8"
+    },
+    {
+      "path": "fold_17/C/trades.csv",
+      "bytes": 2292,
+      "sha256": "a430f62726b2cf0321a6fc58ecf0e185200b72f868c1d5be95a5ed858b0ec465"
+    },
+    {
+      "path": "fold_17/C/unit.json",
+      "bytes": 1723,
+      "sha256": "5d0b8dcac53b41ce30adb5aa25c9f5718bab00c242a0deacecf89f64b22ff463"
+    },
+    {
+      "path": "fold_18/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "bbdde0a61f5bc894a189dc00ed996947dbd8d3ccd4c17c084db9778b032c0234"
+    },
+    {
+      "path": "fold_18/A/baseline_random_entry_daily.csv",
+      "bytes": 4181,
+      "sha256": "35bc33e4ff684b37106c5d9c19a06206b51fce616160a67299522809b9b119a8"
+    },
+    {
+      "path": "fold_18/A/baseline_random_entry_trades.csv",
+      "bytes": 13465,
+      "sha256": "0ccf6b46d5973fc93fde230c5374693dbfa91150868e40d272b804de46e822fc"
+    },
+    {
+      "path": "fold_18/A/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "162a752869a2629e01dab53b685335b58e470f19a4ea298f325a09dacb22b7ae"
+    },
+    {
+      "path": "fold_18/A/baseline_time_of_day_daily.csv",
+      "bytes": 4157,
+      "sha256": "0a9dcf6e8a0b1a5514bc97a642ae1b67d8806884a35059338467fbb6819e18d5"
+    },
+    {
+      "path": "fold_18/A/baseline_time_of_day_trades.csv",
+      "bytes": 13394,
+      "sha256": "6d8ad64f9d00a41f8d773e9051fcb2b5d18e35729fdb47c3d390e402bccdaa00"
+    },
+    {
+      "path": "fold_18/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3035,
+      "sha256": "efa839d5eb4f767703bdf971c70f8929c0112bd48d4cc12423d2486027ed0782"
+    },
+    {
+      "path": "fold_18/A/baseline_unconditional_long_trades.csv",
+      "bytes": 13665,
+      "sha256": "8d2e494ecd095f405995f5f824a1fdcc7a2dd6ac60f7449aa01553095d190515"
+    },
+    {
+      "path": "fold_18/A/baseline_volatility_daily.csv",
+      "bytes": 3642,
+      "sha256": "cb9962bc7d48f9d23c89d673d6cafcc1c7db1ddd1a3d87bd1f9163c13eaa4ea5"
+    },
+    {
+      "path": "fold_18/A/baseline_volatility_trades.csv",
+      "bytes": 13530,
+      "sha256": "664a57a37f7e0a06481d13824d108be8de1df5c88508461fb65ad3285a9ab422"
+    },
+    {
+      "path": "fold_18/A/daily.csv",
+      "bytes": 3439,
+      "sha256": "970db4c42aef2ea640a9eddbfd89ce2177faa7e11dfa307dfe82ab458836e7a9"
+    },
+    {
+      "path": "fold_18/A/model.pkl",
+      "bytes": 14553,
+      "sha256": "f567f6da671383ff15698680c63bac22c8ca4828b692ad15d7852cf9ae724b7f"
+    },
+    {
+      "path": "fold_18/A/random_null.json",
+      "bytes": 5977308,
+      "sha256": "5932b95e842e0cd4cc641342b3b25659f9b945e26130825e3d430983c894f6e3"
+    },
+    {
+      "path": "fold_18/A/threshold.json",
+      "bytes": 2451,
+      "sha256": "4ce4249cbc5bb78c6836aecef646464dcb41facb0902b222f6d0e3c9da053fc3"
+    },
+    {
+      "path": "fold_18/A/trades.csv",
+      "bytes": 14452,
+      "sha256": "8449bffb2a7f712e4c2a3efa425691df80612ee994766cb45faa0003a6503880"
+    },
+    {
+      "path": "fold_18/A/unit.json",
+      "bytes": 1748,
+      "sha256": "0850d12ec9337674abb0f7f97c0399882735cba7ae0898149b1775303a37906f"
+    },
+    {
+      "path": "fold_18/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "bf5ffc92cc15c2d61a552f41e38f08fdbd80012e02711fe1e061c0dbe14687d0"
+    },
+    {
+      "path": "fold_18/C/baseline_random_entry_daily.csv",
+      "bytes": 2297,
+      "sha256": "1b9b2f1166d34966165a37f634df54658cefd8d9af3c292f5363fbf53439a938"
+    },
+    {
+      "path": "fold_18/C/baseline_random_entry_trades.csv",
+      "bytes": 1884,
+      "sha256": "5e5bf8087bfdc868d7d7705e5aa09ab2103c8530c22bc04a01d938a03d720d76"
+    },
+    {
+      "path": "fold_18/C/baseline_summaries.json",
+      "bytes": 3639,
+      "sha256": "209610c7c36106ddb10b064a8102e1c285035e45cea0d51b60a978856762012e"
+    },
+    {
+      "path": "fold_18/C/baseline_time_of_day_daily.csv",
+      "bytes": 2297,
+      "sha256": "1b9b2f1166d34966165a37f634df54658cefd8d9af3c292f5363fbf53439a938"
+    },
+    {
+      "path": "fold_18/C/baseline_time_of_day_trades.csv",
+      "bytes": 1881,
+      "sha256": "b147fff62dc27a165acbd08b9f5319bb3d01d3a586999bef222275de3a4e2e73"
+    },
+    {
+      "path": "fold_18/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2298,
+      "sha256": "f45edafa294bcb025aff603de3adbd3abbc7710e2762a670cbd0cb422c890af9"
+    },
+    {
+      "path": "fold_18/C/baseline_unconditional_long_trades.csv",
+      "bytes": 1884,
+      "sha256": "dd85c7668fbc3791e2e86f3eb8dcb833ab4038259ae5aedfcdaff91bf7814a75"
+    },
+    {
+      "path": "fold_18/C/baseline_volatility_daily.csv",
+      "bytes": 2297,
+      "sha256": "ed4e7e17bf5c97fffb5a99e33c831cdee41279aa7bda8c32aa9fb25fd0276fc8"
+    },
+    {
+      "path": "fold_18/C/baseline_volatility_trades.csv",
+      "bytes": 1918,
+      "sha256": "a2737ed4b447244ad9b6345d856be215d5f1dbfbadd0a4ed1f5ec7762b029807"
+    },
+    {
+      "path": "fold_18/C/daily.csv",
+      "bytes": 2297,
+      "sha256": "1b9b2f1166d34966165a37f634df54658cefd8d9af3c292f5363fbf53439a938"
+    },
+    {
+      "path": "fold_18/C/model.pkl",
+      "bytes": 121044,
+      "sha256": "af0ba2723fc223e6031c6936771eb2bb8c023ca601ada82839c72c656a69d420"
+    },
+    {
+      "path": "fold_18/C/random_null.json",
+      "bytes": 5528417,
+      "sha256": "1f7e2a2024c0c5a2d838557b69c9097c3eef6b86cc806b57b7c4baa14ef0dc51"
+    },
+    {
+      "path": "fold_18/C/threshold.json",
+      "bytes": 31516,
+      "sha256": "bdb11a9d36b5b6840fec75c63eb424a9fe5994e98db63b5d045ccf04e5bf36f6"
+    },
+    {
+      "path": "fold_18/C/trades.csv",
+      "bytes": 2000,
+      "sha256": "6bf02589bfcdf98a9449b2f4a1b3f5a2119e1af0ff5376ac33e1ebdfd5e61387"
+    },
+    {
+      "path": "fold_18/C/unit.json",
+      "bytes": 1722,
+      "sha256": "495bb2670a2a4c9da764bccd2573bef7281e09d6122b753accab064b611cb147"
+    },
+    {
+      "path": "fold_2/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "3d89d985a5ac482dc8a3a233cbdd07f0e141d7ff59d3dfc68d903bba5921c620"
+    },
+    {
+      "path": "fold_2/A/baseline_random_entry_daily.csv",
+      "bytes": 3979,
+      "sha256": "4591de8d2544334981f6bc8538a1280f6509b8dbcf1c67016659988fa0493cf9"
+    },
+    {
+      "path": "fold_2/A/baseline_random_entry_trades.csv",
+      "bytes": 13709,
+      "sha256": "7d16a7bd10f6a72c90824c849fed60232f9f33c9faa71eb6ea9e0bb7b9c8d4fa"
+    },
+    {
+      "path": "fold_2/A/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "7c2d19ab2968c7404ce6ba83cf9b4b485a4b06664b052c41a1c5c8fd9b4e5e39"
+    },
+    {
+      "path": "fold_2/A/baseline_time_of_day_daily.csv",
+      "bytes": 3837,
+      "sha256": "505b6276d2dd36290cdb42f4c95129410bbac239e5a4ec7a2b6dba497ddb8a37"
+    },
+    {
+      "path": "fold_2/A/baseline_time_of_day_trades.csv",
+      "bytes": 13649,
+      "sha256": "ba12419e6c8b4afe6500d8a6286a62997117425682ee2bca0d7e8f232e463800"
+    },
+    {
+      "path": "fold_2/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2894,
+      "sha256": "3e07f9e6c50bac3d2a33a2e533e36721ad6caa853b4844026ecdfcd1d7b16367"
+    },
+    {
+      "path": "fold_2/A/baseline_unconditional_long_trades.csv",
+      "bytes": 13428,
+      "sha256": "7e51d6aef47b6fc534a1f31c46cb99d4024a5e0e6a85538263fc0351b61dfb0a"
+    },
+    {
+      "path": "fold_2/A/baseline_volatility_daily.csv",
+      "bytes": 3055,
+      "sha256": "0020217375a4efacce1249aaf9a8cc8115d168c945f90fc93e1fc3f4e2b2d6c9"
+    },
+    {
+      "path": "fold_2/A/baseline_volatility_trades.csv",
+      "bytes": 13568,
+      "sha256": "ca3b9c0c1f9938f61fb1fe786f2863ed0bd2ff47e573d09ca47004779aa79400"
+    },
+    {
+      "path": "fold_2/A/daily.csv",
+      "bytes": 3318,
+      "sha256": "3c566ea7bd3060e32ee361564d2f73d03b8d3114c45ac569428a7f7b800e0661"
+    },
+    {
+      "path": "fold_2/A/model.pkl",
+      "bytes": 21669,
+      "sha256": "ddb19146836c49363288c80369c0069bfb38f653af14fcb0dfc59f29c5ffbc52"
+    },
+    {
+      "path": "fold_2/A/random_null.json",
+      "bytes": 5929734,
+      "sha256": "7bbbb7c121d07525799ebc0ce482ef06e186974434a71dd408b3504705e2aad8"
+    },
+    {
+      "path": "fold_2/A/threshold.json",
+      "bytes": 13325,
+      "sha256": "fba3fef7dae118a5b5bc0ff76dcb515c9c56f19ed257b6bd161322821bb4141e"
+    },
+    {
+      "path": "fold_2/A/trades.csv",
+      "bytes": 14228,
+      "sha256": "2182a0c68dd651fa713715b8a848ebf4e5fcb0e357ed09067f0da25d009de7a2"
+    },
+    {
+      "path": "fold_2/A/unit.json",
+      "bytes": 1747,
+      "sha256": "9fdbf821fc73bd974d45f0e3612c023a4520cb11cd548f3d69140b179b600e6d"
+    },
+    {
+      "path": "fold_2/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "f242f016c37c5fd674d66ad50c7b6794a575e92e5e77e52964044cdc62c58a1a"
+    },
+    {
+      "path": "fold_2/C/baseline_random_entry_daily.csv",
+      "bytes": 3852,
+      "sha256": "861ffccf7f50b0cb1ef9f167b23c3cc1c4da7d269d981676f87e8ca629912cee"
+    },
+    {
+      "path": "fold_2/C/baseline_random_entry_trades.csv",
+      "bytes": 12041,
+      "sha256": "a1f69ff540ff1608a2de7f469a14678cdb94224a28c2a9612161dc3f434964f7"
+    },
+    {
+      "path": "fold_2/C/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "2d06b9d3f8e1e04ecfda8924b437edbd8220d5d8f100039d4a7517a0e5b608d9"
+    },
+    {
+      "path": "fold_2/C/baseline_time_of_day_daily.csv",
+      "bytes": 3947,
+      "sha256": "d260c3dfaf2e17602b1ef9713f3e99b891833a461ed814722aa7e27d56366740"
+    },
+    {
+      "path": "fold_2/C/baseline_time_of_day_trades.csv",
+      "bytes": 12165,
+      "sha256": "12134efc3b1f3b0c0589550c587fc421ed8eb5d625be58281f3824841dcf0358"
+    },
+    {
+      "path": "fold_2/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3447,
+      "sha256": "53d6cde165e009e06615b5c9915be0fbf0cb9a42fd85e52be62f7fdb9fad9999"
+    },
+    {
+      "path": "fold_2/C/baseline_unconditional_long_trades.csv",
+      "bytes": 12091,
+      "sha256": "4cc933e6288c82ae3c1402f649cf3a295754dcd2b70c3fb00327bb112babd50d"
+    },
+    {
+      "path": "fold_2/C/baseline_volatility_daily.csv",
+      "bytes": 3638,
+      "sha256": "39a0a7ae51f6ad8f818557effcca5a119c25ab40b2833d225b1816f6c05a4332"
+    },
+    {
+      "path": "fold_2/C/baseline_volatility_trades.csv",
+      "bytes": 12059,
+      "sha256": "d9752418eccba885b337fa9501acd74f1d93eddc019740ed693eff3342fa95e8"
+    },
+    {
+      "path": "fold_2/C/daily.csv",
+      "bytes": 4171,
+      "sha256": "248830b0c6f529adf63dbd75c9530e281b2cdf7522afee9c155af9f6e8ee3454"
+    },
+    {
+      "path": "fold_2/C/model.pkl",
+      "bytes": 118816,
+      "sha256": "7df1789637f4d42e73dbf41c1f04bf8458aca2fc6379ea70c914a42960b8dd71"
+    },
+    {
+      "path": "fold_2/C/random_null.json",
+      "bytes": 5943676,
+      "sha256": "42822c85099eceb1a6e6a58ba2e472200526f5358bf6e08ecefd709822a22d3b"
+    },
+    {
+      "path": "fold_2/C/threshold.json",
+      "bytes": 11093,
+      "sha256": "39d62929d50de7b286cb523d53f13f088e7ed7d7194fa87ee1d438cff5c5cb29"
+    },
+    {
+      "path": "fold_2/C/trades.csv",
+      "bytes": 12933,
+      "sha256": "f14c1f9386942f9de4d1d632b0c44e99dbdff156370a9301d890e574440ab45a"
+    },
+    {
+      "path": "fold_2/C/unit.json",
+      "bytes": 1717,
+      "sha256": "6224ca4bbc8a6162f102ea7eee640c3cffa8e1c75585ffde16efa766f14d815f"
+    },
+    {
+      "path": "fold_3/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "3c367329b8bc2ea1260f59805f70d80ac07ccaa63d3cc7e5e3fa04d8af361340"
+    },
+    {
+      "path": "fold_3/A/baseline_random_entry_daily.csv",
+      "bytes": 4311,
+      "sha256": "cb24b36466afc0d0ea6965b81848a332a1b9aa3930d4427ae86eb2305c2ad7c2"
+    },
+    {
+      "path": "fold_3/A/baseline_random_entry_trades.csv",
+      "bytes": 16681,
+      "sha256": "40e454da132dfd807fe05c73818d6bc2b27fb95cce156e22b0a23227de54a5f3"
+    },
+    {
+      "path": "fold_3/A/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "b63507f8c7b1343de4e21801cd14648ee2bbc5135619f59f6a97e073043df5ca"
+    },
+    {
+      "path": "fold_3/A/baseline_time_of_day_daily.csv",
+      "bytes": 5235,
+      "sha256": "2d5125a63814e2159ae6b7595f24aacf69416086ecc0996a52b8732b72dfd8ce"
+    },
+    {
+      "path": "fold_3/A/baseline_time_of_day_trades.csv",
+      "bytes": 16910,
+      "sha256": "a3734e76fa04bc84f0b1c84aafd7dd0f2daf6cfc7d43c6454e6d6eda28ee06bb"
+    },
+    {
+      "path": "fold_3/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3185,
+      "sha256": "49cb621c09f5610db0b81d560a4bf4bb6750194bf895f0de19da4e0a0bfe76fe"
+    },
+    {
+      "path": "fold_3/A/baseline_unconditional_long_trades.csv",
+      "bytes": 16714,
+      "sha256": "157efab25a792db329e70ef30578835d767dbc49a944c61724de4c0695c14df1"
+    },
+    {
+      "path": "fold_3/A/baseline_volatility_daily.csv",
+      "bytes": 3780,
+      "sha256": "7c1884b0b75f3e2b58d70f94ccd969474448eee9f0b78a208e0ebb20e8442057"
+    },
+    {
+      "path": "fold_3/A/baseline_volatility_trades.csv",
+      "bytes": 16763,
+      "sha256": "0d8c22b5c4eea31d10cce291bcf89588a5d450deee8b588f34845f322869517f"
+    },
+    {
+      "path": "fold_3/A/daily.csv",
+      "bytes": 4104,
+      "sha256": "66afbb4afa851ce8c3e0a52112e6406de14c69d6c2afa4d4ddecc8dc994a7f3a"
+    },
+    {
+      "path": "fold_3/A/model.pkl",
+      "bytes": 14459,
+      "sha256": "134527b3359df08590d80c1eb304697522de5453efbfccb6b1ca873b4bc91041"
+    },
+    {
+      "path": "fold_3/A/random_null.json",
+      "bytes": 6216265,
+      "sha256": "4e78803a5f9b716ae0804fde972ffa101a4db02bcf98214806cb6c1e72305099"
+    },
+    {
+      "path": "fold_3/A/threshold.json",
+      "bytes": 2293,
+      "sha256": "49bf3e4ab15e5bb2a0846b7f08e24c1697de902cf6771e315c7c6d9308bc99e8"
+    },
+    {
+      "path": "fold_3/A/trades.csv",
+      "bytes": 17827,
+      "sha256": "6bd14c90e28a58b3cada33b1c3c2ba4b176fa27c5bc9db88dcfc4220b881193d"
+    },
+    {
+      "path": "fold_3/A/unit.json",
+      "bytes": 1747,
+      "sha256": "1b9f0917c14a4bdc481291af3eb9aea8bb9beecc13d310db4a213a020608e39e"
+    },
+    {
+      "path": "fold_3/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "0fdc775e9dcde0d0346dad47ef45a402afb164fcfb0a4fb3f6b9d858179b085f"
+    },
+    {
+      "path": "fold_3/C/baseline_random_entry_daily.csv",
+      "bytes": 4467,
+      "sha256": "9fb842a35e368aebde0d9c5e39271c1c1a9ed62985f93267eed865e59bcebfbc"
+    },
+    {
+      "path": "fold_3/C/baseline_random_entry_trades.csv",
+      "bytes": 15592,
+      "sha256": "214d1d9871079e9ed08c242240923a102f420a4b967073ff46655aa47ea80b38"
+    },
+    {
+      "path": "fold_3/C/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "bca300fd3dbf0c6da0ac50e834347cc1a7a4eb43de1d44842ef143e1f4921923"
+    },
+    {
+      "path": "fold_3/C/baseline_time_of_day_daily.csv",
+      "bytes": 4434,
+      "sha256": "f0f92f0896f08c032440d4948cfcf7b90c7f98060c1d91e8b5763844c4676ecf"
+    },
+    {
+      "path": "fold_3/C/baseline_time_of_day_trades.csv",
+      "bytes": 15524,
+      "sha256": "2415ee23e7ca6978a87a5a768dc695687f7cc074d3881498f36de0e991221adc"
+    },
+    {
+      "path": "fold_3/C/baseline_unconditional_long_daily.csv",
+      "bytes": 4382,
+      "sha256": "adf0680b55e33f969cdede912c453d79950b645aa702a1bb9d0eff06b35eba48"
+    },
+    {
+      "path": "fold_3/C/baseline_unconditional_long_trades.csv",
+      "bytes": 15576,
+      "sha256": "7286412c2f2890e3858d8223797a45ad28f2a97a87bbdf30fca068da6890ff7d"
+    },
+    {
+      "path": "fold_3/C/baseline_volatility_daily.csv",
+      "bytes": 4479,
+      "sha256": "1fedada3a94c16d7454845813ff3c1ad892d57f240cccf3456617e7f4e50c005"
+    },
+    {
+      "path": "fold_3/C/baseline_volatility_trades.csv",
+      "bytes": 15628,
+      "sha256": "a819a9b8452a46b1c8db5df0f1a4175a0138c43330c10cba817433123508c149"
+    },
+    {
+      "path": "fold_3/C/daily.csv",
+      "bytes": 4434,
+      "sha256": "3e449f57a363be15be4481fef728778c40e7ae1fdfbce91deea98ca22b0dd0f6"
+    },
+    {
+      "path": "fold_3/C/model.pkl",
+      "bytes": 119497,
+      "sha256": "1b4cb906ca02e27dcf494f7fce9463cd3b17d92667b82b7d404541bb44f99e57"
+    },
+    {
+      "path": "fold_3/C/random_null.json",
+      "bytes": 6263451,
+      "sha256": "210c4bb811b5fd559a33ed8173e86ce572c106c7aca2a09b453bc2d9d846ab98"
+    },
+    {
+      "path": "fold_3/C/threshold.json",
+      "bytes": 22381,
+      "sha256": "22561dd489240a2438277f46ce9f7f40068b67700e92bc43c9efdc9736b885b1"
+    },
+    {
+      "path": "fold_3/C/trades.csv",
+      "bytes": 16462,
+      "sha256": "77f501e62b5dc577976798fa4d6c7a890998e86df569d552cfbb3111da61eb7e"
+    },
+    {
+      "path": "fold_3/C/unit.json",
+      "bytes": 1718,
+      "sha256": "4a0a2d42a09b51457bd5424b80f071224caf6ac9715f563026fb7b2f35567516"
+    },
+    {
+      "path": "fold_4/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "4aeddc203c67ea7ec4ba34e2f14cb558535a3264e910e1214e7bd45d1f0e4d5c"
+    },
+    {
+      "path": "fold_4/A/baseline_random_entry_daily.csv",
+      "bytes": 4225,
+      "sha256": "d12095c7c66c8973e5ccb4ffebd22007dc5489056a9b46788bfdc633979051f4"
+    },
+    {
+      "path": "fold_4/A/baseline_random_entry_trades.csv",
+      "bytes": 15429,
+      "sha256": "a02da3731cdc1103e8aa3d02a78848410c416f9a8ab8a35d794cd18136384e08"
+    },
+    {
+      "path": "fold_4/A/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "36cdc557348b6544628560f24a57b4a0d3215b65dee4215f30c773c0150d78f8"
+    },
+    {
+      "path": "fold_4/A/baseline_time_of_day_daily.csv",
+      "bytes": 5055,
+      "sha256": "f6b9dd78b498f8304b43ce8f28e7eb03f9bf8a630fb08ab5b7d76684b9a0c921"
+    },
+    {
+      "path": "fold_4/A/baseline_time_of_day_trades.csv",
+      "bytes": 15513,
+      "sha256": "8240b2957fe2f203fba08880624dc1597fa3bd90732d66538b96cea8c6b37e59"
+    },
+    {
+      "path": "fold_4/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3024,
+      "sha256": "cf4c7b4c761f9748846654ec92b58709a829b7c74271ae891695339b4562eeaf"
+    },
+    {
+      "path": "fold_4/A/baseline_unconditional_long_trades.csv",
+      "bytes": 15382,
+      "sha256": "5aae22c3c7bdb0b72a3815003b165e7a9a4675ddb8ff6525fd089d50264287f2"
+    },
+    {
+      "path": "fold_4/A/baseline_volatility_daily.csv",
+      "bytes": 3509,
+      "sha256": "710560913a61ef465696d5423df4bf3a4cfc66815284cb130a102d71e4e0d4e2"
+    },
+    {
+      "path": "fold_4/A/baseline_volatility_trades.csv",
+      "bytes": 15467,
+      "sha256": "4f9dd0c5e7121c7b1f0c88a376bcf52ab857011229cd16eb638bb8b45af107de"
+    },
+    {
+      "path": "fold_4/A/daily.csv",
+      "bytes": 3976,
+      "sha256": "7689b3cb84d51630a3a3b6be73fb774bb13db5d8779a617b564ffa2535f588ae"
+    },
+    {
+      "path": "fold_4/A/model.pkl",
+      "bytes": 49893,
+      "sha256": "df9e757e1b23b39d1b9ea6221db70e44169202cb53641097bcde58affa53fdc9"
+    },
+    {
+      "path": "fold_4/A/random_null.json",
+      "bytes": 6081023,
+      "sha256": "4a8ddc173a9ca76e8fc29e2dd1a00679fe348953cbf93beaa21fee7f368d5d50"
+    },
+    {
+      "path": "fold_4/A/threshold.json",
+      "bytes": 119616,
+      "sha256": "a227310ce0f22a104acab48f2bbbc3de0189c5745dc342be061be22ae3e891da"
+    },
+    {
+      "path": "fold_4/A/trades.csv",
+      "bytes": 16353,
+      "sha256": "7ca5ce2acf08eb0d6c9d8fa13e5fb07f7991c434cfedc98679a9f99e53886fee"
+    },
+    {
+      "path": "fold_4/A/unit.json",
+      "bytes": 1746,
+      "sha256": "7d474e80c42b5ffd372006350f1fe6ab614bf2892119678b8bdcce9d106c1adf"
+    },
+    {
+      "path": "fold_4/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "1c0dbf7bac2190c59c595537c2dd254d1bef8aa8bdf3452e3c9de754f2d40a9a"
+    },
+    {
+      "path": "fold_4/C/baseline_random_entry_daily.csv",
+      "bytes": 2713,
+      "sha256": "f22517fb94c3333c1a1821a72bbc82f68344ca3bae4370a93bd8a419201d855e"
+    },
+    {
+      "path": "fold_4/C/baseline_random_entry_trades.csv",
+      "bytes": 5130,
+      "sha256": "f92ad603f34be138f1fd53e85fb99c727f35993bd854373108f62fcd0a7845f2"
+    },
+    {
+      "path": "fold_4/C/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "e0e89eef0324962abed5b54c8016b6ae5a008e868a6954ce4446d72d4e73208f"
+    },
+    {
+      "path": "fold_4/C/baseline_time_of_day_daily.csv",
+      "bytes": 2707,
+      "sha256": "c524152355769add78bc4c28960d37424283353381535337f2b9222671a9d281"
+    },
+    {
+      "path": "fold_4/C/baseline_time_of_day_trades.csv",
+      "bytes": 5178,
+      "sha256": "5cb7feb69caf113a2f04e04b049759210cf00ce10dc64fe3536a48605d070649"
+    },
+    {
+      "path": "fold_4/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2675,
+      "sha256": "7a90b86b42184db2a60233402608bb8d77b64e117372a7d38c25505dd898fe9b"
+    },
+    {
+      "path": "fold_4/C/baseline_unconditional_long_trades.csv",
+      "bytes": 5146,
+      "sha256": "a7b2232e214d0926f2ed07972bdc3f81187e7e01be7ef55d6ce275c0fe0c94ea"
+    },
+    {
+      "path": "fold_4/C/baseline_volatility_daily.csv",
+      "bytes": 2676,
+      "sha256": "4cc5bdd26902c6a30d027a1b92cf6fb12e8664a994f9ea2476d62fa37c0aecdf"
+    },
+    {
+      "path": "fold_4/C/baseline_volatility_trades.csv",
+      "bytes": 5146,
+      "sha256": "e0eceb0577329f6d1e00482c85005553c0f7992788108b8467c6a4381e0b9743"
+    },
+    {
+      "path": "fold_4/C/daily.csv",
+      "bytes": 2707,
+      "sha256": "c524152355769add78bc4c28960d37424283353381535337f2b9222671a9d281"
+    },
+    {
+      "path": "fold_4/C/model.pkl",
+      "bytes": 119720,
+      "sha256": "df0cb57389beffcf2203fe967c8bb53dbfc96bef4159748fc8ee724acb5a54d2"
+    },
+    {
+      "path": "fold_4/C/random_null.json",
+      "bytes": 5709889,
+      "sha256": "cbb39a3e5950812e647fd1c1fab479e79fc2af9f976632f4e23dacad488a7388"
+    },
+    {
+      "path": "fold_4/C/threshold.json",
+      "bytes": 16109,
+      "sha256": "5ba6d182db637e0a35712fefec7bcec97b902af5a0c89ed64bd3e6f7ef0013b8"
+    },
+    {
+      "path": "fold_4/C/trades.csv",
+      "bytes": 5465,
+      "sha256": "71a3acaffc6d927decfc234d37909a6e44939f614c9d6989eb8cfaa62c972134"
+    },
+    {
+      "path": "fold_4/C/unit.json",
+      "bytes": 1720,
+      "sha256": "2cabdd8d08454dcf8a0f6f0014a651c29a1d699a8d3f0c610c431242190fbb8d"
+    },
+    {
+      "path": "fold_5/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "9fa4290a840b46e062e9a05cba1ef81d8c2baa524bd020ec6c2d26588b71fa0f"
+    },
+    {
+      "path": "fold_5/A/baseline_random_entry_daily.csv",
+      "bytes": 2946,
+      "sha256": "4fddc26b4ea60591d2e2c182b5a4844775335bfeb0850ce8c09a9fc0bddccc8a"
+    },
+    {
+      "path": "fold_5/A/baseline_random_entry_trades.csv",
+      "bytes": 6596,
+      "sha256": "54c5fc0652513c8786eec54803cf3d1613c2cbca446053ca1a095ec2e53ab8d6"
+    },
+    {
+      "path": "fold_5/A/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "d865d8dd7fec1ec3062cb1002e660bec6bc17e803ef038f27d53f947b5a79646"
+    },
+    {
+      "path": "fold_5/A/baseline_time_of_day_daily.csv",
+      "bytes": 3179,
+      "sha256": "4f5f234fdf69ffb12ea7d63c522824d17fc4b5460cc3747898882298a267d10b"
+    },
+    {
+      "path": "fold_5/A/baseline_time_of_day_trades.csv",
+      "bytes": 6735,
+      "sha256": "f99ff1ff47fffb4116cd3a85f02524c9d55598777ab9e66027c311bf14974be6"
+    },
+    {
+      "path": "fold_5/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2357,
+      "sha256": "d4ea752a577ab474b716edb351e52651da05e5d9ea97a22c7614020bb613a2b3"
+    },
+    {
+      "path": "fold_5/A/baseline_unconditional_long_trades.csv",
+      "bytes": 6782,
+      "sha256": "1bf40b2d87e309753a4979d9db2fa0d6a6d3c83dbd5ff6cf9fa3f355b2c4d903"
+    },
+    {
+      "path": "fold_5/A/baseline_volatility_daily.csv",
+      "bytes": 2590,
+      "sha256": "8f9c1975910e839a55a96969476a65bb8657442a703880e364580e15ad83373d"
+    },
+    {
+      "path": "fold_5/A/baseline_volatility_trades.csv",
+      "bytes": 6768,
+      "sha256": "335ee3021aeaa872364a9598fa66d0523eb34cde81c26386af0883f927646417"
+    },
+    {
+      "path": "fold_5/A/daily.csv",
+      "bytes": 2838,
+      "sha256": "5d6b088e2155310e7e716012a0d7447dca568297b939edc7e43ab7ae243dc8e4"
+    },
+    {
+      "path": "fold_5/A/model.pkl",
+      "bytes": 128181,
+      "sha256": "7dab8decb340f02e9f2fa9e03cf83b226bafd8b8487ec8418d83c2530445e364"
+    },
+    {
+      "path": "fold_5/A/random_null.json",
+      "bytes": 5706911,
+      "sha256": "2163d2c8bd9add351c3d52cde3f550e10426946a766dc0d4300b2fc5834c6ef1"
+    },
+    {
+      "path": "fold_5/A/threshold.json",
+      "bytes": 783827,
+      "sha256": "7ad356e4e08a34f7d60f9fcaca6444b36985fd5088d7db285101efab738cf1e4"
+    },
+    {
+      "path": "fold_5/A/trades.csv",
+      "bytes": 7081,
+      "sha256": "1c8c8ba430ca188cadffebb487cf78a80eed8ad56c081e56e9bb7b00ad708601"
+    },
+    {
+      "path": "fold_5/A/unit.json",
+      "bytes": 1747,
+      "sha256": "20a218c236b333f6e0c7bf57f3c12193f1bc276415bcec514a6b0d358659c6f3"
+    },
+    {
+      "path": "fold_5/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "6b97b325ece1ddbac7c255fc3061a69d6660ed6adc4cc9e6602264e46d940fed"
+    },
+    {
+      "path": "fold_5/C/baseline_random_entry_daily.csv",
+      "bytes": 2322,
+      "sha256": "f3846dfc765341b3df3a2c45629c2d0a42ba85853a15092e86925c60a41e4e74"
+    },
+    {
+      "path": "fold_5/C/baseline_random_entry_trades.csv",
+      "bytes": 2654,
+      "sha256": "7ad5b74d0d927f856b7ba2276b4ab1248d37e77c6e99695dd19280b75d5d4e4f"
+    },
+    {
+      "path": "fold_5/C/baseline_summaries.json",
+      "bytes": 3641,
+      "sha256": "f922b8d55e0dcc9e9aa6c9016570e15ee1a93c7980bfff40d4b88b931da872bb"
+    },
+    {
+      "path": "fold_5/C/baseline_time_of_day_daily.csv",
+      "bytes": 2342,
+      "sha256": "15d5b6fe926e9607a6dadd0b18553ad32a0751936426f213116b86d9ab0daa9d"
+    },
+    {
+      "path": "fold_5/C/baseline_time_of_day_trades.csv",
+      "bytes": 2657,
+      "sha256": "061e806ab5a78c098761506159145916f8679b71bf3fccf53cb63b4ab44d2e9a"
+    },
+    {
+      "path": "fold_5/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2273,
+      "sha256": "3f49141c92c9163d0c54e72445565248f1cbddffc7a235c90116e8bf28cb6a63"
+    },
+    {
+      "path": "fold_5/C/baseline_unconditional_long_trades.csv",
+      "bytes": 2679,
+      "sha256": "d49e073e3775df77b99d0e9f5135010f72853e0656ed384aa79e0b13e4389f74"
+    },
+    {
+      "path": "fold_5/C/baseline_volatility_daily.csv",
+      "bytes": 2354,
+      "sha256": "53ec17c69e3b5e725a2136811c1f266f26faf661b2244116395c2c28656d193e"
+    },
+    {
+      "path": "fold_5/C/baseline_volatility_trades.csv",
+      "bytes": 2713,
+      "sha256": "74c718a83ce998913fcba43f7e015963aaa7fcc7035eec336d67336aa575c21b"
+    },
+    {
+      "path": "fold_5/C/daily.csv",
+      "bytes": 2342,
+      "sha256": "15d5b6fe926e9607a6dadd0b18553ad32a0751936426f213116b86d9ab0daa9d"
+    },
+    {
+      "path": "fold_5/C/model.pkl",
+      "bytes": 119887,
+      "sha256": "cdb5db96ce708f7474f0802687d798ad8b375a7b753d78c6da277792c91e49ec"
+    },
+    {
+      "path": "fold_5/C/random_null.json",
+      "bytes": 5536997,
+      "sha256": "eb9d711a12c5f5f7740bc40f0f47750c3a5aad7a8df4825a8f39bdd3e761a5c3"
+    },
+    {
+      "path": "fold_5/C/threshold.json",
+      "bytes": 23140,
+      "sha256": "823802797594e7acf173cdbc68dc2076e22df0745aad361ee5470a0f6b369a90"
+    },
+    {
+      "path": "fold_5/C/trades.csv",
+      "bytes": 2803,
+      "sha256": "bcbf6acb3c6ee5d4565d35bd41eaa98252bee67123bc818d7ca652127ac655ce"
+    },
+    {
+      "path": "fold_5/C/unit.json",
+      "bytes": 1719,
+      "sha256": "fb8852ced5a88ff04b98099bafd28e1154f0c0e442bb428726b92b320a49bed0"
+    },
+    {
+      "path": "fold_6/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "7be7a6527c12532f2e8fc8dd33954cff001289356bd59fe095518b5c91bd0bbe"
+    },
+    {
+      "path": "fold_6/A/baseline_random_entry_daily.csv",
+      "bytes": 3709,
+      "sha256": "006e5e4cf6559c6773b5a3f1172694cc85afb76452277d6302afaa0c474723b1"
+    },
+    {
+      "path": "fold_6/A/baseline_random_entry_trades.csv",
+      "bytes": 10724,
+      "sha256": "daf56d8b5e10fba056f350d0f7737f446366be3385bac4a73e7f7048da45c42d"
+    },
+    {
+      "path": "fold_6/A/baseline_summaries.json",
+      "bytes": 3653,
+      "sha256": "bf98086fdd001b8c6fa29821a23b0e4e9d8f1665e9fd2d82d3d4d3661d172035"
+    },
+    {
+      "path": "fold_6/A/baseline_time_of_day_daily.csv",
+      "bytes": 4085,
+      "sha256": "3b092fab8e5df12060404c2e5d542371f75cac9b83b0b329520d838b90d71dea"
+    },
+    {
+      "path": "fold_6/A/baseline_time_of_day_trades.csv",
+      "bytes": 10647,
+      "sha256": "2d3cd0b66f54f1363d2bf92d32a40edb480eccac41238dc54d40a5cc8c0da0bd"
+    },
+    {
+      "path": "fold_6/A/baseline_unconditional_long_daily.csv",
+      "bytes": 2679,
+      "sha256": "81c6af66a9910436f8260e841fcdefa4664706c0d5053c25032ba6fefbab5d42"
+    },
+    {
+      "path": "fold_6/A/baseline_unconditional_long_trades.csv",
+      "bytes": 10694,
+      "sha256": "ac32f2348f50c9a9c34f89d5165ad6bee5d2acc87c833d423d42422ac4d3467a"
+    },
+    {
+      "path": "fold_6/A/baseline_volatility_daily.csv",
+      "bytes": 3084,
+      "sha256": "5ca91bd15d8963429696c38b94a3d895923b22a0e7d9f7021eca0d0e23db5ef3"
+    },
+    {
+      "path": "fold_6/A/baseline_volatility_trades.csv",
+      "bytes": 10474,
+      "sha256": "9ce1d2f3e39a598e730a7eb91853ad917af2dd6cb7405898e5d83a3e15b3ce14"
+    },
+    {
+      "path": "fold_6/A/daily.csv",
+      "bytes": 3397,
+      "sha256": "baea4487d90260c0348ad198184a67fdf7fc6c628f740fb0e1f575d8bc3527d8"
+    },
+    {
+      "path": "fold_6/A/model.pkl",
+      "bytes": 156788,
+      "sha256": "0831d400182be779f1032e83792ccb03acfadabcf8dfdc1267e7288172965c96"
+    },
+    {
+      "path": "fold_6/A/random_null.json",
+      "bytes": 5933638,
+      "sha256": "36ef64d66c5387b3b461e182a077fac5861adc122446a47939feb0c4650bbc07"
+    },
+    {
+      "path": "fold_6/A/threshold.json",
+      "bytes": 1077419,
+      "sha256": "24e47e5ad65d16b4d36a5ff993c05e1bb40772c0cae170df6bfb150e6d1a0713"
+    },
+    {
+      "path": "fold_6/A/trades.csv",
+      "bytes": 11204,
+      "sha256": "a565e14d398eb32ef502a9bbcae7e607239ed80206f7a7236a5412cc2a20646f"
+    },
+    {
+      "path": "fold_6/A/unit.json",
+      "bytes": 1747,
+      "sha256": "91961948bf46c87e0a76b96f518fac3bccdd398e2ed7b03aa02a437e460283cd"
+    },
+    {
+      "path": "fold_6/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "63aa215de73d293c70a5d0deb3eff0d4257ffcf73cad259f0c82230c14f22e15"
+    },
+    {
+      "path": "fold_6/C/baseline_random_entry_daily.csv",
+      "bytes": 2400,
+      "sha256": "a74f2e1dba878a678dfd318e525f2ff608f4fc3fa9593c9062f6b26d0d32bbb1"
+    },
+    {
+      "path": "fold_6/C/baseline_random_entry_trades.csv",
+      "bytes": 4426,
+      "sha256": "59d405cd0dfbd96b5e083c9ee29b53ded2789bfbdb0abbed5b855cc8e6e03ffc"
+    },
+    {
+      "path": "fold_6/C/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "319005d8ec28e00e43f16827f4aff6cf0e932a95e0b0a7e971830d98e799122b"
+    },
+    {
+      "path": "fold_6/C/baseline_time_of_day_daily.csv",
+      "bytes": 2406,
+      "sha256": "0a281ea951b02cdcb2eeabb0a8d9be60d546f05042f8088569fa49b5bc1d5f2e"
+    },
+    {
+      "path": "fold_6/C/baseline_time_of_day_trades.csv",
+      "bytes": 4485,
+      "sha256": "213a8f91f757005f9d71516b673ebbcea9498f39703fb0557876a35c6372f93d"
+    },
+    {
+      "path": "fold_6/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2403,
+      "sha256": "ac04f3642bba070fd89f35751c675980be976283379eb7bb42ef1b5d4169a90b"
+    },
+    {
+      "path": "fold_6/C/baseline_unconditional_long_trades.csv",
+      "bytes": 4500,
+      "sha256": "640f310293d691059783ada79e97b20223e1a2a81728b8e64fcf27e24c0424e3"
+    },
+    {
+      "path": "fold_6/C/baseline_volatility_daily.csv",
+      "bytes": 2396,
+      "sha256": "e5c2e7fa1950f70093555cea209318ef8af10fb0dc4ffd436161a85b32f9b7e0"
+    },
+    {
+      "path": "fold_6/C/baseline_volatility_trades.csv",
+      "bytes": 4497,
+      "sha256": "853a66103be2b2aed056db151d423b35f04218c2f85f025a5b5723a0cb7f3415"
+    },
+    {
+      "path": "fold_6/C/daily.csv",
+      "bytes": 2406,
+      "sha256": "0a281ea951b02cdcb2eeabb0a8d9be60d546f05042f8088569fa49b5bc1d5f2e"
+    },
+    {
+      "path": "fold_6/C/model.pkl",
+      "bytes": 120263,
+      "sha256": "3fa8a28f31b9bd58dbf037e2b95b33abf4030942579a16bfc679436023735284"
+    },
+    {
+      "path": "fold_6/C/random_null.json",
+      "bytes": 5633714,
+      "sha256": "bd06b4aecc3e004eb804f9b1c0a18957d8d10d8b4d3386cd26a7bc6d1d1e3ce4"
+    },
+    {
+      "path": "fold_6/C/threshold.json",
+      "bytes": 21891,
+      "sha256": "ad6d30d335cfa4bc32c608cf4be71c74d300bfb395f62ef3f4a91329070f35ae"
+    },
+    {
+      "path": "fold_6/C/trades.csv",
+      "bytes": 4740,
+      "sha256": "d756b9b758d05c94910c112b007e1e33983802a7900dcfceb523077a383de251"
+    },
+    {
+      "path": "fold_6/C/unit.json",
+      "bytes": 1719,
+      "sha256": "168f2274db2bf1c0a08ae4ae79b957987e8cfd1e42c88441064c714dfe5e6294"
+    },
+    {
+      "path": "fold_7/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "ac02c936440f0586c9246d106ab4a2d1d797363861b04f9bf18d6ebdbd40bfc4"
+    },
+    {
+      "path": "fold_7/A/baseline_random_entry_daily.csv",
+      "bytes": 4395,
+      "sha256": "5ffd976370a546f4afb7d095c556e3e5a3f80a050949e172c680ec4ead9a1771"
+    },
+    {
+      "path": "fold_7/A/baseline_random_entry_trades.csv",
+      "bytes": 16966,
+      "sha256": "92de090a022db11ac35bbf0e6e918d27a9a1f5ecba095cf6743a81b0fcc93b92"
+    },
+    {
+      "path": "fold_7/A/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "77bd24b852139baead2cba88241275a59208d10bcb70b08763101184f812177e"
+    },
+    {
+      "path": "fold_7/A/baseline_time_of_day_daily.csv",
+      "bytes": 4939,
+      "sha256": "e46a4bf68ded8ab343da719c535b4299f74f3e9f1e14a04a68e1f82f6e096ef6"
+    },
+    {
+      "path": "fold_7/A/baseline_time_of_day_trades.csv",
+      "bytes": 16919,
+      "sha256": "cf633406db039f4747c3f9e5d43f86ef620d3269dc0827b12d918ef08333ebf7"
+    },
+    {
+      "path": "fold_7/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3190,
+      "sha256": "cba357a5b3174d0b3e521709a7167f8e087ac0bdf62e5fc7cd5cde821f2c4fb0"
+    },
+    {
+      "path": "fold_7/A/baseline_unconditional_long_trades.csv",
+      "bytes": 16909,
+      "sha256": "b278079dd7639460cf667747a853d008af751315807b5e98b3f8578ed4ca43fa"
+    },
+    {
+      "path": "fold_7/A/baseline_volatility_daily.csv",
+      "bytes": 3551,
+      "sha256": "b662f29e6658988459f5f7e97cd20764296843f0a65eb1055340f650e9a6ea24"
+    },
+    {
+      "path": "fold_7/A/baseline_volatility_trades.csv",
+      "bytes": 16824,
+      "sha256": "5f5b7ae1709c02d2d462c2001120d57f6698506f2ca98e66aea6cc22d9922000"
+    },
+    {
+      "path": "fold_7/A/daily.csv",
+      "bytes": 4005,
+      "sha256": "285699c8e98696459fcda980d8dbf622dc3bc6f8bed1556f75b7dc0b37e1de9b"
+    },
+    {
+      "path": "fold_7/A/model.pkl",
+      "bytes": 107002,
+      "sha256": "f837d7ba36dc2c287df13db2302fdacddb1d6d4cf73a37f6e06a25ecaebebc11"
+    },
+    {
+      "path": "fold_7/A/random_null.json",
+      "bytes": 6195352,
+      "sha256": "f2b3e9a0431aa803cd4d59f5f82e600be4b09a55b030f9c50884f3ea0f67b72f"
+    },
+    {
+      "path": "fold_7/A/threshold.json",
+      "bytes": 891426,
+      "sha256": "96605b4871867a7737b13b6581eba9e7b468cf82edbe0c7a7d3e61189726420a"
+    },
+    {
+      "path": "fold_7/A/trades.csv",
+      "bytes": 17746,
+      "sha256": "6d5e1947a3694afd4125c7ccceca485840506e2071bc1d48bbe12d33874a10ec"
+    },
+    {
+      "path": "fold_7/A/unit.json",
+      "bytes": 1747,
+      "sha256": "0b1dc69dba0ce13bdfad083865f344d685c5b405c697e79d719674e60fbb91dc"
+    },
+    {
+      "path": "fold_7/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "66f24df9f2a71656f73aeb0e4ffc65c0bb2b43046029000495b866294a5a69f9"
+    },
+    {
+      "path": "fold_7/C/baseline_random_entry_daily.csv",
+      "bytes": 3149,
+      "sha256": "05218fee5fef39b92ed3f13573ddb123d49e0fa6047c759cc5724c47fbca6d00"
+    },
+    {
+      "path": "fold_7/C/baseline_random_entry_trades.csv",
+      "bytes": 9590,
+      "sha256": "b332d2ed03f4c81e21251c6f7f3f8b85f1f8b2e00bcc2e99a16e9cedd4effdde"
+    },
+    {
+      "path": "fold_7/C/baseline_summaries.json",
+      "bytes": 3653,
+      "sha256": "489efb28bb0933d116cf23a71f3ce69ff9cd98b7f6862469a3f01959acdb1213"
+    },
+    {
+      "path": "fold_7/C/baseline_time_of_day_daily.csv",
+      "bytes": 3151,
+      "sha256": "144d1b5e570fcdb8854979ee9bcda7243af03a9d51b5cd8b304192336cbf2e9b"
+    },
+    {
+      "path": "fold_7/C/baseline_time_of_day_trades.csv",
+      "bytes": 9527,
+      "sha256": "695d9b4a6d7ed4acd45550af98ffa26f058567f4d9ea9748b8b1b39115502adc"
+    },
+    {
+      "path": "fold_7/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3149,
+      "sha256": "05218fee5fef39b92ed3f13573ddb123d49e0fa6047c759cc5724c47fbca6d00"
+    },
+    {
+      "path": "fold_7/C/baseline_unconditional_long_trades.csv",
+      "bytes": 9590,
+      "sha256": "7a481420265e49fb7a1b79f56a62da7bb3be895ccb465ccdb475b44f05aaf12a"
+    },
+    {
+      "path": "fold_7/C/baseline_volatility_daily.csv",
+      "bytes": 3149,
+      "sha256": "05218fee5fef39b92ed3f13573ddb123d49e0fa6047c759cc5724c47fbca6d00"
+    },
+    {
+      "path": "fold_7/C/baseline_volatility_trades.csv",
+      "bytes": 9589,
+      "sha256": "4c8573282b5cab40a0c5f087d4e6860afe73c904e5f6e6767b91174c1fc42c93"
+    },
+    {
+      "path": "fold_7/C/daily.csv",
+      "bytes": 3150,
+      "sha256": "e76a527d0cadcd982a02e42b36215d7b6e58b789555e66e7b99d038f0c9ce943"
+    },
+    {
+      "path": "fold_7/C/model.pkl",
+      "bytes": 120291,
+      "sha256": "61c5d6da4a0318d7515915162276f49259396f97c8497be1a4339d0bc42754ee"
+    },
+    {
+      "path": "fold_7/C/random_null.json",
+      "bytes": 5901914,
+      "sha256": "b1448bd1af5dab2e00f78fc3fc3af2416e9ab781600e8aa522b0f426ae58263e"
+    },
+    {
+      "path": "fold_7/C/threshold.json",
+      "bytes": 17597,
+      "sha256": "d558e309d7814bda9ff53b29fd8dca2a9d47551dc29bd0217b75574be9617995"
+    },
+    {
+      "path": "fold_7/C/trades.csv",
+      "bytes": 10096,
+      "sha256": "36d5f1cf96a6aef3b60bc476cce14bfd5aa81ad0fb98bdcef22aa8ce5884cc45"
+    },
+    {
+      "path": "fold_7/C/unit.json",
+      "bytes": 1720,
+      "sha256": "96525c0485c2c328f9438b082ba0c5e9067b7ed63c1b8d3561dd3337215ad0a0"
+    },
+    {
+      "path": "fold_8/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "d57819344c3f12e173d52756fb40878fd338010c06bb88470ac92726b8501baf"
+    },
+    {
+      "path": "fold_8/A/baseline_random_entry_daily.csv",
+      "bytes": 4407,
+      "sha256": "7f5dfc279ec945e4d4c130a4b7a7c308ba89a2bfee493b392c9704d6d3cf89f5"
+    },
+    {
+      "path": "fold_8/A/baseline_random_entry_trades.csv",
+      "bytes": 20270,
+      "sha256": "2b4aadbd01d8a2afc3a653ec810b6162b0ad7d85fe195e63fda4f8cb26d16a0c"
+    },
+    {
+      "path": "fold_8/A/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "faa2f7ff8f0dfa2e5e0e156e12e410bed19a52da0689bd24e01360089bf8449e"
+    },
+    {
+      "path": "fold_8/A/baseline_time_of_day_daily.csv",
+      "bytes": 5017,
+      "sha256": "bc1bcf1d084e0be937e577446643b3d9e4d647e1312bfe37470dd4e2a3c34290"
+    },
+    {
+      "path": "fold_8/A/baseline_time_of_day_trades.csv",
+      "bytes": 20433,
+      "sha256": "daad4076b8ee04985b7a9282738f02fed14c6d8dcda2f5ca36352b6419911a15"
+    },
+    {
+      "path": "fold_8/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3411,
+      "sha256": "1e10e25afd568ebc1dcbb274927f87da64ddcc754e7278e8a73f44539b82a2fa"
+    },
+    {
+      "path": "fold_8/A/baseline_unconditional_long_trades.csv",
+      "bytes": 20606,
+      "sha256": "c0171c89dbf93d27742bcce9eac639e1a8b516045eec129285cf79a8569b6b42"
+    },
+    {
+      "path": "fold_8/A/baseline_volatility_daily.csv",
+      "bytes": 3951,
+      "sha256": "6318da5b4f2cccd14fd5a32a360e4f6f4baa5617301d5315c9eb3d767b61aeb2"
+    },
+    {
+      "path": "fold_8/A/baseline_volatility_trades.csv",
+      "bytes": 20255,
+      "sha256": "bb4d6c7a78067843a9a1d6689fffcd381336c195fdf5e17249789d2fb00bddf9"
+    },
+    {
+      "path": "fold_8/A/daily.csv",
+      "bytes": 3877,
+      "sha256": "73fd9cde380a79a917a896aa0568e8fc643bd2674b4e43f3254aad6463015f41"
+    },
+    {
+      "path": "fold_8/A/model.pkl",
+      "bytes": 43017,
+      "sha256": "81bb78e9f6d45b25aa630ca9e4cfcda4698a61caf217e031f95a4e1dde8e92e1"
+    },
+    {
+      "path": "fold_8/A/random_null.json",
+      "bytes": 6079410,
+      "sha256": "62e1166b1e5acf49db0a23c616cced9130e2119ded98f0a4009bf2b634c7e223"
+    },
+    {
+      "path": "fold_8/A/threshold.json",
+      "bytes": 133732,
+      "sha256": "01f284c0207aace706c44f75ce1be9e206c4cc0842bf4e91faefdccf61852938"
+    },
+    {
+      "path": "fold_8/A/trades.csv",
+      "bytes": 21374,
+      "sha256": "31cf52d63616c33d80ddb6d952b587f282a882fcd86f2e4776f58765de78acac"
+    },
+    {
+      "path": "fold_8/A/unit.json",
+      "bytes": 1746,
+      "sha256": "a5cf3b8ad71a792b4046e0ed1d48ded512c3cad71340cb9ac1a2d8328a410201"
+    },
+    {
+      "path": "fold_8/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "cc0f9784cfaade0ae81ff7e8597f9c345bb797c519214944413ac71249b5f598"
+    },
+    {
+      "path": "fold_8/C/baseline_random_entry_daily.csv",
+      "bytes": 3006,
+      "sha256": "e7e8c1cadb59f42e9e65ac634e57dbe28abb956cdcfea2e10684e033602531a6"
+    },
+    {
+      "path": "fold_8/C/baseline_random_entry_trades.csv",
+      "bytes": 8635,
+      "sha256": "55f7dccef695897a8316eec1a747bcfc1e56837ec6d5a8e40b50698905680a30"
+    },
+    {
+      "path": "fold_8/C/baseline_summaries.json",
+      "bytes": 3655,
+      "sha256": "ee06c45a9ddc0e05b3b159e210a7acf05d81671409261741d85e7cc584080514"
+    },
+    {
+      "path": "fold_8/C/baseline_time_of_day_daily.csv",
+      "bytes": 2992,
+      "sha256": "dd159e808eb1d72a2e81af4adcc4ccd130408f3155a5b7bb353a2e872b57a00a"
+    },
+    {
+      "path": "fold_8/C/baseline_time_of_day_trades.csv",
+      "bytes": 8613,
+      "sha256": "6debafcabb22c3d13162e3a103f3a0a6413ce30040883b8ac12ab32b60ac2844"
+    },
+    {
+      "path": "fold_8/C/baseline_unconditional_long_daily.csv",
+      "bytes": 2992,
+      "sha256": "dd159e808eb1d72a2e81af4adcc4ccd130408f3155a5b7bb353a2e872b57a00a"
+    },
+    {
+      "path": "fold_8/C/baseline_unconditional_long_trades.csv",
+      "bytes": 8639,
+      "sha256": "ed14e1bf30ad18c278162bff74e18b0a259b17b04ceae2a3bf6b1cc8599050e0"
+    },
+    {
+      "path": "fold_8/C/baseline_volatility_daily.csv",
+      "bytes": 2997,
+      "sha256": "c83622bb689d497c48d0794abb05acd4150043ab2857c5f74da4f85ba73e76be"
+    },
+    {
+      "path": "fold_8/C/baseline_volatility_trades.csv",
+      "bytes": 8637,
+      "sha256": "fc9ca766610f64c3c4f95e232e2c94aa3dda749c1b40c328782f9f9d76cf3f94"
+    },
+    {
+      "path": "fold_8/C/daily.csv",
+      "bytes": 2992,
+      "sha256": "dd159e808eb1d72a2e81af4adcc4ccd130408f3155a5b7bb353a2e872b57a00a"
+    },
+    {
+      "path": "fold_8/C/model.pkl",
+      "bytes": 120417,
+      "sha256": "901b3731e3d37edd4b0b90a02af713eef33cb6940029f60dbe8c5a59eb28db6e"
+    },
+    {
+      "path": "fold_8/C/random_null.json",
+      "bytes": 5695308,
+      "sha256": "ed825708a141a2f860e67a58e65f4b5fa1e45938a7c0bec70a4ffa2431ec555c"
+    },
+    {
+      "path": "fold_8/C/threshold.json",
+      "bytes": 34265,
+      "sha256": "120bf7cea7fd47093661637090250d30c8ba54817417e8bed56949926c9f8d8d"
+    },
+    {
+      "path": "fold_8/C/trades.csv",
+      "bytes": 9123,
+      "sha256": "94df26005f689c441bb92b6e8cdbaa918381c84672c4b46be487006462309ce2"
+    },
+    {
+      "path": "fold_8/C/unit.json",
+      "bytes": 1719,
+      "sha256": "a937814313208980812c261ea3878cb6771e62826a7c569a965a5fa9262a56d5"
+    },
+    {
+      "path": "fold_9/A/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "9226288172e0d930f6842e09dc5e5f753d2f7ff3fefd02ba8a9aafaefbf74801"
+    },
+    {
+      "path": "fold_9/A/baseline_random_entry_daily.csv",
+      "bytes": 4592,
+      "sha256": "e954f43fafc3db9c2df480888de7cf9f640aee79f01b914ff7df6ad12108af2f"
+    },
+    {
+      "path": "fold_9/A/baseline_random_entry_trades.csv",
+      "bytes": 19904,
+      "sha256": "f06c1fab9859eac94eecdae8412d654edbf4c5f9057225765f0c87168bd4dbe5"
+    },
+    {
+      "path": "fold_9/A/baseline_summaries.json",
+      "bytes": 3657,
+      "sha256": "c2aa4de10f724928a8350f5363069264d9b97888ff0585e42f2de298d8f03511"
+    },
+    {
+      "path": "fold_9/A/baseline_time_of_day_daily.csv",
+      "bytes": 5116,
+      "sha256": "73ea30f1845c9ea215469d891a2df96875af7d4e3da78b65a2e3ce67a0793038"
+    },
+    {
+      "path": "fold_9/A/baseline_time_of_day_trades.csv",
+      "bytes": 19919,
+      "sha256": "4e8d9b1c0400f34d9cd7a873460fafa0ac7d88016f3198678a51bb74e5a47488"
+    },
+    {
+      "path": "fold_9/A/baseline_unconditional_long_daily.csv",
+      "bytes": 3421,
+      "sha256": "466dc6c5469706bf97dcb78f46bf9914417112d3ee1fababc0e014a844dc0f81"
+    },
+    {
+      "path": "fold_9/A/baseline_unconditional_long_trades.csv",
+      "bytes": 20098,
+      "sha256": "883449594c23e6b1e8903254f4d928a38c6a66dd7b8f8b37f84e5bb8e184622a"
+    },
+    {
+      "path": "fold_9/A/baseline_volatility_daily.csv",
+      "bytes": 4177,
+      "sha256": "4372fee23966c97719ef043f39f84d4f4f394c347d2fb2f4891b82db85dc66a0"
+    },
+    {
+      "path": "fold_9/A/baseline_volatility_trades.csv",
+      "bytes": 20074,
+      "sha256": "04be670c16384b2c220f478d8886097559b610d2e6ff972aff798c07182cd893"
+    },
+    {
+      "path": "fold_9/A/daily.csv",
+      "bytes": 4204,
+      "sha256": "d80ce5236b1a7fbd56d429342bc19aa966b0769a67e3283f09f45b84945b99a6"
+    },
+    {
+      "path": "fold_9/A/model.pkl",
+      "bytes": 57200,
+      "sha256": "8ef3bb6ec574d26dc07ccf108631043171d082a46034914027e9698cf8c449e7"
+    },
+    {
+      "path": "fold_9/A/random_null.json",
+      "bytes": 6196077,
+      "sha256": "5f27a7b1821396dcf91a43dfa557eb16de649e74e9fbc51785fbb16359a7fcf3"
+    },
+    {
+      "path": "fold_9/A/threshold.json",
+      "bytes": 269368,
+      "sha256": "b64378604451c124abbba428eb556f176facbef2136092695fc03498d2427da0"
+    },
+    {
+      "path": "fold_9/A/trades.csv",
+      "bytes": 20811,
+      "sha256": "95ffb8c94e43df840c7bccb1096e79c65ce9d5aedf266ecc700ee39c2ee38fbe"
+    },
+    {
+      "path": "fold_9/A/unit.json",
+      "bytes": 1746,
+      "sha256": "6414d7df27699186f58b0f9236edf57a57abe696aca076570219bf07bbb638bf"
+    },
+    {
+      "path": "fold_9/C/COMPLETE.json",
+      "bytes": 103,
+      "sha256": "26e52a0f767dea0a33bab400a6f9234a3c10ebdf16b24638211a5eced432444b"
+    },
+    {
+      "path": "fold_9/C/baseline_random_entry_daily.csv",
+      "bytes": 3219,
+      "sha256": "040f110b7c1bf003353b524de13627d761037670090ff73142ec8c583952b83d"
+    },
+    {
+      "path": "fold_9/C/baseline_random_entry_trades.csv",
+      "bytes": 11866,
+      "sha256": "9beec4a2de98b118021d402353234ff8ed298b9f04d221c5f618c7a5dfb742ff"
+    },
+    {
+      "path": "fold_9/C/baseline_summaries.json",
+      "bytes": 3656,
+      "sha256": "ed5b953bf9ea15feac4462537b1c2bfa4ed7c7134586c57c6d9c0e68e0e01a90"
+    },
+    {
+      "path": "fold_9/C/baseline_time_of_day_daily.csv",
+      "bytes": 3219,
+      "sha256": "dcd89c492e1609debdf97749ac6b75b22e8d67431b050a74ee22bfe63286bb6c"
+    },
+    {
+      "path": "fold_9/C/baseline_time_of_day_trades.csv",
+      "bytes": 11876,
+      "sha256": "b6da63f7de8fb94036b472aa699b1d94392ea32ad5dcccb73c906941fa74905c"
+    },
+    {
+      "path": "fold_9/C/baseline_unconditional_long_daily.csv",
+      "bytes": 3218,
+      "sha256": "308200d685bf75721f81b686a1424e17e5edea3767b5729b7a632b6a198550b1"
+    },
+    {
+      "path": "fold_9/C/baseline_unconditional_long_trades.csv",
+      "bytes": 11852,
+      "sha256": "fa896fff2da3ad769674b6af22de87824ff65f0375990353a8dd2c1d531c409e"
+    },
+    {
+      "path": "fold_9/C/baseline_volatility_daily.csv",
+      "bytes": 3239,
+      "sha256": "2d5495736d42d21919c23ec35a0275df6a8d486a06e3ef0f98cd0cc56c9b9800"
+    },
+    {
+      "path": "fold_9/C/baseline_volatility_trades.csv",
+      "bytes": 11877,
+      "sha256": "e01dc4d8b14ef4675f54689e203a6fa21519d5d8a6a4f16c4d40b0844f99f6ca"
+    },
+    {
+      "path": "fold_9/C/daily.csv",
+      "bytes": 3219,
+      "sha256": "dcd89c492e1609debdf97749ac6b75b22e8d67431b050a74ee22bfe63286bb6c"
+    },
+    {
+      "path": "fold_9/C/model.pkl",
+      "bytes": 120466,
+      "sha256": "dfbd3a6a7d44581ef4507990ee24806a23a748f83d816deeaa8c1efb9349dec0"
+    },
+    {
+      "path": "fold_9/C/random_null.json",
+      "bytes": 5850906,
+      "sha256": "35af3e966013166fb9ca613550d6029c70c31ff82f544ebf9af86b0cfb125332"
+    },
+    {
+      "path": "fold_9/C/threshold.json",
+      "bytes": 47902,
+      "sha256": "8ff32dab47adcd6b16a247d97c431d93f4e9eb4ce0be379d467cad444ea1cc14"
+    },
+    {
+      "path": "fold_9/C/trades.csv",
+      "bytes": 12542,
+      "sha256": "7455106b4dc4a81dcac2d80bdf2f548efc92498edd622d5342fd280e17a96686"
+    },
+    {
+      "path": "fold_9/C/unit.json",
+      "bytes": 1720,
+      "sha256": "583129813447f9ccbe2806fb85f48985d0067e24b682451003b2e7dacf2105c6"
+    },
+    {
+      "path": "report.md",
+      "bytes": 22196,
+      "sha256": "0f1d7af8d515244aa4671608e03fe7b63f1907374dac21cd5f1acb7af5ca639c"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 28269,
+      "sha256": "63fa6e36f7a57e7d054cf7758050c992a2b899143594563b993d5d7ece27279e"
+    }
+  ]
+}

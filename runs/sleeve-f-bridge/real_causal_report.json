@@ -1,0 +1,80 @@
+{
+  "deltas": {
+    "rung_iii_vs_rung_i": {
+      "net_pnl_inr": 31185.580000001646,
+      "sharpe_daily_ann": 0.3933327364298256,
+      "trade_count": -194
+    },
+    "rung_iii_vs_rung_ii": {
+      "net_pnl_inr": 142449.37000000238,
+      "sharpe_daily_ann": 0.4942370047336566,
+      "trade_count": 112
+    }
+  },
+  "metadata": {
+    "causal_matrix_regime_columns_used": true,
+    "execution_bars": {
+      "kind": "real_futures_archive_ohlc_joined_by_datetime",
+      "path": "/Users/onkarj012/Projects/market/intranet_optinet/data/option_data/nifty_data/nifty_fut",
+      "window_row_count": 143686
+    },
+    "fill_exit_rule": "next-bar open / OHLC first-touch, stop first on double touch",
+    "input": {
+      "config_hash": "154b8f7f95d2a1cb719a98f0da022745f65542c3de158cdba428d2bf71ec488d",
+      "era_table_hash": "5e1954ce973d8a1806dcd11e51a33220bc05eab614bc0cbb4a40f65de658e74f",
+      "kind": "real_input_c1_matrix",
+      "path": "/Users/onkarj012/Projects/market/meridian/runs/sleeve-f-c1-matrix/c1.parquet",
+      "regime_config_hash": "75151f226ced8002cf6c76930fcdd273542c88315a8180a913fc74a45c06507a",
+      "row_count_full_matrix": 599729,
+      "sha256": "7bc9a35c89d5ab492a68f1d1baa39e0d41d905b282035a34440d4fc1742a1910"
+    },
+    "intraday_cum_halt_applied": false,
+    "lookahead": true,
+    "model": {
+      "path": "/Users/onkarj012/Projects/market/meridian/models/artifacts/sleeve_f/final_long.lgb",
+      "sha256": "474c05de80f6ce18cea2848ec46877e45c88ab5eb327c5844039bb994bfd7190"
+    },
+    "promotable": false,
+    "regime_source": "add_regime (noncausal full-frame quantiles)",
+    "residual_lookahead": [
+      "regime_eligibility"
+    ],
+    "selection_lookahead": false,
+    "selection_rule": "previous eligible trading day's score percentiles",
+    "variant": "causal"
+  },
+  "rung_i_proxy_legacy": {
+    "exit_counts": {
+      "STOP": 155,
+      "TARGET": 98,
+      "TIME": 875
+    },
+    "net_pnl_inr": 429227.21999999846,
+    "sharpe_daily_ann": 2.167579314718658,
+    "trade_count": 1128
+  },
+  "rung_ii_proxy_causal": {
+    "exit_counts": {
+      "STOP": 145,
+      "TARGET": 94,
+      "TIME": 583
+    },
+    "net_pnl_inr": 317963.4299999977,
+    "sharpe_daily_ann": 2.066675046414827,
+    "trade_count": 822
+  },
+  "rung_iii_real_causal": {
+    "exit_counts": {
+      "STOP": 191,
+      "TARGET": 104,
+      "TIME": 639
+    },
+    "net_pnl_inr": 460412.8000000001,
+    "sharpe_daily_ann": 2.5609120511484837,
+    "trade_count": 934
+  },
+  "window": [
+    "2024-11-01",
+    "2026-05-31"
+  ]
+}

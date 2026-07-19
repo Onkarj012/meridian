@@ -1,0 +1,201 @@
+{
+  "development_folds": [
+    {
+      "fold": 1,
+      "train": "2021-01-01/2022-06-23",
+      "calibration": "2022-07-01/2022-09-23",
+      "oos": "2022-10-01/2022-12-31",
+      "embargoes": [
+        "2022-06-24/2022-06-30",
+        "2022-09-24/2022-09-30"
+      ],
+      "purging": "Label-end purging remains horizon-specific at every transition."
+    },
+    {
+      "fold": 2,
+      "train": "2021-01-01/2022-12-24",
+      "calibration": "2023-01-01/2023-03-24",
+      "oos": "2023-04-01/2023-06-30",
+      "embargoes": [
+        "2022-12-25/2022-12-31",
+        "2023-03-25/2023-03-31"
+      ],
+      "purging": "Label-end purging remains horizon-specific at every transition."
+    },
+    {
+      "fold": 3,
+      "train": "2021-01-01/2023-06-23",
+      "calibration": "2023-07-01/2023-09-23",
+      "oos": "2023-10-01/2023-12-31",
+      "embargoes": [
+        "2023-06-24/2023-06-30",
+        "2023-09-24/2023-09-30"
+      ],
+      "purging": "Label-end purging remains horizon-specific at every transition."
+    },
+    {
+      "fold": 4,
+      "train": "2021-01-01/2023-12-24",
+      "calibration": "2024-01-01/2024-03-24",
+      "oos": "2024-04-01/2024-06-30",
+      "embargoes": [
+        "2023-12-25/2023-12-31",
+        "2024-03-25/2024-03-31"
+      ],
+      "purging": "Label-end purging remains horizon-specific at every transition."
+    },
+    {
+      "fold": 5,
+      "train": "2021-01-01/2024-06-23",
+      "calibration": "2024-07-01/2024-09-23",
+      "oos": "2024-10-01/2024-12-31",
+      "embargoes": [
+        "2024-06-24/2024-06-30",
+        "2024-09-24/2024-09-30"
+      ],
+      "purging": "Label-end purging remains horizon-specific at every transition."
+    }
+  ],
+  "development_firewall": {
+    "excluded_period": "2025-01-01/2025-06-30",
+    "rule": "2025H1 is excluded from development evaluation because its outcomes have already informed this design."
+  },
+  "development_gates": {
+    "direction": {
+      "pooled_balanced_accuracy_min": 0.370,
+      "macro_auc_min": 0.540,
+      "folds_with_balanced_accuracy_above_random_min": 4,
+      "fold_count": 5
+    },
+    "direction_strengthening": {
+      "pooled_ba_improvement_over_frozen_v0_min": 0.003,
+      "horizons_required": 1,
+      "other_horizon_ba_degradation_max": 0.002
+    },
+    "confidence": {
+      "H15": {
+        "ece_max": 0.030,
+        "decile_accuracy_spearman_min": 0.80,
+        "top_minus_bottom_decile_accuracy_min": 0.08
+      },
+      "H60": {
+        "ece_max": 0.050,
+        "decile_accuracy_spearman_min": 0.80,
+        "top_minus_bottom_decile_accuracy_min": 0.08
+      }
+    },
+    "magnitude": {
+      "relative_mae_skill_min": 0.02,
+      "folds_with_positive_skill_min": 4,
+      "fold_count": 5,
+      "daily_ic_mean_min": 0.05,
+      "positive_day_ic_fraction_min": 0.55,
+      "non_overlapping_mae_skill_min": 0.01
+    },
+    "scope": "A horizon passes independently. Failure of one output cannot be offset by another output’s success."
+  },
+  "final_pass_standards": {
+    "direction": {
+      "balanced_accuracy_min": 0.370,
+      "macro_auc_min": 0.540,
+      "ba_improvement_over_frozen_v0_min": 0.003
+    },
+    "confidence": {
+      "H15": {
+        "ece_max": 0.030,
+        "decile_spearman_min": 0.80,
+        "top_minus_bottom_decile_accuracy_min": 0.08
+      },
+      "H60": {
+        "ece_max": 0.050,
+        "decile_spearman_min": 0.80,
+        "top_minus_bottom_decile_accuracy_min": 0.08
+      }
+    },
+    "magnitude": {
+      "mae_skill_min": 0.02,
+      "paired_session_bootstrap_95_lower_bound_skill_min": 0.0,
+      "daily_ic_mean_min": 0.05,
+      "positive_day_ic_fraction_min": 0.55,
+      "non_overlapping_mae_skill_min_exclusive": 0.0
+    }
+  },
+  "baselines": {
+    "direction": [
+      {
+        "name": "random balanced accuracy",
+        "formula": "1/3"
+      },
+      {
+        "name": "always-majority class",
+        "formula": "Predict the majority class learned from the training block for every row."
+      },
+      {
+        "name": "last-five-minute sign",
+        "formula": "Predict direction from the sign of the last-five-minute return."
+      },
+      {
+        "name": "multinomial linear model",
+        "formula": "Multinomial linear classifier fit only on each fold’s training block."
+      },
+      {
+        "name": "frozen v0 LightGBM architecture retrained on identical rows",
+        "formula": "The frozen v0 LightGBM direction architecture retrained on identical rows."
+      }
+    ],
+    "magnitude": [
+      {
+        "name": "zero magnitude",
+        "formula": "0"
+      },
+      {
+        "name": "unconditional training median",
+        "formula": "median_train(abs(return_bps))"
+      },
+      {
+        "name": "scale-only",
+        "formula": "median_train(u_h) * s_h,t"
+      },
+      {
+        "name": "30-minute time-bucket scale",
+        "formula": "median_train(u_h | time bucket) * s_h,t, with global-median fallback"
+      }
+    ],
+    "selection_rule": "Best baseline means the lowest OOS MAE among this fixed set. No baseline is selected using calibration or final outcomes. All baseline parameters are learned only from each fold’s training block."
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "type": "paired session-block",
+    "purpose": "Uncertainty uses a 2,000-draw paired session-block bootstrap."
+  },
+  "evaluation_anchors": {
+    "full_minute_decisions": "All valid minute decisions, for v0 comparability.",
+    "non_overlapping": {
+      "anchor_time": "09:30",
+      "cadence": "every H minutes thereafter",
+      "rule": "Non-overlapping decisions anchored at 09:30 and every H minutes thereafter."
+    },
+    "daily_ic": "Daily IC uses the full minute sample because H60 produces too few non-overlapping observations per day for a stable within-day rank."
+  },
+  "final_test_protocol": {
+    "train": "2021-01-01/2025-03-24",
+    "embargo_1": "2025-03-25/2025-03-31",
+    "calibration": "2025-04-01/2025-06-23",
+    "embargo_2": "2025-06-24/2025-06-30",
+    "sealed_test": "2025-07-01/2025-12-31",
+    "burned_test_note": "The 2025H1 test is burned. It cannot be called untouched again and must not determine v1 promotion.",
+    "historical_training_note": "Using 2025H1 for final training/calibration is allowed only because it is explicitly reclassified as known historical data. It must not receive a v1 test score.",
+    "unseal_preconditions": [
+      "registration and source hashes are frozen",
+      "all development gates have passed",
+      "the exact V1-C candidate is fixed",
+      "no final-test values have been inspected",
+      "the access/unseal is recorded in the manifest"
+    ],
+    "final_comparison": "The frozen v0 comparator and V1-C may be evaluated together as one pre-registered final protocol."
+  },
+  "burned_periods": [
+    "2025-01-01/2025-06-30"
+  ],
+  "sealed_test": "2025-07-01/2025-12-31"
+}
