@@ -1,0 +1,17 @@
+# Meridian Sleeve F live collectors — install: crontab ops/collectors.crontab
+# (merges nothing: this REPLACES the user crontab; current crontab is empty, verified 2026-07-20)
+# Times are IST = Mac local TZ (macOS cron has no CRON_TZ support).
+MERIDIAN_ROOT=/Users/onkarj012/Projects/market/meridian
+# upstream collectors 3 min before each snapshot clock (Mon-Fri)
+57 7 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/gift_nifty.py >> collector_lake/cron_logs/gift_nifty.log 2>&1; .venv/bin/python scripts/collectors/global_minute.py >> collector_lake/cron_logs/global_minute.log 2>&1; .venv/bin/python scripts/collectors/option_chain.py >> collector_lake/cron_logs/option_chain.log 2>&1
+57 8 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/gift_nifty.py >> collector_lake/cron_logs/gift_nifty.log 2>&1; .venv/bin/python scripts/collectors/global_minute.py >> collector_lake/cron_logs/global_minute.log 2>&1; .venv/bin/python scripts/collectors/option_chain.py >> collector_lake/cron_logs/option_chain.log 2>&1
+12 9 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/gift_nifty.py >> collector_lake/cron_logs/gift_nifty.log 2>&1; .venv/bin/python scripts/collectors/global_minute.py >> collector_lake/cron_logs/global_minute.log 2>&1; .venv/bin/python scripts/collectors/option_chain.py >> collector_lake/cron_logs/option_chain.log 2>&1
+42 9 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/gift_nifty.py >> collector_lake/cron_logs/gift_nifty.log 2>&1; .venv/bin/python scripts/collectors/global_minute.py >> collector_lake/cron_logs/global_minute.log 2>&1; .venv/bin/python scripts/collectors/option_chain.py >> collector_lake/cron_logs/option_chain.log 2>&1
+# snapshot ledger at the 4 registered IST clocks (Mon-Fri)
+0 8 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/snapshot_ledger.py >> collector_lake/cron_logs/snapshot_ledger.log 2>&1
+0 9 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/snapshot_ledger.py >> collector_lake/cron_logs/snapshot_ledger.log 2>&1
+15 9 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/snapshot_ledger.py >> collector_lake/cron_logs/snapshot_ledger.log 2>&1
+45 9 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/snapshot_ledger.py >> collector_lake/cron_logs/snapshot_ledger.log 2>&1
+# daily one-shots: ADR/ETF prior-US-session closes (Tue-Sat 07:30 IST), FII/DII + announcements EOD (Mon-Fri 18:45 IST)
+30 7 * * 2-6 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/adr_etf_closes.py >> collector_lake/cron_logs/adr_etf_closes.log 2>&1
+45 18 * * 1-5 cd $MERIDIAN_ROOT && .venv/bin/python scripts/collectors/fii_dii.py >> collector_lake/cron_logs/fii_dii.log 2>&1; .venv/bin/python scripts/collectors/nse_announcements.py >> collector_lake/cron_logs/nse_announcements.log 2>&1
