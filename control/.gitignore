@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.workflow-data/
+.workflow-vitest/
+*.tsbuildinfo
+next-env.d.ts
+/.swc

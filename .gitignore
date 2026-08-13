@@ -23,5 +23,15 @@ runs/sleeve-f-c2-matrices/*.parquet
 
 # Collector lake default local root (append-only data, never tracked)
 collector_lake/
+
+# Durable control plane: Node build state and local worker/research artifacts
+control/node_modules/
+control/.next/
+control/.workflow-data/
+control/.workflow-vitest/
+control/.env
+control/.env.local
+runs/control/
+data/research/
 # runs/sleeve-f-c1-matrix/hashes.json committed; rebuild via scripts/data/build_c1_matrix.py
 runs/sleeve-f-c1-matrix/*.parquet
