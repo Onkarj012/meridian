@@ -5,6 +5,10 @@ __pycache__/
 .venv/
 .env
 
+# Local agent work and generated daily-graph evidence
+/.scratch/daily-graph-system/
+/derived_data/daily-graph/
+
 # Sleeve F raw grid outputs (165MB) — checksums live in runs/sleeve-f-autopsy/autopsy.json
 runs/optinet-sleeve-f-full-phase2/summary.json
 runs/optinet-sleeve-f-full-phase2/attempt1-crash/
