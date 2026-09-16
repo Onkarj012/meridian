@@ -1,5 +1,7 @@
 # MERIDIAN
 
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Onkarj012/meridian?utm_source=oss&utm_medium=github&utm_campaign=Onkarj012%2Fmeridian&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+
 MERIDIAN is a research-first, promotion-gated stock recommendation and trading system for Indian markets. It treats each recommendation as the final output of a contracted and audited pipeline: raw sources -> source contracts -> bronze/silver/gold lake -> causal features and label contracts -> candidate signals -> evidence engine -> promotion -> paper trading -> daily recommendations.
 
 ## Three layers
